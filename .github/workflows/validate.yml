@@ -1,0 +1,20 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Spec-compliance check: every skills/<name>/SKILL.md and agents/<name>.md
+      # has valid name + description frontmatter (agentskills.io). Mirrors
+      # `skills-ref validate`; swap that in here once it's a pinned dependency.
+      - name: Validate skills + agents
+        run: node scripts/validate-skills.mjs

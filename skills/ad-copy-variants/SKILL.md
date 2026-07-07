@@ -1,0 +1,87 @@
+---
+name: ad-copy-variants
+description: Generate ad-copy variants — 5 headlines and 3 primary-text options — for a named platform (Meta, Google, or TikTok), respecting the brand's voice and character limits. Use when you need testable paid-ad copy that fits the platform and sounds like the brand. Sharpest when connected to Jinn's Brand DNA over MCP.
+---
+
+# Ad Copy Variants
+
+Deliverable: **5 headline variants + 3 primary-text options**, written for one named platform (Meta / Google / TikTok), each fitting that platform's format and testing a distinct angle. Not five phrasings of one idea — five angles worth an A/B slot.
+
+Works standalone. Connected to Jinn, the headlines carry the brand's real positioning promise and the copy is provably clean of banned language.
+
+## Procedure (ungrounded — works with no Jinn connection)
+
+### 1. Fix the platform and the promise
+
+Ask (or infer) two things first:
+
+- **Platform** — it sets the format. Use these constraints:
+
+  | Platform | Headline | Primary text | Register |
+  |----------|----------|--------------|----------|
+  | Meta (FB/IG) | ≤40 chars, benefit-forward | 1–3 sentences, hook in first line (feed truncates) | conversational, scroll-stopping |
+  | Google (Search) | ≤30 chars/headline, keyword-aware | ≤90 char descriptions, literal + benefit | clear, intent-matching, no hype |
+  | TikTok | ≤ ~40 chars, native/casual | short, sounds like a person not a brand | native, hooky, un-ad-like |
+
+- **The core promise** — the one thing the product does for the reader, in a sentence. Every headline is a rotation on this.
+
+### 2. Write 5 headlines — one angle each
+
+Rotate the angle so the set is a real test matrix, not a thesaurus run:
+
+1. **Benefit** — the outcome the reader gets.
+2. **Pain** — the problem it removes.
+3. **Curiosity / pattern-break** — makes them stop.
+4. **Proof / specificity** — a number, a concrete detail.
+5. **Direct offer / CTA** — the action, plainly.
+
+### 3. Write 3 primary-text options
+
+Three different opening hooks (question / bold claim / relatable moment), each expanding one headline into platform-appropriate body copy with a single clear CTA. Stay inside the character budget for the chosen platform.
+
+### 4. Self-check
+
+- Every variant fits the platform's character limits — count them.
+- No hype words the brand wouldn't say ("revolutionary", "insane", "guaranteed") unless the brief allows it.
+- The five headlines are genuinely different bets, not synonyms.
+
+Label each variant (angle + platform) and deliver. That's a testable ad set.
+
+## If a Jinn MCP connection is present (grounded)
+
+Read the brand instead of guessing it. Two calls:
+
+1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
+2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
+
+Field → decision map:
+
+| Projection field | Drives |
+|------------------|--------|
+| `positioningWedge` | **The core promise in the headlines** — this replaces step 1's guessed promise. It's how the brand actually wins; every headline rotates on it. |
+| `painPoints` | **Hook angles** — feed the pain headline (angle 2) and the pain-led primary-text option straight from these. |
+| `messagingPillars[]` ({pillar, description}) | **Which benefit each variant leads with** — assign different pillars across the 5 headlines so the test spans the brand's real benefits, not one repeated. |
+| `safeWords[]` | **Approved claim language** — the words you're cleared to make promises with. Prefer them in headlines and CTAs. |
+| `bannedWords[]` | **Hard filter** — no variant may contain one. Check every headline and every primary-text option; rewrite any that trip it. |
+| `tonalAttributes[]` | **Tone** — the register the copy is written in, per platform. |
+
+Grounded, the delta is concrete: the 5 headlines are 5 angles on the brand's real `positioningWedge`, each leading with a different `messagingPillar`, hooks drawn from actual `painPoints`, claims phrased in `safeWords`, and the whole set filtered against `bannedWords`. Call out the wedge and which pillar each headline carries when you deliver.
+
+Only the fields above exist on a public token. Competitor intel, differentiation, platform-fit scoring, and pricing are **not** in the projection — never reference or request them. (Note: "platform" here is the ad channel *you* name; it is not read from Jinn.)
+
+## When a call fails
+
+Read `data.code` on the JSON-RPC error and act:
+
+- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+- **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI form:
+  ```bash
+  claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
+    --header "Authorization: Bearer <token>"
+  ```
+- **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **No token / no connection** → the skill still works generically. Write from the step-1 promise and note the output is ungrounded; connect Jinn to ground it in a real brand.
+
+---
+
+*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
