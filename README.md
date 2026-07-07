@@ -30,6 +30,8 @@ The difference is the point. A positioning brief written blind is plausible; one
 | `battlecard-generator` | A sales battlecard: win/lose/close framing against a named competitor |
 | `messaging-ab-tester` | A/B message variants with a hypothesis and what each one tests |
 | `on-brand-artifact-builder` | One self-contained HTML artifact: slide deck, landing section, or 1080×1080 carousel |
+| `content-rotation` | A posting plan across your properties: 7-day mix, next-post pick, or overdue audit — feeds `x-content` / `linkedin-content` |
+| `marketing-decision` | A triaged marketing call — 6–8 questions, a clear decision, and a revisit date |
 
 Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
 
