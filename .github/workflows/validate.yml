@@ -18,3 +18,9 @@ jobs:
       # `skills-ref validate`; swap that in here once it's a pinned dependency.
       - name: Validate skills + agents
         run: node scripts/validate-skills.mjs
+      # Deterministic, zero-LLM corpus lint: house anatomy sections, README↔directory
+      # parity, dead links, description-band + closer outliers. Exit 1 on hard failures.
+      # (The router benchmark and smoke gate are LOCAL-ONLY — `claude -p` can't run in
+      # CI. See benchmarks/README.md.)
+      - name: Skill-health lint
+        run: node scripts/skill-health.mjs
