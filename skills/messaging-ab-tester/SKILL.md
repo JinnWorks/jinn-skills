@@ -1,6 +1,6 @@
 ---
 name: messaging-ab-tester
-description: Design a message test — 3–5 variants as distinct strategic bets (outcome-led, pain-led, identity-led, proof-led, contrast-led), each with a one-line hypothesis, rendered in the formats you need — then adjudicate the results you paste back into a per-channel scorecard with honest sample and lift thresholds. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Design a message A/B test — 3–5 versions of a headline, subject line, or value prop, each a distinct strategic bet with a hypothesis — then judge pasted-back results against honest sample thresholds. Use when you want message variants to test against each other or a verdict on which won. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Messaging A/B Tester
