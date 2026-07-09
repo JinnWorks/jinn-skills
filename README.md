@@ -7,11 +7,13 @@ Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Gemini CL
 
 The difference is the point. A positioning brief written blind is plausible; one written against a brand's real competitive wedge and enemy is *theirs*.
 
+<!-- measured-activation:start -->
 ## Measured activation — 100% top-1
 
 A skill only helps if your agent picks the right one when you ask. We benchmark exactly that: 52 realistic marketing requests, shown to three frontier Claude models (Haiku, Sonnet, Opus) three times each — 468 trials — with only the catalog's names and descriptions to go on, the same view your agent gets.
 
 **Result: the correct skill ranked first in 100.0% of trials — every model, all 21 skills, zero format failures.** The benchmark measures routing (the right skill fires), not output quality. Harness, prompts, and full results are in this repo — run it yourself: [`benchmarks/`](./benchmarks/), latest report [`benchmarks/router/results/2026-07-08-v2.md`](./benchmarks/router/results/2026-07-08-v2.md).
+<!-- measured-activation:end -->
 
 ## Skills
 
