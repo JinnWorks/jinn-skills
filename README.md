@@ -45,9 +45,11 @@ Personas — 29 installable brand-grounded marketing agents — live in [`agents
 
 ## Install
 
-> **On public release** — `npx skills add <repo>` and marketplace listings will be available. Until then, use the manual path below.
+```bash
+npx skills add JinnWorks/jinn-skills
+```
 
-**Manual (works today):**
+Works across 70+ agents via [skills.sh](https://skills.sh). Or install manually:
 
 ```bash
 git clone https://github.com/JinnWorks/jinn-skills.git
