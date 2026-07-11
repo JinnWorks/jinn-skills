@@ -66,6 +66,18 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `pin-brief-generator` | A batch of Pinterest-shaped pin briefs: 2:3 format, layout role, overlay text, Pinterest-native copy per pin |
 | `creative-contrast-qa` | Pass/fail QA on a creative — text-over-face/product, pixel contrast, platform safe-area, size floor |
 | `shoot-brief-builder` | A photographer-ready shoot brief: shot list, lighting/mood, set/prop notes, deliverable specs |
+| `competitor-profiler` | A structured competitor profile: 8 sourced dimensions + a synthesis line, every claim tagged Sourced/Inference/Unconfirmed |
+| `market-map-lite` | A category landscape map: segments with named players, sourced claims, confidence-tagged placements, and the white-space read |
+| `positioning-one-pager` | A standing positioning one-pager: alternatives honestly framed (real strengths named first), the honest gap, and where the brand sits in it |
+| `pricing-page-teardown` | A pricing-psychology read of one pricing page: tier map, value-axis audit (never gated twice), anchor/decoy detection, enterprise-row honesty |
+| `launch-readiness-scorecard` | A launch-plan readiness scorecard: per-dimension grades (channels, assets, measurement, positioning, sequencing, rollback) + the fix each gap needs |
+| `buyer-snapshot` | A sourced buyer-evidence snapshot: segments backed by review/community/case-study evidence, purchase triggers, ranked decision criteria, confidence-tagged |
+| `agent-readiness-checker` | A five-dimension agent-readiness scorecard for a site: llms.txt quality, schema.org coverage, brand-context consistency, MCP discoverability, extraction-readiness |
+| `brand-context-injector` | A brand-aware agent stack: Jinn MCP registration (or llms.txt/brand.json fallback) + a persistent CLAUDE.md stanza — one-time setup, not a read |
+| `suite-orchestrator` | A diagnosed, sequenced routing plan across this catalog for a vague marketing ask: which skills, what order, why, and the handoff |
+| `video-hook-analyzer` | A hook-strength read for a video opening: hook type named, retention risks flagged with fixes, STRONG/WORKABLE/WEAK verdict |
+| `ugc-script-writer` | A UGC-format video script: creator-voice, direct-response spine, shot/beat timing, claim slots the creator fills with their real experience |
+| `storyboard-from-dna` | A shot-by-shot storyboard with a locked continuity spine, ready for a director, editor, or AI-video render pipeline |
 
 Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
 
