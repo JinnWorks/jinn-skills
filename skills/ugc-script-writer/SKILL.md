@@ -1,6 +1,6 @@
 ---
 name: ugc-script-writer
-description: Turn a product and angle into a UGC-format video script: creator-voice, direct-response spine (hook, lived problem, product demo, objection flip, soft CTA), spoken-word register, platform length targets. Not `video-hook-analyzer` (grades a hook); not `brand-voice-content` (written posts). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Turn a product and angle into a UGC-format video script: creator-voice, direct-response spine (hook, lived problem, product demo, objection flip, soft CTA), spoken-word register, platform length targets. Not `video-hook-analyzer` (grades a hook); not `brand-voice-content` (written posts). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # UGC Script Writer

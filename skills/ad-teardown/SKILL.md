@@ -1,6 +1,6 @@
 ---
 name: ad-teardown
-description: Paste or upload one ad — or a handful from one competitor's library — for a hook/angle/CTA/format teardown: what it's doing, why it works, and what to borrow. Use when analyzing specific creative you already have, not writing new copy or mapping a category's whole strategy. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Paste or upload one ad — or a handful from one competitor's library — for a hook/angle/CTA/format teardown: what it's doing, why it works, and what to borrow. Use when analyzing specific creative you already have, not writing new copy or mapping a category's whole strategy. Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Ad Teardown

@@ -34,10 +34,33 @@ function parseFrontmatter(src, file) {
   return out
 }
 
+// Strict-YAML discoverability: installers (skills.sh CLI et al.) parse frontmatter
+// with a real YAML parser and SILENTLY DROP any skill whose block doesn't parse.
+// Our regex parser above is lenient, so it can't see the failure — this check
+// replicates the two plain-scalar killers: an unquoted value containing ': '
+// (reads as a nested mapping → parse error) or ' #' (starts a YAML comment →
+// truncated value). 9 skills shipped undiscoverable this way on 2026-07-11.
+function checkYamlDiscoverable(file, src) {
+  const end = src.indexOf('\n---', 3)
+  if (!src.startsWith('---') || end === -1) return
+  for (const line of src.slice(3, end).trim().split('\n')) {
+    const m = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/)
+    if (!m) continue
+    const raw = m[2]
+    const isQuoted = /^".*"$/.test(raw) || /^'.*'$/.test(raw)
+    if (isQuoted) continue
+    if (raw.includes(': '))
+      errors.push(`${file}: unquoted '${m[1]}' value contains ': ' — strict YAML reads a nested mapping and installers silently DROP the skill; quote the whole value or swap the colon for a dash`)
+    if (raw.includes(' #'))
+      errors.push(`${file}: unquoted '${m[1]}' value contains ' #' — strict YAML truncates it as a comment; quote the whole value`)
+  }
+}
+
 function checkDoc(file, expectedName) {
   const src = readFileSync(file, 'utf8')
   const fm = parseFrontmatter(src, file)
   if (!fm) return
+  checkYamlDiscoverable(file, src)
   if (!fm.name) errors.push(`${file}: frontmatter missing 'name'`)
   if (!fm.description) errors.push(`${file}: frontmatter missing 'description'`)
   if (fm.description && fm.description.length < 20)

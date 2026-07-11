@@ -1,6 +1,6 @@
 ---
 name: aeo-formatter
-description: Paste an existing page (or URL) for a rewrite built for answer-engine extraction: answer-first sections, definition blocks, sourced claims, schema recs. Retrofits a page for AI citation — not scoring (citability-checker), a manifest (llms-txt-generator), or new content (seo-content-brief). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Paste an existing page (or URL) for a rewrite built for answer-engine extraction: answer-first sections, definition blocks, sourced claims, schema recs. Retrofits a page for AI citation — not scoring (citability-checker), a manifest (llms-txt-generator), or new content (seo-content-brief). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # AEO Formatter

@@ -1,6 +1,6 @@
 ---
 name: agent-readiness-checker
-description: Audit whether AI agents can make sense of a site once inside it: llms.txt content quality, schema.org coverage across key pages, brand-context consistency, emerging MCP-endpoint discoverability, and site-wide extraction-readiness. Use when a site is reachable but its readiness is unproven. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Audit whether AI agents can make sense of a site once inside it: llms.txt content quality, schema.org coverage across key pages, brand-context consistency, emerging MCP-endpoint discoverability, and site-wide extraction-readiness. Use when a site is reachable but its readiness is unproven. Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Agent Readiness Checker

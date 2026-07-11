@@ -1,6 +1,6 @@
 ---
 name: video-hook-analyzer
-description: Grade a video opening — script or a first-5-seconds description — for hook strength and retention risk: hook type named, each risk flagged with a fix, STRONG/WORKABLE/WEAK verdict. Not `hook-and-lede-writer` (text hooks), `content-atomizer` (repurposing), `ugc-script-writer` (writes the script). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Grade a video opening — script or a first-5-seconds description — for hook strength and retention risk: hook type named, each risk flagged with a fix, STRONG/WORKABLE/WEAK verdict. Not `hook-and-lede-writer` (text hooks), `content-atomizer` (repurposing), `ugc-script-writer` (writes the script). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Video Hook Analyzer

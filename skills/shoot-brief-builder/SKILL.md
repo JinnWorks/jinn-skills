@@ -1,6 +1,6 @@
 ---
 name: shoot-brief-builder
-description: Turn a product + concept into a photographer-ready shoot brief: shot list, lighting/mood, set/prop notes, deliverable specs. Use before a physical or AI shoot. Not `swipe-brief-builder` (ads-sourced brief); not `campaign-brief` (strategy); not `on-brand-artifact-builder` (builds the artifact). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Turn a product + concept into a photographer-ready shoot brief: shot list, lighting/mood, set/prop notes, deliverable specs. Use before a physical or AI shoot. Not `swipe-brief-builder` (ads-sourced brief); not `campaign-brief` (strategy); not `on-brand-artifact-builder` (builds the artifact). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Shoot Brief Builder

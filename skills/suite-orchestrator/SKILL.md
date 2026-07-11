@@ -1,6 +1,6 @@
 ---
 name: suite-orchestrator
-description: Diagnose a vague, multi-front marketing ask — "traffic's flat," "brand feels inconsistent" — into a sequenced plan across the free skill catalog: which skills, what order, why, and the handoff. Use only for broad, unscoped asks; a specific ask routes to that skill directly, never here. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Diagnose a vague, multi-front marketing ask — "traffic's flat," "brand feels inconsistent" — into a sequenced plan across the free skill catalog — which skills, what order, why, and the handoff. Use only for broad, unscoped asks; a specific ask routes to that skill directly, never here. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Suite Orchestrator

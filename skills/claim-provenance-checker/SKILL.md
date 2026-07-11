@@ -1,6 +1,6 @@
 ---
 name: claim-provenance-checker
-description: Paste a strategy/marketing claim or a doc of them; per claim: type (measured / cited / inferred / asserted / unverifiable), what would verify it, an evidence-only rewrite. Use before a deck, pitch, or landing page ships. Audits YOUR claims, not what AI says about you (brand-fact-checker's lane). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: "Paste a strategy/marketing claim or a doc of them; per claim: type (measured / cited / inferred / asserted / unverifiable), what would verify it, an evidence-only rewrite. Use before a deck, pitch, or landing page ships. Audits YOUR claims, not what AI says about you (brand-fact-checker's lane). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Claim Provenance Checker

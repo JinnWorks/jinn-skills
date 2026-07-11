@@ -1,6 +1,6 @@
 ---
 name: programmatic-seo-planner
-description: Turn one page pattern (e.g. "[service] in [city]") plus a data source into a page-set plan: viability verdict, data-source audit, a worked template with a uniqueness floor, and a rollout plan. Refuses sets that are one page with a word swapped. Use for planning a SET of pages, not one page. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Turn one page pattern (e.g. "[service] in [city]") plus a data source into a page-set plan — viability verdict, data-source audit, a worked template with a uniqueness floor, and a rollout plan. Refuses sets that are one page with a word swapped. Use for planning a SET of pages, not one page. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Programmatic SEO Planner
