@@ -46,6 +46,13 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `agent-access-checker` | An access audit: per-crawler robots.txt verdict, llms.txt structural check, ranked crawlability fixes |
 | `brand-fact-checker` | An AI-belief audit: what assistants claim about a brand vs reality, classified and traced, with a correction plan |
 | `claim-provenance-checker` | A claim-by-claim scorecard for your own strategy/marketing copy: type, what would verify it, evidence-only rewrite |
+| `social-listening-brief` | A social-listening brief: multi-platform engagement sweep, comment-mined findings, ranked angles, limits stated |
+| `citability-checker` | A 0-100 citability score for one piece: extractable answers, sourced claims, structure, entity clarity |
+| `community-value-planner` | A value-first community map: where to genuinely help on Reddit/forums, disclosure required, never astroturf |
+| `content-atomizer` | Platform-shaped derivatives (LinkedIn, X, newsletter, carousel, video script, blog recap) pulled from one long-form source, video links included |
+| `calendar-planner` | A 30-day content calendar from one positioning line: derived themes, platform mix, batching guidance, and a sustainability check |
+| `content-cadence-grader` | A cadence grade for a public posting history: frequency, variance, streaks/gaps, format mix, plus a same-metric competitor gap read |
+| `hook-and-lede-writer` | 10 scored hook-and-lede pairs for one topic and audience, framework-tagged, checked against what the content actually earns |
 
 Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
 
