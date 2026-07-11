@@ -59,6 +59,13 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `aeo-formatter` | A rewritten page built for answer-engine extraction: answer-first sections, definition blocks, sourced claims, schema recs, plus a change log |
 | `topic-gap-analyzer` | A ranked topic gap list: subjects 2-3 named competitors cluster content around that your site doesn't, scored by strategic weight |
 | `programmatic-seo-planner` | A page-set plan: pattern-viability verdict, data-source audit, worked template with a uniqueness floor, rollout plan with kill criteria — refuses thin keyword-swap sets |
+| `review-to-adcopy` | A hook-angle brief: pain themes mined from a competitor's reviews, quote-sourced and scored, ready for `ad-copy-variants` |
+| `ad-teardown` | A hook/angle/CTA/format teardown scorecard for one ad or a competitor's ad library, plus a steal/avoid verdict |
+| `swipe-brief-builder` | A creative brief merged from 3 reference ads: concept, visual direction, copy angle, format, CTA |
+| `offer-angle-generator` | 10 offer framings, each with the psychology behind it named |
+| `pin-brief-generator` | A batch of Pinterest-shaped pin briefs: 2:3 format, layout role, overlay text, Pinterest-native copy per pin |
+| `creative-contrast-qa` | Pass/fail QA on a creative — text-over-face/product, pixel contrast, platform safe-area, size floor |
+| `shoot-brief-builder` | A photographer-ready shoot brief: shot list, lighting/mood, set/prop notes, deliverable specs |
 
 Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
 
