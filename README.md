@@ -40,6 +40,12 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `on-brand-artifact-builder` | One self-contained HTML artifact: slide deck, landing section, or 1080×1080 carousel |
 | `content-rotation` | A posting plan across your properties: 7-day mix, next-post pick, or overdue audit — feeds `x-content` / `linkedin-content` |
 | `marketing-decision` | A triaged marketing call — 6–8 questions, a clear decision, and a revisit date |
+| `ai-visibility-snapshot` | A hand-run AI-visibility audit: buyer-intent queries, scored appearance record across assistants |
+| `brand-voice-checker` | An on-brand score for pasted copy: generic-AI tells quoted + fixed, banned-word hits |
+| `llms-txt-generator` | A spec-compliant llms.txt: the AI-discovery manifest, built from what the site states publicly |
+| `agent-access-checker` | An access audit: per-crawler robots.txt verdict, llms.txt structural check, ranked crawlability fixes |
+| `brand-fact-checker` | An AI-belief audit: what assistants claim about a brand vs reality, classified and traced, with a correction plan |
+| `claim-provenance-checker` | A claim-by-claim scorecard for your own strategy/marketing copy: type, what would verify it, evidence-only rewrite |
 
 Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
 
