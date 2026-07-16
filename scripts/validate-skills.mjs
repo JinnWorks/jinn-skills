@@ -75,10 +75,9 @@ function checkDoc(file, expectedName) {
 // sweep landed the intro on 58 of the 59 pre-convention skills, so the convention is
 // now hard-enforced on them. The list below is the remaining debt — remove each slug as
 // its intro lands, so the list stays the debt tracker.
-// know-your-brand-dna is STOP'd pending Dan's decision #29 (2026-07-16) and stays grandfathered.
-const PRE_INTRO_LEGACY = new Set([
-  'know-your-brand-dna',
-])
+// 2026-07-16: know-your-brand-dna's Connected-only intro landed (Dan decision #29a) — the
+// last grandfathered skill. The backfill debt is now zero; §1.10 is enforced on all skills.
+const PRE_INTRO_LEGACY = new Set([])
 const warnings = []
 
 function checkIntroConvention(file, slug) {

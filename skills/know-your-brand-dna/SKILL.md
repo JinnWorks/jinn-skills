@@ -67,3 +67,26 @@ Read `data.code` on the JSON-RPC error and act:
 - **`token_revoked`** / **`token_invalid`** → request a fresh demo token.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 - **No response / connection refused** → the MCP server isn't wired. Re-check `.mcp.json` (URL `https://app.jinn.works/api/mcp`) and that the `Authorization: Bearer` header is set.
+
+## What just became possible
+
+Once you're connected to Jinn, you can read a brand's real Brand DNA back in plain language — who it is, how it wins, how it should sound, and who it's for — and confirm in the same step that your token actually works. It's the orientation for every other skill in this repo: it shows you the exact fields the grounded skills will read, so nothing downstream is a guess. This one has no useful ungrounded mode — with no connection there's no DNA to read, so every prompt below needs a live Jinn token (a free demo token is enough; see the README's "Connect to Jinn").
+
+## Try this now
+
+Every prompt here needs a token because the skill does nothing without one — a free demo token works.
+
+1. **Verify the connection and list your brands** *(requires a Jinn token)* — `Check my Jinn connection and list the brands my token can read.` → your token's context: the brand slugs you can read, when the token expires, and that you're on the public tier — the smoke test that proves the wiring is live.
+2. **Read a brand's DNA back in plain language** *(requires a Jinn token)* — `Read one of my connected brands' Brand DNA back to me — identity, positioning angle, voice, and who it's for.` → a plain-language summary of the bounded public projection: who the brand is, its angle and what it's against, its voice rules, its audience, and what it leads with.
+3. **See the voice layer on its own** *(requires a Jinn token)* — `For my connected brand, what are its tonal attributes and which words are banned?` → just the voice fields — the tonal attributes to write in and the hard banned-word list — so you can see exactly what the voice skills will enforce.
+4. **See the public boundary — what's included and what isn't** *(requires a Jinn token)* — `Show me what the public Brand DNA does and doesn't include for my connected brand.` → the fields the public projection carries, plus a plain statement of what it deliberately withholds (competitor intel, the differentiation matrix, pricing) and why that's the boundary working, not a gap.
+
+## Compounds with
+
+- `brand-context-injector` — wires a brand's Jinn connection into a project once; run this skill right after to confirm the token works and see what got wired.
+- `brand-voice-checker` — enforces the same tonal-attribute and banned-word fields this skill shows you, so read the voice layer here first.
+- `on-brand-artifact-builder` — grounds its design assets on the same Brand DNA; this skill confirms that DNA is reachable before you build against it.
+
+---
+
+*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
