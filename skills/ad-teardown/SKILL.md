@@ -148,6 +148,23 @@ Read `data.code` on the JSON-RPC error and act — the teardown still ships ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the teardown still runs in full from the craft framework alone. Note the "steal/avoid" verdict has no brand-fit check yet, and connect Jinn to ground it against the brand's real positioning.
 
+## What just became possible
+
+You can now paste in a single ad — a screenshot, an image, a link — and get back a real teardown of why it works: the hook it opens on, the persuasion angle running underneath, how strong the CTA actually is, and what's worth stealing versus avoiding. Feed it several ads from one advertiser and it also names the recurring pattern across their whole library. Runs standalone with no account.
+
+## Try this now
+
+1. **Tear down a single ad** — `Tear down this ad: a Meta feed ad opens with "Still doing your invoicing by hand?" over a screenshot of a cluttered spreadsheet, then shows the app's clean invoice screen, ending with a "Try it free" button.` → a scorecard naming the hook as problem-agitate, the angle as problem-to-solution, a CTA read, a format read, and steal/avoid calls.
+2. **Read just the CTA strength** — `Score only the CTA on this ad: a TikTok video ad ends with a voiceover saying "link in bio" over a plain text card reading "Learn More."` → a verb-strength/friction/urgency/singularity/platform-fit breakdown flagging the CTA as weak and mismatched to the platform.
+3. **Roll up a pattern across one advertiser's ads** — `I'm pasting 3 ads from the same skincare brand: one opens with a before-after photo, one opens with a customer testimonial quote, one opens with a founder talking to camera. All end with "Shop now."` → individual teardowns for each ad plus a library rollup naming the recurring hook and angle mix and a read on their strategy.
+4. **Connected: get a real fit-ranking, not a judgment call** *(requires a Jinn token)* — `Once my brand is connected, tell me if this ad's angle actually fits our brand and could be pulled into our creative library.` → a pointer to the live fit-ranking and re-skin pipeline instead of this skill's one-off reasoned judgment call.
+
+## Compounds with
+
+- `swipe-brief-builder` — hand the same reference ads there instead when the goal is synthesizing them into one new creative brief, not analyzing them.
+- `ad-copy-variants` — turn a teardown's "steal" list into fresh on-brand headline options.
+- `competitor-positioning-map` — zoom out from one advertiser's creative pattern to their whole category position.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

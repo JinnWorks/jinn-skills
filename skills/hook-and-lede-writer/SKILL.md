@@ -136,6 +136,22 @@ Read `data.code` on the JSON-RPC error and act — the procedure still runs ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the ten-hook procedure still runs in full against the topic, audience, and content you supplied; note the set is ungrounded and connect Jinn to ground the frameworks in a real brand.
 
+## What just became possible
+
+You can now get ten scored opening options for whatever you're about to write — a blog post, a video script, an ad, a social post — each built on a named framework, scored for how specific and tense it is, and checked against whether the piece behind it can actually deliver on what the hook promises. Give it a topic, an audience, and what the piece really contains, and it hands back a ranked list with the weak or unearned ones called out by name. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Get ten scored hooks for a real topic** — `Give me ten hook-and-lede pairs for a blog post about why most onboarding flows lose users in the first session, aimed at product managers who already assume users are just impatient.` → ten framework-tagged hooks with specificity and tension scores, ranked, top pick called out.
+2. **Check whether a hook is earned** — `I want a hook that says we cut onboarding time in half, but I only have a customer quote saying it feels faster with no actual numbers — is that hook earned?` → that specific hook flagged UNEARNED, with the missing piece named and a fix offered.
+3. **Get hooks shaped for one format only** — `Give me hook options for a fifteen-second video script about a pricing change, for existing customers who are anxious about cost going up.` → hooks written in a spoken register with a short matching lede, sized to a five-second video hook.
+4. **Connected: name the real enemy** *(requires a Jinn token)* — `Give me ten hooks for a post about switching away from spreadsheets, and build the enemy-naming hook on my brand's actual named enemy, not a guess.` → the same ranked set of ten, with the enemy-naming hook grounded in the brand's live brandEnemy field.
+
+## Compounds with
+
+- `content-atomizer` — pick the strongest hook here before atomizing a long source, so every derivative opens strong.
+- `ad-copy-variants` — hand the top-ranked hook straight into paid-copy variant generation.
+
 ---
 
 *Grounding + three-state contract by Jinn.*

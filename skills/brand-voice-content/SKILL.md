@@ -77,6 +77,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 profile and note the output is ungrounded; connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now hand over a rough voice description and a message, and get back a publish-ready content set — three social posts and a short blog intro, each a different angle on the same idea, all reading like the same person wrote them. It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Write from a described voice profile** — `Write 3 social posts and a blog intro in our voice: warm, plain-spoken, no jargon; message is that switching accounting software takes one afternoon, not a quarter.` → four labeled pieces, each a different angle, all inside the stated tone.
+2. **Lock in preferred and banned words** — `Draft on-voice content for a launch: tone should be quietly confident, never use "revolutionary" or "game-changing," do use "built for solo founders"; message is that you can finally see your runway in real time.` → the same four-piece set, provably free of the banned words and reaching for the preferred one.
+3. **Rotate the three post angles explicitly** — `Write 3 social posts on the same message from three different angles — a pain, a proof point, and a point of view — for a tool that helps freelancers invoice clients in one click.` → three posts, each opening from a different angle, one shared idea underneath.
+4. **Connected: write the set straight from the brand's real voice** *(requires a Jinn token)* — `Write our on-voice content set straight from our Brand DNA, no manual voice profile needed.` → the same four-piece set, but built from the brand's actual tonal attributes, safe/banned words, and named pillars and tribes.
+
+## Compounds with
+
+- `brand-voice-checker` — run the finished set through it to confirm it reads human before publishing.
+- `calendar-planner` — feed the message and pillar this set was built around into a full month's cadence.
+- `linkedin-content` — once a post's angle lands here, expand it into a full week of LinkedIn-specific drafts.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

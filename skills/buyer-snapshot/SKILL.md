@@ -111,6 +111,22 @@ Read `data.code` on the JSON-RPC error and act — the snapshot still ships ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced buyer snapshot; connect Jinn later to cross-read the segments against the brand's verified tribes and pains.
 
+## What just became possible
+
+You can now find out who actually buys in a category — not a guessed cast of characters, but real segments pulled from reviews, forum threads, and pricing tells, with every claim tagged by how sure you can be of it. It runs the moment it's installed, straight from your own search, with no account needed.
+
+## Try this now
+
+1. **Build a sourced snapshot from public sources** — `Build a buyer snapshot for CRM software for solo real-estate agents, using G2 reviews and Reddit threads as sources.` → segments with quoted evidence, a Sourced/Inference/Unconfirmed tag on each, plus purchase triggers and ranked decision criteria.
+2. **Read pricing tiers as evidence** — `Build a buyer snapshot for project management tools for small dev teams, and use the pricing-page tiers as evidence for segment differences.` → segments where the tier structure is stated as an Inference, never dressed up as a Sourced fact.
+3. **Ask it to be honest about thin evidence** — `Build a buyer snapshot for artisanal pasta subscription boxes and tell me plainly if the evidence is too thin to trust.` → a snapshot that says the category is thin rather than padding it with invented segments.
+
+## Compounds with
+
+- `buyer-persona-generator` — the opposite discipline: an invented cast of named buyers to test messaging against, not sourced evidence about real ones.
+- `market-map-lite` — maps the supply side of the same category (who sells); this maps the demand side (who buys).
+- `customer-story-builder` — turns one of your own customers into a published story, once this snapshot has told you which segment they represent.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*

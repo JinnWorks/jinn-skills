@@ -109,6 +109,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real audit against user-supplied ground truth; connect Jinn later to ground Step 3 against the brand's live DNA.
 
+## What just became possible
+
+You can now find out exactly what AI assistants currently believe about a brand's founding, ownership, pricing, and whether it's still around — and tell which claims are true, which are stale, which are just wrong, and which are fully invented. Paste in the raw answers a few assistants gave, alongside the ground truth you know, and get a claim-by-claim scorecard with a ranked fix list. Runs standalone with no account.
+
+## Try this now
+
+1. **Classify a set of AI claims against known ground truth** — `Classify these claims about my company, founded in 2019 by me and still independent: ChatGPT said we were founded in 2017; Claude said we were acquired by a larger firm last year; Perplexity said we're still independent and founded in 2019.` → each claim marked true, stale, wrong, or fabricated, with the acquisition claim flagged hardest as fabricated.
+2. **Trace where a wrong claim likely came from** — `Three different assistants all say my company's headquarters is in Austin, but we're actually in Denver and have never been in Austin — where would that come from?` → a reasoned trace toward a likely syndicated third-party listing or stale indexed page, since the same wrong fact repeating near-verbatim usually means one shared bad source.
+3. **Build a prioritized correction plan** — `Given these errors — some assistants say we're no longer operating, one quotes our old price instead of the current one — what should I fix first?` → a ranked plan putting the "no longer operating" claim first for its sale-losing consequence, the stale price second.
+4. **Connected: check claims against the brand's real record** *(requires a Jinn token)* — `Check these founding and positioning claims against our brand's actual record instead of my own memory of our history.` → the same classification, but founding, identity, and positioning ground truth comes from the brand's live record instead of user recall.
+
+## Compounds with
+
+- `claim-provenance-checker` — this checks what AI already says about the brand; that checks whether one specific claim can be evidenced before it ships.
+- `ai-visibility-snapshot` — that measures whether a brand shows up at all; this measures whether what gets said about it, once it does, is true.
+- `aeo-formatter` — once a correction plan names a page to fix, this rewrites it for extraction too.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

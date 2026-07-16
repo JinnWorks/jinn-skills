@@ -160,6 +160,23 @@ Read `data.code` on the JSON-RPC error and act — the audit still runs unground
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a complete, evidence-based scorecard against the plan as written; connect Jinn later to check the positioning-lock dimension against the brand's live strategy instead of just its own internal consistency.
 
+## What just became possible
+
+You can now grade an entire launch plan across six fixed dimensions — channels, assets, measurement, positioning, stage gates, rollback — and get back a specific gap and fix for each, instead of a gut "looks fine." Every grade carries its own evidence line, so nothing gets marked ready because a gap seemed unlikely to matter. It runs on any plan you paste in, no account needed.
+
+## Try this now
+
+1. **Grade a real launch plan** — `Grade this launch plan across your six readiness dimensions and tell me what's not ready: [paste plan]` → a six-dimension scorecard with grade, evidence, gap, and fix per row, plus one overall verdict.
+2. **Stress-test the gate logic specifically** — `Does this plan have real kill criteria for its phased rollout, or just phases? [paste plan]` → a direct check of the sequencing/stage-gates dimension, evidence quoted from the plan.
+3. **Sanity-check positioning consistency** — `Compare the core message across every asset in this plan and tell me if it's actually consistent: [paste plan]` → a positioning-lock grade with any drift between assets called out.
+4. **Connected: check positioning against real strategy** *(requires a Jinn token)* — `Grade this plan's positioning lock against our actual Brand DNA, not just internal consistency` → the same dimension re-graded against the brand's live wedge and pillars, not just self-agreement.
+
+## Compounds with
+
+- `launch-positioning` — writes the positioning brief this skill checks for consistency and strategic fit.
+- `product-launch-playbook` — builds the plan this skill grades; route there first if nothing's written down yet.
+- `marketing-decision` — triage any single gap this scorecard surfaces into an actual call with a revisit date.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

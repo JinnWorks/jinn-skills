@@ -120,6 +120,23 @@ Read `data.code` on the JSON-RPC error and act — the script still ships in its
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the script still ships in full. Build it from the step-1 inputs, note the pain point and objection are inferred rather than verified, and connect Jinn to ground them in a real brand.
 
+## What just became possible
+
+You can now turn a product and an angle into the actual words a creator says on camera — hook, lived problem, product-in-hand demo, objection flip, soft CTA, timed against a platform length target and written to be spoken, not read. Every claim the creator can't personally verify ships as a bracketed slot instead of a fabricated testimonial. It runs standalone, no account.
+
+## Try this now
+
+1. **Write a UGC script for a product and angle** — `Write a UGC script for a reusable water bottle, angle is "finally drinking enough water at my desk," 30 seconds for TikTok` → a beat-by-beat script (hook, problem, demo, objection flip, CTA) with claim slots flagged for the creator to fill.
+2. **Write a longer paid-ad UGC script** — `Write a 45-second UGC ad script for a meal-kit service, angle is switching from takeout because it's actually cheaper` → the same spine at ad length, with timing checked against the platform ceiling.
+3. **Write a script for a specific creator persona** — `Write a UGC script for a productivity app, creator persona is a busy freelance parent, angle is reclaiming evenings, 20 seconds vertical` → a script cast to that persona's voice and lived problem.
+4. **Connected: ground the pain point and objection in the real brand** *(requires a Jinn token)* — `Write a UGC script for our product using our actual customer pain points and the real objection our positioning argues against` → the same spine, but the problem-lived beat and objection flip trace to the brand's live Brand DNA instead of a guessed frustration.
+
+## Compounds with
+
+- `storyboard-from-dna` — the shot-by-shot visual board this script's words ride on.
+- `video-hook-analyzer` — grades this script's opening for hook strength and retention risk before it's shot.
+- `content-atomizer` — cuts a finished long-form asset into platform derivatives once this script exists as a real video.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

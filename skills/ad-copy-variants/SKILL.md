@@ -82,6 +82,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 promise and note the output is ungrounded; connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now generate a full, testable ad set for a specific platform in one pass — five headlines that each run a genuinely different angle, not five reworded versions of the same idea, plus three body-copy options sized to that platform's actual character limits. Paste a product description and get copy that fits Meta, Google, or TikTok's format on the first try. It runs standalone with no account.
+
+## Try this now
+
+1. **Generate a Meta ad set** — `Write 5 headline variants and 3 primary-text options for a Meta ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → 5 headlines (benefit, pain, curiosity, proof, CTA angles) plus 3 body-copy options, sized to Meta's format.
+2. **Generate a Google Search ad set for the same product** — `Write 5 headline variants and 3 primary-text options for a Google Search ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → the same 5 angles rewritten to Google's shorter, keyword-aware headline limits.
+3. **Test a TikTok-native register** — `Write 5 headline variants and 3 primary-text options for a TikTok ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → headlines in a casual, un-ad-like voice instead of Meta or Google's more polished register.
+4. **Connected: ground the variants in real positioning** *(requires a Jinn token)* — `Generate this same ad set but ground the headlines in our actual brand positioning and banned words.` → the same 5-angle set, pulling the core promise, benefit pillars, and safe/banned language from the brand's live record instead of a guess.
+
+## Compounds with
+
+- `ad-teardown` — tear down a competitor's actual ad first, then feed what's working into a fresh variant set here.
+- `brand-guardrails-review` — red-line the generated variants against the brand's real banned words and tone before running with them.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

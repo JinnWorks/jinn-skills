@@ -93,6 +93,23 @@ Same codes as every skill in this repo — the stanza still gets written at what
 - **`get_brand_kit` / `get_brand_design_tokens` / `get_brand_design_md` are absent from `tools/list` while `get_brand_dna_public` succeeds** → this is the ordinary state for a demo/public token today, not a wrong slug or a fixable error. `get_brand_kit` sits behind an `internal` audience tier a public token can never see; own-brand token minting that would carry a higher audience isn't live yet. Write the Grounded-only stanza and say so plainly.
 - **No token, no llms.txt, no brand.json** → nothing real to wire. Say so, and point at the README's "Connect to Jinn" section rather than fabricating a stanza.
 
+## What just became possible
+
+You can now wire a brand's real context into a project once — a public llms.txt (or brand.json) fallback if there's no token yet, a live Jinn connection if there is — so every future session in that project already knows the brand instead of guessing from the domain name. Run it once per project and it writes a standing CLAUDE.md/AGENTS.md stanza that self-upgrades later. The llms.txt fallback rung runs with no account at all.
+
+## Try this now
+
+1. **Wire a brand from its public llms.txt** — `Set up brand context for a project working on stripe.com — no Jinn token yet, just use what's publicly available.` → a fetch of the site's llms.txt (or a report that none exists) and a written stanza with the brand name, value prop, and differentiator pulled straight from it.
+2. **Wire a brand with no llms.txt at all** — `Set up brand context for a project on a small local bakery's website that doesn't have an llms.txt.` → a brand.json fallback check, and if that's also absent, a plain report that nothing real exists to wire yet.
+3. **Check whether an existing stanza needs a refresh** — `This project's CLAUDE.md already has a Brand context stanza from a few months ago — does it need to be re-run?` → guidance to re-run the skill so it re-probes and updates the stanza in place instead of duplicating it.
+4. **Connected: reach the full Grounded stanza** *(requires a Jinn token)* — `Once I have a Jinn token, wire the full Grounded brand context instead of the llms.txt fallback.` → the MCP registration plus a token-verified read, written into the stanza at the Grounded rung with the fields it's allowed to trust.
+
+## Compounds with
+
+- `know-your-brand-dna` — read the DNA back as a smoke test right after this wires the connection.
+- `on-brand-artifact-builder` — the stanza points here once the higher design-asset rung is reachable for this brand.
+- `llms-txt-generator` — if the fallback probe finds no llms.txt at all, that's the skill that writes one.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

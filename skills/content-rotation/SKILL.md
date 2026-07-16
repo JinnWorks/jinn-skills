@@ -125,6 +125,22 @@ Read `data.code` on the JSON-RPC error and act — the rotation still works from
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Run the rotation from the local file's property list and note the angles are ungrounded; connect Jinn to ground them in a real brand.
 
+## What just became possible
+
+You can now get a straight answer to "what should I post next" across however many products or properties are competing for the same feed — a balanced 7-day plan, one next post with the reasoning behind it, or an audit of what's gone quiet. It keeps its own small local file so it remembers what already ran, so nothing gets promoted every day or forgotten for a month. It runs the moment it's installed, from a local file — no account needed.
+
+## Try this now
+
+1. **Get a 7-day plan across two properties** — `Plan my next 7 days of LinkedIn posts. My properties are Atlas API, last promoted twenty days ago, and Onboarding Revamp, last promoted three days ago.` → a day-by-day table hitting the weekly mix target, the promo slot going to Atlas API as the more-overdue property, separated from the next promo day by at least one non-promo day.
+2. **Get just the single next post** — `What should I post next on X? My last post was build-in-public two days ago, and Atlas API hasn't had a promo in twenty-seven days.` → one decision — a promo for Atlas API — with the rule that decided it stated plainly.
+3. **Audit what's gone quiet** — `Audit my rotation: Atlas API was last promoted twenty-seven days ago, Onboarding Revamp six days ago. What's overdue?` → a table flagging Atlas API as overdue with a recommended next move.
+4. **Connected: ground the week in real pillars** *(requires a Jinn token)* — `Plan my next 7 days of LinkedIn posts and spread the promo, build-in-public, and educational slots across my brand's real messaging pillars.` → the same 7-day plan, but each slot's angle now tied to a named pillar and tribe instead of a guessed topic.
+
+## Compounds with
+
+- `x-content` — writes the actual words once this skill has picked the property, type, and angle for a given day.
+- `hook-and-lede-writer` — generates scored opening options for that day's angle before the post gets drafted.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

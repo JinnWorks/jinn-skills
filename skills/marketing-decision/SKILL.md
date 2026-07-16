@@ -144,6 +144,23 @@ Read `data.code` on the JSON-RPC error and act — the decision workflow still r
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill works generically. Run the triage from the bank above and note the brand-fit answers are from the user's recollection, not verified DNA; connect Jinn to ground them.
 
+## What just became possible
+
+You can now turn an open marketing call — kill the podcast, change the pricing page, sponsor an event — into an actual decision with a stated reason and a revisit date, in one pass, instead of a debate that reopens every few weeks. It caps itself at a handful of targeted questions on purpose, and it logs the call to a local record so "what happened last time" is a lookup. It runs standalone, no account needed.
+
+## Try this now
+
+1. **Decide a real open question** — `Help me decide: should we kill our podcast? Stakes are medium, we could restart it in a month if we're wrong, no hard deadline` → a captured first instinct, a handful of triaged questions, and one of four calls with a revisit date.
+2. **Push on a one-way-door decision** — `Should we rebrand from our current name? It's a one-way door, high stakes, no forced deadline` → the reversibility questions pulled in, and a call that actually reflects the hard-to-reverse risk.
+3. **Decide a customer-facing change** — `Help me decide: should we move our pricing page from two tiers to three? High stakes, hard to reverse, deadline is end of quarter` → the customer-facing questions pulled in (easier or harder to explain, would a best customer notice), plus the logged decision record.
+4. **Connected: check the call against the brand's real wedge** *(requires a Jinn token)* — `Ground this decision against our actual Brand DNA and past decisions, not my memory` → the same call, with the brand-fit questions answered from the live wedge, tribes, and decision history instead of recollection.
+
+## Compounds with
+
+- `launch-readiness-scorecard` — audits a whole launch plan; this triages one open call that might live inside one.
+- `messaging-ab-tester` — once the call is DECIDE-SMALLER, test the actual message before committing fully.
+- `launch-positioning` — feeds the "sharpen or blur the wedge" question with a real wedge to check against.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

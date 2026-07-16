@@ -93,6 +93,23 @@ Read `data.code` on the JSON-RPC error and act — the copy still ships in its u
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 facts and note the copy is ungrounded; connect Jinn to ground the proof point, differentiation, and voice in a real brand.
 
+## What just became possible
+
+You can now turn prospect facts you already have into ready-to-review cold email and LinkedIn outreach — each under a hard length ceiling, built from one hook, one proof point, one ask — and never an invented detail about the prospect. It writes; you still review and send it yourself. Runs standalone, no account needed.
+
+## Try this now
+
+1. **Write a first-touch cold email** — `Write a cold email first-touch to Priya, VP of Ops at a 200-person logistics company, who posted last week about hating manual invoice reconciliation. We offer automated reconciliation software, proof point is we cut reconciliation time in half for a similar client` → one email under the word ceiling, hook from her post, one proof point, one CTA.
+2. **Write a LinkedIn connection note under the ceiling** — `Write a LinkedIn connection note to a freelance agency founder who just posted about switching project-management tools` → a short note opening on that specific post, under the character ceiling.
+3. **Get the batch-ready CSV layout** — `Write outbound messages for these three prospects and give me a CSV I can load into my sender: Priya (VP Ops, logistics co, posted about manual reconciliation), Sam (founder, design agency, hiring for ops), Lee (ops lead, retailer, just raised a round)` → per-prospect messages plus a tool-agnostic CSV column layout.
+4. **Connected: ground the proof point in the brand's real pillars** *(requires a Jinn token)* — `Write this outbound copy using our actual messaging pillars and wedge` → the same messages with the evidence line pulled from a real pillar and the differentiation from the brand's actual wedge.
+
+## Compounds with
+
+- `linkedin-content` — same brand voice, aimed at the public feed instead of a DM inbox.
+- `messaging-ab-tester` — test which hook or proof point actually earns replies instead of guessing.
+- `offer-angle-generator` — source the proof point this skill's evidence line needs.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

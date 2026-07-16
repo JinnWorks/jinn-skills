@@ -93,6 +93,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 inputs and note the output is ungrounded; connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now turn one idea into several genuinely different LinkedIn posts — a builder-story, a contrarian take, a problem-first opener — instead of five versions of the same paragraph. Each one is written to the feed's actual norms: a strong pre-fold opener, one CTA, no press-release tone. It runs the moment it's installed, no account needed.
+
+## Try this now
+
+1. **Get a set of framed posts from one idea** — `Write LinkedIn posts about shipping a feature that lets freelancers bill per client automatically, for other freelance-agency founders` → several posts, each labeled with its framing (builder-story, contrarian-take, and so on).
+2. **Pick one framing on purpose** — `Write a contrarian-take LinkedIn post arguing that most project-management tools solve the wrong problem` → one post that opens on the widely-held belief, then argues against it.
+3. **Turn a founder anecdote into a post** — `Turn this into a builder-story LinkedIn post: I spent six months building a feature nobody asked for before I actually talked to customers` → a first-person post with a strong opening line and one CTA.
+4. **Connected: write it in the brand's real voice** *(requires a Jinn token)* — `Write these LinkedIn posts in our actual brand voice and pillars, not a guess` → the same variants rewritten in the brand's tonal attributes, each tied to a real pillar and tribe.
+
+## Compounds with
+
+- `outbound-message-writer` — same voice and brand grounding, aimed at a DM inbox instead of the feed.
+- `x-content` — adapts the same framings to a different platform's norms and length.
+- `messaging-ab-tester` — turns two competing framings into an actual test instead of a guess at which one lands.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

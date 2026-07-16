@@ -102,6 +102,23 @@ Read `data.code` on the JSON-RPC error and act — the map still ships ungrounde
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the map still ships from the pattern library alone. Note it's ungrounded in the delivery note, and connect Jinn to get the right-to-win read on every row.
 
+## What just became possible
+
+Before writing a single content brief, you can now see the whole shape of sub-questions an answer engine actually researches around one buyer question — comparative, constraint, persona, and freshness variants — mapped and tagged by pattern with the content shape that answers each one best. It runs off a published decomposition method the moment it's installed, no account needed.
+
+## Try this now
+
+1. **Map a real buyer question** — `Fan out this buyer question into the sub-queries an answer engine would research: what project management software should a 10-person agency use` → a coverage map of sub-queries tagged by pattern (comparative, constraint, persona, freshness) with a best content shape each.
+2. **Sanity-check against named competitors** — `Fan out "best CRM for solo real estate agents" and check the comparative sub-queries against these real alternatives: Follow Up Boss, kvCORE, and LionDesk` → a coverage map with comparative rows anchored to real named tools instead of invented ones.
+3. **Turn a head keyword into a real question first** — `I only have the keyword project management software — turn that into a real buyer question and fan it out` → a tightened buyer question plus its full coverage map.
+4. **Connected: rank gaps by right-to-win** *(requires a Jinn token)* — `Add a right-to-win read to this coverage map using our brand's real positioning wedge and pillars` → the same map with a Strong / Contested / Not-yet column ranking which sub-queries the brand can genuinely win today.
+
+## Compounds with
+
+- `seo-content-brief` — hand each row of the coverage map here, one at a time, for the page-level brief.
+- `topical-authority-mapper` — check how deep the site already runs on a pillar row before deciding what to build next.
+- `topic-gap-analyzer` — confirm which sub-queries are gaps competitors already own before prioritizing them.
+
 ---
 
 *Grounding + three-state contract by Jinn. Decomposition patterns are our own synthesis of public query-fan-out and generative-engine-optimization practice — not lifted from any single source. MIT.*

@@ -93,6 +93,23 @@ Read `data.code` on the JSON-RPC error and act — the briefs still ship ungroun
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill works generically as written above. Guess the angle from the ICP notes and note the calendar is ungrounded; connect Jinn to lock every brief to a real positioning wedge.
 
+## What just became possible
+
+You can now turn a list of keywords into content briefs that say what to write and why it beats what's already ranking — a coverage verdict per keyword, a read on what the current top results miss, and a section-by-section outline a writer can draft from cold. Every SERP read comes from an actual search, never a paid SEO tool, and it says so. It works standalone, no account needed.
+
+## Try this now
+
+1. **Brief one real keyword** — `Write an SEO content brief for the keyword best project management software for agencies, site is myapp.com, our reader is a small agency owner drowning in spreadsheets` → a coverage verdict, a SERP read naming what current results miss, and a full section-by-section outline.
+2. **Brief a batch and rank by opportunity** — `Write content briefs for these keywords for mysite.com: best crm for real estate agents, real estate crm pricing, free real estate crm, ICP is solo agents` → an opportunity table ranking the keywords, then a full brief per keyword.
+3. **Catch an internal-cannibalization risk** — `Check whether mysite.com already covers how to reduce cart abandonment before briefing it as a new page` → an update / net-new / internal-link-candidate verdict before any outline gets written.
+4. **Connected: lock every brief's angle to the real wedge** *(requires a Jinn token)* — `Lock every brief's differentiation angle to our brand's real positioning wedge` → the same briefs, each angle rotating on the brand's verbatim wedge, tribes, and pain points instead of a guess.
+
+## Compounds with
+
+- `query-fanout-explorer` — map the sub-query space around a buyer question first, then brief each row here.
+- `programmatic-seo-planner` — plan the page set first when the ask is many templated pages, not one keyword.
+- `topical-authority-mapper` — check how deep the site already runs on the topic before committing to update vs. net-new.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

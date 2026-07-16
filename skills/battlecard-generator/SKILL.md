@@ -100,6 +100,23 @@ Read `data.code` on the JSON-RPC error and act — the card still ships unground
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill works generically as written above. Take our positioning from the user and note the card's own-side is ungrounded; connect Jinn to ground our claims and enemy-narrative in a real brand.
 
+## What just became possible
+
+You can now turn a pile of competitor research — their site copy, pricing, win/loss notes — into a rep-ready battlecard: a 30-second summary, honest win/lose/close buckets, deal-framing questions, and objection responses that concede what's true instead of spinning. Paste in what you know about a named competitor and get a card a rep can read before walking into a call. Runs standalone with no account.
+
+## Try this now
+
+1. **Build a full battlecard from pasted research** — `Build a battlecard against "Ridgeline CRM." Their pricing starts at $49 per seat with no free tier. Our win/loss notes show we lose deals when the buyer needs deep Salesforce integration, and win when onboarding speed matters.` → a 30-second summary, win/lose/close buckets, framing questions, and an objection-response table.
+2. **Turn one weakness into an honest concession row** — `Add a comparison-table row for deep Salesforce integration, where the competitor genuinely beats us — what should the verdict and framing be?` → a row that concedes the point honestly and marks the net verdict as theirs, per the card's own honesty rule.
+3. **Write the deal-framing questions on their own** — `Write early deal-framing questions a rep should ask that quietly favor us over a competitor known for slow onboarding, without naming the competitor.` → questions that set onboarding speed as the buyer's evaluation criteria before the rival ever comes up.
+4. **Connected: ground our own claims for real** *(requires a Jinn token)* — `Build this same battlecard but pull our win claims and proof points from our brand's real positioning instead of me typing them out.` → the same card, with the win bucket and objection responses drawing from the brand's actual record — competitor facts still come from you, always.
+
+## Compounds with
+
+- `competitor-profiler` — profile the rival's own positioning first, then build the card from real findings instead of a guess.
+- `competitor-positioning-map` — see where the whole category sits before deciding which single rival earns a card.
+- `brand-guardrails-review` — check the finished card's language against the brand's real banned words and tone before a rep sees it.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

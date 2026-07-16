@@ -124,6 +124,23 @@ Read `data.code` on the JSON-RPC error and act — the map still ships ungrounde
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced category map; connect Jinn later to orient the white-space read around the brand's own claimed wedge.
 
+## What just became possible
+
+You can now get a sourced map of an entire category in one pass — segments, named players, their claims, and a plain flag on what's actually sourced versus inferred versus unconfirmed — plus a read on where the real white space is. It's a hand-run spot map, not continuous monitoring, and it says so. It runs standalone from a category name, no account needed.
+
+## Try this now
+
+1. **Map an unfamiliar category** — `Map the category "async project management for remote agencies" — segments, players, sources, and where the white space is` → several segments, each with sourced players and a white-space read.
+2. **Check a category from a specific vantage point** — `Map the AI writing assistant category from the vantage point of a brand targeting solo freelancers` → the same map, oriented toward which segments and gaps matter to that vantage.
+3. **Fold in players you already know** — `Map the no-code website builder category — I already know Webflow and Framer are in it, find who else` → a map placing those two plus newly sourced players, each tagged Sourced, Inference, or Unconfirmed.
+4. **Connected: orient the white space around your own brand** *(requires a Jinn token)* — `Map our category and tell me which white space matters most to us, using our real positioning` → the same map with segment placement and white-space ranking oriented around the brand's live wedge and enemy.
+
+## Compounds with
+
+- `competitor-positioning-map` — plots the named players this map surfaces onto strategic axes once there's a real list to plot.
+- `competitor-profiler` — goes deep on one company this map surfaces, once shallow-but-sourced isn't enough.
+- `buyer-snapshot` — maps the demand side of the same category, to pair against this supply-side read.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*

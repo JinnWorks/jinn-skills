@@ -88,6 +88,22 @@ Read `data.code` on the JSON-RPC error and act — the story still ships in its 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Build the story from the step-1 inputs and note the output is ungrounded (and untested against the ICP); connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now turn one customer's raw signal — a call transcript, quotes, a survey, a support thread, some result numbers — into a finished case study, a one-pager, three social snippets, and deck bullets, all from a single extraction pass so the facts stay identical across every format. Give it the raw material and a yes-or-no on publish permission, and it builds all four at once. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Build the full proof set from a transcript** — `Build a case study, a one-pager, three social snippets, and deck bullets from this: the customer confirmed we can use their name. Before us they spent three hours a day on manual data entry; after switching, that's down to twenty minutes, and they said "I finally trust the numbers again."` → all four formats from one extraction, with the same before/after numbers and quote used consistently across each.
+2. **Flag a story with no permission yet** — `Turn this customer quote into a case study — they haven't confirmed we can publish yet: "This tool saved our team so much time, we can't imagine going back."` → every format stamped DRAFT-INTERNAL, plus a flag that the quote alone has no hard number behind the result.
+3. **Push back on vague praise** — `Build a case study from this: the customer says they "really love the product" but didn't give any numbers.` → a request for a real metric instead of dressing praise up as proof, since there's nothing quantified to build an "after" around.
+4. **Connected: check it proves the right ICP** *(requires a Jinn token)* — `Build this customer's case study and tell me whether their story actually proves my brand's positioning wedge or a different buyer entirely.` → the same four formats, plus a flagged contradiction if the story evidences a different tribe than the one the brand claims to win.
+
+## Compounds with
+
+- `email-sequence` — pull the hero quote and result number straight into the proof email of a launch or nurture sequence.
+- `review-to-adcopy` — turn the same raw signal into ad copy once the story's been extracted.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

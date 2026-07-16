@@ -141,6 +141,22 @@ Read `data.code` on the JSON-RPC error and act — the batch still ships in its 
 - **`get_brand_design_md` / design-trio calls return `not_found` while `get_brand_dna_public` succeeds** → that brand simply has no design tokens minted yet (per-brand availability), not a wrong slug. Fall back to the DNA-inferred palette/type direction and label it as such.
 - **No token / no connection** → the batch still ships in full; note it's not brand-verified and connect Jinn to ground it.
 
+## What just became possible
+
+You can now turn a single product or URL into a real spread of Pinterest-ready pin briefs in one pass — each one already sized to Pinterest's own canvas, tagged with a distinct layout role and funnel position, carrying the overlay headline and every Pinterest-native copy field a search-driven Pinner would actually respond to. It runs the moment the skill is installed, from your own product or URL, with no account.
+
+## Try this now
+
+1. **Brief a batch from a product page** — `Build a batch of 8 Pinterest pin briefs for this product page: mywebsite.com/products/wool-throw-blanket, board theme: cozy home decor` → 8 briefs, each with a distinct layout role, overlay headline, and full Pinterest copy fields (title, description, alt text, keywords).
+2. **Brief pins with a seasonal angle** — `Build 6 pin briefs for this blog post pointing to my landing page, seasonal window: back to school: myblog.com/college-dorm-essentials` → briefs plus a timing note to publish weeks ahead of the season.
+3. **Split the batch across the funnel on purpose** — `Build a pin batch for my Etsy shop's new ring sizer tool, half top-of-funnel discovery pins and half bottom-of-funnel offer pins` → a batch spread across TOFU/BOFU angles instead of ten identical CTAs.
+4. **Connected: ground the batch in real brand identity** *(requires a Jinn token)* — `Ground my pin batch in our brand's real Brand DNA — use our actual colors, voice, and pillars` → the same batch, but color-block and banner treatments pull the brand's verbatim design tokens and pillar mix instead of a guess.
+
+## Compounds with
+
+- `shoot-brief-builder` — once a pin batch needs a real hero image behind it, brief the physical or AI shoot that produces it.
+- `content-atomizer` — repurpose one long-form asset into the product/URL inputs a pin batch draws from.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

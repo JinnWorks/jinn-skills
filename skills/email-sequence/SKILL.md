@@ -78,6 +78,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 arc and note the output is ungrounded; connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now get a full 4-email lifecycle sequence — welcome or launch — built as one arc instead of four disconnected drafts: each email gets a subject line, preview text, a body outline, its one call-to-action, and the send trigger that fires it. Say which arc you want and it writes the whole flow so each email earns the next. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Draft a welcome/nurture sequence** — `Write a 4-email welcome sequence for new subscribers to a project-management newsletter — welcome, then value, then proof, then invitation to try the product.` → four labeled emails, each with a subject under fifty characters, preview text that complements it, a body outline with one CTA, and a send trigger.
+2. **Draft a launch sequence with real urgency** — `Write a 4-email launch sequence announcing a new analytics dashboard feature — tease, reveal, handle objections, then last call.` → the tease, reveal, objection, and last-call arc, each email's CTA building on the one before it, ending on a deadline-driven final email.
+3. **Sanity-check an existing draft's CTAs** — `Here's my email 3 draft — does it have more than one CTA, and does the ask feel earned given emails 1 and 2 introduced the product and shared a proof story? [paste draft]` → a check for a single CTA and whether the ask feels built up to rather than abrupt.
+4. **Connected: open on the real founding story** *(requires a Jinn token)* — `Write my 4-email welcome sequence and open email 1 with my brand's actual founding story instead of a generic welcome.` → the same four-email arc, but email 1 grounded in the real founding story and each email tied to a distinct messaging pillar.
+
+## Compounds with
+
+- `hook-and-lede-writer` — generate scored subject-line-shaped openings for each email before locking one in.
+- `customer-story-builder` — feed a real customer's extraction straight into the proof email instead of inventing one.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

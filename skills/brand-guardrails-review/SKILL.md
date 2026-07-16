@@ -79,5 +79,22 @@ Read `data.code` on the JSON-RPC error and act — the review still runs in its 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 - **No token / no connection** → this skill works generically against whatever rules the user provides; connect to Jinn to red-line against the brand's real banned words, tone, and pillars.
 
+## What just became possible
+
+You can now paste a piece of draft copy — a post, an ad, an email — and get back a red-line review against a brand's actual rules: every banned word flagged, every off-tone line called out, every off-strategy claim caught, each one with a suggested rewrite instead of just a complaint. Runs standalone against whatever voice rules you hand it, no account required.
+
+## Try this now
+
+1. **Red-line a draft against stated rules** — `Review this ad copy against our brand rules — banned words: "revolutionary," "game-changing"; tone: warm and direct, no hype. Copy: "Our revolutionary platform is a total game-changer for teams who hate slow software."` → a SHIP WITH FIXES verdict, both banned words quoted and rewritten, nothing else flagged.
+2. **Catch an off-strategy claim that reads fine on the surface** — `Our positioning is "the simple alternative to bloated enterprise tools." Review this line: "New: now with dozens of configurable modules and a full admin console for total customization."` → a REWORK flag on the strategy lens, explaining the line quietly argues the opposite of the brand's simplicity wedge.
+3. **Check tone against a stated voice** — `Our brand voice is playful and casual, never corporate. Review this: "Per our records, users are advised to update their payment information at their earliest convenience."` → a tone flag on the stiff, corporate phrasing with a casual rewrite that keeps the same request.
+4. **Connected: red-line against the brand's real rules** *(requires a Jinn token)* — `Review this copy against our brand's actual banned words and tone instead of the rules I just typed out.` → the same red-line review, but every flag traces to the brand's real rules instead of user-supplied ones.
+
+## Compounds with
+
+- `brand-voice-checker` — that scores whether copy reads human at all; this red-lines it against one specific brand's actual rules.
+- `ad-copy-variants` — run new ad variants through this before shipping any of them.
+- `claim-provenance-checker` — this catches off-strategy claims; that checks whether a specific factual claim can be evidenced.
+
 ---
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

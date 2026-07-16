@@ -71,29 +71,13 @@ function checkDoc(file, expectedName) {
 
 // Post-install intro convention (playbook §1.10, 2026-07-15): every skill ships a
 // first-run intro — "What just became possible" + "Try this now" (3–5 paste-ready
-// prompts) + "Compounds with". Mandatory for every NEW skill; the 59 pre-convention
-// skills are grandfathered below and WARN until the backfill sweep rewrites them —
-// remove each slug from the list as its intro lands, so the list is the debt tracker.
+// prompts) + "Compounds with". Mandatory for every NEW skill. The 2026-07-16 backfill
+// sweep landed the intro on 58 of the 59 pre-convention skills, so the convention is
+// now hard-enforced on them. The list below is the remaining debt — remove each slug as
+// its intro lands, so the list stays the debt tracker.
+// know-your-brand-dna is STOP'd pending Dan's decision #29 (2026-07-16) and stays grandfathered.
 const PRE_INTRO_LEGACY = new Set([
-  'ad-copy-variants', 'ad-teardown', 'aeo-formatter', 'agent-access-checker',
-  'agent-readiness-checker', 'ai-visibility-snapshot', 'battlecard-generator',
-  'brand-context-injector', 'brand-fact-checker', 'brand-guardrails-review',
-  'brand-messaging-audit', 'brand-voice-checker', 'brand-voice-content',
-  'buyer-persona-generator', 'buyer-snapshot', 'calendar-planner', 'campaign-brief',
-  'citability-checker', 'citation-source-mapper', 'claim-provenance-checker',
-  'community-value-planner', 'competitor-positioning-map', 'competitor-profiler',
-  'content-atomizer', 'content-cadence-grader', 'content-rotation',
-  'creative-contrast-qa', 'customer-story-builder', 'email-sequence',
-  'hook-and-lede-writer', 'know-your-brand-dna', 'launch-positioning',
-  'launch-readiness-scorecard', 'linkedin-content', 'llms-txt-generator',
-  'market-map-lite', 'marketing-decision', 'messaging-ab-tester',
-  'offer-angle-generator', 'on-brand-artifact-builder', 'outbound-message-writer',
-  'pin-brief-generator', 'positioning-one-pager', 'pricing-page-teardown',
-  'product-launch-playbook', 'programmatic-seo-planner', 'query-fanout-explorer',
-  'review-to-adcopy', 'seo-content-brief', 'shoot-brief-builder',
-  'social-listening-brief', 'storyboard-from-dna', 'suite-orchestrator',
-  'swipe-brief-builder', 'topic-gap-analyzer', 'topical-authority-mapper',
-  'ugc-script-writer', 'video-hook-analyzer', 'x-content',
+  'know-your-brand-dna',
 ])
 const warnings = []
 

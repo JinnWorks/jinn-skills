@@ -124,6 +124,23 @@ Read `data.code` on the JSON-RPC error and act — the gap list still ships ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the gap list still ships in full from the hand-sampled diff; only the strategic-weight ranking stays generic (competitor-coverage and recency only, no wedge/pillar/pain weighting). Connect Jinn to sharpen the ranking.
 
+## What just became possible
+
+You can now see, on demand, exactly which topics your competitors publish about that your own site doesn't — ranked by how much they matter, not just listed. Give it your site and two or three rivals and get back a gap list you can hand straight to whoever owns content. It works by hand-sampling public pages, so it runs the moment it's installed, with no account.
+
+## Try this now
+
+1. **Find the gaps against two rivals** — `Show me the topics my competitors cover that I don't, ranked: mine = stripe.com, rivals = adyen.com and checkout.com` → a ranked gap list, each gap scored HIGH / MEDIUM / LOW with a one-line move.
+2. **Sanity-check a single suspected gap** — `Do my competitors have a real content cluster on chargeback prevention that I'm missing? mine = my-site.com, rivals = rival-one.com and rival-two.com` → a covered / thin / absent verdict for that one topic with the pages behind it.
+3. **Scope it to just the blogs** — `Compare only the blogs: which topics do these two publish that mine doesn't? mine = my-site.com/blog, rivals = rival-one.com/blog and rival-two.com/blog` → a gap list bounded to the blog section, with the sample size stated.
+4. **Connected: weight the gaps to your positioning** *(requires a Jinn token)* — `Rank my topic gaps by how close each one sits to what my brand already stands for: mine = my-site.com, rivals = rival-one.com and rival-two.com` → the same gap list re-ranked against your brand's live wedge and pillars.
+
+## Compounds with
+
+- `topical-authority-mapper` — that scores how deep your own site runs on each topic; run it first to know your depth, then this to see which rivals are ahead.
+- `competitor-positioning-map` — plots where rivals stand in the market; pair it with this to separate a positioning gap from a pure content gap.
+- `query-fanout-explorer` — once you pick a gap, fan it out into the sub-questions to actually write against.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

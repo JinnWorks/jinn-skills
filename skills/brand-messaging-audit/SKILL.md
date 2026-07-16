@@ -94,6 +94,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real audit against sound principles; connect Jinn later to re-run it against the brand's live DNA.
 
+## What just became possible
+
+You can now hand over any existing marketing copy — a homepage hero, a deck narrative, an about page — and get back a real audit of how well it holds the line: which pillars it covers, where the voice drifts, which claims wander off-strategy, and the highest-leverage fixes in order. It runs the moment it's installed, against sound messaging principles, with no account needed.
+
+## Try this now
+
+1. **Audit a hero line against a stated strategy** — `Audit this homepage hero against our strategy: copy = "The all-in-one platform for modern teams to move faster, together." Strategy = we're for small agile teams, voice is direct and jargon-free, never say "all-in-one" or "seamless."` → a scored table plus a punch list flagging the banned-word hit first.
+2. **Audit copy with no strategy on hand** — `Audit this about-page paragraph and infer the strategy since I don't have one written down: "We started as three engineers frustrated with clunky expense reports. Today we help finance teams close their books three times faster."` → a scorecard built from an inferred strategy, flagged explicitly as weaker than one built from the real thing.
+3. **Score a one-pager for voice drift alone** — `Score this one-pager for voice consistency, it should read confident but never salesy: "Our revolutionary game-changing solution guarantees unprecedented ROI for every client, guaranteed."` → a voice-adherence fail with every hype word quoted and a plainer rewrite.
+
+## Compounds with
+
+- `brand-voice-checker` — that scores whether copy reads human at all; this scores whether it holds the brand's actual strategy and voice.
+- `brand-guardrails-review` — takes the same copy and red-lines it line-by-line against the brand's rules, a tighter pass than this audit's punch list.
+- `claim-provenance-checker` — once this audit flags an off-strategy claim, run it here to check whether the claim itself is even sourced.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

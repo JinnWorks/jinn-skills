@@ -118,6 +118,23 @@ Read `data.code` on the JSON-RPC error and act — the storyboard still ships in
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to generic-tasteful type-on-video styling for the missing conventions, and note the gap in the storyboard.
 - **No token / no connection** → the storyboard still ships in full; note it's not brand-verified and connect Jinn to ground the mood, palette, and messaging emphasis in a real brand.
 
+## What just became possible
+
+You can now turn a video idea into a numbered, shot-by-shot plan a director, animator, or AI-render pipeline can follow with no clarifying call — continuity spine locked once (setting, light, palette, mood), every shot's duration checked against the platform's ceiling as you go. Give it a concept and a platform and get back a board ready to shoot or render from. It works standalone, with no account.
+
+## Try this now
+
+1. **Board a concept for a specific platform** — `Storyboard a 30-second vertical video explaining why our onboarding is faster than switching from a spreadsheet, sound-on TikTok style` → a locked continuity spine plus a shot-by-shot board with timing and on-screen text placement.
+2. **Board from a script you already have** — `Here's my script: [paste script]. Turn it into a shot-by-shot storyboard for a 60-second YouTube pre-roll ad` → the same script placed against numbered shots, framing, and duration checks.
+3. **Board a before/after concept** — `Storyboard a before/after video showing a cluttered desk turning into an organized one, 15 seconds, Instagram Reels` → a board with the contrast structure boarded shot by shot, plus a mood-in-3-words spine.
+4. **Connected: ground the board in the brand's real system** *(requires a Jinn token)* — `Storyboard this video concept using our actual brand palette, type, and narrative stance: [concept]` → the same board with colors, type, and mood pulled from the brand's live Brand DNA instead of inferred taste.
+
+## Compounds with
+
+- `ugc-script-writer` — writes the spoken words this board's shots ride on.
+- `shoot-brief-builder` — the photographer-ready brief for a physical shoot day, sharing the same continuity-notes discipline.
+- `creative-contrast-qa` — once shots exist as rendered frames, pixel-checks the on-screen text placement this board specified.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

@@ -132,6 +132,22 @@ Read `data.code` on the JSON-RPC error and act — the grade still ships ungroun
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the public-data read and grade run in full either way; only the "serving the strategy" line is unavailable. Say so and connect Jinn later to add it.
 
+## What just became possible
+
+You can now get an objective 0-to-100 grade on how consistently a brand actually posts on one platform — frequency, rhythm, gaps, and format mix — read straight from its real public timeline, not a guess. Give it a handle and a platform, plus a couple of named rivals if you want the comparison, and it tells you plainly whether the account is disciplined, inconsistent, or dormant. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Grade one brand's posting discipline** — `Grade how consistently Notion posts on X over the last ninety days — frequency, rhythm, gaps, and format mix.` → a cadence score, a DISCIPLINED / INCONSISTENT / DORMANT verdict, a full metric breakdown, and honest limits on how far back a public read can actually see.
+2. **Compare against two named rivals** — `Grade Linear's LinkedIn cadence and compare it against Notion and Asana on the same metrics and the same window.` → the same grade for Linear plus a side-by-side table against the two named rivals on identical metrics and window.
+3. **Check a blog's rhythm instead of social** — `Grade how consistently the Stripe blog publishes, based on its RSS feed or sitemap, over the last quarter.` → a cadence grade built from the feed's full publish history, noted as a cleaner read than a scraped social timeline.
+4. **Connected: read the mix against strategy** *(requires a Jinn token)* — `Grade my brand's posting cadence on LinkedIn over the last quarter and tell me whether the format mix actually rotates through my stated messaging pillars.` → the same public-data grade, plus a "serving the strategy" line grounded in the brand's live pillars.
+
+## Compounds with
+
+- `content-rotation` — once a gap or overdue format shows up in the grade, hand it to the planner to fix the schedule going forward.
+- `competitor-profiler` — go deep on the one named rival whose cadence gap turned out to matter most.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

@@ -129,6 +129,22 @@ Read `data.code` on the JSON-RPC error and act — the calendar still ships from
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the calendar still builds in full from the positioning line and audience. Note the themes are inferred, not brand-verified, and connect Jinn to ground them in the brand's real pillars.
 
+## What just became possible
+
+You can now turn one sentence about what a brand does, for whom, into a full 30-day content calendar — recurring themes, a platform mix with the reasoning shown, a day-by-day grid, batching guidance, and an honest check on whether the plan is one the team can actually keep. It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Build a calendar from a positioning line and a real capacity limit** — `Build a 30-day content calendar for this positioning: "The project tool built for agencies who bill by the hour, not the seat." Audience is agency ops managers, and we have about 4 hours a week.` → derived themes, a reasoned platform mix, a four-week grid, and a HOLDS or OVERCOMMITTED verdict.
+2. **Test the overcommitted case** — `Build a 30-day calendar for "The only expense tool that closes your books in one click," aimed at startup finance teams; we want two blog posts, daily LinkedIn, and daily X posts each week, but only 3 hours available.` → an OVERCOMMITTED verdict with a trimmed version proposed, not the wish-list version shipped anyway.
+3. **Let it infer platforms you haven't chosen yet** — `Give me a 30-day content calendar for "Async-first meeting notes for remote teams," audience is remote engineering managers, I don't know our platforms yet.` → 2–3 platforms inferred from the audience and flagged as an assumption, not a given.
+
+## Compounds with
+
+- `content-rotation` — once this calendar exists, hand its themes over to track week-to-week what's overdue and what posts next.
+- `linkedin-content` — draft any single grid slot into a full LinkedIn-specific post.
+- `seo-content-brief` — turn the month's deep-dive slot into a real content brief before writing it.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

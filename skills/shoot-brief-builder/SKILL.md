@@ -152,6 +152,23 @@ Read `data.code` on the JSON-RPC error and act — the brief still ships in its 
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
 - **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood, palette, and messaging emphasis in a real brand.
 
+## What just became possible
+
+"We need product photos" can now become a real shoot brief a photographer or stylist can work from without a follow-up call — a shot list keyed to every channel the images actually run on, concrete lighting and mood direction, props in and out, and continuity notes that keep several shots reading as one story. It works standalone, no account needed.
+
+## Try this now
+
+1. **Build a full brief for a real shoot** — `Build a shoot brief for our new ceramic mug line — hero images for our PDP, Instagram feed, and email, budget-tier studio shoot, one shoot day` → a full brief: shot list by channel and ratio, lighting/mood direction, props in/out, continuity notes, and deliverable specs.
+2. **Build just the shot list from deliverable channels** — `What shots do we need for a product launching on our PDP, Instagram stories, and a marketplace listing?` → a shot list mapped one-to-one to those channels and their ratios.
+3. **Direct lighting and mood concretely** — `Give me concrete lighting and mood direction for a lifestyle shoot of our wool blankets, mood: cozy, honest, unpolished` → a specific light-source and time-of-day direction plus the three mood words every shot has to earn.
+4. **Connected: ground props and palette in real brand colors** *(requires a Jinn token)* — `Ground this shoot brief's set colors and mood language in our brand's real design tokens` → the same brief with verbatim hex colors and tonal-attribute mood language instead of inferred taste.
+
+## Compounds with
+
+- `pin-brief-generator` — once the shoot produces real photos, brief the Pinterest-native crops and copy from the same hero shots.
+- `on-brand-artifact-builder` — builds the actual artifact once concept work is done; this skill only briefs the physical or AI shoot that produces the raw image.
+- `campaign-brief` — sets the strategy this shoot brief executes against.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

@@ -90,5 +90,22 @@ Read `data.code` on the JSON-RPC error and act — the skill degrades to its ung
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 - **No token / no connection** → this skill works generically as written above; connect to Jinn to ground the wedge and enemy in a real brand.
 
+## What just became possible
+
+You can now get a positioning brief in one pass — one-liner, wedge, enemy, proof pillars, and target tribe — instead of everyone downstream freelancing their own read of what a launch stands for. It answers the five questions in order and stops, so the brief stays load-bearing instead of turning into a mission-statement essay. It runs the moment it's installed, no account needed.
+
+## Try this now
+
+1. **Draft a brief from scratch** — `Write a positioning brief for a project-management tool for freelance agencies, up against bloated all-in-one suites` → a full brief: one-liner, wedge, enemy, proof pillars with evidence, target tribe.
+2. **Pressure-test a wedge candidate** — `Is "we're the fast one" a real positioning wedge, or is it marketing air?` → a verdict using the opposite-test, with the reasoning shown.
+3. **Turn features into proof pillars** — `Turn these three features into proof pillars for our positioning wedge: real-time sync, per-client billing, no seat limits` → pillar-and-proof pairs, ordered strongest-first.
+4. **Connected: ground the brief in real DNA** *(requires a Jinn token)* — `Write our positioning brief using our actual Brand DNA — wedge, enemy, pillars, tribe` → the same brief, filled from the brand's recorded wedge, enemy, and pillars instead of a guess.
+
+## Compounds with
+
+- `launch-readiness-scorecard` — that grades whether a finished launch plan's positioning stays consistent everywhere it appears; this writes the brief it checks against.
+- `product-launch-playbook` — builds the full launch plan around the brief this skill produces.
+- `messaging-ab-tester` — turns the wedge and pillars into distinct message bets worth testing against each other.
+
 ---
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

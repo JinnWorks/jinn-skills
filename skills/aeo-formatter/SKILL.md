@@ -129,6 +129,23 @@ Read `data.code` on the JSON-RPC error and act — the rewrite still ships in fu
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the rewrite ships from the page content alone, in the brand's apparent voice rather than its verified one. Note it's not brand-verified in the delivery note, and connect Jinn to ground entity clarity and voice in the real record.
 
+## What just became possible
+
+You can now hand over an existing page and get back a version rebuilt to be pulled straight into an AI answer instead of skimmed by a person — answer-first openings, real definitions, sourced claims — plus a full change log naming every edit and why. Paste the page or point at a URL and get a fixed version ready to drop back in. Runs standalone with no account.
+
+## Try this now
+
+1. **Rewrite a page that buries its own answer** — `Rewrite this page for AI-answer extraction: "Choosing a Project Management Tool. There are many things to consider. Teams have different needs. Some tools are better for small teams, others scale better for larger ones before ever naming a specific tool."` → a rewritten answer-first version plus a change log naming each move made.
+2. **Fix an unsourced claim** — `Rewrite this paragraph for extraction and fix the sourcing: "Most companies waste hours every week on manual data entry, which costs the industry billions."` → either a properly sourced version of the claim or a softened, defensible one, logged as a sourced-claims edit.
+3. **Get a schema recommendation for a steps page** — `What schema should this page use, and rewrite it for extraction: "Setting Up Your Account. First you'll want to go to settings. Then you can add your team. After that, billing."` → a HowTo schema recommendation plus a rewritten, list-shaped version of the steps.
+4. **Connected: rewrite grounded in the brand's real record** *(requires a Jinn token)* — `Rewrite this page for extraction using our brand's real name and positioning instead of guessing at it from the page itself.` → the same rewrite, but entity clarity and which claims get foregrounded pull from the brand's actual record.
+
+## Compounds with
+
+- `citability-checker` — score the page first for the diagnosis and flagged passages, then run this to fix what it found.
+- `llms-txt-generator` — that writes the site-level AI-discovery manifest; this fixes the content of one page. A site usually needs both.
+- `seo-content-brief` — plans pages that don't exist yet; this retrofits ones that already do.
+
 ---
 
 *Grounding + three-state contract by Jinn. AEO/GEO rewrite discipline is public practice; FAQPage/HowTo/DefinedTerm are the public schema.org spec. MIT.*

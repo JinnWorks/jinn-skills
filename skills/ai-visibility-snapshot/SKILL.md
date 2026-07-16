@@ -106,6 +106,22 @@ Read `data.code` on the JSON-RPC error and act — the snapshot still ships ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, useful snapshot against invented-but-reasonable queries; connect Jinn later to ground the query set in the brand's real wedge, enemy, tribes, and pillars.
 
+## What just became possible
+
+You can now run a real, structured check on whether AI assistants actually recommend a brand — not just whether they've heard of it, but whether it shows up when someone asks for the category, compares it to a named rival, or asks flat-out what to pick. Design a buyer-intent query set, run it yourself across whichever assistants you can reach, and get back a scored snapshot with the honest limits stated plainly. Runs standalone with no account — you're the one running the queries yourself.
+
+## Try this now
+
+1. **Design a full buyer-intent query set** — `Design a buyer-intent AI-visibility query set for a project-management tool aimed at small agencies, covering category, comparison, problem, and recommendation questions.` → several queries per archetype, phrased in buyer language, ready to paste into any assistant.
+2. **Score a set of captured responses** — `Score these against the visibility rubric: ChatGPT didn't mention my brand when asked for the best project tools for agencies; Claude mentioned it neutrally in a list; Perplexity recommended it first by name.` → a scored row per response plus by-assistant and by-archetype rollups.
+3. **Write the honest-limits section for a report** — `Write the honest-limits section for an AI visibility snapshot I just ran across a few assistants.` → the required non-deterministic, small-sample, phrasing-sensitive, and presence-not-accuracy caveats, ready to paste into the report.
+4. **Connected: ground the query set in real brand strategy** *(requires a Jinn token)* — `Design my visibility query set using our brand's actual named competitor and real pain points instead of guessing at them.` → the same query set, but comparison queries name the real rival and problem-shaped queries pull from validated pain points.
+
+## Compounds with
+
+- `brand-fact-checker` — this measures whether a brand gets mentioned and how; that checks whether what gets said about it, once it does, is actually true.
+- `citability-checker` — scores one piece of content's own extractability; this measures whether the brand shows up in the wild at all.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

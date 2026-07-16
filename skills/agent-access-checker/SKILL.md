@@ -143,6 +143,22 @@ Read `data.code` on the JSON-RPC error and act — the audit still ships ungroun
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the audit still runs in full against the public fetches. Note the fixes are generic (not brand-drafted) in the delivery note, and connect Jinn to get brand-aware fix files instead of a diagnosis.
 
+## What just became possible
+
+You can now find out, in one pass, whether ChatGPT, Claude, Perplexity, and the rest of the named AI crawlers can actually reach a site — which ones are quietly blocked by a robots.txt group nobody read closely, whether an llms.txt exists and is properly shaped, and whether the raw page even carries real content before any JavaScript runs. Give it a domain and get a per-crawler verdict plus fixes ranked by leverage. Runs standalone with no account.
+
+## Try this now
+
+1. **Audit a live site's crawler access** — `Run an agent access check on stripe.com — can GPTBot, ClaudeBot, and PerplexityBot actually reach it?` → a per-crawler ALLOWED/BLOCKED/UNKNOWN verdict, an llms.txt check, and fixes ranked by leverage.
+2. **Check one crawler you specifically care about** — `Does ChatGPT's live-answer crawler get blocked on wikipedia.org?` → a full audit led with the ChatGPT-User verdict specifically, then the rest of the roster.
+3. **Spot the wildcard-vs-named-group gotcha** — `My robots.txt has a wildcard group disallowing /private/ and a separate GPTBot group disallowing only /internal/ — is GPTBot blocked from /private/?` → an explanation that GPTBot's own named group means the wildcard rule never applies to it, so /private/ is wide open to it.
+4. **Connected: get brand-aware fix files** *(requires a Jinn token)* — `Once connected, don't just diagnose the missing llms.txt — draft it in our brand's own voice.` → the same audit, but the missing-file fix ships as an actual drafted llms.txt starter and JSON-LD block instead of generic advice.
+
+## Compounds with
+
+- `agent-readiness-checker` — this checks whether crawlers can reach the site; that one checks whether what's behind the door actually makes sense to an agent already inside.
+- `llms-txt-generator` — this audit's most common finding, a missing llms.txt, hands straight to that skill to write the file.
+
 ---
 
 *Grounding + three-state contract by Jinn. Crawler roster + robots.txt semantics are public (RFC 9309; `ai.robots.txt`, MIT). Structure inspired by open marketing-skill patterns. MIT.*

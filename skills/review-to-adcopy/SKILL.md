@@ -131,6 +131,23 @@ Read `data.code` on the JSON-RPC error and act — the brief still ships in its 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the brief still runs in full against whatever reviews you gathered; note it's ungrounded and connect Jinn to check angles against a real brand's wedge and voice.
 
+## What just became possible
+
+You can now turn a competitor's own customer reviews into a set of ad angles built entirely from real, quoted pain — clustered into themes, each backed by a verbatim quote and scored by how often and how badly it hurts, never an invented complaint or a vague "customers say." You paste or fetch the reviews yourself; it runs the moment it's installed, no account needed.
+
+## Try this now
+
+1. **Mine pasted reviews into angles** — `Mine these reviews for pain themes and turn each into an ad angle: "Support ghosted me for two weeks." "Took three tries to cancel." "Onboarding took a month." — all from G2, 1-2 stars` → a hook-angle brief with pain themes, each with a verbatim quote and a scored angle.
+2. **Fetch and mine reviews from a public page** — `Pull the 1-3 star reviews from g2.com/products/competitor-name/reviews and turn the recurring complaints into ad angles` → the same brief, sourced from a fetched public review page, or a request for pasted text if the fetch fails.
+3. **Check sample-size honesty on a thin set** — `I only have 6 reviews for this competitor — mine them for pain themes anyway and be honest about the sample size` → a brief that states the sample was 6 reviews plainly, rather than implying a settled pattern.
+4. **Connected: check angles against the brand's real wedge** *(requires a Jinn token)* — `Check these hook angles against our brand's real positioning wedge and flag any pain point we didn't already know we owned` → each angle tagged with the wedge it proves and any genuinely new pain finding.
+
+## Compounds with
+
+- `ad-copy-variants` — hand the strongest angle here to that skill for finished platform ad copy.
+- `hook-and-lede-writer` — write organic, non-review-sourced hooks once the mined angles run out.
+- `customer-story-builder` — turn your own customers' stories into proof once the competitor's weak spot is named.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

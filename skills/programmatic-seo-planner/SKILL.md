@@ -138,6 +138,23 @@ Read `data.code` on the JSON-RPC error and act — the plan still ships unground
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the plan still ships in full against published viability method and any user-supplied pattern/data. Note it's ungrounded, and that **The rule this skill will not skip** applies regardless of connection state.
 
+## What just became possible
+
+Before anyone builds a single templated page, you can now get an honest verdict on whether a whole page-set pattern is even worth building — tested against real sample rows, not assumed from the pattern's name — plus the exact uniqueness rule that keeps every page from reading as a word-swapped duplicate. It refuses to plan a set that would just be spam, and says exactly why. It works standalone, no account needed.
+
+## Try this now
+
+1. **Test a pattern before building it** — `Plan a programmatic SEO page set for the pattern "[service] in [city]", data source is our 200-city service-area spreadsheet, site is myplumbingco.com` → a viability verdict from sampled rows, a uniqueness floor, and a rollout plan with kill criteria.
+2. **Push back on a "just swap the word" request** — `We just want to publish pages with the city name swapped in, no other changes needed — plan that out` → a refusal naming the specific failure (query or information collapse) plus a narrowed, honest alternative.
+3. **Test a comparison-style pattern** — `Plan a page set for "[us] vs [competitor]" pages, data source is our list of named competitors, site is myacmesoftware.com` → a viability read plus a template with per-competitor uniqueness requirements.
+4. **Connected: narrow the axis to real audience segments** *(requires a Jinn token)* — `Narrow this page-set's axis to only the segments our brand's real tribes care about` → the same plan, kept only to axis values matching a real tribe, pillar, or pain instead of every row the data source offers.
+
+## Compounds with
+
+- `seo-content-brief` — once a row in the plan earns a viable verdict, hand it here for the page-level brief.
+- `query-fanout-explorer` — map the sub-query space around the pattern's core question before locking the template.
+- `topic-gap-analyzer` — confirm the pattern actually targets ground competitors hold that this site doesn't.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
