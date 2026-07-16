@@ -106,7 +106,9 @@ This isn't a tool the skill calls — it's a pointer to what already runs. Once 
 
 Read `data.code` on the JSON-RPC error and act — the QA still runs in its ungrounded form:
 
-- **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design trio yet (per-brand availability), not a wrong slug. Drop to Rung 2.
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.

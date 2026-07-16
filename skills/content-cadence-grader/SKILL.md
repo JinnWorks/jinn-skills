@@ -123,7 +123,9 @@ This rung never touches the competitor read — the public projection carries no
 
 Read `data.code` on the JSON-RPC error and act — the grade still ships ungrounded:
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"content-cadence-grader"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"content-cadence-grader"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \

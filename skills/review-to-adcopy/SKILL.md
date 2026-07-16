@@ -122,7 +122,9 @@ The brief is the input, not the output. Once angles are picked, Vermeer is where
 
 Read `data.code` on the JSON-RPC error and act — the brief still ships in its ungrounded form:
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"review-to-adcopy"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"review-to-adcopy"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \

@@ -109,6 +109,8 @@ curl -X POST https://app.jinn.works/api/agents/request-demo-token
 
 Returns a short-lived token that can read the **public Brand DNA projection** for three showcase brands (`paleo-pro`, `bloombelly`, `better-weather`). The token is shown once.
 
+**Usage transparency:** when a skill in this catalog requests a demo token, it includes its own name (e.g. `{"skill":"brand-voice-checker"}`) so we can see which skills people actually use. That's the entire payload — no content, no identity, nothing else. The field is optional; a bare request (like the one above) works identically.
+
 ### 2. Add the MCP server
 
 `.mcp.json`:
