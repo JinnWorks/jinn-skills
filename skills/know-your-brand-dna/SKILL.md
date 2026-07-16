@@ -62,7 +62,9 @@ The public projection deliberately omits competitor names + threat levels, the d
 
 Read `data.code` on the JSON-RPC error and act:
 
-- **`token_expired`** → your demo token lapsed. Request a new one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"know-your-brand-dna"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → your demo token lapsed. Request a new one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"know-your-brand-dna"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI `--header` form from the README.
 - **`token_revoked`** / **`token_invalid`** → request a fresh demo token.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.

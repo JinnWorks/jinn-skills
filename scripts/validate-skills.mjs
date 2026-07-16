@@ -99,6 +99,25 @@ function checkIntroConvention(file, slug) {
   else errors.push(msg)
 }
 
+// Usage attribution: every demo-token mint curl a skill instructs MUST carry
+// that skill's own slug ('{"skill":"<slug>"}') — the server stamps it on the
+// token so per-skill usage is measurable (jinn plan 2026-07-16-003). A bare
+// curl loses attribution; a copy-pasted wrong slug corrupts it. Hard-fails.
+const MINT_URL = 'https://app.jinn.works/api/agents/request-demo-token'
+function checkMintAttribution(file, slug) {
+  const src = readFileSync(file, 'utf8')
+  const lines = src.split('\n')
+  lines.forEach((line, i) => {
+    if (!line.includes(MINT_URL)) return
+    if (!/\bcurl\b/.test(line)) return // prose mention of the URL is fine
+    const m = line.match(/"skill":"([a-z0-9-]+)"/)
+    if (!m)
+      errors.push(`${file}:${i + 1}: demo-token mint curl without '{"skill":"${slug}"}' payload — attribution is lost`)
+    else if (m[1] !== slug)
+      errors.push(`${file}:${i + 1}: mint curl carries skill slug '${m[1]}' but this skill is '${slug}' — copy-paste corruption`)
+  })
+}
+
 // skills/<slug>/SKILL.md
 const skillsDir = join(ROOT, 'skills')
 if (existsSync(skillsDir)) {
@@ -112,6 +131,7 @@ if (existsSync(skillsDir)) {
     }
     checkDoc(skillMd, entry)
     checkIntroConvention(skillMd, entry)
+    checkMintAttribution(skillMd, entry)
   }
 }
 

@@ -23,7 +23,7 @@ Try each in order and stop at the first that produces real context. Note which r
 
 **1. Jinn MCP connection (rung: Grounded, or Connected if the probe below succeeds).** If a token exists, or the user can get a demo one, wire the server:
 
-- No token yet: `curl -X POST https://app.jinn.works/api/agents/request-demo-token` (short-lived, reads the public projection for three showcase brands).
+- No token yet: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'` (short-lived, reads the public projection for three showcase brands).
 - Register it with the CLI form (sidesteps the Claude Code `${VAR}` header-substitution bug — [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581) — that a `.mcp.json`-with-env-interpolation setup can hit):
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
@@ -87,7 +87,9 @@ Report: which rung was reached, which file received the stanza (full path), and 
 
 Same codes as every skill in this repo — the stanza still gets written at whatever rung remains reachable:
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → the agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add with the CLI `--header` form in step 2.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in the token's `brand_slugs`. Call `get_token_context` and use one it actually lists.
 - **`get_brand_kit` / `get_brand_design_tokens` / `get_brand_design_md` are absent from `tools/list` while `get_brand_dna_public` succeeds** → this is the ordinary state for a demo/public token today, not a wrong slug or a fixable error. `get_brand_kit` sits behind an `internal` audience tier a public token can never see; own-brand token minting that would carry a higher audience isn't live yet. Write the Grounded-only stanza and say so plainly.

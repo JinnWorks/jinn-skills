@@ -102,7 +102,9 @@ Only the fields above exist on a public token — no competitor, pricing, or pla
 
 Read `data.code` on the JSON-RPC error and act — the snapshot still ships ungrounded:
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"buyer-snapshot"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
+
+- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"buyer-snapshot"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
