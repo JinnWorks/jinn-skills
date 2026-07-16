@@ -95,6 +95,23 @@ Read `data.code` on the JSON-RPC error and act — the brief still ships in its 
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → drop to Rung 3. The brief still ships; note it's not brand-verified and connect Jinn to ground it.
 
+## What just became possible
+
+You can now turn three ads you like into one usable creative brief instead of three separate teardowns — the hook, visual direction, copy angle, format, and CTA all merged into a single direction a designer or copywriter can build from. Paste in three screenshots, URLs, or descriptions and get back the one pattern worth stealing, not an average of three good ideas. It runs standalone, no account.
+
+## Try this now
+
+1. **Merge three swipe-file ads into a brief** — `Here are three ads I like: [describe or link ad A, B, C]. Turn them into one creative brief` → a single merged brief naming the through-line all three share, with hook, visual direction, copy angle, format, and CTA.
+2. **Build a brief from three competitor landing-page heroes** — `Build a creative brief from these three hero sections: stripe.com, linear.app, and notion.so` → a brief synthesizing the strongest shared pattern across the three.
+3. **Merge two strong references when a third is weak** — `I only have two solid reference ads worth using — build the brief from these two: [ad A], [ad B]` → a coherent single-direction brief built from the two, without diluting it with a mismatched third.
+4. **Connected: check the brief against your real brand** *(requires a Jinn token)* — `Build a creative brief from these three ads and check the copy angle against our actual brand voice: [ad A], [ad B], [ad C]` → the same merged brief, phrased in the brand's real tonal register instead of a generic read.
+
+## Compounds with
+
+- `ad-teardown` — analyze a single ad or a whole library in depth before pulling three worth merging here.
+- `ad-copy-variants` — writes the finished headline and body copy this brief's direction specifies.
+- `campaign-brief` — the strategy layer above this one (objective, audience, channels) this brief's single creative slots into.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

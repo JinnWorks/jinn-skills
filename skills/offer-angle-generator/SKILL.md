@@ -94,6 +94,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, usable framing set from the product and audience you supplied; connect Jinn to ground the lead recommendation in a real positioning wedge and pricing posture.
 
+## What just became possible
+
+You can now generate ten genuinely different ways to frame the same offer — each one naming the exact psychological lever it pulls and a ready-to-use line — instead of ten rewordings of "act now." It runs standalone from a product and audience description, no account needed.
+
+## Try this now
+
+1. **Generate the full angle set** — `Generate 10 offer angles for a $9 async project-management workshop aimed at freelance agency owners` → ten framings, each with its psychology named and an example line.
+2. **Get a recommendation, not just the list** — `Generate offer angles for our onboarding audit, then tell me which one to lead with` → the full table plus one named lead framing with the reasoning.
+3. **Check whether an urgency angle is honest** — `Is a countdown deadline offer legitimate for a rolling-enrollment coaching program, or is that manufactured urgency?` → a verdict on whether the constraint is real, with an alternative lever suggested if not.
+4. **Connected: filter the angles against the brand's real posture** *(requires a Jinn token)* — `Generate offer angles for our product using our actual brand values and wedge` → the same angles, filtered against the brand's stated values and wedge, with pricing posture labeled as inferred.
+
+## Compounds with
+
+- `messaging-ab-tester` — turns the chosen angle into a real test against a competing one instead of a guess.
+- `ad-copy-variants` — turns the picked angle into platform-fit ad copy, the natural next stop after this angle space.
+- `campaign-brief` — builds the surrounding plan around whichever angle gets picked.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

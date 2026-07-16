@@ -118,6 +118,22 @@ Read `data.code` on the JSON-RPC error and act — the profile still ships ungro
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced competitor profile; connect Jinn later to read it against the brand's own claimed wedge.
 
+## What just became possible
+
+You can now get one deep, fully sourced profile on a single named competitor — their positioning claim, target customer, pricing, proof points, messaging, GTM channels, and reviewed strengths and weaknesses — with every finding tagged sourced, an inference, or unconfirmed, so nothing is quietly guessed and passed off as fact. Give it a company name or URL and it goes and researches that company itself, one dimension at a time. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Profile one competitor end to end** — `Build a full competitor profile on Linear at linear.app — positioning, ICP, pricing, proof points, messaging, GTM, and reviewed strengths and weaknesses, each with a source.` → an eight-dimension table with a source per row and a one-line synthesis of the competitor's real thesis plus its sharpest tension.
+2. **Pull just the pricing dimension** — `What does Linear's pricing page actually say about its tiers and what's gated at each level?` → the pricing dimension alone — tier names, prices, and what's gated at each — sourced straight to the pricing page.
+3. **Force honest confidence tags** — `Profile Asana at asana.com and mark every finding as Sourced, Inference, or Unconfirmed — don't guess anything you can't verify.` → the full profile with every cell tagged, and no Inference silently promoted to Sourced.
+4. **Connected: read it against your own brand** *(requires a Jinn token)* — `Profile Linear at linear.app and tell me whether it's a direct contest for my brand's positioning wedge or a different fight entirely.` → the same sourced profile, plus a closing line reading the competitor against your brand's live wedge and enemy-framing.
+
+## Compounds with
+
+- `market-map-lite` — that maps a whole category shallowly; run this after to go deep on the one rival that matters most.
+- `battlecard-generator` — turn this profile's sourced findings into a sales-ready win/lose/close card.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*

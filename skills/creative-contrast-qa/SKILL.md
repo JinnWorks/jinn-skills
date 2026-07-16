@@ -112,5 +112,21 @@ Read `data.code` on the JSON-RPC error and act — the QA still runs in its ungr
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → this QA runs fully generic as written above; connect Jinn to check the creative against the brand's real palette.
 
+## What just became possible
+
+You can now run a pass/fail legibility check on a finished ad, pin, or social creative — is the copy sitting over a face or the product, does it actually pass a real pixel-contrast calculation against its background, is it hiding under a platform's own UI chrome on Stories or Reels, and was it shrunk to fit or silently cut. Describe the creative and its colors and it flags every issue with the specific fix, and says what's already clean. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Check contrast on real colors** — `Does white text at #FFFFFF on a medium-blue background at #4A6FA5 pass contrast for a large headline on my Instagram Story?` → the WCAG ratio computed from those two hex values against the display-text floor, plus a clear pass verdict.
+2. **Flag placement and safe-area issues on a Reel** — `I have a TikTok video with the CTA text in the bottom-right corner and a caption band across the very top — is that going to get covered by the app's UI?` → both regions flagged against TikTok's top, bottom, and right chrome bands, each with a fix.
+3. **Run a full QA pass on a described ad** — `QA this ad for Instagram feed: a product photo with the headline written directly across the model's face in dark gray text on a busy background.` → a FAIL verdict for text-over-face, a contrast note on the busy background, and a fix — move the copy to blank space or add a scrim.
+4. **Connected: check against your real palette** *(requires a Jinn token)* — `QA this ad's contrast using my actual brand color tokens for the background and text.` → the same four-lens QA, but the contrast math now runs on the brand's real token hex values instead of an estimate, plus an off-brand color flag if the creative drifts from the palette.
+
+## Compounds with
+
+- `ad-teardown` — that reads the ad's strategic hook and angle; this only checks whether the finished creative is legible.
+- `on-brand-artifact-builder` — run this QA pass on whatever that skill renders before it ships.
+
 ---
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

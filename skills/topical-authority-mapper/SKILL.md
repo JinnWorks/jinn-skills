@@ -120,6 +120,23 @@ Read `data.code` on the JSON-RPC error and act — the map still ships ungrounde
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the map still builds in full from the site read and category search. Note the build order is prioritized by category centrality alone, not the brand's own claimed wedge, and connect Jinn to weight it by what the brand is actually staking its position on.
 
+## What just became possible
+
+You can now see, across your whole site, which topic clusters are deep, which are thin, and which don't exist at all — plus an actual build order for what to work on next, deepening what's started before starting something new. Give it a domain and get back a cluster map and a sequenced plan you can hand to whoever owns content strategy. It reads your site and the category's public pages by hand, so it runs the moment it's installed, no account.
+
+## Try this now
+
+1. **Map a domain's topic coverage** — `Map the topical authority for stripe.com — what clusters exist, how deep are they, and what's the build order?` → a cluster inventory with depth scores plus a deepen-then-widen build order.
+2. **Map against named category leaders** — `Map my site's topic clusters against ramp.com and brex.com as category leaders: my-site.com` → the same map, with gaps read against what those two leaders cover.
+3. **Scope it to one content area** — `Just map the blog section's topic depth for my-site.com/blog against the category` → a cluster map bounded to the blog, with its own build order.
+4. **Connected: weight the build order by your real positioning** *(requires a Jinn token)* — `Map my site's topical authority and prioritize the build order by what my brand actually claims to win on: my-site.com` → the same map, re-ordered so clusters carrying the brand's real wedge move up regardless of category-neutral ranking.
+
+## Compounds with
+
+- `seo-content-brief` — outlines one page from a topic this map's build order names.
+- `calendar-planner` — schedules the near-term slots once the build order sets the priority.
+- `topic-gap-analyzer` — the sibling read that diffs your coverage page-by-page against named competitors, instead of mapping your own depth.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

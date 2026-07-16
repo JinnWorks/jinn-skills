@@ -106,6 +106,23 @@ Read `data.code` on the JSON-RPC error and act — the brief still ships ungroun
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real brief ranked by cross-platform confirmation alone; connect Jinn later to re-rank the same findings against the brand's real tribes and pillars.
 
+## What just became possible
+
+You can now find out what's actually earning engagement in a niche or keyword space this week — not by counting posts, but by reading the comment threads underneath them for pile-on agreement, pushback, and tangents that outperform the original. Give it a topic and a platform and get back a ranked list of content angles worth taking, each traced to the comment pattern that proved it works. It runs as a hand sweep the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Sweep a niche for what's working** — `Sweep X and Reddit for what's earning engagement right now on remote team management and give me ranked content angles` → a platform-by-platform read plus a ranked angle list, each tied to a comment pattern.
+2. **Check one platform on its own terms** — `What's resonating on TikTok this week around home coffee setups — read the comments, not just view counts` → the highest-engagement posts with their comment-thread verdicts (agreement, pushback, or tangent).
+3. **Scope it to a competitor's space** — `What angles are landing in Reddit and Hacker News threads about self-hosted analytics tools this week?` → a short list of angles ranked by cross-platform confirmation.
+4. **Connected: score the findings against your brand** *(requires a Jinn token)* — `Sweep social platforms for what's working in project-management software talk and rank the angles against my brand's real tribes and pillars` → the same sweep, re-ranked against the brand's live DNA instead of a guessed audience fit.
+
+## Compounds with
+
+- `hook-and-lede-writer` — take a proven angle from this sweep and turn it into a scored hook for a specific post.
+- `content-rotation` — feed this week's ranked angles into the weekly what-to-post-where plan.
+- `x-content` — write the actual post once an angle here confirms what the feed wants to hear.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

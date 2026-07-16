@@ -100,6 +100,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a complete, sequenced playbook from launch best practice; connect Jinn later to re-ground the beats and copy in the brand's live DNA.
 
+## What just became possible
+
+You can now turn "we're launching X" into a complete three-phase playbook — pre-launch tease, launch-day burst, post-launch sustain — with the concrete assets, channel sequencing, and messaging beat for every touch, so the whole arc reads as one story instead of a pile of disconnected posts. It works standalone, no account needed.
+
+## Try this now
+
+1. **Build the full arc for a real launch** — `Build a launch playbook for our new expense-tracking mobile app, launching in three weeks to freelancers, channels: our email list, our own social, and a ProductHunt post` → a phase-by-phase table (assets, channel/timing, beat), the launch narrative spine, and the first three things to start now.
+2. **Get the messaging beats without the full asset list** — `What's the pre-launch, launch, and post-launch messaging beat for a launch of a new pricing tier aimed at agencies?` → the three beats: problem/tension, promise, proof/belonging.
+3. **Sequence specific channels** — `We have an email list, a Discord community, and a paid budget for our launch — what order should we fire them in and when relative to launch day?` → a channel sequence with timing stated relative to launch hour.
+4. **Connected: ground the narrative in the brand's real story** *(requires a Jinn token)* — `Ground this launch playbook's narrative and beats in our brand's real founding story and pillars` → the same playbook, with beats mapped to the brand's actual founding story, pillars, and tone instead of generic best practice.
+
+## Compounds with
+
+- `launch-positioning` — write the wedge/enemy brief first; this playbook then sequences the copy that proves it.
+- `launch-readiness-scorecard` — check the playbook's assets are actually ready before the launch-day burst fires.
+- `calendar-planner` — turn the phase-by-phase table into dated calendar entries.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

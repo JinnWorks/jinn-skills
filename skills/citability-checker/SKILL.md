@@ -102,6 +102,22 @@ Read `data.code` on the JSON-RPC error and act — the checklist still runs in f
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the checklist runs in full against the published dimensions above; note the score is ungrounded and connect Jinn to check entity clarity and topical fit against the brand's real record.
 
+## What just became possible
+
+You can now paste any post or article and get a straight answer to "will an answer engine actually cite this" — a 0-100 score, a pass/fail on each of six dimensions, and every citability-killing passage quoted with a fix. It runs the moment it's installed, against a published checklist, with no account needed.
+
+## Try this now
+
+1. **Score a weak opening paragraph** — `Score this paragraph for citability: "In today's fast-paced world, our seamless platform helps a lot of customers get things done. Let's dive into how it works."` → a low score with the vague, buried-answer, and unspecific passages quoted and rewritten.
+2. **Score a well-sourced FAQ answer** — `Score this FAQ answer for citability: "Q: How long does onboarding take? A: Onboarding typically takes 3-5 business days, based on our own tracking across customer accounts onboarded in 2025."` → a high score with extractable-answer and sourced-claims marked PASS.
+3. **Ask it to name what's already working, not just what's broken** — `Check this how-to intro for citability and tell me what's already working, not just what to fix: "This guide covers three ways to reduce cart abandonment. First, send a reminder email within one hour."` → a breakdown plus a "clean" section listing what's already extractable.
+
+## Compounds with
+
+- `brand-voice-checker` — a different lens on the same passage: does it read human, not whether it gets cited.
+- `claim-provenance-checker` — checks whether a stated stat is actually sourced and true; this checks only whether it's stated in a citable shape.
+- `aeo-formatter` — once this scores a piece low, use it to restructure the content into the citable shape this checker is looking for.
+
 ---
 
 *Grounding + three-state contract by Jinn. MIT.*

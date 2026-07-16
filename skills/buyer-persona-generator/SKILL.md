@@ -101,6 +101,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces real personas from your ICP notes and research; connect Jinn later to re-seed them from the brand's verified tribes and pains.
 
+## What just became possible
+
+You can now turn a rough ICP description and whatever research you have lying around into a cast of 4–6 distinct, named buyers — each with a real pain, a buying trigger, and the exact gap between how they'd describe their problem and how the pitch describes the fix. It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Build a cast from pasted research** — `Build 4-6 buyer personas for a project management tool aimed at 50-200 person agencies, using this review as research: "As an ops director I was drowning in spreadsheets tracking billable hours across 12 client teams, finally found something that just works."` → a named cast covering the required archetypes, each with a language-gap table.
+2. **Build without research on hand** — `Generate buyer personas for a new expense-reporting tool aimed at mid-market finance teams; I don't have research yet, just ICP notes: finance managers and controllers at 200-2000 employee companies.` → the same cast, flagged as a hypothesis since there's no pasted research to ground the language gap.
+3. **Get just the segment summary** — `Give me the one-table segment summary for buyer personas of a cybersecurity training product sold to compliance officers at healthcare companies.` → one row per persona: name, archetype, core pain, buying trigger, top decision criterion, sharpest language-gap fix.
+
+## Compounds with
+
+- `buyer-snapshot` — the opposite discipline: sourced evidence about real buyers instead of an invented cast to test messaging against.
+- `campaign-brief` — drop one persona's core pain straight into the brief's target-audience field.
+- `outbound-message-writer` — write the actual outreach copy in the persona's own words, closing the language gap this skill names.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

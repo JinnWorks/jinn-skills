@@ -112,6 +112,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the map still ships in full against published community-research method and any user-supplied pain points; note it's ungrounded, and that the disclosure rule in **The rule this skill will not break** applies regardless of connection state.
 
+## What just became possible
+
+You can now find out exactly where a brand can genuinely show up on Reddit, forums, and Discord — which communities actually fit, what standing you need before posting, and a disclosure line drafted for every reply, never a vague plan to "engage more." It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Map communities for a niche audience** — `Build a community engagement map for a time-tracking app aimed at freelance developers, which subreddits and forums should we actually show up in?` → a tiered table with why each community fits, standing needed first, a drafted disclosure line, and best formats.
+2. **Account for standing you already have** — `We already have some standing in r/freelance, build a plan that accounts for that instead of assuming we're starting cold.` → a map that treats that community as further along than a cold-start one, with a different next step.
+3. **Draft one answer-first reply** — `Draft the answer-first reply format for a thread asking "what's the best invoicing tool for small agencies," assume we work at an invoicing SaaS.` → a reply that leads with the direct answer, backs it with specifics, and discloses the affiliation early, not buried at the end.
+
+## Compounds with
+
+- `citation-source-mapper` — hands this skill every earn-only source it finds (community/UGC domains that can't just be claimed).
+- `social-listening-brief` — once communities are mapped here, that skill catches the live signals worth responding to.
+- `brand-voice-content` — drafts the reply and disclosure lines in the brand's real voice, not a generic one.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

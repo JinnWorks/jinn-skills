@@ -108,6 +108,22 @@ Read `data.code` on the JSON-RPC error and act — the audit still runs unground
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real audit against user-supplied evidence; connect Jinn later to ground identity and positioning claims against the brand's live DNA.
 
+## What just became possible
+
+You can now paste any claim, or a whole deck's worth of them, and get back a straight read on which ones are actually backed by evidence, which are just confident-sounding assertions, and exactly what it would take to make each one true before it ships. It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Check a handful of headline claims** — `Check the provenance of these claims before I put them in our deck: "We're the fastest platform in the category. Our customers save an average of 10 hours per week. Everyone in fintech is switching to us."` → each claim typed measured, cited, inferred, asserted, or unverifiable, with a rewrite for the ones that don't hold up.
+2. **Check a landing-page paragraph with a mix of real data and hype** — `Audit this landing page paragraph for unsourced claims: "Industry-leading security, trusted by thousands, our platform cut incident response time from two hours to twelve minutes based on our internal benchmark."` → the benchmark line marked measured, the "industry-leading" and "trusted by thousands" lines flagged asserted with no evidence behind them.
+3. **Get a publish-ready verdict on a whole doc** — `Go through this whole positioning doc and tell me which claims are safe to publish as-is and which need to be cut or reframed.` → a full claim-by-claim scorecard plus a one-line verdict on how ready the document is.
+
+## Compounds with
+
+- `brand-fact-checker` — the opposite direction: what AI assistants already believe about the brand, instead of what the brand is about to claim.
+- `brand-messaging-audit` — checks whether copy holds the brand's strategy and voice; this checks whether its claims are actually true.
+- `citability-checker` — checks whether a claim is stated in a shape an answer engine would lift; this checks whether the claim itself can be verified at all.
+
 ---
 
 *Grounding + three-state contract by Jinn.*

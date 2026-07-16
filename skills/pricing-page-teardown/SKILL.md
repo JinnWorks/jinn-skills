@@ -120,6 +120,23 @@ Read `data.code` on the JSON-RPC error and act — the teardown still ships ungr
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the teardown still runs in full from the structural framework alone. Note the posture read has no brand-fit check yet, and connect Jinn to ground it against the brand's real positioning.
 
+## What just became possible
+
+You can now paste any pricing page and get back a structural read of what it's actually doing — every tier mapped, every differentiator classified as a real feature gate or a usage cap, and any tier that quietly gates the same value twice named specifically, plus an honest read on anchoring tricks and enterprise-row hand-waving. It runs the moment it's installed, on any page you paste or point it at, no account needed.
+
+## Try this now
+
+1. **Tear down a live pricing page** — `Do a pricing-page teardown of stripe.com/pricing` → a tier map, a value-axis audit for double-gated features, an anchoring read, and one clear recommendation.
+2. **Paste tiers when a page won't fetch** — `Tear down these tiers for double-gating and anchoring: Starter $19/mo (3 projects), Pro $49/mo (unlimited projects, capped at 5 seats), Scale $199/mo (unlimited everything)` → the same teardown run on pasted content instead of a fetched page.
+3. **Sharpen the anchoring read with category context** — `Tear down this pricing page for a B2B SaaS analytics tool, our category is analytics software: acmeanalytics.com/pricing` → an anchoring read checked against category norms — decoys, crossed-out prices, tier-count risk.
+4. **Connected: check posture against real brand values** *(requires a Jinn token)* — `Check whether this pricing page's posture actually matches our brand's stated values` → the same teardown plus a posture-fit read against the brand's live archetype and core values, labeled as inferred.
+
+## Compounds with
+
+- `offer-angle-generator` — this teardown reads a live pricing page; that skill generates new offer framings upstream of a price being set at all.
+- `competitor-profiler` — hand this teardown's tier map to that skill as one section of a full competitor profile.
+- `messaging-ab-tester` — once the teardown flags a weak tier name or CTA, test variants for the fix.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

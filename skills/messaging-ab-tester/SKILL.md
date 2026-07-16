@@ -96,6 +96,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It designs and adjudicates a real test from your core message; connect Jinn later to seed the angles from the brand's live pillars and wedge.
 
+## What just became possible
+
+You can now design a message test where every variant is a genuinely different bet about why someone buys — not three rewordings of one sentence — and get an honest verdict once results come back, including "keep running" instead of a fake winner crowned off a handful of clicks. It runs standalone from one core message, no account needed.
+
+## Try this now
+
+1. **Design variants from one message** — `Design an A/B test for the subject line and social post announcing our new per-client billing feature, testing against email open rate and post engagement` → several variants, each a distinct angle with a one-line hypothesis, rendered in both formats.
+2. **Adjudicate results you already have** — `Here are our results: Variant A got 22% opens on 400 sends, Variant B got 24% opens on 380 sends, Variant C got 31% opens on 410 sends — which won?` → a per-channel scorecard applying the sample-size and lift gates before naming any winner, or "keep running" if it's still noise.
+3. **Test a specific angle pair** — `Write a pain-led and an identity-led version of the same headline for a project-management tool` → two variants, each carrying its named mechanism and hypothesis.
+4. **Connected: seed the angles from what the brand can prove** *(requires a Jinn token)* — `Design this test using only claims our Brand DNA actually backs` → the same variant set, each angle traced to a real messaging pillar and filtered through the brand's banned and safe words.
+
+## Compounds with
+
+- `offer-angle-generator` — generates the angle space this skill turns into a testable set of variants.
+- `linkedin-content` — draft the competing framings here first, then run this to see which one actually wins before publishing.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

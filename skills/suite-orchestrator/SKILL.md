@@ -145,6 +145,23 @@ Read `data.code` on the JSON-RPC error and act — the routing plan still ships 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the plan still ships from the domain index and symptom-language diagnosis above; note the diagnosis is ungrounded and connect Jinn to sharpen which domain leads.
 
+## What just became possible
+
+You can now hand over a vague marketing complaint — "traffic's flat," "our brand feels inconsistent," "nothing's ready for launch" — and get back a diagnosis plus a concrete, ordered sequence of which free skills to run first, second, and third, with the reasoning and handoff for each step. No more guessing where to start on a broad ask. It routes across the free catalog the moment it's installed, no account needed.
+
+## Try this now
+
+1. **Diagnose a vague traffic complaint** — `Our traffic's been flat for two months, where do we even start?` → a diagnosis naming the likely domain plus a sequenced plan across specific free skills, each with a one-line reason and handoff.
+2. **Diagnose an inconsistency complaint** — `Our content feels inconsistent and off-brand lately, what should we fix first?` → a diagnosis plus a sequence starting with an audit step before any drafting step.
+3. **Diagnose a launch crunch** — `We're launching in six weeks and nothing's ready, what's the plan?` → a phased sequence starting with positioning, then the launch plan, then a readiness check.
+4. **Test the escape hatch on a specific ask** — `Write me three ad-copy variants for our landing page headline` → a direct pointer to the one skill that already owns this, with no diagnosis overhead.
+
+## Compounds with
+
+- `brand-context-injector` — the one setup step that should run before this skill's sequence, once, so every routed skill's grounded rung is already wired in.
+- `ai-visibility-snapshot` — the most common first move this skill routes to for a "flat traffic" or "nobody finds us" diagnosis.
+- `brand-messaging-audit` — the most common first move this skill routes to for an "inconsistent" or "off-brand" diagnosis.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

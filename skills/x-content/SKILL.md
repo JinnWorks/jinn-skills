@@ -99,6 +99,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the skill still works generically. Write from the step-1 inputs and note the output is ungrounded; connect Jinn to ground it in a real brand.
 
+## What just became possible
+
+You can now turn one claim into a ready-to-publish X post or thread, correctly sized to how much the idea actually carries — a single sharp claim becomes one post, an idea with real sequence becomes a thread with the hook up front and the CTA saved for the end. Give it the claim and get back copy that keeps the real numbers and named specifics intact, never smoothed into vague hype. It runs standalone, no account.
+
+## Try this now
+
+1. **Write a single hot-take post** — `Write an X post: hot take that most onboarding emails get deleted because they open with a greeting instead of a reason to care` → one publishable post under the character limit, hook-first, banned-hype-phrase checked.
+2. **Write a list-thread from a real result** — `Write an X thread: 5 things we changed that cut our support ticket volume in half, tone should be blunt and plain` → a numbered thread, hook post carrying the full payoff, CTA only on the last post.
+3. **Write a before/after post from a real number** — `Write an X post, before/after: we cut our build time from 12 minutes to 90 seconds by switching CI runners` → a single post preserving the exact numbers verbatim, not softened into "much faster."
+4. **Connected: ground the post in your real brand voice** *(requires a Jinn token)* — `Write an X post about our product's onboarding speed using our actual brand voice and positioning wedge` → the same post, but written in the brand's live tonal attributes with real messaging-pillar language instead of a guessed tone.
+
+## Compounds with
+
+- `hook-and-lede-writer` — scores and sharpens the opening line before this skill locks it into a post or thread.
+- `linkedin-content` — the sibling skill for the same claim reshaped into LinkedIn's longer-form register.
+- `social-listening-brief` — surfaces which angles are already earning engagement, worth feeding straight into this skill as the claim to write.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

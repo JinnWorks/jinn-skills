@@ -115,6 +115,23 @@ Read `data.code` on the JSON-RPC error and act — the one-pager still ships ung
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. It produces a real, honestly-framed one-pager from the user's own market knowledge; connect Jinn later to ground the brand's own position, proof, and voice in its live DNA.
 
+## What just became possible
+
+You can now produce a standing positioning document that credits every real alternative your buyer weighs — including doing nothing or DIY-ing it — for what it genuinely does well, before naming the one gap none of them cover and where you actually sit in it. It runs standalone from your own market knowledge, no account needed.
+
+## Try this now
+
+1. **Build the one-pager from real alternatives** — `Build a positioning one-pager for my company: expense-tracking software for freelancers, alternatives are QuickBooks, a spreadsheet, and doing nothing` → an alternatives table honestly framed, the real gap, and where we sit in it.
+2. **Force the honest "doing nothing" alternative** — `What does a freelancer do if they don't buy any expense software at all, and how does that compare to us?` → the DIY/no-purchase alternative framed fairly, feeding the gap analysis.
+3. **Stress-test the gap sentence** — `Would a QuickBooks loyalist agree with this gap: nothing built for freelancers handles invoicing and mileage in one place?` → a fairness check on whether the gap survives the strawman test.
+4. **Connected: ground our own side in real Brand DNA** *(requires a Jinn token)* — `Ground this one-pager's stated position and proof in our brand's live Brand DNA` → the same doc, with our position, proof, and voice pulled verbatim from the wedge and pillars — alternatives stay ours to supply.
+
+## Compounds with
+
+- `launch-positioning` — once this standing doc exists, that skill turns it into the one-time wedge brief for an imminent launch.
+- `competitor-positioning-map` — plots the same alternatives on a 2x2 grid when the question turns spatial instead of comparative.
+- `brand-messaging-audit` — checks whether existing copy still holds the line this one-pager sets.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

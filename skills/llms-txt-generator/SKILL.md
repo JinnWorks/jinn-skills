@@ -83,6 +83,23 @@ Read `data.code` on the JSON-RPC error and act — the file still ships unground
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the file still ships from the site read alone. Note it's not brand-verified in the delivery note, and connect Jinn to ground the value prop and differentiators in the real record.
 
+## What just became possible
+
+You can now point this at a live site and get back a spec-compliant `llms.txt` — the file AI agents read to learn who a brand is and what it offers — built only from what the site actually says, nothing invented. It runs standalone off a public URL, no account needed.
+
+## Try this now
+
+1. **Generate one from a real site** — `Generate an llms.txt file for stripe.com` → a spec-compliant markdown file with the H1, blockquote, and About/Products/Contact sections, sourced only from the site.
+2. **Point it at specific pages instead of guessing** — `Generate an llms.txt for our site, homepage is acme.com, and use acme.com/about and acme.com/pricing as the key pages` → the same file built from those pages directly, rather than a homepage-only read.
+3. **Get the deployment note along with the file** — `Generate an llms.txt for acme.com and tell me how to get it served from the domain root on Vercel` → the file plus a placement note for that specific platform.
+4. **Connected: ground the file in the brand's real record** *(requires a Jinn token)* — `Generate our llms.txt from our actual Brand DNA, not just what the homepage says this week` → the same file with mission, wedge, and pillars pulled from the brand's DNA record instead of paraphrased site copy.
+
+## Compounds with
+
+- `aeo-formatter` — formats a piece of content for AI citation once this file establishes who the brand even is.
+- `ai-visibility-snapshot` — checks how visible the brand already is to AI systems, the natural before/after read against publishing this file.
+- `citability-checker` — checks whether a page is citable at all, a complementary discovery check to the site-level manifest this skill produces.
+
 ---
 
 *Grounding + three-state contract by Jinn. File format is the public llmstxt.org spec. MIT.*

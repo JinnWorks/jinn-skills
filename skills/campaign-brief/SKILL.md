@@ -84,5 +84,21 @@ Read `data.code` on the JSON-RPC error and act — the brief still ships in its 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 - **No token / no connection** → this skill works generically as written above; connect to Jinn to ground the audience, message, and hook voice in a real brand.
 
+## What just became possible
+
+You can now turn "we should run a campaign" into the one page a writer, designer, and media buyer can all build from without a meeting — a single objective, a single message, the channels that fit, and hooks in the right voice. It runs the moment it's installed, with no account needed.
+
+## Try this now
+
+1. **Write a brief for a signup push** — `Write a campaign brief for a spring signup push: SaaS for freelance bookkeepers, objective is to get 200 trial signups in 4 weeks.` → a one-page brief with the objective, audience, single-minded message, channels with reasons, 3-5 hooks, and a success metric.
+2. **Write a brief for a reactivation campaign** — `Write a campaign brief for reactivating lapsed customers of a meal-kit subscription, audience skews busy parents.` → the same one-page shape, built around a reactivation objective and one pain-led message.
+3. **Force a single objective out of several goals** — `I have three goals for this campaign, awareness, signups, and revenue, help me write one campaign brief and force me to pick just one.` → a brief that picks one measurable objective and treats the other two as hopes, not the plan.
+
+## Compounds with
+
+- `calendar-planner` — once this brief locks a single message, feed it in as one of a month's recurring content themes.
+- `ad-copy-variants` — turn this brief's hooks into a full set of ad copy variants.
+- `messaging-ab-tester` — test the single-minded message against alternatives before committing the whole campaign to it.
+
 ---
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

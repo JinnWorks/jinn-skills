@@ -115,6 +115,23 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the checklist still runs in full against published heuristics and any user-supplied banned words; note the score is ungrounded and connect Jinn to check against the brand's real rules.
 
+## What just became possible
+
+You can now tell, in one pass, whether a piece of copy reads like a person wrote it or like an AI's default voice — with every giveaway quoted and rewritten, not just a vague "this sounds a bit generic." Paste any headline, email, or landing section and get a reads-human score plus the exact fixes. It runs against a published checklist of AI writing tells the moment the skill is installed — no account, no setup.
+
+## Try this now
+
+1. **Score a paragraph for AI tells** — `Score this copy for how human it reads and quote every generic-AI tell with a fix: "In today's fast-paced world, our cutting-edge platform empowers teams to seamlessly unlock their true potential."` → a reads-human score out of 100, each tell (throat-clearing open, vague superlatives, empty intensifiers) quoted and rewritten.
+2. **Check copy against your own banned words** — `My banned words are: leverage, synergy, unlock. Score this and flag any hits: "We help teams leverage their data to unlock growth."` → the score plus each banned word quoted in context with a clean rewrite.
+3. **Compare two drafts and get a verdict** — `Which of these reads more human and why? A: "We built this for people who hate meetings." B: "Our solution optimizes collaborative workflows."` → a winner with the tell-by-tell reasoning behind the call.
+4. **Fix a line without losing the point** — `Rewrite this to drop the AI tells but keep the meaning: "We're thrilled to announce a truly revolutionary approach to customer engagement."` → a rewrite plus a note on which tells it removed.
+
+## Compounds with
+
+- `brand-guardrails-review` — this scores whether copy reads human; that red-lines the same copy against a brand's actual tone and rules, the natural next step once the voice is clean.
+- `brand-messaging-audit` — takes the copy up a level, checking whether it holds the brand's strategic line, not just its voice.
+- `content-atomizer` — run a long asset through the atomizer first, then voice-check each derivative before it ships.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

@@ -123,6 +123,23 @@ Read `data.code` on the JSON-RPC error and act — the read still ships in full 
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the hook-type read and retention-risk flags still run in full against the published framework; note the read is not brand-verified and connect Jinn to check the promise against the brand's real pillars and voice.
 
+## What just became possible
+
+You can now find out, before you shoot or publish, whether a video's opening actually earns the rest of the runtime — the hook type it's reaching for, every retention risk named with exactly where it happens and a concrete fix, and a STRONG/WORKABLE/WEAK verdict. Paste a script or just describe the first few seconds and get back a real read, not a vibe check. It runs against a published hook-and-retention framework, no account needed.
+
+## Try this now
+
+1. **Grade a script's opening** — `Grade this video opening for hook strength: "Hi guys, welcome back to my channel, today I want to talk about..."` → a hook type (likely none identified), retention-risk flags with fixes, and a verdict.
+2. **Grade a described first-5-seconds** — `Here's what happens in the first 5 seconds of my TikTok: a hand slams a laptop shut, then text appears saying "I just fixed this in 10 minutes"` → a hook-type read against the pattern-interrupt and claim-first tests, plus a verdict.
+3. **Check for a hook/payoff mismatch** — `My hook promises "3x your email replies" but the video is actually about writing better subject lines, not reply rates — grade the opening` → a flagged hook/payoff mismatch capping the verdict at WEAK, with a concrete fix.
+4. **Connected: check the hook against your real brand voice** *(requires a Jinn token)* — `Grade this video opening's hook strength and check whether the promise traces to one of our real messaging pillars: [opening]` → the same hook-type read and verdict, plus an on-voice check against the brand's live pillars and tonal attributes.
+
+## Compounds with
+
+- `ugc-script-writer` — writes the script this skill grades; run that first if there's nothing to analyze yet.
+- `hook-and-lede-writer` — the sibling skill for a text hook (post or ad copy) rather than a video's first seconds.
+- `storyboard-from-dna` — once the hook and payoff hold up, boards the graded script shot by shot.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

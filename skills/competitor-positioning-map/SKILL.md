@@ -86,6 +86,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the ungrounded procedure above. You still get a real map from the user's competitors and their own sense of position; connect Jinn later to anchor the brand's dot and white-space call in its live DNA.
 
+## What just became possible
+
+You can now see, in one pass, where a brand really sits against its named rivals — a 2x2 map, the crowded corners, and the one uncontested position worth planting a flag in. Give it your competitors and how you think about your own edge, and it plots everyone and calls out the empty space. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Map three rivals and find the open space** — `Build a 2x2 positioning map for my brand against these competitors: Rival A is cheap and full-service/high-touch, Rival B is cheap and self-serve/automated, Rival C is premium and full-service/high-touch. My brand is premium and self-serve/automated.` → a labeled 2x2 grid, each competitor placed, and the one open quadrant named — the exact corner your brand already sits in.
+2. **Find the cluster and your distance from it** — `Where do I sit if these four rivals are all clustered in affordable/generalist: Rival W, Rival X, Rival Y, Rival Z? My brand targets professionals with deep, specialized tooling at premium pricing.` → the crowded cluster identified plainly, plus how far your brand sits from it.
+3. **Get help picking the axes first** — `What two axes would best separate these competitors: a fast/simple checkout tool, a deep/powerful enterprise suite, and a mid-market all-in-one platform?` → two candidate axis pairs, each with the reasoning for why it separates these particular players.
+4. **Connected: anchor the map in your real DNA** *(requires a Jinn token)* — `Plot my brand's position on a 2x2 against these named competitors, using my brand's real positioning wedge and enemy-framing: Rival A, Rival B, Rival C.` → the same map, but the brand's dot and the white-space call anchored in its live wedge and brandEnemy instead of a guess.
+
+## Compounds with
+
+- `competitor-profiler` — once a rival's dot is placed, get one deep sourced profile on the competitor that matters most.
+- `battlecard-generator` — turn the map's chosen white-space position into a sales-ready contrast card.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

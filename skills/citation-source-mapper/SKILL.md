@@ -147,6 +147,22 @@ Read `data.code` on the JSON-RPC error and act — the map still ships ungrounde
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the map still ships in full against category questions you design by hand; note it's ungrounded, and that presence checks used a guessed brand name if no official name was confirmed.
 
+## What just became possible
+
+You can now find out, for any category, exactly which domains AI assistants actually lean on to answer questions about it — classified by type, checked for whether a brand already has a footprint there, and ranked into a plan by how directly that gap can be closed. It runs the moment it's installed, against whichever assistants you can reach, with no account needed.
+
+## Try this now
+
+1. **Map a category and check one brand's presence** — `Map which sources AI assistants cite when they answer questions about project management software for construction companies, and check whether my company, Acme Builds, already has a presence there.` → a domain-by-domain table with type, times cited, brand presence, and a leverage-ranked plan.
+2. **Scope it to the assistants you can actually reach** — `I can only check ChatGPT and Perplexity, build a citation source map for accounting software for solo freelancers using just those two.` → the same map, with an honest-limits section naming exactly which assistants were queried.
+3. **Split claim-now sources from earn-only ones** — `Map citation sources for wildlife photography gear reviews, and tell me which ones I could actually claim a listing on versus which I'd have to earn my way into.` → a plan with sources marked high-leverage (claimable today) separated from earn-only community sources.
+
+## Compounds with
+
+- `ai-visibility-snapshot` — asks whether the brand itself gets mentioned; this asks which sources the answers are built from.
+- `community-value-planner` — hand off every earn-only source this map finds; that skill plans how to actually earn standing there.
+- `citability-checker` — once you know which sources get cited, use this to check whether your own content is written in a shape that gets cited too.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*

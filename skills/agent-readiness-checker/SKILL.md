@@ -137,6 +137,23 @@ Read `data.code` on the JSON-RPC error and act — the checklist still runs in f
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the checklist runs in full against the published dimensions above; note the read is ungrounded in the delivery note, and connect Jinn to check llms.txt/schema content against the brand's real record instead of generic specificity heuristics.
 
+## What just became possible
+
+You can now check whether a site that's already reachable to AI crawlers actually makes sense once they're inside it — is the llms.txt content specific or generic filler, does structured data show up past the homepage, is the brand's identity consistent across every machine-readable surface. Give it a domain and a few key pages and get a five-dimension scorecard with fixes ranked by leverage. Runs standalone with no account.
+
+## Try this now
+
+1. **Score llms.txt content quality, not just presence** — `Is this llms.txt differentiation line any good, or generic filler? "Acme provides innovative solutions for your business needs, helping companies achieve their goals."` → a NEEDS WORK verdict flagging it as content-free filler, with a concrete rewrite direction.
+2. **Check structured-data coverage across a page set** — `Score schema.org coverage for these pages: the homepage has an Organization JSON-LD block, the pricing page has none, the blog post has an Article block with no publish date.` → a per-page-type pass/partial/missing scorecard plus the highest-leverage fix.
+3. **Catch an identity-consistency gap** — `Is this consistent: the llms.txt heading says "Acme Inc.", the homepage Organization block says "Acme", and the visible site branding says "Acme Co."?` → a flag naming the three-way name drift as a disambiguation risk an agent will hit.
+4. **Connected: score against the brand's real record** *(requires a Jinn token)* — `Score our llms.txt content against what our brand's record actually says, not just whether it sounds specific.` → the same five-dimension scorecard, but the content-quality read compares the file against the brand's real story instead of a generic specificity heuristic.
+
+## Compounds with
+
+- `agent-access-checker` — that answers whether the door is open; this answers whether what's behind it makes sense once an agent is in.
+- `llms-txt-generator` — the file this skill scores for content quality is the one that skill writes.
+- `aeo-formatter` — this flags site-wide extraction-readiness patterns; that rewrites one page to fix them.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structured-data guidance is public schema.org/JSON-LD practice; MCP discovery is cited as an in-progress, unratified proposal, not a standard. Structure inspired by open marketing-skill patterns. MIT.*

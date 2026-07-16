@@ -104,6 +104,22 @@ Read `data.code` on the JSON-RPC error and act:
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the atomize still runs. Deliver the ungrounded derivatives and note they're not brand-verified; connect Jinn to ground the voice and pillar mapping.
 
+## What just became possible
+
+You can now turn one long article, blog post, or video transcript into a set of platform-ready posts — a LinkedIn post, an X thread, a newsletter blurb, a carousel script — each pulled from a genuinely distinct angle in the source and checked so no invented number or quote sneaks in. Paste in a real piece and it splits it into only as many angles as it actually supports. It runs the moment it's installed — no account, no setup.
+
+## Try this now
+
+1. **Atomize a real essay into platform posts** — `Atomize this essay into a LinkedIn post, an X thread, and a newsletter blurb: [paste Paul Graham's "How to Do Great Work" essay text]` → distinct angles pulled straight from the essay (choosing what to work on, iterating instead of over-planning, original thinking), each shaped for its platform with every claim traceable back to the text.
+2. **Turn a video transcript into a thread** — `Here's a video transcript on our new pricing model — atomize it into an X thread and a short-form video script: [paste transcript]` → the thread and script built only from what the transcript actually says, with no invented statistic slipped in.
+3. **Check whether a source is thick enough to atomize** — `Is this note thick enough to atomize into multiple platform posts, or is it too thin: "We just crossed ten thousand users. Feels surreal looking back at where we started."` → an honest thin-source flag and a request for the fuller piece, instead of padded filler dressed up as extra angles.
+4. **Connected: map derivatives to real pillars** *(requires a Jinn token)* — `Atomize this article for LinkedIn and X, and tell me which of my brand's messaging pillars each derivative actually serves: [paste article]` → the same derivatives, each labeled with the specific pillar and tribe it maps to instead of a generic per-platform split.
+
+## Compounds with
+
+- `hook-and-lede-writer` — generate scored opening options for an atomized angle before locking the derivative's first line.
+- `content-rotation` — feed each derivative into the rotation's schedule instead of posting it ad hoc.
+
 ---
 
 *Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
