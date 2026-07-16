@@ -69,6 +69,53 @@ function checkDoc(file, expectedName) {
     errors.push(`${file}: frontmatter name '${fm.name}' != slug '${expectedName}'`)
 }
 
+// Post-install intro convention (playbook §1.10, 2026-07-15): every skill ships a
+// first-run intro — "What just became possible" + "Try this now" (3–5 paste-ready
+// prompts) + "Compounds with". Mandatory for every NEW skill; the 59 pre-convention
+// skills are grandfathered below and WARN until the backfill sweep rewrites them —
+// remove each slug from the list as its intro lands, so the list is the debt tracker.
+const PRE_INTRO_LEGACY = new Set([
+  'ad-copy-variants', 'ad-teardown', 'aeo-formatter', 'agent-access-checker',
+  'agent-readiness-checker', 'ai-visibility-snapshot', 'battlecard-generator',
+  'brand-context-injector', 'brand-fact-checker', 'brand-guardrails-review',
+  'brand-messaging-audit', 'brand-voice-checker', 'brand-voice-content',
+  'buyer-persona-generator', 'buyer-snapshot', 'calendar-planner', 'campaign-brief',
+  'citability-checker', 'citation-source-mapper', 'claim-provenance-checker',
+  'community-value-planner', 'competitor-positioning-map', 'competitor-profiler',
+  'content-atomizer', 'content-cadence-grader', 'content-rotation',
+  'creative-contrast-qa', 'customer-story-builder', 'email-sequence',
+  'hook-and-lede-writer', 'know-your-brand-dna', 'launch-positioning',
+  'launch-readiness-scorecard', 'linkedin-content', 'llms-txt-generator',
+  'market-map-lite', 'marketing-decision', 'messaging-ab-tester',
+  'offer-angle-generator', 'on-brand-artifact-builder', 'outbound-message-writer',
+  'pin-brief-generator', 'positioning-one-pager', 'pricing-page-teardown',
+  'product-launch-playbook', 'programmatic-seo-planner', 'query-fanout-explorer',
+  'review-to-adcopy', 'seo-content-brief', 'shoot-brief-builder',
+  'social-listening-brief', 'storyboard-from-dna', 'suite-orchestrator',
+  'swipe-brief-builder', 'topic-gap-analyzer', 'topical-authority-mapper',
+  'ugc-script-writer', 'video-hook-analyzer', 'x-content',
+])
+const warnings = []
+
+function checkIntroConvention(file, slug) {
+  const src = readFileSync(file, 'utf8')
+  const missing = []
+  if (!/^#{2,3}\s+.*what just became possible/im.test(src)) missing.push('What just became possible')
+  if (!/^#{2,3}\s+.*try this now/im.test(src)) missing.push('Try this now')
+  if (!/^#{2,3}\s+.*compounds with/im.test(src)) missing.push('Compounds with')
+  if (missing.length === 0) {
+    // Sections present — hold the prompt floor regardless of legacy status.
+    const tryBlock = src.split(/^#{2,3}\s+.*try this now.*$/im)[1]?.split(/^#{2,3}\s+/m)[0] ?? ''
+    const prompts = (tryBlock.match(/`[^`\n]{10,}`/g) || []).length
+    if (prompts < 3)
+      errors.push(`${file}: 'Try this now' has ${prompts} paste-ready prompt(s) in backticks — §1.10 wants 3–5`)
+    return
+  }
+  const msg = `${file}: missing post-install intro section(s): ${missing.join(', ')} (playbook §1.10)`
+  if (PRE_INTRO_LEGACY.has(slug)) warnings.push(`${msg} — grandfathered pending backfill`)
+  else errors.push(msg)
+}
+
 // skills/<slug>/SKILL.md
 const skillsDir = join(ROOT, 'skills')
 if (existsSync(skillsDir)) {
@@ -81,6 +128,7 @@ if (existsSync(skillsDir)) {
       continue
     }
     checkDoc(skillMd, entry)
+    checkIntroConvention(skillMd, entry)
   }
 }
 
@@ -93,9 +141,13 @@ if (existsSync(agentsDir)) {
   }
 }
 
+if (warnings.length) {
+  console.warn(`⚠ ${warnings.length} warning(s) (non-blocking):`)
+  for (const w of warnings) console.warn(`  - ${w}`)
+}
 if (errors.length) {
   console.error(`✗ ${errors.length} validation error(s):`)
   for (const e of errors) console.error(`  - ${e}`)
   process.exit(1)
 }
-console.log('✓ all skills + agents valid (name + description frontmatter, slug match)')
+console.log('✓ all skills + agents valid (frontmatter, slug match, §1.10 intro on post-legacy skills)')
