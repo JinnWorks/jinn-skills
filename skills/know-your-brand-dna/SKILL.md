@@ -5,9 +5,11 @@ description: Read a brand's Jinn Brand DNA back to you — identity, voice, posi
 
 # Know Your Brand DNA
 
-This skill does two jobs: it's the **connection smoke test** for Jinn's MCP gateway, and it's the **orientation** for every other skill in this repo — it shows you exactly what Brand DNA the grounded skills will read.
+This skill does two jobs: it's the **connection smoke test** for Jinn's MCP gateway, and it's the **orientation** for every other skill in this repo — it shows you exactly what Brand DNA the connected skills will read.
 
-Unlike the other skills, this one has no useful ungrounded mode: with no Jinn connection there is no DNA to read. If you're not connected yet, follow the README's "Connect to Jinn" section first.
+Unlike the other skills, this one reads a brand's live DNA record, so it needs a Jinn connection — without one there is nothing to read. If you're not connected yet, follow the README's "Connect to Jinn" section first.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## Procedure
 
@@ -72,7 +74,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-Once you're connected to Jinn, you can read a brand's real Brand DNA back in plain language — who it is, how it wins, how it should sound, and who it's for — and confirm in the same step that your token actually works. It's the orientation for every other skill in this repo: it shows you the exact fields the grounded skills will read, so nothing downstream is a guess. This one has no useful ungrounded mode — with no connection there's no DNA to read, so every prompt below needs a live Jinn token (a free demo token is enough; see the README's "Connect to Jinn").
+Once you're connected to Jinn, you can read a brand's real Brand DNA back in plain language — who it is, how it wins, how it should sound, and who it's for — and confirm in the same step that your token actually works. It's the orientation for every other skill in this repo: it shows you the exact fields the connected skills will read, so nothing downstream is a guess. This one reads a brand's live DNA record, so it needs a Jinn connection — without one there is nothing to read, and every prompt below needs a live token (a free demo token is enough; see the README's "Connect to Jinn").
 
 ## Try this now
 

@@ -25,7 +25,7 @@ I weight the fields that fix the competitive context:
 - **`archetype`** — the credibility register. The archetype tells me whether the position should be argued (Sage), declared (Ruler), or provoked (Outlaw), which shapes the one-liner's stance.
 - **`messagingPillars`** — the proof layer. Each pillar becomes a candidate reason-to-believe that makes the position stick rather than sound like a claim.
 
-Grounded, the position is *this brand's* — built on its real wedge and its real enemy, not a plausible-sounding invention.
+Connected, the position is *this brand's* — built on its real wedge and its real enemy.
 
 ## Without a connection
 

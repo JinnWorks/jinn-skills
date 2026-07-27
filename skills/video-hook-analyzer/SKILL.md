@@ -9,7 +9,9 @@ Deliverable: **a hook-type read plus a retention-risk flag list** for one video'
 
 This skill **grades an existing opening**; it doesn't write one. If there's no script yet, `ugc-script-writer` writes it first. If the ask is a text hook for a post or ad rather than a video's first seconds, `hook-and-lede-writer` is the tool. If the source is a finished long-form asset being cut into platform derivatives, that's `content-atomizer`.
 
-Works standalone against a published hook-and-retention-risk framework. Connected to Jinn, the hook's promise gets checked against the brand's real messaging pillars and voice instead of generic taste — that's the delta.
+Works standalone against a published hook-and-retention-risk framework — a complete graded read on its own. Connected to Jinn, the hook's promise also gets checked against the brand's real messaging pillars and voice, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -34,7 +36,7 @@ On-voice check:  [only if connected — see below]
 Clean:  <what's already working — say so, don't only flag problems>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -89,7 +91,7 @@ Weak loop only applies on loop-eligible short-form vertical platforms. On YouTub
 
 ## If a Jinn MCP connection is present
 
-Don't guess whether the opening's promise fits what this brand actually stands for — read it.
+Read whether the opening's promise fits what this brand actually stands for, straight from its own record.
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`). Match the user's named brand, or use the one in scope.
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -102,7 +104,7 @@ Don't guess whether the opening's promise fits what this brand actually stands f
 | `bannedWords[]` / `safeWords[]` | Scan any spoken or on-screen copy in the opening the same way `brand-voice-checker` does — a banned word in the hook is a harder flag than a soft register mismatch. |
 | `archetype` | Whose story the hook tells and how — colors whether mid-action-start or claim-first is the more natural reach for this brand. |
 
-Add the on-voice line to the deliverable under the hook-type read, and state which state was reached ("checked against `<brandName>`'s real pillars and voice" vs. "scored against the published framework only") so the user can see the grounding did work.
+Add the on-voice line to the deliverable under the hook-type read, and state which state was reached ("checked against `<brandName>`'s real pillars and voice" vs. "scored against the published framework only") so the user can see which check was run.
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or platform-fit data in the projection. Don't reference it or ask for it.
 

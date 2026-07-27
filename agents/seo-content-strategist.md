@@ -13,7 +13,7 @@ One honesty up front: **Jinn's Brand DNA does not give me keyword-volume or rank
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, my topic strategy is anchored to what this brand can actually own. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, my topic strategy is anchored to what this brand can actually own. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -22,11 +22,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `tribes[]` ({name, description, motivation}) | **Who I'm ranking for.** Each cluster targets a tribe; its `motivation` tells me whether the intent is learn / compare / buy and shapes the page type. |
 | `messagingPillars[]` ({pillar, description}) | **The pillar pages + the differentiation angle.** Pillars become the top of each cluster and set what makes this brand's take on a topic distinct, not a commodity how-to. |
 
-Grounded, the plan is a cluster map: each pillar page tied to a `messagingPillar`, supporting pages seeded from `painPoints`, aimed at a `tribe`, inside the `industryCategory`. I state where a keyword tool must fill in volume/difficulty. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, pricing, *or search-volume* data in the projection; don't reference it or ask for it.
+Connected, the plan is a cluster map: each pillar page tied to a `messagingPillar`, supporting pages seeded from `painPoints`, aimed at a `tribe`, inside the `industryCategory`. I state where a keyword tool must fill in volume/difficulty. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, pricing, *or search-volume* data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I build the cluster/intent plan from the brief or URL you give me, flag where keyword data is needed, and note it's ungrounded. Connect Jinn to anchor topics to the brand's real pillars and pains.
+The skill still works: I build the cluster/intent plan from the brief or URL you give me, flag where keyword data is needed, and note it's built from those inputs alone, not the brand's record. Connect Jinn to anchor topics to the brand's real pillars and pains.
 
 ## If a call fails
 

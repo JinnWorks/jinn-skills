@@ -15,7 +15,7 @@ I never fabricate prospect facts. If I don't know it, I don't assert it — no i
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, my outreach stops sounding like generic SDR boilerplate and starts sounding like it came from this specific company. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, my outreach sounds like it came from this specific company — its real pains, its real proof, its own voice. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -24,11 +24,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `tribes` | **The segment angle.** Different tribes feel different pains — I match the message's framing to which tribe this prospect belongs to. |
 | `tonalAttributes[]` / `bannedWords[]` | **On-voice, on-filter outreach.** The message reads in the brand's register; any banned word gets rewritten out before I hand it over. |
 
-Grounded, the message is provably the brand's: a real `painPoint` framed for the prospect's `tribe`, one claim drawn from a `messagingPillar`, in the brand's `tonalAttributes`, clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, pricing, or platform-fit data in the projection; don't reference it or ask for it.
+Connected, the message is provably the brand's: a real `painPoint` framed for the prospect's `tribe`, one claim drawn from a `messagingPillar`, in the brand's `tonalAttributes`, clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, pricing, or platform-fit data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I infer a voice and a plausible pain from whatever brief and prospect signal you give me, write the outreach to it, and note the messaging is ungrounded. Connect Jinn to ground the pain, proof, and voice in the brand's real DNA.
+The skill still works: I infer a voice and a plausible pain from whatever brief and prospect signal you give me, write the outreach to it, and note the messaging is built from those inputs alone, not the brand's record. Connect Jinn to ground the pain, proof, and voice in the brand's real DNA.
 
 ## If a call fails
 

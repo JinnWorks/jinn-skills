@@ -25,7 +25,7 @@ I weight the fields that carry the sound:
 - **`bannedWords`** — the anti-voice. I use these as sharp "we never say" contrasts, which often teach the voice faster than the positive examples.
 - **`slangPolicy`** — the informality dial. It sets how far tone can slide toward casual in the loosest contexts, so I calibrate the warm end of the range against a real rule, not a guess.
 
-Grounded, the voice guide is *this brand's* character — its real tonal attributes made usable, not a generic tone-of-voice template.
+Connected, the voice guide is *this brand's* character — its real tonal attributes made usable.
 
 ## Without a connection
 

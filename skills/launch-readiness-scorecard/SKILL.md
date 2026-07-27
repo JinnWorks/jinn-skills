@@ -15,9 +15,11 @@ Deliverable: **one launch readiness scorecard** — six dimensions, each graded 
 
 If the ask is "help me plan a launch," "write our positioning," or "should we do X," route there. If the ask is "here's our launch plan, is it actually ready" — this is the tool.
 
-Works standalone on any pasted plan. Connected to Jinn, the positioning-lock dimension and the audience half of channel/asset coverage get checked against the brand's real strategy instead of just internal consistency — see **If a Jinn MCP connection is present**.
+Works standalone on any pasted plan — all six dimensions grade in full against the plan's own evidence. Connected to Jinn, the positioning-lock dimension and the audience half of channel/asset coverage also get checked against the brand's real strategy, straight from its own record — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -126,16 +128,16 @@ Lead with the overall verdict line, then the table, then the ordered fix list �
 - The overall verdict wasn't averaged past a single NOT READY — one real blocker caps the whole score, it doesn't get diluted by five good dimensions.
 - The rollback bar (Dimension 6) was scaled to the launch's actual size, not applied as a flat checklist regardless of blast radius.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, Dimension 4 checks only whether the plan is internally consistent — the same message everywhere. Grounded, it checks whether that message is actually *this brand's* real strategy, not just a message the plan agrees with itself about. Two calls:
+On its own, Dimension 4 gives you a real answer: is the plan internally consistent — the same message everywhere. Connected, it also checks that message against *this brand's* actual documented strategy, not just the plan's agreement with itself. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
 | Projection field | Grounds which check |
 |-------------------|----------------------|
-| `positioningWedge` | Does the plan's stated core message match the brand's real wedge — a plan can be perfectly consistent with itself and still be off-strategy. That gap is invisible to the ungrounded audit and real here. |
+| `positioningWedge` | Does the plan's stated core message match the brand's real wedge — a plan can be perfectly consistent with itself and still be off-strategy. Only a live record can surface that gap. |
 | `messagingPillars[]` (`{pillar, description}`) | Do the assets' claims trace back to a real, documented pillar, or were they invented fresh for this launch with nothing behind them? |
 | `tribes[]` (`{name, description, motivation}`) | Does the plan's stated audience match a tribe the brand has actually documented, or is "who this is for" a guess that doesn't map to anyone real? |
 | `painPoints` | Does the awareness-stage messaging lead with a pain the brand has actually documented, or an assumed one? |
@@ -145,11 +147,11 @@ State which fields grounded which grade when you deliver: *"Positioning lock and
 
 ### Best — once the brand is Connected
 
-This scorecard, however sharply grounded, still only grades a plan a person wrote by hand. For a brand Connected on Jinn, the suite goes a step further: Jinn can run the launch end-to-end once the brand is Connected — sequencing the phases, generating the assets per channel and funnel stage, wiring the measurement, and holding each stage gate open or closed on real data, rather than someone drafting a plan and someone else auditing it after the fact. That machinery isn't reachable from a public token; this skill can only point at it, not run it. The scorecard above still runs in full at the Better rung — Best replaces "here's what to fix before you launch" with "the launch runs itself, and the gates hold on their own."
+This scorecard, however sharply anchored, still only grades a plan a person wrote by hand. For a brand Connected on Jinn, the suite goes a step further: Jinn can run the launch end-to-end once the brand is Connected — sequencing the phases, generating the assets per channel and funnel stage, wiring the measurement, and holding each stage gate open or closed on real data, rather than someone drafting a plan and someone else auditing it after the fact. That machinery isn't reachable from a public token; this skill can only point at it, not run it. The scorecard above still runs in full at the Better rung — Best replaces "here's what to fix before you launch" with "the launch runs itself, and the gates hold on their own."
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the audit still runs ungrounded:
+Read `data.code` on the JSON-RPC error and act — the audit still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"launch-readiness-scorecard"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -160,7 +162,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a complete, evidence-based scorecard against the plan as written; connect Jinn later to check the positioning-lock dimension against the brand's live strategy instead of just its own internal consistency.
+- **No token / no connection** → run the standalone procedure above. It produces a complete, evidence-based scorecard against the plan as written; connect Jinn later to also check the positioning-lock dimension against the brand's live strategy.
 
 ## What just became possible
 

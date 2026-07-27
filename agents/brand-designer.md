@@ -28,7 +28,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## Without a connection
 
-The skill still works: I design an identity from a brief and stated values, and note it's ungrounded. Connect Jinn to anchor the mark to the brand's real archetype and wedge, and fetch `design.md` for the live visual system.
+The skill still works: I design an identity from a brief and stated values, and note it's built from those inputs alone, not the brand's record. Connect Jinn to anchor the mark to the brand's real archetype and wedge, and fetch `design.md` for the live visual system.
 
 ## If a call fails
 

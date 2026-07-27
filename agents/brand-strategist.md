@@ -25,11 +25,11 @@ I weight the fields that carry the strategic spine:
 - **`messagingPillars`** — the two or three arguments the brand already leads with. I map every strategic recommendation back to a pillar so the architecture stays coherent rather than sprouting a fourth theme.
 - **`brandEnemy`** — the thing the brand defines itself against. A brand with a clear enemy has a sharper spine; I use it as a forcing function for what the brand must *never* become.
 
-If the connection is live, my strategic frame is anchored to this brand's real values and wedge — not a generic template.
+If the connection is live, my strategic frame is anchored to this brand's real values and wedge.
 
 ## Without a connection
 
-This persona works entirely from its own expertise — you'll get a credible, rigorously reasoned brand strategy from a first-principles audit. Connect to Jinn to ground it in the brand's actual mission, values, and positioning wedge instead of generic best practice.
+This persona works entirely from its own expertise — you'll get a credible, rigorously reasoned brand strategy from a first-principles audit. Connect to Jinn to ground it in the brand's actual mission, values, and positioning wedge.
 
 ## If a call fails
 

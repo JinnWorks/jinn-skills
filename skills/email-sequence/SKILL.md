@@ -7,9 +7,11 @@ description: Draft a 4-email lifecycle sequence — welcome/nurture or launch �
 
 Deliverable: a **4-email lifecycle sequence** (welcome/nurture or launch — ask which). For each email: **subject line + preview text + body outline** (the beats, the one CTA, the send trigger). Not four disconnected emails — an arc, where each email earns the next.
 
-Works standalone. Connected to Jinn, email 1 tells the brand's actual founding story, each email carries a real messaging pillar, and the copy respects the brand's voice rules.
+Works standalone — a full arc where each email earns the next. Connected to Jinn, email 1 also tells the brand's actual founding story, each email carries a real messaging pillar, and the copy respects the brand's voice rules — all straight from its own record.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Pick the sequence type and the arc
 
@@ -43,9 +45,9 @@ For all four, produce:
 
 Deliver as four labeled blocks. That's a sequence a team could load into their ESP.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Read the brand instead of inventing its story. Two calls:
+Read the brand's own story straight off the record. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -54,14 +56,14 @@ Field → decision map:
 
 | Projection field | Drives |
 |------------------|--------|
-| `foundingStory` | **Email 1's narrative** — the welcome/tease opens on the brand's real origin and reason to exist, not a generic "welcome aboard." This is the single biggest grounded upgrade. |
+| `foundingStory` | **Email 1's narrative** — the welcome/tease opens on the brand's real origin and reason to exist, not a generic "welcome aboard." This is the single biggest thing connecting adds. |
 | `messagingPillars[]` ({pillar, description}) | **One pillar per email** — assign a distinct pillar to emails 1–4 so the sequence walks the reader through the brand's real narrative in order. |
 | `painPoints` | **The problem each email addresses** — anchor each email's hook to a real pain, sharpest one where the arc needs the most tension (proof / objection email). |
 | `tribes[]` ({name, description, motivation}) | **Segmentation + who it's for** — if multiple tribes, note which the sequence targets (or where it should fork); let the chosen tribe's `motivation` shape the CTAs. |
 | `tonalAttributes[]` | **Copy constraints — tone** — subject lines and body written in the brand's exact register. |
 | `bannedWords[]` | **Copy constraints — hard filter** — no subject, preview, or body beat may use one. Rewrite any that do. |
 
-Grounded, the sequence changes substance: email 1 retells the brand's `foundingStory`, emails 1–4 each advance a different `messagingPillar` against a real `painPoint`, aimed at a named `tribe`, in the brand's `tonalAttributes` and clear of `bannedWords`. Say which pillar and pain each email carries when you deliver.
+Connected, the sequence changes substance: email 1 retells the brand's `foundingStory`, emails 1–4 each advance a different `messagingPillar` against a real `painPoint`, aimed at a named `tribe`, in the brand's `tonalAttributes` and clear of `bannedWords`. Say which pillar and pain each email carries when you deliver.
 
 Only the fields above exist on a public token. Competitor intel, differentiation, platform-fit, and pricing are **not** in the projection — don't reference or request them.
 
@@ -78,7 +80,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 arc and note the output is ungrounded; connect Jinn to ground it in a real brand.
+- **No token / no connection** → the full four-email arc still ships from the step-1 inputs; note it isn't brand-verified, and connect Jinn to pull the founding story, pillars, and voice from a real brand.
 
 ## What just became possible
 

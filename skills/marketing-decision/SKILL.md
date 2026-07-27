@@ -7,11 +7,13 @@ description: Make a marketing call without the spiral — triage the decision, a
 
 Deliverable: **a decided call, written down** — decide / decide-smaller / wait / don't-decide, with a revisit date and the record filed. This skill exists to end a specific failure mode: a reversible marketing call getting weeks of meetings it never needed. It caps the questions on purpose. The cap is the feature.
 
-Works standalone from the question bank below. Connected to Jinn, the brand-fit and customer-impact questions are answered against the brand's real DNA and its own past decisions instead of your recollection.
+Works standalone from the question bank below. Connected to Jinn, the brand-fit and customer-impact questions are also answered against the brand's real DNA and its own past decisions — straight from the record, nothing to recall.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The decision record (a small local file this skill maintains)
 
-Every call gets logged, so "what happened last time" is a lookup, not a memory. First run with no file: create `.jinn/marketing-decisions.md` under the working directory and say you made it. Grounded to a brand, namespace it: `.jinn/marketing-decisions.<slug>.md`. Append newest at the top:
+Every call gets logged, so "what happened last time" is a lookup, not a memory. First run with no file: create `.jinn/marketing-decisions.md` under the working directory and say you made it. Connected to a brand, namespace it: `.jinn/marketing-decisions.<slug>.md`. Append newest at the top:
 
 ```markdown
 ## 2026-07-07 — Move pricing to 3 tiers
@@ -25,7 +27,7 @@ Every call gets logged, so "what happened last time" is a lookup, not a memory. 
   not just clicks; if it's flat, revert.
 ```
 
-## Procedure (works with no connection)
+## Procedure (standalone — no Jinn connection needed)
 
 Run these four steps in order. The order matters — instinct is captured *before* the questions so the questions can't quietly launder it.
 
@@ -107,14 +109,14 @@ Then set the **revisit date** and **what should be true by then** — the concre
 
 Hand back: the call, the revisit date, and the one line of what-should-be-true. That's the deliverable — short on purpose.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the brand-fit and customer questions run on the user's memory. Grounded, they run on the brand's real DNA — and on its own decision history. Two calls:
+On its own, the brand-fit and customer questions run on what the user already knows. Connected, they also run on the brand's real DNA — and on its own decision history. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then answer the triage questions against the projection instead of guessing. Field → question map:
+Then answer the triage questions against the projection. Field → question map:
 
 | Projection field | Answers |
 |------------------|---------|
@@ -127,13 +129,13 @@ Then answer the triage questions against the projection instead of guessing. Fie
 
 **Prior decisions inform "what happened last time."** Before you finalize, read the brand's own `.jinn/marketing-decisions.<slug>.md` — if a near-version of this call was made before, its outcome is evidence for Q18–19 ("first signal," "anyone done this?"). Note when a past record shaped the call.
 
-**State which fields you used** when you deliver — the wedge you judged against, the tribe you named, the prior decision you weighed — so the grounding is visible.
+**State which fields you used** when you deliver — the wedge you judged against, the tribe you named, the prior decision you weighed — so the connection is visible.
 
 Only the fields above exist on a public token. There is no competitor, ROI, pricing, or analytics data in the projection — the money and timing questions stay answered from the user's own numbers, never from hidden gateway fields.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the decision workflow still runs ungrounded:
+Read `data.code` on the JSON-RPC error and act — the decision workflow still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"marketing-decision"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -144,7 +146,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill works generically. Run the triage from the bank above and note the brand-fit answers are from the user's recollection, not verified DNA; connect Jinn to ground them.
+- **No token / no connection** → the triage runs in full from the bank above and still lands a decided call; note the brand-fit answers came from the user's own knowledge rather than a verified DNA record, and connect Jinn to answer them from the record instead.
 
 ## What just became possible
 

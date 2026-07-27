@@ -15,9 +15,11 @@ Deliverable: **one structured competitor profile** — eight dimensions, each wi
 
 If the ask names several rivals for a landscape view, or wants a sales-ready card, route there instead. If the ask is "tell me everything sourceable about this one competitor," this is the tool.
 
-Works standalone on any competitor URL or name. Connected to Jinn, the finished profile gets read against the brand's own DNA instead of sitting as a neutral dossier — see **If a Jinn MCP connection is present**.
+Works standalone on any competitor URL or name — a complete, sourced dossier either way. Connected to Jinn, that same profile also gets read against the brand's own DNA — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -87,9 +89,9 @@ Lead with the synthesis line, then the full table. Anyone reading only the top l
 - No Inference is presented as Sourced; the reasoning behind every Inference is stated in the same line.
 - The synthesis line is drawn from the grid, not a template sentence that would fit any competitor.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the profile is a neutral dossier — real, sourced, useful on its own. Grounded, the same profile gets read against where *this* brand actually stands, so it stops being generic competitive research and becomes "here's this competitor, relative to us." Two calls:
+On its own, the profile is a complete, sourced dossier. Connected, the same profile also gets read against where *this* brand actually stands — it becomes "here's this competitor, relative to us." Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -107,7 +109,7 @@ Add one closing section to the profile: *"Against `<brandName>`'s live Brand DNA
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the profile still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the profile still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"competitor-profiler"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -118,7 +120,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced competitor profile; connect Jinn later to read it against the brand's own claimed wedge.
+- **No token / no connection** → run the standalone procedure above. It produces a real, fully sourced competitor profile; connect Jinn later to read it against the brand's own claimed wedge.
 
 ## What just became possible
 

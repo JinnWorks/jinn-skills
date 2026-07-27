@@ -11,7 +11,9 @@ Deliverable: **one sales battlecard** for a named competitor — a rep reads it 
 
 Works standalone. Connected to Jinn, our claims and the enemy-narrative come from the brand's real DNA — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Gather the inputs
 
@@ -67,9 +69,9 @@ Pick the dimensions that decide these deals. For each, one honest line on us, on
 - The comparison concedes at least one row honestly.
 - The framing questions favor us without naming the competitor.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Grounding sharpens **our half only** — claims, narrative, voice. Two calls:
+Connecting sharpens **our half only** — claims, narrative, voice. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -83,13 +85,13 @@ Grounding sharpens **our half only** — claims, narrative, voice. Two calls:
 | `tonalAttributes[]` | **Voice of the responses** — objection responses and summary stay on our brand's register, not generic sales-speak. |
 | `bannedWords[]` | **Hard filter** — no response or summary line uses one. |
 
-Grounded, the delta is concrete: the win bucket leads with the real `positioningWedge`, each row's proof is a `messagingPillar`, framing questions plant our `painPoints` as criteria, the reframe carries the `brandEnemy` narrative, and every response is on-voice and `bannedWords`-clean. **State which fields you used** when you deliver.
+Connected, the delta is concrete: the win bucket leads with the real `positioningWedge`, each row's proof is a `messagingPillar`, framing questions plant our `painPoints` as criteria, the reframe carries the `brandEnemy` narrative, and every response is on-voice and `bannedWords`-clean. **State which fields you used** when you deliver.
 
 Guardrail — the wall, restated: the projection has **no** competitor data. `brandEnemy` is our own framing of the category, **not** intel about the named rival — never treat it as a fact about them. Every competitor claim still comes only from the user's material and public research. If you find yourself wanting the gateway to tell you something about the competitor, stop — that data isn't there and never will be.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the card still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the card still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"battlecard-generator"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -100,7 +102,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill works generically as written above. Take our positioning from the user and note the card's own-side is ungrounded; connect Jinn to ground our claims and enemy-narrative in a real brand.
+- **No token / no connection** → the card still ships in full as written above. Take our positioning from the user and note that our half is built from what they supplied, not the brand's record; connect Jinn to anchor our claims and enemy-narrative in that record.
 
 ## What just became possible
 

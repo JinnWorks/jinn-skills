@@ -13,7 +13,7 @@ I write to a specific person, not "our audience." A post aimed at everyone lands
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, the voice stops being my best guess and becomes the brand's. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, the voice comes straight from the brand's own record — no discovery questions needed. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -21,11 +21,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `tribes[]` ({name, description, motivation}) | **Who each post talks to.** I aim each post at a named tribe and mine its `motivation` for the hook — the angle that stops *that* person's scroll. |
 | `slangPolicy` | **How casual I'm allowed to get.** This is the guardrail on platform-native looseness — it tells me whether slang, memes, and idiom are on the table or the brand stays composed. |
 
-Grounded, each post names the tribe it targets and stays inside the `slangPolicy`, in the brand's exact `tonalAttributes` — platform-native without going off-brand. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it. (Which platforms to prioritize is your call, not the DNA's — the projection carries no platform-fit data.)
+Connected, each post names the tribe it targets and stays inside the `slangPolicy`, in the brand's exact `tonalAttributes` — platform-native without going off-brand. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it. (Which platforms to prioritize is your call, not the DNA's — the projection carries no platform-fit data.)
 
 ## Without a connection
 
-The skill still works: I build a voice-and-audience profile from what you give me, write platform-native posts, and note they're ungrounded. Connect Jinn to ground the voice and tribes in a real brand.
+The skill still works: I build a voice-and-audience profile from what you give me, write platform-native posts, and note they're built from those inputs alone, not the brand's record. Connect Jinn to ground the voice and tribes in a real brand.
 
 ## If a call fails
 

@@ -7,9 +7,11 @@ description: Audit a site's robots.txt, llms.txt, and crawlability against the n
 
 Deliverable: **one access audit** for a given site — a per-crawler robots.txt verdict against the named AI bots, an llms.txt presence + structural check, a handful of crawlability checks (does a non-JS reader see the real content, do key pages resolve, is a sitemap declared, is there structured data), and ranked fixes for every finding. One tool, not two — competitors split the robots.txt check and the llms.txt check across separate pages; this is both, plus the crawlability layer, in one pass.
 
-Standalone, it runs the full check methodology against public robots.txt / llms.txt / HTML fetches. Connected to Jinn, findings ship as brand-aware fix **files** — a corrected robots.txt group, a starter llms.txt in the brand's own words, a structured-data snippet — instead of just a diagnosis.
+Standalone, it runs the full check methodology against public robots.txt / llms.txt / HTML fetches and hands back a complete, ranked fix list. Connected to Jinn, those findings also ship as brand-aware fix **files** — a corrected robots.txt group, a starter llms.txt in the brand's own words, a structured-data snippet.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -109,7 +111,7 @@ Fixes, ranked by leverage:
 - **No structured data** — an `Organization` JSON-LD block naming the brand, logo, and URL is the cheapest fix with the widest payoff.
 - **Order fixes by leverage, not by check order** — a blocked headline crawler (GPTBot, ClaudeBot) outranks a missing sitemap every time.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -124,7 +126,7 @@ Two calls, same sequence as every skill in this repo:
 | `bannedWords` | Hard filter on any drafted fix copy. |
 | `get_brand_kit` — logo URL, wordmark | The `logo` field in a generated `Organization` JSON-LD block — a real asset URL, not a placeholder. |
 
-That's the concrete delta: instead of a diagnosis plus generic "add an Organization block" advice, a connected run drops in the actual fix file — the robots.txt group correction, the llms.txt starter, the JSON-LD block — pre-filled from the brand's own record. **State which fields you used** when you deliver.
+That's the concrete delta: a standalone run names the finding and the fix to make; a connected run also drops in the actual fix file — the robots.txt group correction, the llms.txt starter, the JSON-LD block — pre-filled from the brand's own record. **State which fields you used** when you deliver.
 
 Guardrail: this skill audits and drafts fixes; it never claims to have deployed anything — the user (or their platform) still ships the file. The projection carries no competitor data, no crawl-log history, and no pricing — don't reference or request either.
 
@@ -132,7 +134,7 @@ Guardrail: this skill audits and drafts fixes; it never claims to have deployed 
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the audit still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the audit still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"agent-access-checker"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -143,7 +145,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the audit still runs in full against the public fetches. Note the fixes are generic (not brand-drafted) in the delivery note, and connect Jinn to get brand-aware fix files instead of a diagnosis.
+- **No token / no connection** → the audit still runs in full against the public fetches. Note in the delivery that the fixes are drafted from the audit alone, not the brand's record, and connect Jinn to get them pre-filled as brand-aware fix files.
 
 ## What just became possible
 
@@ -154,7 +156,7 @@ You can now find out, in one pass, whether ChatGPT, Claude, Perplexity, and the 
 1. **Audit a live site's crawler access** — `Run an agent access check on stripe.com — can GPTBot, ClaudeBot, and PerplexityBot actually reach it?` → a per-crawler ALLOWED/BLOCKED/UNKNOWN verdict, an llms.txt check, and fixes ranked by leverage.
 2. **Check one crawler you specifically care about** — `Does ChatGPT's live-answer crawler get blocked on wikipedia.org?` → a full audit led with the ChatGPT-User verdict specifically, then the rest of the roster.
 3. **Spot the wildcard-vs-named-group gotcha** — `My robots.txt has a wildcard group disallowing /private/ and a separate GPTBot group disallowing only /internal/ — is GPTBot blocked from /private/?` → an explanation that GPTBot's own named group means the wildcard rule never applies to it, so /private/ is wide open to it.
-4. **Connected: get brand-aware fix files** *(requires a Jinn token)* — `Once connected, don't just diagnose the missing llms.txt — draft it in our brand's own voice.` → the same audit, but the missing-file fix ships as an actual drafted llms.txt starter and JSON-LD block instead of generic advice.
+4. **Connected: get brand-aware fix files** *(requires a Jinn token)* — `Once connected, don't just diagnose the missing llms.txt — draft it in our brand's own voice.` → the same audit, but the missing-file fix also ships as an actual drafted llms.txt starter and JSON-LD block in the brand's own words.
 
 ## Compounds with
 

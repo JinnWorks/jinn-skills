@@ -7,7 +7,9 @@ description: Turn a video concept into a shot-by-shot storyboard carrying brand 
 
 Deliverable: a **shot-by-shot storyboard** — the document that turns "we need a video about X" into a numbered sequence a director, animator, editor, or AI-video render pipeline can follow without a clarifying call. It's a planning document, not a finished asset: no video comes out of this skill, a plan for one does.
 
-Works with no Jinn connection. Connected to a brand's Jinn Brand DNA, the mood, narrative stance, and (when the token carries it) the exact palette and type come from the brand's real system instead of your best guess — see **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, shootable board on its own. Connected to a brand's Jinn Brand DNA, the mood, narrative stance, and (when the token carries it) the exact palette and type come straight from the brand's own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -36,7 +38,7 @@ N | ...      | ...                           | ...                              
 Running duration check: <sum of shot durations> against <platform ceiling>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -78,13 +80,13 @@ Weight the opening shot deliberately: on any platform with a scroll or skip opti
 
 ## If a Jinn MCP connection is present
 
-Ground the board in the brand's real system instead of inferred taste. Climb to the highest rung your token supports.
+Ground the board in the brand's real system — the same board, now carrying the brand's own colors, type, and narrative stance. Climb to the highest rung your token supports.
 
 **Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for a slug, then `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })`, plus `get_brand_dna_public({ slug })`. On-screen text treatments and the end-card lockup use the DTCG color/type tokens **verbatim — never approximate a hex or font stack**. Logo/wordmark placement on any end card or lower-third follows the brand kit. Where `get_brand_design_md` documents motion, imagery, or type-on-video conventions, they **override generic styling taste**.
 
 **Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive the continuity spine's mood and a palette direction from the personality fields below, and **label every visual choice as an unverified inference** in the storyboard's notes.
 
-**Rung 3 — No token (generic-tasteful).** Use the ungrounded procedure above and add an explicit **"not brand-verified"** line to the storyboard.
+**Rung 3 — No token (generic-tasteful).** Use the standalone procedure above and add an explicit **"not brand-verified"** line to the storyboard.
 
 | Source · field | Drives |
 |-----------------|--------|
@@ -96,7 +98,7 @@ Ground the board in the brand's real system instead of inferred taste. Climb to 
 | `get_brand_dna_public` — `messagingPillars` | Which pillar the key shot has to visually carry. |
 | `get_brand_dna_public` — `tribes` / `painPoints` | Who's in frame (if the board includes people) and what problem the story shows them solving. |
 
-Grounded, the board stops guessing at "on-brand" mood and colors, and starts using the brand's real ones. State the rung you reached in the storyboard's notes so the user can see the grounding did work.
+Connected, the board's "on-brand" mood and colors are the brand's own, taken from its record rather than inferred for it. State the rung you reached in the storyboard's notes so the user can see which record fed it.
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or platform-fit data in the projection. Don't reference it or ask for it.
 
@@ -106,7 +108,7 @@ Once a brand is Connected, Jinn's video studio (in beta) renders from boards lik
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the storyboard still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the storyboard still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"storyboard-from-dna"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

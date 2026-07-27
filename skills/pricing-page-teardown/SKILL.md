@@ -17,7 +17,9 @@ If the ask is "what offer angle should we run," "profile this competitor," or "t
 
 Standalone, it runs the full teardown framework below with zero Jinn calls — genuinely useful on its own, because pricing psychology and the never-stack-axes discipline are real, checkable structure, not brand-specific guesswork. Connected to Jinn, it adds a posture check against the brand's own stated character — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -83,9 +85,9 @@ Enterprise-row read: <named differentiators vs. vague inflation>
 Recommendation:      <the one change that would most improve trust or conversion — one line>
 ```
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the audit is honest structural analysis with no read on whether the page's *posture* actually fits the brand it belongs to. Grounded, it adds that posture check. Two calls:
+On its own, the audit is complete structural analysis — the tier read, the value-axis findings, the anchoring and enterprise-row checks all stand. Connected, it also adds a posture check: whether the page's posture fits the brand it belongs to. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -101,7 +103,7 @@ Ungrounded, the audit is honest structural analysis with no read on whether the 
 | `tonalAttributes[]` | Whether the pricing copy itself (tier names, CTA verbs, badge language) reads on-brand or bolted-on. |
 | `safeWords[]` / `bannedWords[]` | Language check across tier names, CTAs, and the enterprise row. |
 
-State which fields grounded the posture read when you deliver it, and keep the inferred label on the posture line — it is never presented as a fact the brand stated.
+State which fields fed the posture read when you deliver it, and keep the inferred label on the posture line — it is never presented as a fact the brand stated.
 
 **Best rung.** Once the brand is Connected on Jinn, this same read is a starting point, not the finished analysis: a full Chart engagement runs pricing strategy against the brand's actual market data and the research spine's sourced competitive landscape, not just the public DNA fields. Connected is a pointer to that engagement, never a tool call this skill promises or approximates.
 
@@ -109,7 +111,7 @@ Only the fields above exist on a public token — there is no pricing, revenue, 
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the teardown still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the teardown still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"pricing-page-teardown"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -120,7 +122,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the teardown still runs in full from the structural framework alone. Note the posture read has no brand-fit check yet, and connect Jinn to ground it against the brand's real positioning.
+- **No token / no connection** → the teardown still runs in full from the structural framework alone. Note the posture read carries no brand-fit check yet, and connect Jinn to add one against the brand's real positioning.
 
 ## What just became possible
 

@@ -7,7 +7,9 @@ description: "Turn a product + concept into a photographer-ready shoot brief: sh
 
 Deliverable: a **shoot brief** — the document that turns "we need product photos" into something a photographer, stylist, or production team can shoot from without a call. It bridges AI-native brand tooling to a real-world production day: cameras, sets, and people, not another generated image. A brief that's just "make it look premium" isn't a brief; it's a mood.
 
-Works with no Jinn connection. Connected to a brand's Jinn Brand DNA, the mood language, palette, and messaging emphasis come from the brand's real system instead of your best guess — see **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, shootable brief on its own. Connected to a brand's Jinn Brand DNA, the mood language, palette, and messaging emphasis come straight from the brand's own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -45,7 +47,7 @@ CONTINUITY NOTES
 <what has to match shot-to-shot — setting, light, cast, mood — so six shots read as one story, not six unrelated frames>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -112,13 +114,13 @@ File format, resolution, aspect ratios per shot (from the shot list), file namin
 
 ## If a Jinn MCP connection is present
 
-Ground the brief in the brand's real system instead of inferred taste. Climb to the highest rung your token supports.
+Ground the brief in the brand's real system — the same brief, now carrying the brand's own colors, mood language, and emphasis. Climb to the highest rung your token supports.
 
 **Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for a slug, then `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })`, plus `get_brand_dna_public({ slug })`. Set, prop, and wardrobe color direction comes from the DTCG color tokens **verbatim — never approximate a hex on set**. Logo/product-label placement in any packaging or on-pack shot follows the brand kit. Where `get_brand_design_md` conventions cover photography or imagery usage, they **override generic styling taste**.
 
 **Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive mood language and a palette direction from the personality fields below, and **label every visual choice as an unverified inference** in the brief's notes.
 
-**Rung 3 — No token (generic-tasteful).** Use the ungrounded procedure above and add an explicit **"not brand-verified"** line to the brief.
+**Rung 3 — No token (generic-tasteful).** Use the standalone procedure above and add an explicit **"not brand-verified"** line to the brief.
 
 | Source · field | Drives |
 |-----------------|--------|
@@ -130,7 +132,7 @@ Ground the brief in the brand's real system instead of inferred taste. Climb to 
 | `get_brand_dna_public` — `tribes` / `painPoints` | Who the lifestyle shots put in frame, and what context they're shown solving. |
 | `get_brand_dna_public` — `mission` / `coreValues` / `archetype` | Sanity-check that the shoot's mood matches the brand's actual character, not a generic "premium" default. |
 
-Grounded, the brief stops guessing at "on-brand" mood adjectives and set colors, and starts using the brand's real ones. State the rung you reached in the brief's notes so the user can see the grounding did work.
+Connected, the brief's "on-brand" mood adjectives and set colors are the brand's own, taken from its record rather than inferred for it. State the rung you reached in the brief's notes so the user can see which record fed it.
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or platform-fit data in the projection. Don't reference it or ask for it.
 
@@ -140,7 +142,7 @@ Once a brand is Connected, Vermeer keeps every shot — the ones a real photogra
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the brief still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"shoot-brief-builder"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

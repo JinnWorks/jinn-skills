@@ -28,7 +28,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## Without a connection
 
-The skill still works: I design the pack from a brief and product context, and note it's ungrounded. Connect Jinn to anchor material and mood to the brand's real archetype and values, and fetch `design.md` for the visual system.
+The skill still works: I design the pack from a brief and product context, and note it's built from those inputs alone, not the brand's record. Connect Jinn to anchor material and mood to the brand's real archetype and values, and fetch `design.md` for the visual system.
 
 ## If a call fails
 

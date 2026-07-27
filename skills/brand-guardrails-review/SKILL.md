@@ -7,7 +7,9 @@ description: Red-line a piece of copy against a brand's voice and strategy — f
 
 Produces a **red-line review**: the user pastes copy, and you return a line-by-line markup of what breaks the brand's rules and how to fix each one. Three lenses, in order of severity — **banned words** (hard red-line), **tone** (off-voice), **strategy** (off-message). Every flag ships with a rewrite; a review that only says "this is wrong" makes more work, not less.
 
-Works with no Jinn connection using whatever voice rules the user gives you. Connected to a brand's Jinn Brand DNA, the red-lines are the brand's *actual* banned words, tonal attributes, and messaging pillars — not a generic style guide. See **If a Jinn MCP connection is present**.
+Works standalone against whatever voice rules the user gives you — a complete red-line review either way. Connected to a brand's Jinn Brand DNA, the red-lines are the brand's *actual* banned words, tonal attributes, and messaging pillars, straight from its own record. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -25,7 +27,7 @@ Per issue:
     Fix:     "<suggested rewrite that keeps the intent, on-brand>"
 ```
 
-## Procedure (works with no connection)
+## Procedure (standalone — no Jinn connection needed)
 
 If the user hasn't given you the brand's rules, ask for them (banned words, tone, key messages) or work from the strongest general standard you can, and say which you used. Then pass the copy through three lenses.
 
@@ -51,7 +53,7 @@ List what's already clean, too — the writer needs to know what to keep, not ju
 
 ## If a Jinn MCP connection is present
 
-Ground every lens in the brand's real rules instead of asking for them.
+Ground every lens in the brand's real rules — no need to ask for them.
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`). Match the user's named brand, or use the one in scope.
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -72,14 +74,14 @@ Now the red-lines are the brand's own — `bannedWords` are literally banned, th
 
 ## When a grounding call fails
 
-Read `data.code` on the JSON-RPC error and act — the review still runs in its ungrounded form against the user's stated rules:
+Read `data.code` on the JSON-RPC error and act — the review still runs in full against the user's stated rules:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-guardrails-review"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
 - **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-guardrails-review"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
-- **No token / no connection** → this skill works generically against whatever rules the user provides; connect to Jinn to red-line against the brand's real banned words, tone, and pillars.
+- **No token / no connection** → this skill still runs in full against whatever rules the user provides; connect to Jinn to red-line against the brand's own banned words, tone, and pillars as well.
 
 ## What just became possible
 

@@ -9,9 +9,11 @@ Deliverable: **a set of platform-shaped derivatives pulled from one long-form so
 
 This skill **transforms one existing asset**; it doesn't invent content from a blank page. If there's no source — just a topic, an announcement, or an idea — that's a different job: use `linkedin-content`, `x-content`, or `brand-voice-content` to write net-new posts instead.
 
-Standalone, the derivatives are an honest, generic split of the source's real angles. Connected to Jinn, they're written in the brand's actual voice, each mapped to a real messaging pillar instead of a generic split — that's the delta.
+Standalone, the derivatives are an honest split of the source's real angles, every claim traceable back to the text. Connected to Jinn, they're also written in the brand's actual voice and each mapped to a real messaging pillar — that comes straight from the brand's own record, no voice brief needed.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -63,14 +65,14 @@ Label every derivative with (a) which angle it came from and (b) the platform it
 
 **The video-link difference, stated plainly:** this skill accepts a video link the same way it accepts pasted text or an article URL — hand it a YouTube link and it works from the transcript. Most atomizer tools only take an article or plain text. If a transcript isn't available and can't be pasted in, fall back to a written source.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Don't guess the voice or the narrative — read them. Two calls:
+Read the voice and the narrative straight off the record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then replace the guessed shaping with the real one. Field → decision map:
+Then take the shaping straight from the record. Field → decision map:
 
 | Projection field | Drives |
 |-------------------|--------|
@@ -78,12 +80,12 @@ Then replace the guessed shaping with the real one. Field → decision map:
 | `safeWords[]` | Diction to reach for across all derivatives — pre-approved brand language. |
 | `bannedWords[]` | **Hard filter** on every derivative — a hit anywhere is a rewrite, not a shrug. |
 | `slangPolicy` | Register rule — how casual the short-form pieces (X, carousel, video script) are allowed to go. |
-| `formattingConstraints` | Literal formatting rules — emoji, hashtags, casing — override the generic per-platform defaults above. |
-| `messagingPillars[]` ({pillar, description}) | **Map each derivative to the pillar its angle actually serves** — not a generic split, a real one. State the mapping when you deliver. |
+| `formattingConstraints` | Literal formatting rules — emoji, hashtags, casing — override the general per-platform defaults above. |
+| `messagingPillars[]` ({pillar, description}) | **Map each derivative to the pillar its angle actually serves** — a real strategic mapping, not just a platform-shaped split. State the mapping when you deliver. |
 | `positioningWedge` | Sharpens which angle gets the hot-take-shaped derivatives (X, LinkedIn contrarian framing). |
-| `tribes[]` ({name, description, motivation}) | Who each derivative is aimed at — pick the platform's audience against a named tribe, not a generic reader. |
+| `tribes[]` ({name, description, motivation}) | Who each derivative is aimed at — pick the platform's audience against a named tribe rather than a general reader. |
 
-Grounded, the set changes shape: each derivative carries the brand's exact `tonalAttributes`, is provably free of `bannedWords`, and maps to a real `messagingPillar` and `tribe` rather than a mechanical per-platform split of the same generic angle. **State which pillar and tribe each derivative maps to** when you deliver, so the grounding is visible, not asserted.
+Connected, the set changes shape: on top of the per-platform craft, each derivative carries the brand's exact `tonalAttributes`, is provably free of `bannedWords`, and maps to a real `messagingPillar` and `tribe`. **State which pillar and tribe each derivative maps to** when you deliver, so the mapping is visible, not asserted.
 
 Only the fields above exist on a public token. There is no competitor, engagement-analytics, or scheduling data in the projection — don't reference or request it.
 
@@ -104,7 +106,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the atomize still runs. Deliver the ungrounded derivatives and note they're not brand-verified; connect Jinn to ground the voice and pillar mapping.
+- **No token / no connection** → the atomize still runs in full. Deliver the derivatives and note they're not brand-verified; connect Jinn to add the brand's real voice and pillar mapping.
 
 ## What just became possible
 
@@ -115,7 +117,7 @@ You can now turn one long article, blog post, or video transcript into a set of 
 1. **Atomize a real essay into platform posts** — `Atomize this essay into a LinkedIn post, an X thread, and a newsletter blurb: [paste Paul Graham's "How to Do Great Work" essay text]` → distinct angles pulled straight from the essay (choosing what to work on, iterating instead of over-planning, original thinking), each shaped for its platform with every claim traceable back to the text.
 2. **Turn a video transcript into a thread** — `Here's a video transcript on our new pricing model — atomize it into an X thread and a short-form video script: [paste transcript]` → the thread and script built only from what the transcript actually says, with no invented statistic slipped in.
 3. **Check whether a source is thick enough to atomize** — `Is this note thick enough to atomize into multiple platform posts, or is it too thin: "We just crossed ten thousand users. Feels surreal looking back at where we started."` → an honest thin-source flag and a request for the fuller piece, instead of padded filler dressed up as extra angles.
-4. **Connected: map derivatives to real pillars** *(requires a Jinn token)* — `Atomize this article for LinkedIn and X, and tell me which of my brand's messaging pillars each derivative actually serves: [paste article]` → the same derivatives, each labeled with the specific pillar and tribe it maps to instead of a generic per-platform split.
+4. **Connected: map derivatives to real pillars** *(requires a Jinn token)* — `Atomize this article for LinkedIn and X, and tell me which of my brand's messaging pillars each derivative actually serves: [paste article]` → the same derivatives, each also labeled with the specific pillar and tribe it maps to.
 
 ## Compounds with
 

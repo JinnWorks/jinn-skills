@@ -7,9 +7,11 @@ description: Turn a product or URL into a batch of Pinterest-shaped pin briefs �
 
 Deliverable: a **batch of Pinterest-shaped pin briefs** — you set the batch size (default 8–10, enough for a real spread), each brief pinned to the **1000×1500 px (2:3) portrait canvas** Pinterest recommends, carrying a named layout role, the on-image overlay text, and Pinterest-native title / description / hashtags / alt text / board suggestion. Not five recolors of one idea — the batch varies layout role, angle, and funnel position so it reads as a real test set. Not a rendered image — a brief a designer, or Vermeer, renders from.
 
-Works standalone. Connected to Jinn, the briefs carry the brand's real visual identity and voice instead of your best guess — that's the delta.
+Works standalone — a complete, craft-checked batch from the product or URL alone. Connected to Jinn, the briefs also carry the brand's real visual identity and voice, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -96,7 +98,7 @@ PIN BATCH — <product/URL>, <N> pins, board: <board name>
 
 Number every pin, keep the layout role and funnel position visible in the header line so the spread is auditable at a glance, and flag any pin where a field fell short of the craft rules above (e.g., description had to run long) rather than silently shipping it.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 ### Better — ground the briefs in the brand's real identity
 
@@ -111,15 +113,15 @@ If the connection also carries the design trio, call `get_brand_kit({ slug })` +
 |-----------------|--------|
 | `get_brand_design_tokens` — colour / type / spacing / radius (DTCG, when present) | The color-block and banner-overlay treatments — exact hexes and font stack, never approximated. |
 | `get_brand_kit` — logo, wordmark (when present) | Logo/watermark placement and lockup on every pin. |
-| `get_brand_design_md` — layout conventions (when present) | Overrides the generic layout-role guidance in step 2 on any conflict. |
-| `positioningWedge` | The angle every bottom-of-funnel pin leads with — replaces step 6's guessed angle. |
+| `get_brand_design_md` — layout conventions (when present) | Overrides the step-2 layout-role guidance on any conflict. |
+| `positioningWedge` | The angle every bottom-of-funnel pin leads with — the brand's own wedge, in place of the angle you'd pick at step 6. |
 | `painPoints[]` | Feeds the top-of-funnel discovery pins' hooks. |
 | `tribes[]` (`{name, description, motivation}`) | Which pins are aimed at which audience — match overlay framing to a tribe's real motivation. |
 | `messagingPillars[]` (`{pillar, description}`) | Spread pillars across the batch so the set proves the brand's real benefits, not one repeated. |
 | `tonalAttributes[]` | Voice of every title, description, and overlay headline. |
 | `safeWords[]` / `bannedWords[]` | Diction on every copy field — prefer one set, hard-filter the other. |
 
-Grounded, the delivery note states the rung reached (design-trio-verbatim vs. DNA-inferred), and — for each pin — which pillar and tribe it's aimed at. That's the visible proof the grounding did work, not an assertion.
+Connected, the delivery note states the rung reached (design-trio-verbatim vs. DNA-inferred), and — for each pin — which pillar and tribe it's aimed at. That's the visible proof the brand's own record fed through, not an assertion.
 
 Only the fields above exist on a public token. There is no competitor, ad-performance, or platform-fit data in the projection — don't reference or request it.
 
@@ -129,7 +131,7 @@ The batch above is the brief, not the finished asset. For a brand Connected on J
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the batch still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the batch still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"pin-brief-generator"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

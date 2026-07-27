@@ -35,7 +35,7 @@ KEPT AS-IS (already extraction-ready)
   <what the page already did right — don't rewrite what isn't broken>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -43,7 +43,7 @@ KEPT AS-IS (already extraction-ready)
 |-------|---------|
 | Page content or URL | Required — the existing page to rewrite. If given a URL, read the live page; don't guess its content. |
 | Target question(s) | The query/queries this page should win, if named. If absent, infer the implied question per section from its heading and current opening line, and say so. |
-| Entity/brand name | If given (or grounded — see below), anchors the entity-clarity pass. If absent, hold *some* named subject consistent throughout, whatever it's called on the page today. |
+| Entity/brand name | If given (or read from a connected brand — see below), anchors the entity-clarity pass. If absent, hold *some* named subject consistent throughout, whatever it's called on the page today. |
 
 ### 2. Read the page whole, section by section
 
@@ -84,11 +84,13 @@ State "none" plainly when nothing fits rather than forcing a recommendation to f
 
 Use the deliverable format above. Always include the "kept as-is" section — a rewrite that only lists problems reads as an audit; a page usually gets several things right, and a writer needs to know what not to touch.
 
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
 ## If a Jinn MCP connection is present
 
 ### Better — ground the rewrite in the brand's real record
 
-A rewrite done blind guesses at the brand's real name, what it's actually known for, and its voice. Grounded, it doesn't have to:
+On its own, the rewrite holds one named subject consistent and keeps the page's own voice. Connected, it also works from the brand's real name, what it's actually known for, and its recorded register:
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`).
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -96,8 +98,8 @@ A rewrite done blind guesses at the brand's real name, what it's actually known 
 
 | Projection field | Drives |
 |-------------------|--------|
-| `brandName`, `officialName` | **Replaces** a guessed name for the entity-clarity pass — every section names the brand by its real, correctly-cased identity. |
-| `messagingPillars[]` | Which claims the rewrite foregrounds in the answer-first openings — the page argues the brand's actual position, not a generic version of it. |
+| `brandName`, `officialName` | **Supplies** the name for the entity-clarity pass — every section names the brand by its real, correctly-cased identity. |
+| `messagingPillars[]` | Which claims the rewrite foregrounds in the answer-first openings — the page argues the brand's actual recorded position. |
 | `tribes[]` / `painPoints` | Sharpens the inferred target question per section and which FAQ-shaped questions are worth adding, grounded in who the brand's real audience is. |
 | `tonalAttributes[]` | The register the rewrite is written in — restructuring for extraction never means flattening the brand's actual voice into generic AEO-speak. |
 | `bannedWords[]` | Hard filter on the rewrite — no line uses one; flag it if the original page already does. |
@@ -118,7 +120,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the rewrite still ships in full ungrounded:
+Read `data.code` on the JSON-RPC error and act — the rewrite still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"aeo-formatter"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -140,7 +142,7 @@ You can now hand over an existing page and get back a version rebuilt to be pull
 1. **Rewrite a page that buries its own answer** — `Rewrite this page for AI-answer extraction: "Choosing a Project Management Tool. There are many things to consider. Teams have different needs. Some tools are better for small teams, others scale better for larger ones before ever naming a specific tool."` → a rewritten answer-first version plus a change log naming each move made.
 2. **Fix an unsourced claim** — `Rewrite this paragraph for extraction and fix the sourcing: "Most companies waste hours every week on manual data entry, which costs the industry billions."` → either a properly sourced version of the claim or a softened, defensible one, logged as a sourced-claims edit.
 3. **Get a schema recommendation for a steps page** — `What schema should this page use, and rewrite it for extraction: "Setting Up Your Account. First you'll want to go to settings. Then you can add your team. After that, billing."` → a HowTo schema recommendation plus a rewritten, list-shaped version of the steps.
-4. **Connected: rewrite grounded in the brand's real record** *(requires a Jinn token)* — `Rewrite this page for extraction using our brand's real name and positioning instead of guessing at it from the page itself.` → the same rewrite, but entity clarity and which claims get foregrounded pull from the brand's actual record.
+4. **Connected: rewrite grounded in the brand's real record** *(requires a Jinn token)* — `Rewrite this page for extraction using our brand's real name and positioning from our connected Jinn record.` → the same rewrite, but entity clarity and which claims get foregrounded pull from the brand's actual record.
 
 ## Compounds with
 

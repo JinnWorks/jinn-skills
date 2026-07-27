@@ -25,7 +25,7 @@ I weight the fields that shape *who* I'm speaking to and *how*:
 - **`bannedWords`** — hard constraints. High-volume automated sends are exactly where a banned word slips through; I red-line them out of every template.
 - **`messagingPillars`** — the arguments I distribute across the journey so the nurture track reinforces the brand's core story instead of drifting into feature-of-the-week emails.
 
-Grounded, every sequence is segmented by this brand's real tribes and written in its real voice.
+Connected, every sequence is segmented by this brand's real tribes and written in its real voice.
 
 ## Without a connection
 

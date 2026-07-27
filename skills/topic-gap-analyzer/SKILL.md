@@ -31,7 +31,7 @@ Topics you cover that they don't (for context, not the ask): <short list or "non
 Honest limits: <section 6, in full>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -89,14 +89,16 @@ State the reasoning behind each HIGH/MEDIUM/LOW call in the one-line "why it wei
 
 Lead with the single clearest gap in plain language ("all three competitors have a deep cluster on `<topic>`; you have nothing there — that's the one worth starting with"), then the ranked list, then the for-context reverse list, then honest limits in full.
 
-## If a Jinn MCP connection is present (grounded → Connected)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-The ungrounded method above doesn't change — grounding changes what a gap is *worth*, not whether it's a gap:
+The standalone method above doesn't change — connecting changes what a gap is *worth*, not whether it's a gap:
 
 | Projection field | Drives |
 |-------------------|--------|
@@ -113,7 +115,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the gap list still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the gap list still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"topic-gap-analyzer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -124,7 +126,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the gap list still ships in full from the hand-sampled diff; only the strategic-weight ranking stays generic (competitor-coverage and recency only, no wedge/pillar/pain weighting). Connect Jinn to sharpen the ranking.
+- **No token / no connection** → the gap list still ships in full from the hand-sampled diff; the strategic-weight ranking runs on competitor coverage and recency, without wedge/pillar/pain weighting. Connect Jinn to add that weighting.
 
 ## What just became possible
 

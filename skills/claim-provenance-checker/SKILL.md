@@ -9,9 +9,11 @@ Deliverable: **a claim-by-claim scorecard** — claim / type / what would verify
 
 **Read this first — it's the boundary that keeps this skill in its own lane.** A sibling skill, `brand-fact-checker`, audits what AI assistants already say about a brand out in the world: it asks ChatGPT/Claude/Gemini what they believe, classifies each answer true/stale/wrong/fabricated, and traces where the error came from. This skill runs the opposite direction — it audits the brand's **own** claims in a strategy doc, pitch deck, or piece of marketing copy **before** anyone repeats them: is this claim we're about to publish actually sourced, and if not, what would it take to source it? One looks backward at external perception; this one looks forward at what we're about to assert. Checking what AI already believes about a brand → use `brand-fact-checker`. Tightening a claim before it ships → this skill.
 
-Works standalone on any pasted text. Connected to Jinn, claims about the brand's own identity and positioning get checked against its real DNA record instead of your best guess — see **If a Jinn MCP connection is present**.
+Works standalone on any pasted text — a complete claim-by-claim audit against whatever evidence you have. Connected to Jinn, claims about the brand's own identity and positioning also get checked against its real DNA record — no recall required. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -69,7 +71,7 @@ Lead with the one-line verdict: how many claims tested, how the classes break do
 
 ### Better — ground identity and positioning claims in the brand's real record
 
-Grounding sharpens claims **about the brand itself** — its founding, mission, values, and positioning. It does not, and cannot, verify claims about product metrics, pricing, or the outside world; those still need the user's own evidence. Two calls:
+Connecting sharpens claims **about the brand itself** — its founding, mission, values, and positioning. It does not, and cannot, verify claims about product metrics, pricing, or the outside world; those still need the user's own evidence. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -97,7 +99,7 @@ That machinery isn't reachable from a public token; this skill can only point at
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the audit still runs ungrounded:
+Read `data.code` on the JSON-RPC error and act — the audit still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"claim-provenance-checker"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -108,7 +110,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real audit against user-supplied evidence; connect Jinn later to ground identity and positioning claims against the brand's live DNA.
+- **No token / no connection** → run the standalone procedure above. It produces a real audit against user-supplied evidence; connect Jinn later to ground identity and positioning claims against the brand's live DNA.
 
 ## What just became possible
 

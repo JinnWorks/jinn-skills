@@ -28,7 +28,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## Without a connection
 
-The skill still works: I direct motion from a brief and my read of the brand's character, and note it's ungrounded. Connect Jinn to anchor timing and manner to the brand's real archetype and values, and fetch `design.md` for the elements in motion.
+The skill still works: I direct motion from a brief and my read of the brand's character, and note it's built from those inputs alone, not the brand's record. Connect Jinn to anchor timing and manner to the brand's real archetype and values, and fetch `design.md` for the elements in motion.
 
 ## If a call fails
 

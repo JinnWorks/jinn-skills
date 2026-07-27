@@ -7,7 +7,9 @@ description: Grade how consistently a brand posts on one platform — frequency,
 
 Deliverable: **a cadence grade (0–100) plus a metric breakdown** for one brand's public posting history on one platform — frequency, variance, streak/gap pattern, and format mix, each scored and explained — with an optional side-by-side gap read against up to 3 named competitors on the same metrics.
 
-This is a diagnostic, not a plan: it grades what already shipped. Deciding what to post next across properties is `content-rotation`'s job; reading what the market is currently saying is `social-listening-brief`'s job (that skill doesn't exist in this catalog yet — noted here so the boundary is stated once). Works standalone from public timelines you (the agent) read yourself. Connected to Jinn, the read is checked against the brand's own documented strategy — what its stated pillars say the cadence *should* be serving — instead of a generic frequency norm.
+This is a diagnostic, not a plan: it grades what already shipped. Deciding what to post next across properties is `content-rotation`'s job; reading what the market is currently saying is `social-listening-brief`'s job (that skill doesn't exist in this catalog yet — noted here so the boundary is stated once). Works standalone from public timelines you (the agent) read yourself, graded against published platform norms. Connected to Jinn, the read is also checked against the brand's own documented strategy — what its stated pillars say the cadence *should* be serving — straight from the brand's own record.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -26,13 +28,13 @@ Competitor gap (same window, same metrics):     [only if competitor handles supp
   <handle>        N/week    <rhythm>       <mix>
   <handle>        N/week    <rhythm>       <mix>
 
-Serving the strategy (grounded only): <does the observed mix track the brand's
+Serving the strategy (connected only): <does the observed mix track the brand's
                                         stated pillars, or drift from them>
 
 Honest limits: <what this read could and couldn't see>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -75,7 +77,7 @@ Start at 100 and subtract:
 
 | Dimension | Max deduction | What triggers it |
 |-----------|----------------|-------------------|
-| Frequency | −40 | Actual weekly rate well below a stated or reasonable platform norm (ungrounded: use a published norm range for the platform/vertical, state the range you used, and label it generic) |
+| Frequency | −40 | Actual weekly rate well below a stated or reasonable platform norm (standalone: use a published norm range for the platform/vertical, state the range you used, and label it as a category-wide norm) |
 | Rhythm | −25 | Bursty or declining rhythm over steady; heavier penalty the more the pattern reads as abandoned-then-revived |
 | Gaps | −25 | Longest silent gap relative to the typical interval — a gap more than ~3× the average interval is the steep-penalty threshold |
 | Format mix | −10 | Total monoculture (one format, whole window) with no apparent reason; smallest weight because mix is a weaker signal than the other three |
@@ -86,7 +88,7 @@ Bands: **85–100 DISCIPLINED** · **60–84 INCONSISTENT** · **below 60 DORMAN
 
 Repeat steps 2–5 for each competitor handle supplied, on the **same platform and the same window length** — a fair comparison requires matched conditions, not each account's best available history. If one competitor's public view only reaches back 3 weeks while the brand's reaches 8, say so and compare only the overlapping window; never silently pad a shorter read to match a longer one. Present the brand and competitors side by side on identical metrics; call out the single clearest gap in plain language ("`<brand>` posts 2.5×/week; the two competitors that beat it post 4–5×/week with tighter, steadier gaps").
 
-This comparison is a manual public-data read for every brand named, including the one being graded for — there is no privileged internal data about competitors anywhere in this method, grounded or not.
+This comparison is a manual public-data read for every brand named, including the one being graded for — there is no privileged internal data about competitors anywhere in this method, connected or not.
 
 ### 7. Honest limits (required — include this section, unabridged, every time)
 
@@ -100,9 +102,9 @@ This comparison is a manual public-data read for every brand named, including th
 
 Lead with the one-line verdict, then the metric breakdown, then the competitor table if requested, then honest limits in full, then one concrete next step (usually: the gap or format-mix skew worth addressing first).
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-The public-data read above doesn't change — grounding adds one thing it can't get from a timeline: what the cadence is *supposed* to be serving.
+The public-data read above doesn't change — connecting adds one thing it can't get from a timeline: what the cadence is *supposed* to be serving.
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`). Match the user's named brand, or use the one in scope.
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -121,7 +123,7 @@ This rung never touches the competitor read — the public projection carries no
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the grade still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the grade still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"content-cadence-grader"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

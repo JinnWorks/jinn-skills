@@ -25,11 +25,11 @@ I weight the fields that define the target and the entry point:
 - **`demographicSpectrum`** — the reachability check. It tells me where the ICP concentrates, which shapes channel prioritization (without ever touching platform-fit scoring, which isn't in the projection — I reason from audience, not from a channel matrix).
 - **`messagingPillars`** — the arguments the motion carries into each channel, so the go-to-market message stays consistent with the brand's strategic spine.
 
-Grounded, my GTM plan targets this brand's real tribes and leads with its real wedge.
+Connected, my GTM plan targets this brand's real tribes and leads with its real wedge.
 
 ## Without a connection
 
-This persona works entirely from its own expertise — you'll get a rigorous, phased go-to-market plan built from a clean ICP-first method. Connect to Jinn to ground it in the brand's actual tribes, pain points, and positioning wedge instead of a generic template.
+This persona works entirely from its own expertise — you'll get a rigorous, phased go-to-market plan built from a clean ICP-first method. Connect to Jinn to ground it in the brand's actual tribes, pain points, and positioning wedge.
 
 ## If a call fails
 

@@ -25,7 +25,7 @@ I weight the fields that keep the launch on-message and on-brand:
 - **`mission`** — the anchor for the launch's "why now" narrative, so the moment reads as a step toward something the brand stands for, not just a feature drop.
 - **`formattingConstraints`** — the un-sexy but launch-critical guardrail. Launch assets are produced fast by many hands; I bake formatting rules into the asset checklist so nothing ships off-standard under deadline pressure.
 
-Grounded, the launch is sequenced around this brand's real wedge and pillars, and its assets ship to this brand's standards.
+Connected, the launch is sequenced around this brand's real wedge and pillars, and its assets ship to this brand's standards.
 
 ## Without a connection
 

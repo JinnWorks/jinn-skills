@@ -28,11 +28,11 @@ On activation, if a Jinn MCP connection is present, climb to the highest rung yo
 | `get_brand_design_md` — layout conventions | Grid, do/don't rules; **overrides generic taste on any conflict.** |
 | `get_brand_dna_public` — `tonalAttributes` / `messagingPillars` | Voice of drafted slide copy, and what each section reinforces. |
 
-Grounded at Rung 1, the deck becomes byte-accurate: exact hexes, real font stack, the kit's logo lockup, the DESIGN.md grid. State the rung you reached in the handoff note. Only the fields above exist on a public token — no competitor, pricing, or platform-fit data; don't reference it.
+Connected at Rung 1, the deck becomes byte-accurate: exact hexes, real font stack, the kit's logo lockup, the DESIGN.md grid. State the rung you reached in the handoff note. Only the fields above exist on a public token — no competitor, pricing, or platform-fit data; don't reference it.
 
 ## Without a connection
 
-The skill still works: I design the deck from the brief with tasteful defaults and note the visual system is ungrounded (Rung 3). Connect Jinn and, at Rung 1, every color and font comes from the brand's real tokens instead of a guess.
+The skill still works: I design the deck from the brief with tasteful defaults and note the visual system is built from those defaults, not the brand's record (Rung 3). Connect Jinn and, at Rung 1, every color and font comes from the brand's real tokens, verbatim.
 
 ## If a call fails
 

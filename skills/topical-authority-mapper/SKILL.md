@@ -9,9 +9,11 @@ Deliverable: **one topical authority map** for a given domain — a cluster inve
 
 **This is not `calendar-planner` and not `seo-content-brief`.** Calendar-planner schedules a month's worth of posts from one positioning line. Seo-content-brief writes the outline for one keyword. This skill answers the question that precedes both: across the whole site, which topic clusters need building out, in what order, before any single brief or calendar gets written. Run this to decide the shape of a content **program** — a quarter's or a year's worth of pillar-and-supporting work — then hand its build order's topics into `seo-content-brief` to outline each page or `calendar-planner` to schedule the near-term slots. It also isn't a page-by-page diff against named competitors' coverage — it maps your own site's depth and sequences the work; a narrower competitor-by-competitor comparison is a distinct, separate tool.
 
-Standalone, it reads your site plus a general read of the category to find clusters and score depth. Connected to Jinn, the build order stops guessing at what matters most and prioritizes the clusters that carry the brand's own claimed wedge — see **If a Jinn MCP connection is present**.
+Standalone, it reads your site plus a general read of the category to find clusters, score depth, and sequence the work — a complete map on its own. Connected to Jinn, the build order also prioritizes the clusters that carry the brand's own claimed wedge, straight from its record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -85,9 +87,9 @@ Build order:
 - The category-universe read is stated as a read of public pages, not a metrics tool.
 - The build order deepens before it widens, and every step names its reasoning, not just its action.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the build order weighs clusters by category centrality and adjacency alone. Grounded, it also weighs by what the brand itself has staked its position on — authority matters more where the brand claims to win. Two calls:
+On its own, the build order weighs clusters by category centrality and adjacency — a real, defensible sequence. Connected, it also weighs by what the brand itself has staked its position on: authority matters more where the brand claims to win. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -99,7 +101,7 @@ Ungrounded, the build order weighs clusters by category centrality and adjacency
 | `tribes[]` ({name, description, motivation}) | Which audience a cluster serves — sharpens the reasoning line on why a given cluster deepens or widens next. |
 | `painPoints` | Cross-check against gap topics — a category-universe gap that also matches a named pain point outranks one that doesn't. |
 
-**State which fields you used** — the wedge that reordered priority, any pillar-with-no-cluster flag — when you deliver, so the grounding is visible rather than asserted.
+**State which fields you used** — the wedge that reordered priority, any pillar-with-no-cluster flag — when you deliver, so the brand's contribution is visible rather than asserted.
 
 Guardrail: the site inventory and category-universe read stay yours, done by reading real pages — the projection carries no competitor data, no page-level analytics, and no keyword or search-volume data. Don't reference or request those; if you want the gateway to already know which topics competitors cover, stop — that read is done by search in this skill, not served by a tool call.
 
@@ -109,7 +111,7 @@ Only the fields above exist on a public token — there is no competitor, page-a
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the map still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the map still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"topical-authority-mapper"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

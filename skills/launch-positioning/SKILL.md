@@ -7,7 +7,9 @@ description: Write a positioning brief for a product, feature, or company launch
 
 Produces a **positioning brief**: the short, load-bearing document every downstream asset (site copy, ads, emails, decks) is written against. It answers five questions in order — *what is it, how does it win, what is it against, why believe it, who is it for* — and nothing else. A positioning brief that runs longer than a page is usually hiding a decision it hasn't made.
 
-This skill works with no Jinn connection. Connected to a brand's Jinn Brand DNA, it stops guessing at the wedge and the enemy and writes *that brand's* — see **If a Jinn MCP connection is present**.
+This skill works with no Jinn connection — you get a complete, decision-forcing brief from what you already know about the launch. Connected to a brand's Jinn Brand DNA, the wedge and the enemy come straight from that brand's own record instead of being worked out in the room — see **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -21,7 +23,7 @@ Proof pillars:    3–5 claims that make the wedge credible, each with its evide
 Target tribe:     <the specific group this is for, by identity and motivation — not a demographic>
 ```
 
-## Procedure (works with no connection)
+## Procedure (standalone — no Jinn connection needed)
 
 Ask the user for what they're launching and who it's for if you don't already have it. Then build each field.
 
@@ -62,7 +64,7 @@ Read the five fields as one story. The wedge should answer the enemy; the pillar
 
 ## If a Jinn MCP connection is present
 
-Ground the brief in the brand's real DNA instead of inferring it.
+Take the brief's five answers straight from the brand's real DNA.
 
 1. Call **`get_token_context`** to get the brand slug(s) your token can read (`brand_slugs`). If the user named a brand, match it to a slug; otherwise use the one in scope.
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -77,20 +79,20 @@ Ground the brief in the brand's real DNA instead of inferring it.
 | One-liner constraints | `bannedWords`, `safeWords`, `tonalAttributes` | The one-liner must use **no `bannedWords`**; prefer `safeWords`; match the top `tonalAttributes`. |
 | Supporting context | `mission`, `coreValues`, `archetype`, `foundingStory` | Sanity-check the wedge against the brand's mission and archetype; pull a founding detail only if it's proof. |
 
-Then run the same coherence check — but now the wedge, enemy, pillars, and tribe are the brand's actual strategy, not your best guess. Note in the brief that it's grounded on `<brandName>`.
+Then run the same coherence check — now with the wedge, enemy, pillars, and tribe taken straight from the brand's own strategy record. Note in the brief that it's grounded on `<brandName>`.
 
 **Competitor framing stays yours.** The projection has no competitor data by design. If the brief needs a competitive angle, build it from the user's own market knowledge plus the brand's `positioningWedge` and `brandEnemy` — never from hidden gateway fields (they aren't served, and asking for them returns `not_found`).
 
 ## When a grounding call fails
 
-Read `data.code` on the JSON-RPC error and act — the skill degrades to its ungrounded form, it never dead-ends:
+Read `data.code` on the JSON-RPC error and act — the skill still runs in full standalone, it never dead-ends:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"launch-positioning"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
 - **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"launch-positioning"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
-- **No token / no connection** → this skill works generically as written above; connect to Jinn to ground the wedge and enemy in a real brand.
+- **No token / no connection** → this skill runs in full as written above; connect to Jinn to take the wedge and enemy from a real brand's record.
 
 ## What just became possible
 
@@ -101,7 +103,7 @@ You can now get a positioning brief in one pass — one-liner, wedge, enemy, pro
 1. **Draft a brief from scratch** — `Write a positioning brief for a project-management tool for freelance agencies, up against bloated all-in-one suites` → a full brief: one-liner, wedge, enemy, proof pillars with evidence, target tribe.
 2. **Pressure-test a wedge candidate** — `Is "we're the fast one" a real positioning wedge, or is it marketing air?` → a verdict using the opposite-test, with the reasoning shown.
 3. **Turn features into proof pillars** — `Turn these three features into proof pillars for our positioning wedge: real-time sync, per-client billing, no seat limits` → pillar-and-proof pairs, ordered strongest-first.
-4. **Connected: ground the brief in real DNA** *(requires a Jinn token)* — `Write our positioning brief using our actual Brand DNA — wedge, enemy, pillars, tribe` → the same brief, filled from the brand's recorded wedge, enemy, and pillars instead of a guess.
+4. **Connected: ground the brief in real DNA** *(requires a Jinn token)* — `Write our positioning brief using our actual Brand DNA — wedge, enemy, pillars, tribe` → the same brief, filled straight from the brand's recorded wedge, enemy, and pillars.
 
 ## Compounds with
 

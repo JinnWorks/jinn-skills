@@ -9,9 +9,11 @@ This skill runs in two beats: **design a test worth running**, then **read the r
 
 Deliverable: **a test design (3–5 variants, each a distinct bet with a one-line hypothesis, rendered in the formats you need) — then, when results come back, a per-channel scorecard and a defensible verdict.**
 
-Works standalone from one core message. Connected to Jinn, the angles are seeded only from claims the brand's DNA actually backs, and every variant is checked against its banned and safe words before it ever ships.
+Works standalone from one core message — a full test design and an honest verdict either way. Connected to Jinn, the angles are also seeded only from claims the brand's DNA actually backs, and every variant is checked against its banned and safe words before it ever ships.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Fix the core message and the formats
 
@@ -63,7 +65,7 @@ Then apply two gates **before** naming any winner:
 
 If either gate fails, say so plainly: **"keep running, or accept the ambiguity"** — never manufacture a winner from a coin-flip. If different channels crown different variants, that is **signal, not noise** — report it: the angle that wins in email may lose in-feed, and that tells the user where each bet belongs.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Seed the angles from what the brand can actually stand behind, and filter every variant through its voice rules. Two calls:
 
@@ -79,7 +81,7 @@ Seed the angles from what the brand can actually stand behind, and filter every 
 | `bannedWords[]` | **Hard filter** — no variant may contain one; rewrite any that trips it before it ships. |
 | `safeWords[]` | **Approved claim language** — prefer these in the proof-led and outcome-led variants. |
 
-Grounded, the delta is concrete: every angle traces to a `messagingPillar` or the `positioningWedge`, the pain bet comes from real `painPoints`, and each variant is provably clean of `bannedWords` and written in the brand's `tonalAttributes`. **State which fields seeded each variant** when you deliver the design. When a winner clears both adjudication gates, frame the winning message for write-back into the user's canonical messaging docs — the tested, verified line the brand should adopt.
+Connected, the delta is concrete: every angle traces to a `messagingPillar` or the `positioningWedge`, the pain bet comes from real `painPoints`, and each variant is provably clean of `bannedWords` and written in the brand's `tonalAttributes`. **State which fields seeded each variant** when you deliver the design. When a winner clears both adjudication gates, frame the winning message for write-back into the user's canonical messaging docs — the tested, verified line the brand should adopt.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
 
@@ -96,7 +98,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It designs and adjudicates a real test from your core message; connect Jinn later to seed the angles from the brand's live pillars and wedge.
+- **No token / no connection** → run the standalone procedure above. It designs and adjudicates a real test from your core message; connect Jinn later to seed the angles from the brand's live pillars and wedge.
 
 ## What just became possible
 

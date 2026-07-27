@@ -9,9 +9,11 @@ Deliverable: **one structured creative brief** synthesized from 3 reference ads 
 
 Distinct from its nearest neighbors: **ad-teardown** analyzes one ad (or a whole library) and stops at analysis — it never merges. **campaign-brief** is the strategy layer above this one (objective, audience, channels); this skill is the single-creative layer below it. **ad-copy-variants** writes finished headline and body copy; this skill specifies the creative direction copy should follow, it doesn't write the final lines.
 
-Standalone, it turns three saved ads into a usable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle and visual direction are checked against the brand's real voice and palette instead of your best guess.
+Standalone, it turns three saved ads into a complete, buildable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle and visual direction are also checked against the brand's real voice and palette, straight from its own record — no discovery questions needed. See **Grounding ladder (when a Jinn MCP connection is present)**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake — the 3 references
 
@@ -84,7 +86,7 @@ A Connected brand's next step lives in Vermeer, not in this skill: the brief bec
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the brief still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"swipe-brief-builder"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -106,7 +108,7 @@ You can now turn three ads you like into one usable creative brief instead of th
 1. **Merge three swipe-file ads into a brief** — `Here are three ads I like: [describe or link ad A, B, C]. Turn them into one creative brief` → a single merged brief naming the through-line all three share, with hook, visual direction, copy angle, format, and CTA.
 2. **Build a brief from three competitor landing-page heroes** — `Build a creative brief from these three hero sections: stripe.com, linear.app, and notion.so` → a brief synthesizing the strongest shared pattern across the three.
 3. **Merge two strong references when a third is weak** — `I only have two solid reference ads worth using — build the brief from these two: [ad A], [ad B]` → a coherent single-direction brief built from the two, without diluting it with a mismatched third.
-4. **Connected: check the brief against your real brand** *(requires a Jinn token)* — `Build a creative brief from these three ads and check the copy angle against our actual brand voice: [ad A], [ad B], [ad C]` → the same merged brief, phrased in the brand's real tonal register instead of a generic read.
+4. **Connected: check the brief against your real brand** *(requires a Jinn token)* — `Build a creative brief from these three ads and check the copy angle against our actual brand voice: [ad A], [ad B], [ad C]` → the same merged brief, phrased in the brand's real tonal register.
 
 ## Compounds with
 

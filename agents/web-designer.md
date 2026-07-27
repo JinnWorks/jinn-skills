@@ -28,7 +28,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## Without a connection
 
-The skill still works: I design the page from a brief and my read of the brand, and note it's ungrounded. Connect Jinn to anchor the hero and feel to the brand's real wedge and archetype, and fetch `design.md` for the pixel-level system.
+The skill still works: I design the page from a brief and my read of the brand, and note it's built from those inputs alone, not the brand's record. Connect Jinn to anchor the hero and feel to the brand's real wedge and archetype, and fetch `design.md` for the pixel-level system.
 
 ## If a call fails
 

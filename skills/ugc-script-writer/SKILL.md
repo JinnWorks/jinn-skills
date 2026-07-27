@@ -9,7 +9,9 @@ Deliverable: a **UGC-format video script** — the words a creator says on camer
 
 Not `video-hook-analyzer` (grades an existing hook's first 5 seconds; this writes the whole script). Not `brand-voice-content` (on-voice posts/blurbs, not a spoken video script). Not `customer-story-builder` (a real customer's own story, quotes verbatim; this is a creator performing a written script, clearly scripted content). Not `storyboard-from-dna` (the visual shot board a script rides on — pair the two, but this skill owns the words, that one owns the frames).
 
-Works with no Jinn connection. Connected to a brand's Jinn Brand DNA, the voice, vocabulary limits, and the specific problem and objection the script leans on come from the brand's real system instead of your best guess — see **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, performable script on its own. Connected to a brand's Jinn Brand DNA, the voice, vocabulary limits, and the specific problem and objection the script leans on come straight from the brand's own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The claim-slot rule (read this before writing a line)
 
@@ -45,7 +47,7 @@ Soft CTA          | ...         | ...                                    | ...  
 Running duration check: <sum> against <platform ceiling>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -62,7 +64,7 @@ If the angle is missing, ask — a script built on a guessed angle sells the wro
 ### 2. Write the direct-response spine, beat by beat
 
 - **Hook (first 2-3 seconds, always).** A pattern interrupt native to the platform — a mid-sentence start, a visible reaction, a question the viewer is already asking themselves. Never "hi guys, today I want to talk about." On a skippable feed, the hook is the only beat that matters if it fails.
-- **Problem (lived).** The creator's own before-state, first person, concrete and specific — not the brand's marketing language back at the viewer. This is where a `painPoints` field (grounded rung) sharpens the specificity; ungrounded, ask what the real target customer actually struggles with and write that, not a generic frustration.
+- **Problem (lived).** The creator's own before-state, first person, concrete and specific — not the brand's marketing language back at the viewer. This is where a `painPoints` field (connected rung) sharpens the specificity; standalone, ask what the real target customer actually struggles with and write that, not a generic frustration.
 - **Product-in-hand demo.** The creator physically holding, using, or showing the product doing the one thing the angle promises — show, don't narrate. One concrete action, not a features tour.
 - **Objection flip.** Name the skepticism the viewer is actually feeling ("I know this looks like every other ad" / "I thought it'd be like the last one that didn't work") and answer it honestly — this is the beat most scripts skip, and skipping it is why most UGC reads as an ad instead of a recommendation.
 - **Soft CTA.** One action, in the creator's voice, not a hard-sell tag line. A UGC script's CTA works because it sounds like a tip from a friend, not a call to action read off a card.
@@ -83,23 +85,23 @@ If the angle is missing, ask — a script built on a guessed angle sells the wro
 - Running duration matches the platform ceiling, checked beat by beat.
 - This is clearly a **scripted, creator-performed** piece — not presented as an unscripted testimonial. Disclosure/labeling (e.g. `#ad`, "Paid partnership") is the creator's and platform's responsibility, not this skill's, but nothing in the script should coach around disclosure.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Don't guess the voice, the real pain, or the real objection — read them. Two calls:
+Read the voice, the real pain, and the real objection straight from the brand's own record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
 | Projection field | Drives |
 |------------------|--------|
-| `painPoints` (via `tribes[]`) | **The problem-lived beat.** Use the brand's real, named pain — not a guessed frustration — so the "before" state is specific enough to feel true. |
+| `painPoints` (via `tribes[]`) | **The problem-lived beat.** Use the brand's real, named pain, so the "before" state is specific enough to feel true. |
 | `positioningWedge` | **The objection flip.** The skepticism worth naming is almost always the thing the brand's own wedge is arguing against — flip that objection, don't invent an easier one. |
 | `tonalAttributes[]` | Bounds the creator's register — even in a relatable, informal voice, a script for a clinical/precise brand reads differently than one for a playful/loud brand. Use these adjectives to keep the creator-voice on-brand, not to make it sound corporate. |
 | `slangPolicy` | How casual the creator can be — whether slang, profanity-adjacent language, or heavy internet-speak is on the table for this brand at all. |
 | `safeWords[]` / `bannedWords[]` | Prefer `safeWords` where they fit naturally in spoken language; treat `bannedWords` as a hard filter on every line, including ad-libbed-sounding ones — a scripted line is still a brand line. |
 | `tribes[]` ({name, description, motivation}) | Shapes the creator persona — who plausibly has this problem and this motivation, so the casting brief (not just the words) is on-target. |
 
-Grounded, the script stops being generically relatable and starts naming the brand's actual customer pain and actual competitive objection, in a register the brand's real `tonalAttributes` would allow. State which fields you used — the pain point, the wedge, the tone — when you deliver.
+Connected, the script names the brand's actual customer pain and actual competitive objection, in a register the brand's real `tonalAttributes` would allow. State which fields you used — the pain point, the wedge, the tone — when you deliver.
 
 Only the fields above exist on a public token. There is no ad-performance, platform-fit, or competitor data in the projection — don't reference or request it.
 
@@ -109,7 +111,7 @@ Once a brand is Connected, Jinn's video studio (in beta) can render UGC-style vi
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the script still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the script still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ugc-script-writer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -120,7 +122,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the script still ships in full. Build it from the step-1 inputs, note the pain point and objection are inferred rather than verified, and connect Jinn to ground them in a real brand.
+- **No token / no connection** → the script still ships in full. Build it from the step-1 inputs, note the pain point and objection are inferred rather than read from the brand's record, and connect Jinn to take them straight from a real brand.
 
 ## What just became possible
 

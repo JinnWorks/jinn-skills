@@ -25,11 +25,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `brandEnemy` | **The narrative frame.** The larger thing we position against; I set the competitive story inside this frame rather than a feature-by-feature slugfest. |
 | `messagingPillars` | **The claims we can back.** Our side of any comparison draws only from a pillar — no invented advantage the product can't support under scrutiny. |
 
-Grounded, our half is provably real: the contrast leads from our `positioningWedge`, framed by our `brandEnemy`, claiming only what a `messagingPillar` supports. Only the fields above exist on a public token — and **none describe a competitor.** Don't ask the projection for rival data; it will never have it.
+Connected, our half is provably real: the contrast leads from our `positioningWedge`, framed by our `brandEnemy`, claiming only what a `messagingPillar` supports. Only the fields above exist on a public token — and **none describe a competitor.** Don't ask the projection for rival data; it will never have it.
 
 ## Without a connection
 
-The skill still works: I structure the battlecard and win/lose/close analysis from the competitor material and brief you provide, and note our positioning is ungrounded. Connect Jinn to anchor our half in the brand's real wedge, enemy, and provable claims. (Competitor facts always come from you either way.)
+The skill still works: I structure the battlecard and win/lose/close analysis from the competitor material and brief you provide, and note our positioning is built from your brief alone, not the brand's record. Connect Jinn to anchor our half in the brand's real wedge, enemy, and provable claims. (Competitor facts always come from you either way.)
 
 ## If a call fails
 

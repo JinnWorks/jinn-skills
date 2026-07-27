@@ -9,9 +9,11 @@ This skill hands back a **cast of buyers**, not a demographic sheet — each a s
 
 Deliverable: **4–6 distinct buyer personas + a one-table segment summary.** Every persona is a named, situated individual; the set is engineered for coverage, not just variety.
 
-Works standalone from ICP notes and pasted research. Connected to Jinn, the premise inverts: the brand's verified tribes and pains become the *seed truth* the personas enrich, so you stop inventing an audience and start deepening a real one.
+Works standalone from ICP notes and pasted research — a full cast either way. Connected to Jinn, the premise inverts: the brand's verified tribes and pains become the *seed truth* the personas enrich, so the set deepens a real audience rather than proposing one.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Take in the target
 
@@ -66,7 +68,7 @@ The gap is the deliverable's spine: where "their words" and "the vendor's words"
 
 Deliver the personas doc, then a one-table segment summary: one row per persona, columns for name, archetype, core pain, buying trigger, top decision criterion, and the single sharpest language-gap fix.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Grounding **inverts the premise**: you're no longer inventing the audience — the brand's DNA already carries a verified one. Two calls:
 
@@ -78,13 +80,13 @@ Treat the strategy layer as seed truth to **enrich, never contradict**:
 | Projection field | Drives |
 |------------------|--------|
 | `tribes[]` ({name, description, motivation}) | **The segment seeds.** Each verified tribe anchors one or more personas; the `motivation` sets the buying trigger. Don't invent tribes the brand doesn't claim — enrich the ones it does. |
-| `painPoints` | **Each persona's core pain** — drawn from the brand's real, stated pains, not guessed. |
+| `painPoints` | **Each persona's core pain** — drawn straight from the brand's real, stated pains. |
 | `demographicSpectrum` | **Who the personas are** — the role and company profile stay inside this spectrum. |
 | `positioningWedge` | **The vendor's side of the language gap** — this is how the brand says it wins; measure each buyer's words against it. |
 | `bannedWords[]` | **Red-flag candidates** — words the brand already avoids; flag if a persona would distrust them too. |
 | `messagingPillars[]` ({pillar, description}) | **Decision-criteria check** — do the personas' ranked criteria line up with what the brand leads on, or reveal a mismatch worth reporting? |
 
-Grounded, the delta is concrete: every persona cites which DNA fields seeded it — a tribe, its pains, the demographic band — and the language gap is measured against the real `positioningWedge`, not a guessed pitch. **State which fields you used** per segment so the user sees the personas grew from their verified audience. If your research suggests a segment the DNA doesn't name, present it as a *proposed addition*, kept separate from the seeded personas — surface it, don't overwrite the verified truth.
+Connected, the delta is concrete: every persona cites which DNA fields seeded it — a tribe, its pains, the demographic band — and the language gap is measured against the real `positioningWedge`. **State which fields you used** per segment so the user sees the personas grew from their verified audience. If your research suggests a segment the DNA doesn't name, present it as a *proposed addition*, kept separate from the seeded personas — surface it, don't overwrite the verified truth.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
 
@@ -101,7 +103,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces real personas from your ICP notes and research; connect Jinn later to re-seed them from the brand's verified tribes and pains.
+- **No token / no connection** → run the standalone procedure above. It produces real personas from your ICP notes and research; connect Jinn later to re-seed them from the brand's verified tribes and pains.
 
 ## What just became possible
 

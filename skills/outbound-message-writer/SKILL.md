@@ -9,7 +9,7 @@ Deliverable: **ready-to-review outbound copy** — cold-email first-touch, cold-
 
 This skill is writing-only: it **never sends and never scrapes.** Every fact about a prospect comes from what the user hands you — no detail, you ask or leave it out. Inventing a prospect's role, company fact, or recent post to make a line land is the one thing this skill must never do.
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Collect prospect facts and pick the message type
 
@@ -60,7 +60,9 @@ Volume sets how far up you can afford to reach: at **small N**, write unique-per
 
 Then produce the **CSV column layout** — a tool-agnostic header row the user can map into any sender (e.g. `first_name, company, message_type, subject, body, personalization_source, cta`), one row per prospect. **Sending, scheduling, and list handling happen in the user's own tools, after a human reads every message.** State that line explicitly on delivery.
 
-## If a Jinn MCP connection is present (grounded)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## If a Jinn MCP connection is present
 
 The prospect facts still come only from the user — grounding supplies the *brand's* side: what to prove, how it's different, and the voice to say it in. Two calls:
 
@@ -76,13 +78,13 @@ The prospect facts still come only from the user — grounding supplies the *bra
 | `tonalAttributes[]` | **The voice** — every message in these adjectives verbatim. |
 | `safeWords[]` / `bannedWords[]` | Prefer `safeWords`; treat `bannedWords` as a hard filter — rewrite any line that trips one. |
 
-Grounded, the copy changes substance: the evidence line carries a real `messagingPillar`, the differentiation comes from `positioningWedge`, the segment angle from a real `painPoint` aimed at a named `tribe`, all in the brand's `tonalAttributes` and clear of `bannedWords`. State which fields you used — the pillar, the wedge, the pain — when you deliver.
+Connected, the copy also carries the brand's own substance: the evidence line carries a real `messagingPillar`, the differentiation comes from `positioningWedge`, the segment angle from a real `painPoint` aimed at a named `tribe`, all in the brand's `tonalAttributes` and clear of `bannedWords`. State which fields you used — the pillar, the wedge, the pain — when you deliver.
 
 Only the fields above exist on a public token. No competitor data, no pricing, no other brand's material, and **nothing about the prospect** in the projection — the prospect side is always the user's to supply. Don't reference or request anything beyond these fields.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the copy still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the copy still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"outbound-message-writer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -93,7 +95,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 facts and note the copy is ungrounded; connect Jinn to ground the proof point, differentiation, and voice in a real brand.
+- **No token / no connection** → the skill still runs in full. Write from the step-1 facts and note the copy is built from those facts alone, not the brand's record; connect Jinn to draw the proof point, differentiation, and voice straight from a real brand.
 
 ## What just became possible
 

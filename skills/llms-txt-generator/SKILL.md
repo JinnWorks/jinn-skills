@@ -7,9 +7,11 @@ description: Turn one URL into a spec-compliant llms.txt — the llmstxt.org fil
 
 Deliverable: **one `llms.txt` file** for a given site — a spec-compliant markdown manifest (the llmstxt.org format) that tells AI agents who the brand is, what it offers, and what makes it different, ready to drop at the domain root.
 
-Standalone, it reads the site itself and writes only what the site actually says — no invented mission statement, no guessed differentiator. Connected to Jinn, the file describes the brand the way its own Brand DNA record defines it, not the way one page happened to word it that week — that's the whole delta.
+Standalone, it reads the site itself and writes only what the site actually says — no invented mission statement, no guessed differentiator. Connected to Jinn, the file also describes the brand the way its own Brand DNA record defines it — the canonical wording, straight from one place — so it stays current as page copy moves around.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -47,7 +49,7 @@ The format itself is public and fixed (llmstxt.org) — get this part exactly ri
 
 Hand over the file plus: where it goes (the domain root — `yourdomain.com/llms.txt`, never a subfolder or behind auth), and, in a couple of lines, how to get a static file served from root on the platform in play — Vercel/Netlify: drop it in the `public/` directory; WordPress: upload to the site root via SFTP or use a redirect plugin; Shopify: Settings → Files, plus a URL redirect rule, since Shopify won't serve an arbitrary root file directly; Webflow: custom code or hosting root. Flag anything you inferred loosely so the user can tighten it before publishing.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -56,15 +58,15 @@ Two calls, same sequence as every skill in this repo:
 
 | Projection field | Drives |
 |-------------------|--------|
-| `brandName`, `officialName` | The H1 — the record's real name, not a guess off the page title. |
-| `mission` | The blockquote value prop and the About section, in the brand's own recorded words instead of a paraphrase of whatever the homepage says this week. |
+| `brandName`, `officialName` | The H1 — the brand's own recorded name, exactly as the record spells it. |
+| `mission` | The blockquote value prop and the About section, in the brand's own recorded words. |
 | `positioningWedge`, `messagingPillars` | The **What Makes Us Different** section — the wedge as the headline line, pillars as the supporting bullets. |
 | `foundingStory` | A short About addition, when the field is present. |
 | `coreValues` | A **Values** section — add it even when the free rung's site read found nothing to put there. |
 | `tonalAttributes` | The register every description line is written in. |
 | `bannedWords` | Hard filter — no line in the file uses one; flag it if the site's own copy already does. |
 
-That's the concrete delta: instead of paraphrasing whatever marketing copy happens to be live on the page, the value prop, differentiators, and values come from the brand's own DNA record — the file describes the brand the way its record defines it, not the way one page worded it. **State which fields you used** when you deliver, same as every other grounded skill here.
+That's the concrete delta: the value prop, differentiators, and values come straight from the brand's own DNA record, so the file stays canonical no matter how page copy shifts. **State which fields you used** when you deliver, same as every other connected skill here.
 
 Guardrail: the file still describes the brand's own real domain — never invent one from a slug guess; if the user hasn't supplied a real domain, ask. The projection carries no competitor data and no pricing — don't reference or request either.
 
@@ -72,7 +74,7 @@ Guardrail: the file still describes the brand's own real domain — never invent
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the file still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the file still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"llms-txt-generator"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

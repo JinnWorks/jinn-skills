@@ -13,7 +13,7 @@ Voice carries harder in the inbox than anywhere else. There's no visual system t
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, I write the flow in the brand's real voice around its real promise. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, I write the flow in the brand's real voice around its real promise. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -23,11 +23,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `bannedWords[]` | Vocabulary to **never use** — a hard filter, and doubly important in an intimate channel where a wrong word jars. |
 | `slangPolicy` | The register — note-from-a-friend vs dispatch-from-a-company — and whether idiom is allowed. |
 
-Grounded, the sequence is provably the brand's: one `positioningWedge` through-line, in its `tonalAttributes`, using `safeWords`, clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
+Connected, the sequence is provably the brand's: one `positioningWedge` through-line, in its `tonalAttributes`, using `safeWords`, clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I extract a voice and promise from what you give me, write the flow, and note it's ungrounded. Connect Jinn to ground it in the brand's real wedge and vocabulary.
+The skill still works: I extract a voice and promise from what you give me, write the flow, and note it's built from those inputs alone, not the brand's record. Connect Jinn to ground it in the brand's real wedge and vocabulary.
 
 ## If a call fails
 

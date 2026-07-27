@@ -9,9 +9,11 @@ Deliverable: **one content brief per keyword** — coverage verdict, a competito
 
 This skill uses **web search only** — never a paid SEO API (no Ahrefs, Semrush, Moz, no volume/difficulty numbers from a tool). Everything about the SERP is inferred by reading it; say so, so no one reads an inference as a metric.
 
-Works standalone. Connected to Jinn, the differentiation angle and voice come from the brand's real strategy — see **If a Jinn MCP connection is present**.
+Works standalone — a complete, drafting-ready brief per keyword. Connected to Jinn, the differentiation angle and voice also come straight from the brand's real strategy — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Gather the inputs
 
@@ -61,9 +63,9 @@ Assemble it:
 | Keyword | Verdict | Angle (the gap) | Opportunity |
 |---------|---------|-----------------|-------------|
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Grounding makes a whole content calendar cohere — every brief points at one position instead of drifting. Two calls:
+Connecting makes a whole content calendar cohere — every brief points at one position the brand has already committed to. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -76,13 +78,13 @@ Grounding makes a whole content calendar cohere — every brief points at one po
 | `tonalAttributes[]` | **Voice notes for the writer** — the register every section is drafted in. |
 | `bannedWords[]` | **Hard filter** — titles, meta, and section guidance use none of these; flag any keyword phrasing that trips it. |
 
-Grounded, the delta is concrete: instead of a guessed angle per keyword, every brief's angle rotates on the brand's real `positioningWedge`, the outline speaks to a named `tribe` and its `painPoints`, and voice notes carry `tonalAttributes` with a `bannedWords` filter — so the calendar reads as one brand. **State which fields you used** when you deliver.
+Connected, the delta is concrete: every brief's angle rotates on the brand's real `positioningWedge`, the outline speaks to a named `tribe` and its `painPoints`, and voice notes carry `tonalAttributes` with a `bannedWords` filter — so the calendar reads as one brand. **State which fields you used** when you deliver.
 
 Guardrail: the competitor-SERP read stays yours — done by web search, never by the gateway. The projection carries **no** competitor data, no keyword volume, no difficulty, no SERP intel. Never reference or request those; if you want the gateway to tell you what ranks, stop — it isn't there, and paid-tool metrics are out of scope by design.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the briefs still ship ungrounded:
+Read `data.code` on the JSON-RPC error and act — the briefs still ship in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"seo-content-brief"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -93,7 +95,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill works generically as written above. Guess the angle from the ICP notes and note the calendar is ungrounded; connect Jinn to lock every brief to a real positioning wedge.
+- **No token / no connection** → the skill runs in full as written above. Draw the angle from the ICP notes and note the calendar is built from those notes rather than the brand's record; connect Jinn to lock every brief to a real positioning wedge.
 
 ## What just became possible
 

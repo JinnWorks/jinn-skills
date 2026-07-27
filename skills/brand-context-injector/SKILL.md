@@ -7,6 +7,8 @@ description: Register Jinn's MCP server (or a public llms.txt/brand.json fallbac
 
 Deliverable: **one standing wiring**, not a one-off read. A Jinn MCP server registered in the user's own agent stack (Claude Code, or any other MCP-speaking client), plus a persistent stanza written into that project's `CLAUDE.md` / `AGENTS.md` (or the equivalent file for the target stack) that tells every future session where this brand's context lives, which fields it can actually trust, and how to tell when it's worth upgrading. Run this once per project; run `know-your-brand-dna` afterward if you want the DNA read back to you as a smoke test — that skill reads, this one wires.
 
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
 ## Procedure
 
 ### 1. Intake
@@ -30,7 +32,7 @@ Try each in order and stop at the first that produces real context. Note which r
     --header "Authorization: Bearer <token>"
   ```
 - Verify: call `get_token_context` (confirms the token, lists `brand_slugs`), then `get_brand_dna_public({ slug })` for the target brand. Same two-call invariant every skill in this repo opens with.
-- Check for the Connected rung the same way `on-brand-artifact-builder` does: look at what `tools/list` actually returned. If it includes `get_brand_kit`, `get_brand_design_tokens`, and `get_brand_design_md`, call them for the slug and write the Connected stanza, pointing at `on-brand-artifact-builder`, which already knows what to do with those three. If they're absent from `tools/list` — the ordinary case for a demo token — don't call them and don't read it as a per-brand rejection: `get_brand_kit` sits behind an `internal` audience tier that a `public`-audience token can never see (a deliberate fail-closed design, not a bug to retry), and no live token-minting flow issues anything above `public` today. Write the Grounded-only stanza and say plainly that the Connected rung isn't reachable yet, not "not yet for this brand."
+- Check for the Connected rung the same way `on-brand-artifact-builder` does: look at what `tools/list` actually returned. If it includes `get_brand_kit`, `get_brand_design_tokens`, and `get_brand_design_md`, call them for the slug and write the Connected stanza, pointing at `on-brand-artifact-builder`, which already knows what to do with those three. If `get_brand_kit` is absent from `tools/list` — the ordinary case for a demo token — don't call it and don't read it as a per-brand rejection: the render-ready kit is a Brand-tier unlock, deliberately hidden from lower-tier listings (fail-closed by design, not a bug to retry). It appears the moment the token's brand is Connected on Jinn at the Brand tier. Write the Grounded-only stanza and say plainly which rung the token reached, not "not yet for this brand."
 
 **2. Published llms.txt (rung: Good — no Jinn call).** No token, or the brand isn't in the token's `brand_slugs`? Fetch `https://{domain}/llms.txt`. If it's present and llmstxt.org-shaped, read the brand name, value proposition, and differentiator sections straight from it. This is the brand's own self-declared public context — real, but not verified against Jinn's canonical record.
 
@@ -81,7 +83,7 @@ Nothing beyond this projection exists to trust: no competitor data, no pricing, 
 
 ### 5. Deliver
 
-Report: which rung was reached, which file received the stanza (full path), and the honest upgrade path — "wire a real token and re-run this skill to reach Grounded," or "the Connected rung isn't reachable by any token available today; re-run the skill once it is and the stanza upgrades itself, no re-injection needed."
+Report: which rung was reached, which file received the stanza (full path), and the honest upgrade path — "wire a real token and re-run this skill to reach Grounded," or "the Connected rung unlocks with a Brand-tier token; re-run this skill once the brand is Connected and the stanza upgrades itself, no re-injection needed."
 
 ## When a call fails
 
@@ -92,7 +94,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → the agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add with the CLI `--header` form in step 2.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in the token's `brand_slugs`. Call `get_token_context` and use one it actually lists.
-- **`get_brand_kit` / `get_brand_design_tokens` / `get_brand_design_md` are absent from `tools/list` while `get_brand_dna_public` succeeds** → this is the ordinary state for a demo/public token today, not a wrong slug or a fixable error. `get_brand_kit` sits behind an `internal` audience tier a public token can never see; own-brand token minting that would carry a higher audience isn't live yet. Write the Grounded-only stanza and say so plainly.
+- **`get_brand_kit` is absent from `tools/list` while `get_brand_dna_public` succeeds** → the ordinary state for a demo token, not a wrong slug or a fixable error. The render-ready kit is a Brand-tier unlock; it appears in `tools/list` once the token's brand is Connected on Jinn at the Brand tier. Write the Grounded-only stanza and say so plainly.
 - **No token, no llms.txt, no brand.json** → nothing real to wire. Say so, and point at the README's "Connect to Jinn" section rather than fabricating a stanza.
 
 ## What just became possible

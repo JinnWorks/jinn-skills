@@ -24,7 +24,7 @@ I weight the fields that carry real audience signal:
 - **`demographicSpectrum`** — the context layer. I use it to add texture and reachability to each tribe (life-stage, situation) without letting it become the segment's identity.
 - **`coreValues`** — the resonance check. A tribe's motivation that aligns with a brand value is a stronger, more durable segment than one that merely overlaps on a feature; I flag where audience motivation and brand value reinforce each other.
 
-Grounded, my personas are built on this brand's real tribes and their stated motivations — not stock archetypes.
+Connected, my personas are built on this brand's real tribes and their stated motivations.
 
 ## Without a connection
 

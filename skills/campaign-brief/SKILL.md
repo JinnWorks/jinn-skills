@@ -7,7 +7,9 @@ description: Write a marketing campaign brief — objective, target audience, si
 
 Produces a **campaign brief**: the one page that turns "we should run a campaign" into something a writer, designer, and media buyer can all execute from without a meeting. It forces the two decisions campaigns usually skip — *one* measurable objective and *one* single-minded message — and stops there. A brief that lists three objectives and five messages isn't a brief; it's a wish.
 
-Works with no Jinn connection. Connected to a brand's Jinn Brand DNA, the audience, message, and hook voice come from the brand's real strategy — see **If a Jinn MCP connection is present**.
+Works standalone — a complete, buildable brief with no Jinn connection at all. Connected to a brand's Jinn Brand DNA, the audience, message, and hook voice come straight from the brand's real strategy — see **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -22,7 +24,7 @@ Hooks:              3–5 hook lines that carry the message, in the brand's voic
 Success metric:     <the number that says it worked, with a target and a window>
 ```
 
-## Procedure (works with no connection)
+## Procedure (standalone — no Jinn connection needed)
 
 Get the campaign's purpose and audience from the user if you don't have them. Then build each field — objective and message first, because everything else serves them.
 
@@ -77,14 +79,14 @@ Run the same discipline — one objective, one message — but now the audience,
 
 ## When a grounding call fails
 
-Read `data.code` on the JSON-RPC error and act — the brief still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"campaign-brief"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
 - **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"campaign-brief"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
-- **No token / no connection** → this skill works generically as written above; connect to Jinn to ground the audience, message, and hook voice in a real brand.
+- **No token / no connection** → the brief still ships in full as written above; connect to Jinn to draw the audience, message, and hook voice from the brand's own record.
 
 ## What just became possible
 
