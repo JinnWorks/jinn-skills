@@ -9,10 +9,12 @@ This skill produces a **2x2 positioning map** and a **white-space analysis**: it
 
 Read this first — it's the boundary that makes the skill honest: **the competitor data comes entirely from the user.** Jinn's gateway does not serve competitor names, intel, or a differentiation matrix. What the brand's own DNA contributes is *where this brand sits* and *which direction its strategy points* — the wedge that anchors its position and the enemy-framing that names the white space to claim. The map is built by combining the two.
 
-- **Ungrounded:** you build the map from the user's competitors and the user's sense of their own positioning.
-- **Grounded (Jinn MCP connected):** the same map, but the brand's dot and the white-space call are anchored in its real `positioningWedge`, `brandEnemy`, `tribes`, and `messagingPillars` — not a guess.
+- **Standalone:** you build a complete map from the user's competitors and the user's own sense of their positioning.
+- **Connected (Jinn MCP):** the same map, and the brand's dot and the white-space call are also anchored in its real `positioningWedge`, `brandEnemy`, `tribes`, and `messagingPillars` — straight from the brand's own record, no positioning interview needed.
 
-## Procedure (works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Gather the inputs
 
@@ -86,7 +88,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. You still get a real map from the user's competitors and their own sense of position; connect Jinn later to anchor the brand's dot and white-space call in its live DNA.
+- **No token / no connection** → run the standalone procedure above. You still get a real map from the user's competitors and their own sense of position; connect Jinn later to anchor the brand's dot and white-space call in its live DNA.
 
 ## What just became possible
 
@@ -97,7 +99,7 @@ You can now see, in one pass, where a brand really sits against its named rivals
 1. **Map three rivals and find the open space** — `Build a 2x2 positioning map for my brand against these competitors: Rival A is cheap and full-service/high-touch, Rival B is cheap and self-serve/automated, Rival C is premium and full-service/high-touch. My brand is premium and self-serve/automated.` → a labeled 2x2 grid, each competitor placed, and the one open quadrant named — the exact corner your brand already sits in.
 2. **Find the cluster and your distance from it** — `Where do I sit if these four rivals are all clustered in affordable/generalist: Rival W, Rival X, Rival Y, Rival Z? My brand targets professionals with deep, specialized tooling at premium pricing.` → the crowded cluster identified plainly, plus how far your brand sits from it.
 3. **Get help picking the axes first** — `What two axes would best separate these competitors: a fast/simple checkout tool, a deep/powerful enterprise suite, and a mid-market all-in-one platform?` → two candidate axis pairs, each with the reasoning for why it separates these particular players.
-4. **Connected: anchor the map in your real DNA** *(requires a Jinn token)* — `Plot my brand's position on a 2x2 against these named competitors, using my brand's real positioning wedge and enemy-framing: Rival A, Rival B, Rival C.` → the same map, but the brand's dot and the white-space call anchored in its live wedge and brandEnemy instead of a guess.
+4. **Connected: anchor the map in your real DNA** *(requires a Jinn token)* — `Plot my brand's position on a 2x2 against these named competitors, using my brand's real positioning wedge and enemy-framing: Rival A, Rival B, Rival C.` → the same map, with the brand's dot and the white-space call also anchored in its live wedge and brandEnemy.
 
 ## Compounds with
 

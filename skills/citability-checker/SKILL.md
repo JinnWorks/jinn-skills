@@ -9,6 +9,8 @@ Deliverable: **a citability score (0–100) plus a dimension-by-dimension breakd
 
 Works standalone against a published checklist drawn from answer-engine-optimization practice: what makes a passage the one an AI assistant lifts into its answer versus the one it skips. This is a narrower question than "does this sound human" (that's `brand-voice-checker`'s lane — reads-like-AI tells, tone, banned words) and a different direction than "is this claim sourced" (that's `claim-provenance-checker`'s lane — it audits whether a strategy/marketing claim can be verified before it ships; this skill audits whether the *passage itself is structured and evidenced* the way an answer engine's extraction pass rewards, regardless of whether every fact inside it happens to be true). A citability-checker PASS is not a truth claim.
 
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
 ## The deliverable
 
 ```
@@ -33,7 +35,7 @@ Citability issues (N found):
 Clean:  <what's already extractable — say so, don't only flag problems>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -41,7 +43,7 @@ Clean:  <what's already extractable — say so, don't only flag problems>
 |-------|---------|
 | Content | the pasted post or article to score (required) |
 | Target question | the query this piece is meant to answer, if the user names one — sharpens the extractable-answer and entity-clarity checks. If absent, infer the implied question from the headline/opening and say so. |
-| Brand/product name | if given (or grounded — see below), used for the entity-clarity check. If absent, check clarity generically: does *some* named subject stay consistent, whatever it's called. |
+| Brand/product name | if given (or read from a connected brand — see below), used for the entity-clarity check. If absent, check clarity generically: does *some* named subject stay consistent, whatever it's called. |
 
 ### 2. Run the six-dimension checklist (published AEO/GEO practice)
 
@@ -68,7 +70,7 @@ List what's already extractable, not just what's flagged — a writer needs to k
 
 ### Better — ground entity clarity and topical fit in the brand's real record
 
-Don't guess at the brand's real name or what it's actually known for — read it.
+Read the brand's real name and what it's actually known for straight from its own record.
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`).
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -76,9 +78,9 @@ Don't guess at the brand's real name or what it's actually known for — read it
 
 | Projection field | Drives |
 |-------------------|--------|
-| `brandName`, `officialName` | **Replaces** a guessed name for the entity-clarity check — is the piece naming the brand by its real, correctly-cased identity rather than a variant an engine can't confidently resolve. |
+| `brandName`, `officialName` | **Supplies** the canonical name for the entity-clarity check — is the piece naming the brand by its real, correctly-cased identity rather than a variant an engine can't confidently resolve. |
 | `messagingPillars[]` | Whether the piece's central claim lands inside territory the brand is actually known for, or drifts somewhere unrelated that dilutes what an engine would attribute to it. |
-| `tribes[]` / `painPoints` | Sharpens the target-question inference and which FAQ-shaped questions are worth adding — grounded in who the brand's real audience is, not a guess. |
+| `tribes[]` / `painPoints` | Sharpens the target-question inference and which FAQ-shaped questions are worth adding — grounded in who the brand's real audience is. |
 | `tonalAttributes[]` | Calibrates the specificity check against this brand's actual register — a brand that's deliberately terse and plainspoken shouldn't be dinged for short declarative sentences the way a data-heavy brand's copy would be. |
 
 Boundary, restated: this rung checks whether claims are *stated* specifically, sourced, and attributed to the right entity — it still does not verify that a cited fact is *true*. Checking your own claims for evidence before they ship is `claim-provenance-checker`'s lane; checking what AI assistants already believe about the brand is `brand-fact-checker`'s lane.
@@ -91,7 +93,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the checklist still runs in full ungrounded:
+Read `data.code` on the JSON-RPC error and act — the checklist still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"citability-checker"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -102,7 +104,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the checklist runs in full against the published dimensions above; note the score is ungrounded and connect Jinn to check entity clarity and topical fit against the brand's real record.
+- **No token / no connection** → the checklist runs in full against the published dimensions above; note the entity-clarity and topical-fit reads are against the piece itself rather than the brand's record, and connect Jinn to check them against that record too.
 
 ## What just became possible
 

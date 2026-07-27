@@ -7,9 +7,11 @@ description: Write X (Twitter) content — a single post or a threaded one, chos
 
 Deliverable: **one X post, or one thread**, built for the format and ready to publish. The choice isn't a preference — it's a read on content density. A single sharp claim ships as one post; an idea with three or more load-bearing beats earns a thread. Don't pad a thin idea into a thread, or cram a rich one into 280 chars.
 
-Works standalone. Connected to Jinn, the post reads in the brand's real voice and keeps its actual claims, not a plausible guess at them.
+Works standalone — a real, publishable post or thread from the claim alone. Connected to Jinn, the post also reads in the brand's real voice and carries its actual claims, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Fix what you're working with (before writing a word)
 
@@ -61,14 +63,14 @@ Run the post (or every post in the thread) through all five — a fail is a rewr
 
 Label the deliverable (single vs thread + framing) and hand it over. That's a real, publishable post.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Don't infer the voice — read it. Two calls:
+Read the voice straight from the brand's own record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then replace the guessed inputs with the real ones. Field → decision map:
+Then take step 1's inputs from the record instead. Field → decision map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -76,13 +78,13 @@ Then replace the guessed inputs with the real ones. Field → decision map:
 | `safeWords[]` | Diction to **reach for** — pre-approved brand language; prefer these in the hook and CTA. |
 | `bannedWords[]` | **Hard filter** — feeds the banned-phrase scan. If one appears, rewrite that post. |
 | `slangPolicy` | Register rule — how casual short-form may go, whether slang and lowercase are on the table. |
-| `formattingConstraints` | Post formatting — emoji, hashtags, casing. Obey literally over the generic norms above. |
+| `formattingConstraints` | Post formatting — emoji, hashtags, casing. Obey literally over the platform norms above. |
 | `positioningWedge` | **The claim's edge** — the brand's real angle; sharpens the hot-take and before/after framings. |
 | `messagingPillars[]` ({pillar, description}) | **What the post reinforces** — in a thread, different posts carry different pillars so it spans the real narrative. |
 | `painPoints` | **Hook fuel** — open the mini-case or before/after on a real pain, not an invented one. |
 | `tribes[]` ({name, description, motivation}) | **Who it speaks to** — aim the hook at a named tribe; their `motivation` sets the angle. |
 
-Grounded, the delta is concrete: the hook carries the brand's real `positioningWedge`, the thread spans actual `messagingPillars`, the voice is the exact `tonalAttributes`, claims use `safeWords`, and every post is provably free of `bannedWords`. **State which fields you used** — the wedge, the pillars, the tribe — when you deliver, so the user can see the grounding did work.
+Connected, the delta is concrete: the hook carries the brand's real `positioningWedge`, the thread spans actual `messagingPillars`, the voice is the exact `tonalAttributes`, claims use `safeWords`, and every post is provably free of `bannedWords`. **State which fields you used** — the wedge, the pillars, the tribe — when you deliver, so the user can see which record fed the post.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection — don't reference or request it.
 
@@ -99,7 +101,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 inputs and note the output is ungrounded; connect Jinn to ground it in a real brand.
+- **No token / no connection** → the skill still runs in full. Write from the step-1 inputs and note the post is built from those inputs rather than the brand's record; connect Jinn to take the voice and claims straight from a real brand.
 
 ## What just became possible
 

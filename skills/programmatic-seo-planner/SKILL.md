@@ -9,7 +9,9 @@ Deliverable: **a page-set plan** — a pattern-viability verdict, a data-source 
 
 **Boundary:** `seo-content-brief` briefs *one page* from a keyword. This skill plans a *set* of pages that share one template and vary along a data axis (city, competitor, integration, role — whatever the pattern's bracketed variable is). Once a pattern earns a viable verdict here, hand each row to `seo-content-brief` for the page-level brief, or — once the brand is Connected — straight into Fama's pipeline (see **Best rung** below).
 
-Standalone, it runs on published quality-gating method for pattern-based content: the viability test, the uniqueness floor, and the rollout discipline. Connected to Jinn, the template's angle and the axis worth building are grounded in the brand's real positioning and audience instead of "build every row the data source has."
+Standalone, it runs on published quality-gating method for pattern-based content: the viability test, the uniqueness floor, and the rollout discipline — a complete verdict on its own. Connected to Jinn, the template's angle and the axis worth building also come straight from the brand's real positioning and audience — no discovery questions needed. See **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The rule this skill will not skip
 
@@ -17,7 +19,7 @@ Standalone, it runs on published quality-gating method for pattern-based content
 
 This isn't caution for its own sake. Search engines already treat large batches of near-identical, low-value pages generated primarily to capture search traffic as a policy violation ("scaled content abuse" in Google's own spam guidance), and doorway pages — many pages built to funnel searchers toward one real destination, differing only in a swapped keyword — are named explicitly. A set that trips this doesn't just fail to rank; it can drag down how the rest of the domain is trusted. Answer engines summarizing search results have the same incentive from the other direction: a templated page with no distinct substance gives them nothing worth quoting over a competitor's genuinely different one. A smaller set of pages that each earn their own existence outperforms a large set that doesn't, on every measure that matters after week one.
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -103,7 +105,7 @@ Followed by the template skeleton (step 4) and the internal-linking structure.
 - The rollout plan has a pilot batch and stated kill criteria, not "build them all and see."
 - Every competitor/coverage claim in step 5 comes from an actual search or an actual site check, never invented.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -119,7 +121,7 @@ Two calls, same sequence as every skill in this repo:
 | `tonalAttributes[]` | Voice notes for the shared boilerplate and the per-row prose alike. |
 | `safeWords[]` / `bannedWords[]` | A set-wide vocabulary filter — checked once here across the whole pattern, not page by page. |
 
-Grounded, the delta is concrete: instead of narrowing the axis by guesswork or building every row a data source happens to offer, the plan keeps only the axis values that map to a real `tribe`, argues the brand's actual `positioningWedge` on every page, and answers a `painPoint` the brand can genuinely speak to — the same discipline that made the viability test pass, now backed by the brand's real strategy instead of a judgment call.
+Connected, the delta is concrete: the plan also keeps only the axis values that map to a real `tribe`, argues the brand's actual `positioningWedge` on every page, and answers a `painPoint` the brand can genuinely speak to — the same discipline that made the viability test pass, now carried by the brand's own record.
 
 **Best rung.** Once the brand is Connected, this plan feeds Fama's own generation pipeline — worth describing honestly, because it isn't a literal fill-in-the-axis engine. Fama's content-calendar generator (`content-calendar/generate.ts`) runs an embedding-based topic-gap analysis against the brand's named competitors and turns each real coverage gap into a scheduled, formatted calendar item; `generated-assets/generate-prose-asset.ts` then drafts that item in the brand's actual voice. That's not a shortfall against classic axis-fill programmatic SEO — it's the same discipline this skill enforces by hand, run automatically: every page Fama would generate is already justified by a real, measured gap against a competitor, not a data-source row that happened to exist. Once Connected, treat this plan's viable rows as the shortlist to feed that pipeline; this skill is where the set earns the right to be built, Fama is where it gets built.
 
@@ -127,7 +129,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the plan still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the plan still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"programmatic-seo-planner"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -138,7 +140,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the plan still ships in full against published viability method and any user-supplied pattern/data. Note it's ungrounded, and that **The rule this skill will not skip** applies regardless of connection state.
+- **No token / no connection** → the plan still ships in full against published viability method and any user-supplied pattern/data. Note it's built from that method and your own inputs rather than the brand's record, and that **The rule this skill will not skip** applies regardless of connection state.
 
 ## What just became possible
 

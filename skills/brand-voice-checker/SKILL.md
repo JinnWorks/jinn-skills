@@ -7,7 +7,7 @@ description: Detect whether copy reads like default-LLM writing — a 0-100 read
 
 Deliverable: **an on-brand score (0–100) plus a tell-by-tell breakdown** for one pasted piece of copy — each generic-AI writing tell quoted and rewritten, banned-word hits (if a list is supplied), and a structural checklist — so a marketer can tell in one pass whether copy reads like a person or like an LLM's default voice.
 
-Works standalone against a published checklist of AI writing tells. Connected to Jinn, the banned words and tone calibration come from the brand's real Brand DNA instead of a guess or a generic list. This is a narrower tool than a full strategy audit — it's asking "does this sound like AI," not "does this hold the brand's line" (for the latter, see `brand-messaging-audit`; for a full tone/strategy red-line, see `brand-guardrails-review`).
+Works standalone against a published checklist of AI writing tells. Connected to Jinn, the banned words and tone calibration also come straight from the brand's real Brand DNA — no list to supply. This is a narrower tool than a full strategy audit — it's asking "does this sound like AI," not "does this hold the brand's line" (for the latter, see `brand-messaging-audit`; for a full tone/strategy red-line, see `brand-guardrails-review`).
 
 ## The deliverable
 
@@ -33,7 +33,9 @@ Structural checks:  sentence-length variance · specificity (names/numbers vs
 Clean:  <what's already good — say so, don't only flag problems>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -82,7 +84,7 @@ List what's already clean, not just what's flagged — the writer needs to know 
 
 ## If a Jinn MCP connection is present
 
-Don't guess at banned words or tone calibration — read them.
+Read the banned words and the tone calibration straight from the brand's own record.
 
 1. Call **`get_token_context`** for the brand slug(s) (`brand_slugs`). Match the user's named brand, or use the one in scope.
 2. Call **`get_brand_dna_public`** with `{ "slug": "<slug>" }`.
@@ -90,15 +92,15 @@ Don't guess at banned words or tone calibration — read them.
 
 | Projection field | Drives |
 |-------------------|--------|
-| `bannedWords[]` | **Replaces** the user-supplied list — the brand's real hard red-line, not a guess. |
+| `bannedWords[]` | **Replaces** the user-supplied list — the brand's own hard red-line. |
 | `safeWords[]` | Vocabulary to reach for in every rewrite — the brand's own approved language. |
 | `tonalAttributes[]` | Recalibrates *which* generic-AI tells actually matter for this brand — an intensifier-heavy, hyperbolic brand may tolerate what a reserved, precise one can't. Judge each tell against these, not a universal list. |
-| `slangPolicy` / `formattingConstraints` | The structural-check thresholds (casing, emoji, hashtags, register) become this brand's actual rules instead of generic-professional defaults. |
+| `slangPolicy` / `formattingConstraints` | The structural-check thresholds (casing, emoji, hashtags, register) become this brand's actual rules rather than professional-copy defaults. |
 | `messagingPillars[]` | Optional note only — if a line drifts from a pillar, flag it as a strategy note, not a score deduction; the full tone/strategy red-line is `brand-guardrails-review`'s job, not this skill's. |
 
-Drop the "unverified site read" URL step entirely once connected — the DNA record is the real thing it was approximating.
+Drop the "unverified site read" URL step entirely once connected — the DNA record supplies directly what that step was inferring.
 
-Ghost runs a deeper, two-pass voice analysis with a calibrated score server-side once you're working inside the product — this skill's score is the closest approximation reachable from the public projection, not that engine. State which state you reached ("scored against `<brandName>`'s real banned words and tone" vs. "scored against generic AI-tell heuristics") so the user can see the grounding did work. Once flagged copy needs a redraft rather than just a diagnosis, that's a one-click hand-off to Ghost inside the product — this skill stops at the score.
+Ghost runs a deeper, two-pass voice analysis with a calibrated score server-side once you're working inside the product — this skill's score is the closest approximation reachable from the public projection, not that engine. State which state you reached ("scored against `<brandName>`'s real banned words and tone" vs. "scored against the published AI-tell heuristics") so the user can see the grounding did work. Once flagged copy needs a redraft rather than just a diagnosis, that's a one-click hand-off to Ghost inside the product — this skill stops at the score.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
@@ -115,7 +117,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the checklist still runs in full against published heuristics and any user-supplied banned words; note the score is ungrounded and connect Jinn to check against the brand's real rules.
+- **No token / no connection** → the checklist still runs in full against published heuristics and any user-supplied banned words; note the score is against the published checklist rather than the brand's own rules, and connect Jinn to check against those too.
 
 ## What just became possible
 

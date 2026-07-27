@@ -9,7 +9,9 @@ Deliverable: **5 headline variants + 3 primary-text options**, written for one n
 
 Works standalone. Connected to Jinn, the headlines carry the brand's real positioning promise and the copy is provably clean of banned language.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Fix the platform and the promise
 
@@ -47,9 +49,9 @@ Three different opening hooks (question / bold claim / relatable moment), each e
 
 Label each variant (angle + platform) and deliver. That's a testable ad set.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Read the brand instead of guessing it. Two calls:
+Read the brand's own record. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -58,14 +60,14 @@ Field → decision map:
 
 | Projection field | Drives |
 |------------------|--------|
-| `positioningWedge` | **The core promise in the headlines** — this replaces step 1's guessed promise. It's how the brand actually wins; every headline rotates on it. |
+| `positioningWedge` | **The core promise in the headlines** — use it in place of the promise you fixed in step 1. It's how the brand actually wins; every headline rotates on it. |
 | `painPoints` | **Hook angles** — feed the pain headline (angle 2) and the pain-led primary-text option straight from these. |
 | `messagingPillars[]` ({pillar, description}) | **Which benefit each variant leads with** — assign different pillars across the 5 headlines so the test spans the brand's real benefits, not one repeated. |
 | `safeWords[]` | **Approved claim language** — the words you're cleared to make promises with. Prefer them in headlines and CTAs. |
 | `bannedWords[]` | **Hard filter** — no variant may contain one. Check every headline and every primary-text option; rewrite any that trip it. |
 | `tonalAttributes[]` | **Tone** — the register the copy is written in, per platform. |
 
-Grounded, the delta is concrete: the 5 headlines are 5 angles on the brand's real `positioningWedge`, each leading with a different `messagingPillar`, hooks drawn from actual `painPoints`, claims phrased in `safeWords`, and the whole set filtered against `bannedWords`. Call out the wedge and which pillar each headline carries when you deliver.
+Connected, the delta is concrete: the 5 headlines are 5 angles on the brand's real `positioningWedge`, each leading with a different `messagingPillar`, hooks drawn from actual `painPoints`, claims phrased in `safeWords`, and the whole set filtered against `bannedWords`. Call out the wedge and which pillar each headline carries when you deliver.
 
 Only the fields above exist on a public token. Competitor intel, differentiation, platform-fit scoring, and pricing are **not** in the projection — never reference or request them. (Note: "platform" here is the ad channel *you* name; it is not read from Jinn.)
 
@@ -82,7 +84,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 promise and note the output is ungrounded; connect Jinn to ground it in a real brand.
+- **No token / no connection** → the skill still ships in full. Write from the step-1 promise and note the set is built from the brief alone, not the brand's record; connect Jinn to anchor the promise and the banned-word filter in a real brand.
 
 ## What just became possible
 
@@ -93,7 +95,7 @@ You can now generate a full, testable ad set for a specific platform in one pass
 1. **Generate a Meta ad set** — `Write 5 headline variants and 3 primary-text options for a Meta ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → 5 headlines (benefit, pain, curiosity, proof, CTA angles) plus 3 body-copy options, sized to Meta's format.
 2. **Generate a Google Search ad set for the same product** — `Write 5 headline variants and 3 primary-text options for a Google Search ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → the same 5 angles rewritten to Google's shorter, keyword-aware headline limits.
 3. **Test a TikTok-native register** — `Write 5 headline variants and 3 primary-text options for a TikTok ad. Product: a $19/month app that turns voice memos into organized meeting notes.` → headlines in a casual, un-ad-like voice instead of Meta or Google's more polished register.
-4. **Connected: ground the variants in real positioning** *(requires a Jinn token)* — `Generate this same ad set but ground the headlines in our actual brand positioning and banned words.` → the same 5-angle set, pulling the core promise, benefit pillars, and safe/banned language from the brand's live record instead of a guess.
+4. **Connected: ground the variants in real positioning** *(requires a Jinn token)* — `Generate this same ad set but ground the headlines in our actual brand positioning and banned words.` → the same 5-angle set, with the core promise, benefit pillars, and safe/banned language coming straight from the brand's live record.
 
 ## Compounds with
 

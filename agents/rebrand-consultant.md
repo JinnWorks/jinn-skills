@@ -26,7 +26,7 @@ I weight the fields that reveal what equity is at stake:
 - **`positioningWedge`** — what the rebrand is *for*. If the wedge has moved, the identity has to follow; if it hasn't, a full rebrand is probably over-scoped.
 - **`bannedWords`** — signals of what the brand has consciously moved away from, which informs what the *old* identity should shed in the transition.
 
-Grounded, the keep/shed/evolve calls are made against *this brand's* real founding story and values — not a guess at what its equity is.
+Connected, the keep/shed/evolve calls are made against *this brand's* real founding story and values.
 
 ## Without a connection
 

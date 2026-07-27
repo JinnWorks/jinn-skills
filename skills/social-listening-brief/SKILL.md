@@ -9,9 +9,11 @@ Deliverable: **one social-listening brief** — a multi-platform sweep of what's
 
 **Boundary, stated up front:** a sibling skill, `ai-visibility-snapshot`, queries AI assistants (ChatGPT, Claude, Perplexity...) to see whether they mention a brand. This skill queries **real people on social platforms** — it never touches an AI assistant. If the question is "does ChatGPT recommend us," that's the other skill. If the question is "what's working in this space this week, and what should we post about," it's this one.
 
-Standalone, it's a full hand-run sweep across the platforms you can reach. Connected to Jinn, findings get scored against the brand's real tribes, pillars, and banned words instead of your best guess at fit — see **If a Jinn MCP connection is present**.
+Standalone, it's a full hand-run sweep across the platforms you can reach — a complete brief on its own. Connected to Jinn, findings also get scored against the brand's real tribes, pillars, and banned words, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -72,7 +74,7 @@ Lead with a one-line verdict ("Comment-thread pushback across Reddit and X both 
 
 ### Better — score findings for brand fit
 
-Ground which angles are worth pursuing in the brand's real strategy instead of your best guess. Two calls:
+Ground which angles are worth pursuing in the brand's real strategy, straight from its own record. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -85,17 +87,17 @@ Ground which angles are worth pursuing in the brand's real strategy instead of y
 | `positioningWedge`, `brandEnemy` | Sharpens comparison-flavored findings — an angle that plays to the brand's real wedge outranks a generic one at step 5. |
 | `safeWords` / `bannedWords` | Filters vocabulary in the angle write-ups and any suggested draft language. |
 
-State which fields grounded the angle ranking when you deliver the brief: "Ranked against `<brandName>`'s live tribes and pillars, not an inferred audience."
+State which fields fed the angle ranking when you deliver the brief: "Ranked against `<brandName>`'s live tribes and pillars, not an inferred audience."
 
 The projection carries the brand's own strategy and voice — it carries **no** engagement data, no platform search results, and no sentiment scoring. Every finding in this brief is still something you observed by hand in steps 2-4; the grounding call only sharpens which of those findings is worth acting on.
 
 ### Best — a Connected brand on Jinn
 
-For a brand Connected on Jinn, this stops being a weekly hand sweep. A standing daily pipeline collects signals from RSS, Reddit, Hacker News, and X, scores every one against the brand's live DNA for relevance and fit, and auto-drafts a response in brand voice for anything that clears the relevance bar — this skill's Step 5 ranked-angles list becomes a queue that refills itself, and a promising angle becomes an actual drafted post instead of a recommendation to go write one. YouTube and TikTok stay hand-swept even at this rung — the standing pipeline doesn't collect from either yet, so this skill's ungrounded procedure is still the way to cover those two platforms for a Connected brand. That machinery isn't reachable from a public token; this skill can only point at it, not run it.
+For a brand Connected on Jinn, this stops being a weekly hand sweep. A standing daily pipeline collects signals from RSS, Reddit, Hacker News, and X, scores every one against the brand's live DNA for relevance and fit, and auto-drafts a response in brand voice for anything that clears the relevance bar — this skill's Step 5 ranked-angles list becomes a queue that refills itself, and a promising angle becomes an actual drafted post instead of a recommendation to go write one. YouTube and TikTok stay hand-swept even at this rung — the standing pipeline doesn't collect from either yet, so this skill's standalone procedure is still the way to cover those two platforms for a Connected brand. That machinery isn't reachable from a public token; this skill can only point at it, not run it.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the brief still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"social-listening-brief"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -106,7 +108,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real brief ranked by cross-platform confirmation alone; connect Jinn later to re-rank the same findings against the brand's real tribes and pillars.
+- **No token / no connection** → run the standalone procedure above. It produces a real brief ranked by cross-platform confirmation alone; connect Jinn later to re-rank the same findings against the brand's real tribes and pillars.
 
 ## What just became possible
 

@@ -9,9 +9,11 @@ Deliverable: **one coverage map** for a single buyer question — 8–15 sub-que
 
 **Read this first — it's the boundary that keeps this skill in its own lane.** A sibling skill, `seo-content-brief`, takes a keyword and writes **one** brief for it — coverage verdict, competitor-SERP read, outline. This skill runs a step earlier and wider: given **one** buyer question, it maps the **space** of sub-queries around it, so you know which keywords are even worth a brief and how they cluster into a pillar-and-satellite set. Want the query space around a question mapped → this skill. Want one brief written for one keyword you already have → `seo-content-brief`. The two chain: run this first, then hand each row of the coverage map to `seo-content-brief` one at a time.
 
-Works standalone off a published decomposition method. Connected to Jinn, each sub-query gets a right-to-win read against the brand's actual positioning instead of a guess — see **If a Jinn MCP connection is present**.
+Works standalone off a published decomposition method — a complete coverage map on its own. Connected to Jinn, each sub-query also gets a right-to-win read against the brand's actual positioning, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -68,7 +70,7 @@ Lead with the map itself, then say how to act on it:
 - **As a content brief queue:** each row is a candidate input for `seo-content-brief` — hand it the sub-query as the keyword and this row's "why" as the ICP note.
 - **As a topic cluster:** the core-restatement row is the pillar page; every other row is a satellite piece in that pattern's shape, interlinking back to the pillar. This is what turns a fan-out into a cluster instead of a scattered list.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -91,7 +93,7 @@ Boundary, restated: the public projection carries positioning and messaging, not
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the map still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the map still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"query-fanout-explorer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -102,7 +104,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the map still ships from the pattern library alone. Note it's ungrounded in the delivery note, and connect Jinn to get the right-to-win read on every row.
+- **No token / no connection** → the map still ships in full from the pattern library. Note in the delivery note that it's built from the method alone, not the brand's record, and connect Jinn to add the right-to-win read on every row.
 
 ## What just became possible
 

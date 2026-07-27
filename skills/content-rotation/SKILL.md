@@ -7,11 +7,13 @@ description: Plan what to post and when across your properties on rotation — a
 
 Deliverable: **a posting decision, not a post** — a 7-day plan, one next post, or a rotation audit. This is the planner that sits above the per-post skills. It decides *what* to post and *when*; `x-content` and `linkedin-content` decide the words. Hand any slot it produces to one of those to draft, and it composes cleanly — this skill picks the property and angle, that skill writes it in voice.
 
-Works standalone from a property list you keep in a small local file. Connected to Jinn, the angles, hooks, and educational topics ground in the brand's real pillars, pains, and voice instead of a plausible guess at them.
+Works standalone from a property list you keep in a small local file. Connected to Jinn, the angles, hooks, and educational topics also come straight from the brand's real pillars, pains, and voice — no discovery round needed.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The rotation state (a small local file this skill maintains)
 
-No agent remembers what you posted last week, so this skill keeps a file. First run with no file present: create `.jinn/content-rotation.yaml` under the working directory and tell the user you made it. Grounded to a brand, namespace it: `.jinn/content-rotation.<slug>.yaml`, so two brands never share a rotation.
+No agent remembers what you posted last week, so this skill keeps a file. First run with no file present: create `.jinn/content-rotation.yaml` under the working directory and tell the user you made it. Connected to a brand, namespace it: `.jinn/content-rotation.<slug>.yaml`, so two brands never share a rotation.
 
 ```yaml
 # .jinn/content-rotation.yaml
@@ -44,7 +46,7 @@ If the user has no file and hasn't given a property list, ask once for the prope
 - **Links never sit in the post body.** Put the link in the first comment on LinkedIn, or a reply on X — and the default is *no link at all*. A body link suppresses reach and marks the post as an ad.
 - **A promo hook is an outcome, a take, or a story — never an announcement.** "We shipped X" is a press release; "X cut our onboarding from 3 days to 20 minutes" is a promo that earns the read.
 
-## Procedure (ungrounded — works from your local file)
+## Procedure (standalone — works from your local file)
 
 Load the state file (or create it, above). Then run the mode the user asked for; default to **pick-next** if they just say "what should I post."
 
@@ -90,9 +92,9 @@ Skip the rotation math. Take the already-chosen post (type + property + angle) a
 
 Update the file: add the post to `log` (newest first, trim entries older than ~14 days), and set `last_promo` on the property if it was a promo. The rotation is only as honest as the file.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the angles are your best guess. Grounded, they come from the brand's real strategy. Two calls:
+On its own, the rotation balances your real properties and angles across the week. Connected, those angles also come straight from the brand's own strategy record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -108,7 +110,7 @@ Then let the projection drive the rotation. Field → decision map:
 | `tonalAttributes[]` | **The voice of every angle line** you write into the plan — match them, so the handoff to `x-content`/`linkedin-content` starts on-voice. |
 | `safeWords[]` / `bannedWords[]` | **Diction.** Prefer `safeWords` in hooks; keep every angle line clear of `bannedWords`. |
 
-**On the property roster:** the public projection has no product list, so the *named* properties in your file still come from the user. What grounding changes is everything the rotation says *about* them — every angle, hook, and topic now runs on the brand's real pillars, pains, tribes, and voice. If the user hasn't given a roster at all, seed candidate topics from the `messagingPillars` as a starting point and say so. **State which fields you used** — the pillars a week spans, the wedge a promo carries, the tribe a post targets — when you deliver, so the grounding is visible.
+**On the property roster:** the public projection has no product list, so the *named* properties in your file still come from the user. What connecting changes is everything the rotation says *about* them — every angle, hook, and topic now runs on the brand's real pillars, pains, tribes, and voice. If the user hasn't given a roster at all, seed candidate topics from the `messagingPillars` as a starting point and say so. **State which fields you used** — the pillars a week spans, the wedge a promo carries, the tribe a post targets — when you deliver, so the connection is visible.
 
 Only the fields above exist on a public token. There is no product-inventory, competitor, engagement-analytics, or pricing data in the projection — don't reference or request it.
 
@@ -125,7 +127,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Run the rotation from the local file's property list and note the angles are ungrounded; connect Jinn to ground them in a real brand.
+- **No token / no connection** → the rotation still runs in full from the local file's property list; connect Jinn to draw the angles from a real brand's pillars, pains, and voice.
 
 ## What just became possible
 
@@ -136,7 +138,7 @@ You can now get a straight answer to "what should I post next" across however ma
 1. **Get a 7-day plan across two properties** — `Plan my next 7 days of LinkedIn posts. My properties are Atlas API, last promoted twenty days ago, and Onboarding Revamp, last promoted three days ago.` → a day-by-day table hitting the weekly mix target, the promo slot going to Atlas API as the more-overdue property, separated from the next promo day by at least one non-promo day.
 2. **Get just the single next post** — `What should I post next on X? My last post was build-in-public two days ago, and Atlas API hasn't had a promo in twenty-seven days.` → one decision — a promo for Atlas API — with the rule that decided it stated plainly.
 3. **Audit what's gone quiet** — `Audit my rotation: Atlas API was last promoted twenty-seven days ago, Onboarding Revamp six days ago. What's overdue?` → a table flagging Atlas API as overdue with a recommended next move.
-4. **Connected: ground the week in real pillars** *(requires a Jinn token)* — `Plan my next 7 days of LinkedIn posts and spread the promo, build-in-public, and educational slots across my brand's real messaging pillars.` → the same 7-day plan, but each slot's angle now tied to a named pillar and tribe instead of a guessed topic.
+4. **Connected: ground the week in real pillars** *(requires a Jinn token)* — `Plan my next 7 days of LinkedIn posts and spread the promo, build-in-public, and educational slots across my brand's real messaging pillars.` → the same 7-day plan, with each slot's angle now also tied to a named pillar and tribe.
 
 ## Compounds with
 

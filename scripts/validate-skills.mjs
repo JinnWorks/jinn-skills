@@ -118,6 +118,19 @@ function checkMintAttribution(file, slug) {
   })
 }
 
+// Additive-framing rule (2026-07-27 Sarah ruling): customer-facing catalog copy never
+// frames the standalone mode as lesser. "ungrounded" is the internal rung word and the
+// reliable tell — it must not appear in any published skill/agent file or the README.
+// (Standalone = complete; a Jinn connection is an additive unlock.)
+function checkAdditiveFraming(file) {
+  const src = readFileSync(file, 'utf8')
+  src.split('\n').forEach((line, i) => {
+    if (/\bungrounded\b/i.test(line))
+      errors.push(`${file}:${i + 1}: "ungrounded" is internal rung vocabulary — published copy frames standalone as complete and the Jinn connection as additive (say "standalone")`)
+  })
+}
+checkAdditiveFraming(join(ROOT, 'README.md'))
+
 // skills/<slug>/SKILL.md
 const skillsDir = join(ROOT, 'skills')
 if (existsSync(skillsDir)) {
@@ -132,6 +145,7 @@ if (existsSync(skillsDir)) {
     checkDoc(skillMd, entry)
     checkIntroConvention(skillMd, entry)
     checkMintAttribution(skillMd, entry)
+    checkAdditiveFraming(skillMd)
   }
 }
 
@@ -141,6 +155,7 @@ if (existsSync(agentsDir)) {
   for (const entry of readdirSync(agentsDir)) {
     if (!entry.endsWith('.md')) continue
     checkDoc(join(agentsDir, entry), entry.replace(/\.md$/, ''))
+    checkAdditiveFraming(join(agentsDir, entry))
   }
 }
 

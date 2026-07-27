@@ -7,9 +7,11 @@ description: Produce a set of on-voice content pieces — 3 social posts plus a 
 
 Deliverable: **3 social posts + 1 short blog intro (≈120 words)** that a brand could publish as-is. Same tone across all four pieces, each reinforcing a real message and speaking to a real audience.
 
-The skill works standalone. Connected to Jinn, it stops guessing the voice and reads it — the delta between "sounds professional" and "sounds like *this* brand" is the whole point.
+The skill works standalone — it extracts a working voice profile in one pass and writes from it. Connected to Jinn, that voice comes straight from the brand's own record instead, and the set lands squarely on "sounds like *this* brand."
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 You need a voice profile before you write. If the user hasn't given you one, extract it in one pass, then write.
 
@@ -41,14 +43,14 @@ Keep every piece inside the formatting rules from step 1. One voice — read the
 
 Label each piece and deliver. That's a real, usable content set.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Don't infer the voice — read it. Two calls:
+Read the voice straight from the brand's own record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (If it fails, see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then replace the guessed profile with the real one. Explicit field → decision map:
+Then swap the step-1 profile for the recorded one. Explicit field → decision map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -60,7 +62,7 @@ Then replace the guessed profile with the real one. Explicit field → decision 
 | `messagingPillars[]` ({pillar, description}) | **What each piece reinforces.** Map one pillar to each of the 3 posts + the blog intro so the set covers the brand's real narrative, not one note four times. |
 | `tribes[]` ({name, description, motivation}) | **Who each piece speaks to.** Aim posts at named tribes; let their `motivation` set the angle in step 2. |
 
-Grounded, the deliverable changes shape: the three posts each lead with a different `messagingPillar`, aimed at a different `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. State which pillar and tribe each piece targets when you deliver, so the user can see the grounding did work.
+Connected, the deliverable changes shape: the three posts each lead with a different `messagingPillar`, aimed at a different `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. State which pillar and tribe each piece targets when you deliver, so the user can see the grounding did work.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
 
@@ -77,7 +79,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 profile and note the output is ungrounded; connect Jinn to ground it in a real brand.
+- **No token / no connection** → the skill still ships in full. Write from the step-1 profile and note the voice was extracted, not read from the brand's record; connect Jinn to write from that record instead.
 
 ## What just became possible
 

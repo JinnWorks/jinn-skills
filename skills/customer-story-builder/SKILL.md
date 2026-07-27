@@ -7,9 +7,11 @@ description: Turn raw customer signal — a transcript, quotes, a survey, suppor
 
 Deliverable: from one customer and one pile of raw signal, **a full case study + a one-pager + 3 social snippets + deck-slide bullets** — four formats, one extraction. Not four writing jobs: you pull the story *once* into a fixed set of beats and quotes, then project that structure into each format. Claims stay consistent everywhere because they all trace to the same extraction.
 
-Works standalone. Connected to Jinn, the story is checked against the brand's stated ICP and written in its real voice — so it's not just a nice story, it's a *proof* the brand can stand behind.
+Works standalone — a complete, consistent proof set from the raw signal alone. Connected to Jinn, the story is also checked against the brand's stated ICP and written in its real voice, so it lands as a *proof* the brand can stand behind.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Gather the inputs and confirm consent (the gate)
 
@@ -55,9 +57,9 @@ Project the single extraction into each — same facts, different shape:
 
 Label each format and deliver the set.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ground the writing *and* pressure-test the story against the brand's strategy. Two calls:
+Anchor the writing *and* pressure-test the story against the brand's strategy. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -71,13 +73,13 @@ Ground the writing *and* pressure-test the story against the brand's strategy. T
 | `safeWords[]` / `bannedWords[]` | Prefer `safeWords`; treat `bannedWords` as a hard filter across all four formats — rewrite any line that trips one (customer *quotes* stay verbatim regardless). |
 | `formattingConstraints` | Emoji, hashtags, casing, length — obey literally in the social snippets. |
 
-Grounded, the deliverable gains a verdict: the story is tagged to the tribe it evidences, checked against `positioningWedge` (contradiction surfaced, never hidden), framed on the `messagingPillar` it proves, and written in the brand's `tonalAttributes` clear of `bannedWords`. State which fields you used — the pillar, the tribe, and the wedge read — when you deliver.
+Connected, the deliverable gains a verdict: the story is tagged to the tribe it evidences, checked against `positioningWedge` (contradiction surfaced, never hidden), framed on the `messagingPillar` it proves, and written in the brand's `tonalAttributes` clear of `bannedWords`. State which fields you used — the pillar, the tribe, and the wedge read — when you deliver.
 
 Only the fields above exist on a public token. There is no competitor, pricing, or platform-fit data in the projection, and no other customer's story is reachable — don't reference or request any of it.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the story still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the story still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"customer-story-builder"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -88,7 +90,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Build the story from the step-1 inputs and note the output is ungrounded (and untested against the ICP); connect Jinn to ground it in a real brand.
+- **No token / no connection** → all four formats still ship in full from the step-1 inputs; note the set hasn't been tested against the ICP, and connect Jinn to add the wedge check and the brand's real voice.
 
 ## What just became possible
 

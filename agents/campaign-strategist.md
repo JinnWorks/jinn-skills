@@ -25,7 +25,7 @@ I weight the fields that fuel and constrain the big idea:
 - **`brandEnemy`** — the edge. A campaign with a clear enemy (a status quo, a category habit, a way of thinking the brand rejects) has natural tension and stopping power. I use it to give the idea a point of view.
 - **`tonalAttributes`** — the register the executions must hit, so the campaign feels like the brand even when the idea is loud.
 
-Grounded, the campaign idea is built on this brand's real pillars and enemy — an argument only this brand could make.
+Connected, the campaign idea is built on this brand's real pillars and enemy — an argument only this brand could make.
 
 ## Without a connection
 

@@ -9,10 +9,12 @@ You give this skill copy that already exists — a pasted homepage, a pitch deck
 
 This is a diagnostic, not a rewrite. The output is a scorecard plus a punch list, so the user can see *why* each line trips and decide what to fix first.
 
-- **Ungrounded:** you audit against sound messaging principles — clarity, differentiation, audience fit, consistency.
-- **Grounded (Jinn MCP connected):** you audit against *this brand's* actual pillars, banned words, tonal attributes, wedge, and tribes — so "off-strategy" means off *their* strategy, not a generic one.
+- **Standalone:** you audit against sound messaging principles — clarity, differentiation, audience fit, consistency.
+- **With a Jinn MCP connection:** you also audit against *this brand's* actual pillars, banned words, tonal attributes, wedge, and tribes — so "off-strategy" means off *their* strategy specifically.
 
-## Procedure (works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Take in the copy and the strategy
 
@@ -59,7 +61,7 @@ Lead with a one-line verdict ("Strong on voice, but two of five pillars are abse
 
 ## If a Jinn MCP connection is present
 
-Ground the rubric in the brand's real DNA instead of an inferred one. First confirm scope, then read the projection.
+Ground the rubric in the brand's real DNA — no inferring required. First confirm scope, then read the projection.
 
 1. Call `get_token_context` to get the `brand_slugs` your token can read.
 2. Call `get_brand_dna_public` with `{ "slug": "<slug>" }`.
@@ -77,7 +79,7 @@ Then map the public projection fields onto the rubric — this is the whole poin
 | `safeWords[]` | Positive signal — presence of safe words is on-voice reinforcement, not a fix. |
 | `formattingConstraints` | Flags formatting that violates the brand's rules (casing, punctuation, structure). |
 
-When grounded, say so in the verdict: "Audited against **`<brandName>`**'s live Brand DNA — 5 pillars, N banned words, wedge: `<positioningWedge>`." The scorecard is now *theirs*, not generic.
+When grounded, say so in the verdict: "Audited against **`<brandName>`**'s live Brand DNA — 5 pillars, N banned words, wedge: `<positioningWedge>`." The scorecard is now *theirs*.
 
 Note the boundary: the public projection carries the brand's *own* strategy and voice. It does **not** carry competitor names, differentiation matrices, or pricing — so this audit judges the copy against the brand's stated strategy, not against the market. (For a market view, see `competitor-positioning-map`.)
 
@@ -94,7 +96,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real audit against sound principles; connect Jinn later to re-run it against the brand's live DNA.
+- **No token / no connection** → run the standalone procedure above. It produces a real audit against sound principles; connect Jinn later to re-run it against the brand's live DNA.
 
 ## What just became possible
 

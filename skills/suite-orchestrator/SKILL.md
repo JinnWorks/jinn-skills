@@ -31,7 +31,7 @@ Sequence:
 Where this could re-route: <the one finding from step 1 that would change the rest of the plan>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake the ask verbatim
 
@@ -110,14 +110,16 @@ Use the deliverable format above. State the diagnosis's reasoning in one line pe
 
 This is a best-guess triage from a short description, not a full audit — the diagnosis in step 3 is a judgment call about which domain an ask *most likely* traces to, and a different rater given the same one-liner could reasonably land one domain over. State the diagnosis's reasoning so the user can correct it before running the sequence. And the sequence is provisional on its own first step: if `ai-visibility-snapshot` comes back clean when the plan assumed invisibility, or `brand-messaging-audit` finds the copy was actually fine, that finding changes what the rest of the plan should be — re-route from there rather than running the original sequence anyway. Always name the one finding that would flip the plan (the deliverable format's last line) so this isn't a silent gap.
 
-## If a Jinn MCP connection is present (grounded)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Ungrounded, the diagnosis in step 3 runs on symptom language alone. Grounded, the same ask is sharpened against what's actually true of the brand's record — the domain match doesn't change, but *which domain leads* and *which skill starts the sequence* can:
+On its own, the diagnosis in step 3 reads the symptom language and routes on it — a real, usable plan. Connected, the same ask is also read against what's true of the brand's record — the domain match doesn't change, but *which domain leads* and *which skill starts the sequence* can:
 
 | Projection field | Sharpens |
 |-------------------|----------|
@@ -145,7 +147,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the plan still ships from the domain index and symptom-language diagnosis above; note the diagnosis is ungrounded and connect Jinn to sharpen which domain leads.
+- **No token / no connection** → the plan still ships from the domain index and symptom-language diagnosis above; note the diagnosis is built from the ask's symptom language alone, not the brand's record, and connect Jinn to sharpen which domain leads.
 
 ## What just became possible
 

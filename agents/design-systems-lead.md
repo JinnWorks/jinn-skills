@@ -28,7 +28,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## Without a connection
 
-The skill still works: I architect a token/component system from the brief and any existing UI, and note it's ungrounded. Connect Jinn for the brand's archetype and values, and fetch `design.md` for the real token values.
+The skill still works: I architect a token/component system from the brief and any existing UI, and note it's built from those inputs alone, not the brand's record. Connect Jinn for the brand's archetype and values, and fetch `design.md` for the real token values.
 
 ## If a call fails
 

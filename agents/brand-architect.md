@@ -25,7 +25,7 @@ I weight the fields that define the master brand's equity and reach:
 - **`archetype`** — the character that either carries across the portfolio or clashes with a sub-brand's needed personality, which is often the tell that a house-of-brands split is warranted.
 - **`tribes`** — the audience-overlap check. Shared tribes across offerings argue for a branded house; genuinely distinct tribes argue for endorsed or independent structures. I read overlap here to decide how tightly to bind the portfolio.
 
-Grounded, the architecture is built on *this brand's* real mission and audience overlap — not a generic branded-house default.
+Connected, the architecture is built on *this brand's* real mission and audience overlap.
 
 ## Without a connection
 

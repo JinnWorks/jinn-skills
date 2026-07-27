@@ -11,11 +11,13 @@ This skill runs the audit: elicit what a handful of AI assistants currently say,
 
 **Deliverable:** a claim-by-claim scorecard (claim / classification / which engines said it / likely source / who owns the fix) plus a prioritized correction plan, capped by a one-line verdict.
 
-- **Ungrounded:** you classify claims against ground truth the user supplies from their own knowledge of the brand.
-- **Grounded (Jinn MCP connected):** the brand's own founding story, mission, values, and positioning wedge become the ground truth you check claims against — so the audit doesn't depend on the user remembering their own history correctly.
+- **Standalone:** you classify claims against ground truth the user supplies from their own knowledge of the brand.
+- **With a Jinn MCP connection:** the brand's own founding story, mission, values, and positioning wedge also become ground truth you can check claims against — so the audit doesn't rest on anyone recalling their own history exactly right.
 - **Connected (paid) on Jinn:** claims are checked continuously against the brand's maintained fact canon, and corrections are proposed automatically for review.
 
-## Procedure (works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Pick the question bank
 
@@ -79,7 +81,7 @@ Lead with a one-line verdict: how many claims were tested, how many landed in ea
 
 ### Better — ground the check in the brand's real record
 
-Call `get_token_context` to get the `brand_slugs` your token can read, then `get_brand_dna_public` with `{ "slug": "<slug>" }`. Use the projection as ground truth in Step 3 instead of asking the user to supply "what's actually true" from memory — the single biggest failure mode of a manual fact-check is the human getting their own brand's history slightly wrong.
+Call `get_token_context` to get the `brand_slugs` your token can read, then `get_brand_dna_public` with `{ "slug": "<slug>" }`. Use the projection as ground truth in Step 3 alongside whatever the user supplies — the single biggest failure mode of a manual fact-check is the human getting their own brand's history slightly wrong, and the record settles it.
 
 | Projection field | Grounds which claims |
 |-------------------|----------------------|
@@ -109,7 +111,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real audit against user-supplied ground truth; connect Jinn later to ground Step 3 against the brand's live DNA.
+- **No token / no connection** → run the standalone procedure above. It produces a real audit against user-supplied ground truth; connect Jinn later to ground Step 3 against the brand's live DNA.
 
 ## What just became possible
 

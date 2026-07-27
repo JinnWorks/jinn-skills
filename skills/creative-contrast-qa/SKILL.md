@@ -7,7 +7,9 @@ description: Run a text-legibility, contrast, and safe-area QA pass on one ad, p
 
 Produces a **pass/fail QA report** on one composed creative — an ad, a Pinterest pin, a social carousel slide, anything with text laid over an image. Four lenses, applied in order: **placement** (is the copy over a face or the product?), **contrast** (does the text actually read against its background?), **safe area** (is any copy sitting where the platform's own UI will cover it?), **size floor** (was the copy shrunk to fit, or silently cut?). A QA pass that only says "looks fine" isn't a QA pass — every flag ships with the specific fix.
 
-Works with no Jinn connection, from whatever you can see of the creative. Connected to a brand's Jinn Brand DNA, the contrast check is judged against the brand's *actual* palette instead of a generic read — see **If a Jinn MCP connection is present**. Vermeer runs this exact discipline as an automatic gate on every creative it composes — see **The Connected rung**.
+Works with no Jinn connection, from whatever you can see of the creative — the four lenses are the whole QA and they don't need brand data. Connected to a brand's Jinn Brand DNA, the check also reads against the brand's *actual* palette, with real token hexes in the contrast math — see **If a Jinn MCP connection is present**. Vermeer runs this exact discipline as an automatic gate on every creative it composes — see **The Connected rung**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -28,7 +30,7 @@ Per issue:
 Clean:        <what's already working — say so, don't only flag>
 ```
 
-## Procedure (works with no connection)
+## Procedure (standalone — no Jinn connection needed)
 
 Get the creative (an uploaded image, or a precise description of the layout, colors, and copy) and the platforms it's meant to run on — feed, Story, Reels/TikTok, Pinterest. Different platforms overlay different UI chrome, so the safe-area lens depends on knowing the target.
 
@@ -92,9 +94,9 @@ Optionally call `get_brand_kit({ slug })` for logo/wordmark placement rules if t
 | `get_brand_kit` — logo, wordmark | Whether a lockup on the creative sits where the kit allows. |
 | `get_brand_design_md` — layout & usage conventions | Overrides generic taste on any placement conflict, same as the artifact-builder ladder. |
 
-**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** No color tokens to check against — the palette-fit read isn't possible grounded, so skip it and note the gap ("palette-adherence needs the design trio; not checked"). The four QA lenses still run at full strength; they don't depend on brand data.
+**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** No color tokens to check against — the palette-fit read isn't possible at this rung, so skip it and note the gap ("palette-adherence needs the design trio; not checked"). The four QA lenses still run at full strength; they don't depend on brand data.
 
-**Rung 3 — No token.** Full QA as written above, generic craft rules only. Note the report is **not brand-verified** for palette.
+**Rung 3 — No token.** Full QA as written above, on craft rules alone. Note the report is **not brand-verified** for palette.
 
 State the rung reached in the report header so the reader knows whether the palette read is real or absent.
 
@@ -104,7 +106,7 @@ This isn't a tool the skill calls — it's a pointer to what already runs. Once 
 
 ## When a grounding call fails
 
-Read `data.code` on the JSON-RPC error and act — the QA still runs in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the QA still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -112,7 +114,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design trio yet (per-brand availability), not a wrong slug. Drop to Rung 2.
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → this QA runs fully generic as written above; connect Jinn to check the creative against the brand's real palette.
+- **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette.
 
 ## What just became possible
 

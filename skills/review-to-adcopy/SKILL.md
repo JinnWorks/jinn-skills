@@ -11,9 +11,11 @@ It isn't `ad-copy-variants` (that skill writes finished platform ad copy from *y
 
 **No review-scraping engine sits behind this skill — Jinn doesn't have one.** Every review that goes into this brief is either pasted in by the user or fetched by your own agent's tools (browser, `WebFetch`, whatever you have). This is pure methodology: how to mine reviews honestly, cluster them, and turn a customer's own complaint into an angle without inventing anything. If a source won't load — paywall, bot-block, JS-only render — say so and ask for pasted text; never fabricate a review to fill a gap.
 
-Works standalone. Connected to Jinn, the angles get checked against the brand's real positioning and voice instead of your best guess.
+Works standalone — a complete, quote-backed angle brief from the reviews alone. Connected to Jinn, the angles also get checked against the brand's real positioning and voice, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -110,7 +112,7 @@ Two calls:
 | `tonalAttributes[]` | **Voice on the angle sentences** — write the directional line in these adjectives, not neutral analyst prose. |
 | `safeWords[]` / `bannedWords[]` | **Diction on the angle write-up** — prefer one set, hard-filter the other (the competitor's own review quotes stay verbatim regardless — never filter someone else's words). |
 
-Grounded, the brief gains a verdict per angle: which wedge it proves, which tribe it's aimed at, whether the pain theme is new information the brand didn't already know it owned. State the wedge and any new-pain finding when you deliver — that's the delta a real connection buys.
+Connected, the brief also gains a verdict per angle: which wedge it proves, which tribe it's aimed at, whether the pain theme is new information the brand didn't already know it owned. State the wedge and any new-pain finding when you deliver — that's the delta a real connection buys.
 
 Only the fields above exist on a public token. There is no competitor-scrape, ad-performance, or platform-fit data in the projection — this skill's review mining is entirely your agent's own work, not a Jinn capability, at every rung.
 
@@ -120,7 +122,7 @@ The brief is the input, not the output. Once angles are picked, Vermeer is where
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the brief still ships in its ungrounded form:
+Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"review-to-adcopy"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -131,7 +133,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the brief still runs in full against whatever reviews you gathered; note it's ungrounded and connect Jinn to check angles against a real brand's wedge and voice.
+- **No token / no connection** → the brief still runs in full against whatever reviews you gathered; note it's built from those reviews alone, not the brand's record, and connect Jinn to check angles against a real brand's wedge and voice.
 
 ## What just became possible
 

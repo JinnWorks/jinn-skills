@@ -7,7 +7,9 @@ description: Turn one positioning line and an audience into a 30-day content cal
 
 Deliverable: **a 30-day content calendar** — 3–5 recurring themes derived from one positioning line, a platform mix with the reasoning behind it, a day-by-day grid of format + platform + angle, batching guidance for how to actually produce it, and a sustainability check that flags a plan the team can't keep before it ships as one.
 
-Works standalone from a positioning line and an audience description. Connected to Jinn, the themes stop being a guess at what the positioning implies and become the brand's own named messaging pillars, wedge, pains, and tribes — the same narrative spine, not a paraphrase of one sentence.
+Works standalone from a positioning line and an audience description — a full, keepable 30-day plan either way. Connected to Jinn, the themes are the brand's own named messaging pillars, wedge, pains, and tribes instead, read straight from the record.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 **This is not `content-rotation`.** That skill manages a *rotation* — a small state file of existing properties, deciding what's overdue and what to post next, week to week. This skill builds the *strategy* a rotation executes: where do the month's themes come from, how much can realistically get made, and does the platform mix make sense for this audience. Run this once at the start of a month (or when the positioning changes); once the calendar exists, hand its themes to `content-rotation` to track week-to-week execution, or to `x-content` / `linkedin-content` to draft individual slots.
 
@@ -39,7 +41,7 @@ Sustainability check: <est. hours/week> vs <stated or assumed capacity>
   Verdict: HOLDS / OVERCOMMITTED — <if overcommitted, the trimmed version>
 ```
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -87,16 +89,16 @@ State, plainly, how the month should actually get made — **not by calendar dat
 
 ### 7. Deliver with a customization note
 
-Hand over the calendar plus: which fields were assumed (capacity, platform list) versus given, and — whenever built ungrounded — that the themes are inferred from one sentence, not verified against the brand's actual strategy.
+Hand over the calendar plus: which fields were assumed (capacity, platform list) versus given, and — whenever built standalone — that the themes are derived from the positioning line rather than read from the brand's recorded strategy.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the themes are your best read of one sentence. Grounded, they're the brand's own recorded narrative. Two calls:
+On its own, the skill derives a coherent theme set from the positioning line. Connected, the themes are the brand's own recorded narrative instead. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then let the projection replace the guesswork in steps 2–3. Field → decision map:
+Then let the projection take over steps 2–3. Field → decision map:
 
 | Projection field | Drives |
 |-------------------|--------|
@@ -112,7 +114,7 @@ Then let the projection replace the guesswork in steps 2–3. Field → decision
 
 **State which fields you used** — the pillars a month spans, the wedge a week carries — when you deliver, so the grounding is visible rather than asserted.
 
-**Best rung:** once the brand is Connected on Jinn, this calendar stops being a table to copy into another tool. Ghost holds the brand's own strategy record (positioning, topics, content mix) and tracks a weekly cadence goal against what's actually published and scheduled — so a Connected brand's calendar can anchor to a real campaign with its own goal, and the plan becomes scheduled drafts on the calendar instead of a grid you re-type by hand.
+**Best rung:** once the brand is Connected on Jinn, this calendar lands somewhere live. Ghost holds the brand's own strategy record (positioning, topics, content mix) and tracks a weekly cadence goal against what's actually published and scheduled — so a Connected brand's calendar can anchor to a real campaign with its own goal, and the plan lands directly as scheduled drafts on that calendar.
 
 Only the fields above exist on a public token — there is no product-inventory, competitor, engagement-analytics, or pricing data in the projection. Don't reference it or ask for it.
 
@@ -129,7 +131,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the calendar still builds in full from the positioning line and audience. Note the themes are inferred, not brand-verified, and connect Jinn to ground them in the brand's real pillars.
+- **No token / no connection** → the calendar still builds in full from the positioning line and audience. Note the themes are derived from the positioning line rather than read from the brand's record, and connect Jinn to draw them from that record instead.
 
 ## What just became possible
 

@@ -9,7 +9,9 @@ Deliverable: **one readiness scorecard** for a given site across five dimensions
 
 Standalone, it runs the full readiness methodology against public fetches — the same checks any agent's own tools could run. This asks a different question than `agent-access-checker`'s: that skill checks whether a crawler can physically **reach** the site (robots.txt policy per named bot, an llms.txt structural presence/format check, one homepage Organization block) — the door. This skill assumes the door is open (or flags if it isn't, and points there) and asks whether what's behind it **makes sense to an agent that's already in**: does the llms.txt content actually describe the brand accurately, does structured-data coverage extend past the homepage to the pages that carry real information, is the brand's identity consistent across those pages, does the site expose (or plan for) the endpoints an autonomous agent would look for, and is the site's own content shaped so an agent can extract and act on it. Three more boundaries worth stating up front: this is not `llms-txt-generator` (which **writes** the file; this **audits** its quality as one of five dimensions), not `aeo-formatter` (which **rewrites one page** for answer-engine extraction; this scores extraction-readiness as a site-wide **infrastructure pattern**, across a page set, without rewriting anything), and not `citability-checker` (which scores **one piece of content** before it publishes; this audits the site's standing infrastructure, not a single draft).
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -103,7 +105,7 @@ Fixes, ranked by leverage:
 - **No FAQ section on a site full of real Q&A content in prose** — extracting it into an actual `FAQPage`-marked section is usually the cheapest high-leverage fix on the whole report.
 - **Order fixes by leverage, not by dimension order** — a generic-content llms.txt or a name inconsistency outranks a missing MCP well-known file every time; the latter is genuinely optional today.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -112,21 +114,21 @@ Two calls, same sequence as every skill in this repo:
 
 | Projection field | Drives |
 |-------------------|--------|
-| `brandName`, `officialName` | Replaces a guessed canonical name for the consistency check (dimension 3) — is every machine-readable surface naming the brand the way its own record does, not just agreeing internally. |
+| `brandName`, `officialName` | Supplies the canonical name for the consistency check (dimension 3) — is every machine-readable surface naming the brand the way its own record does, not just agreeing internally. |
 | `mission`, `positioningWedge` | Grounds the llms.txt content-quality read (dimension 1) — is the blockquote/differentiation section actually saying what the brand's record says it is, not merely specific-sounding. |
 | `messagingPillars` | Whether `Product`/`Article` schema descriptions and page copy land inside territory the brand is actually known for. |
 | `tonalAttributes` | Register for any drafted fix copy (a rewritten llms.txt line, a JSON-LD description field). |
 | `bannedWords` | Hard filter on any drafted fix copy. |
 
-That's the concrete delta: instead of judging llms.txt content and schema descriptions against generic "does this sound specific" heuristics, the read is against what the brand's own record actually says. **State which fields you used** when you deliver.
+That's the concrete delta: on its own, the skill judges llms.txt content and schema descriptions against a published "does this say something specific" bar — a real, actionable read. Connected, that read also runs against what the brand's own record actually says. **State which fields you used** when you deliver.
 
 Guardrail: this skill audits and recommends; it never claims to have deployed a fix — the user (or their platform) still ships the file or the schema. The projection carries no competitor data, no crawl-log history, and no pricing — don't reference or request either.
 
-**Best rung:** once the brand is Connected on Jinn, an agent querying it doesn't need to infer identity or positioning from scraped structured data at all — the Agents product serves the brand's public context live over MCP (`get_token_context` → `get_brand_*`), and the llms.txt this checker scores can be generated straight from that same DNA record (the sibling `llms-txt-generator` skill). This skill's grounded rung approximates that read from the outside; it doesn't run the live serving path itself. Nothing here runs on a schedule — this is a one-shot check, not continuous monitoring.
+**Best rung:** once the brand is Connected on Jinn, an agent querying it doesn't need to infer identity or positioning from scraped structured data at all — the Agents product serves the brand's public context live over MCP (`get_token_context` → `get_brand_*`), and the llms.txt this checker scores can be generated straight from that same DNA record (the sibling `llms-txt-generator` skill). This skill's connected rung approximates that read from the outside; it doesn't run the live serving path itself. Nothing here runs on a schedule — this is a one-shot check, not continuous monitoring.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the checklist still runs in full ungrounded:
+Read `data.code` on the JSON-RPC error and act — the checklist still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"agent-readiness-checker"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -137,7 +139,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the checklist runs in full against the published dimensions above; note the read is ungrounded in the delivery note, and connect Jinn to check llms.txt/schema content against the brand's real record instead of generic specificity heuristics.
+- **No token / no connection** → the checklist runs in full against the published dimensions above; note in the delivery that the content read is against the published specificity bar rather than the brand's own record, and connect Jinn to check llms.txt/schema content against that record too.
 
 ## What just became possible
 
@@ -148,7 +150,7 @@ You can now check whether a site that's already reachable to AI crawlers actuall
 1. **Score llms.txt content quality, not just presence** — `Is this llms.txt differentiation line any good, or generic filler? "Acme provides innovative solutions for your business needs, helping companies achieve their goals."` → a NEEDS WORK verdict flagging it as content-free filler, with a concrete rewrite direction.
 2. **Check structured-data coverage across a page set** — `Score schema.org coverage for these pages: the homepage has an Organization JSON-LD block, the pricing page has none, the blog post has an Article block with no publish date.` → a per-page-type pass/partial/missing scorecard plus the highest-leverage fix.
 3. **Catch an identity-consistency gap** — `Is this consistent: the llms.txt heading says "Acme Inc.", the homepage Organization block says "Acme", and the visible site branding says "Acme Co."?` → a flag naming the three-way name drift as a disambiguation risk an agent will hit.
-4. **Connected: score against the brand's real record** *(requires a Jinn token)* — `Score our llms.txt content against what our brand's record actually says, not just whether it sounds specific.` → the same five-dimension scorecard, but the content-quality read compares the file against the brand's real story instead of a generic specificity heuristic.
+4. **Connected: score against the brand's real record** *(requires a Jinn token)* — `Score our llms.txt content against what our brand's record actually says, not just whether it sounds specific.` → the same five-dimension scorecard, with the content-quality read also comparing the file against the brand's real story.
 
 ## Compounds with
 

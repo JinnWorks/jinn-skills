@@ -7,9 +7,11 @@ description: Generate 10 distinct offer framings for a product and audience — 
 
 Deliverable: **10 distinct offer framings** for one product and audience — each framing paired with the exact psychological principle it leans on, an example line you can drop straight into copy, and one line on why the principle moves the reader. Not headlines, not a full campaign: this is the **angle space upstream** of both — hand the framing you pick to `ad-copy-variants` for platform-fit copy or to `campaign-brief` for the surrounding plan.
 
-Works standalone from a product and audience description. Connected to Jinn, the framing set stops being generic persuasion theory and starts being consistent with one specific brand's positioning and posture — see **If a Jinn MCP connection is present**.
+Works standalone from a product and audience description — ten real framings, each tied to the principle it leans on and a line you can use. Connected to Jinn, that same set is also made consistent with one specific brand's positioning and posture, straight from its own record — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -54,9 +56,9 @@ Not every framing fits every brand, and running more than one at a time works ag
 
 Deliver the full table of 10, then — if the brief calls for a recommendation — name the ONE framing to lead with and the one line of reasoning behind it (never more than one lead framing; see step 3).
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Read the brand instead of guessing it. Two calls:
+Read the brand straight off its own record. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -67,7 +69,7 @@ Field → decision map:
 |------------------|--------|
 | `archetype` / `secondaryArchetype` | **The premium-vs-value call in step 3.** There is no pricing or commercial field on the public projection — pricing posture is an *inference* from archetype plus `coreValues` plus `positioningWedge`, and the delivered doc must label it as inferred, never as verified pricing data. |
 | `coreValues` | **Filters which framings are in-bounds** — a brand whose stated values include something like transparency shouldn't run manufactured urgency; check the framing set against these before delivering. |
-| `positioningWedge` | **The real promise inside every example line** — replaces the guessed product benefit from step 1. |
+| `positioningWedge` | **The real promise inside every example line** — the brand's own wedge takes the place of step 1's stated product benefit. |
 | `brandEnemy` | **Sharpens the anchoring and loss-framed rows** — contrast against the named enemy, not a generic alternative. |
 | `messagingPillars[]` | **Proof language for authority, social-proof, and anchoring** — lead with whichever pillar has the most concrete backing. |
 | `painPoints` | **Feeds the reciprocity and loss-framed rows** — the ache the free-first give, or the cost-of-inaction line, names a real stated pain. |
@@ -75,9 +77,9 @@ Field → decision map:
 | `safeWords[]` / `bannedWords[]` | **Claim-language filter** — prefer/exclude across all 10 rows; recheck the table after substitution. |
 | `tribes[]` ({name, description, motivation}) | **Audience specificity for the identity/belonging row** — the tribe's own self-description, not a generic persona. |
 
-Grounded, the delta is concrete: all 10 example lines carry the brand's real `positioningWedge` and pass the `bannedWords` filter, the identity row speaks to a named `tribe`, and the lead recommendation in step 4 is checked against a stated (labeled-as-inferred) pricing posture instead of a guess. State which fields grounded the set when you deliver.
+Connected, the delta is concrete: all 10 example lines carry the brand's real `positioningWedge` and pass the `bannedWords` filter, the identity row speaks to a named `tribe`, and the lead recommendation in step 4 is checked against a stated (labeled-as-inferred) pricing posture. State which fields shaped the set when you deliver.
 
-**Feeds into, on a Connected brand.** These framings are the angle space, not the finished asset — the chosen framing is what `ad-copy-variants` turns into platform copy and what `campaign-brief` builds a plan around. On a brand that's Connected to Jinn (not just token-grounded), the winning framing is also the raw material Vermeer's ad rendering and campaign packs work from — that hand-off happens inside the product, this skill only produces the angle.
+**Feeds into, on a Connected brand.** These framings are the angle space, not the finished asset — the chosen framing is what `ad-copy-variants` turns into platform copy and what `campaign-brief` builds a plan around. On a brand that's Connected to Jinn (not just read through a public token), the winning framing is also the raw material Vermeer's ad rendering and campaign packs work from — that hand-off happens inside the product, this skill only produces the angle.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing/commercial data in the projection — the "pricing posture" call above is always an inference from archetype and values, never a stored fact. Don't reference or request pricing data that isn't there.
 
@@ -94,7 +96,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real, usable framing set from the product and audience you supplied; connect Jinn to ground the lead recommendation in a real positioning wedge and pricing posture.
+- **No token / no connection** → run the standalone procedure above. It produces a real, usable framing set from the product and audience you supplied; connect Jinn to anchor the lead recommendation in a real positioning wedge and pricing posture.
 
 ## What just became possible
 

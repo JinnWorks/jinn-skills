@@ -1,11 +1,11 @@
 # Jinn Skills
 
-Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Gemini CLI, Cursor). Each skill produces a complete, client-ready deliverable **on its own** — and gets sharper when you connect it to Jinn's Brand DNA over MCP, so its output is grounded in a real brand's positioning, voice, and strategy instead of generic best practice.
+Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Gemini CLI, Cursor). Each skill produces a complete, client-ready deliverable **on its own** — and gets sharper when you connect it to Jinn's Brand DNA over MCP, drawing on a real brand's recorded positioning, voice, and strategy.
 
-- **Ungrounded:** a solid, usable deliverable from the skill's own procedure.
-- **Grounded (Jinn MCP connected):** the same deliverable, anchored to a brand's actual positioning wedge, banned words, audience tribes, and messaging pillars.
+- **Standalone:** a complete, client-ready deliverable from the skill's own procedure.
+- **Connected (Jinn MCP):** the same deliverable, anchored to a brand's actual positioning wedge, banned words, audience tribes, and messaging pillars.
 
-The difference is the point. A positioning brief written blind is plausible; one written against a brand's real competitive wedge and enemy is *theirs*.
+The difference is the point. A positioning brief from the skill's own method is sharp and defensible; one written against a brand's real competitive wedge and enemy is unmistakably *theirs*.
 
 <!-- measured-activation:start -->
 ## Measured activation — 100% top-1
@@ -79,7 +79,7 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `ugc-script-writer` | A UGC-format video script: creator-voice, direct-response spine, shot/beat timing, claim slots the creator fills with their real experience |
 | `storyboard-from-dna` | A shot-by-shot storyboard with a locked continuity spine, ready for a director, editor, or AI-video render pipeline |
 
-Personas — 29 installable brand-grounded marketing agents — live in [`agents/`](./agents/).
+Personas — 29 installable marketing agents, each complete on its own and sharper with a brand connected — live in [`agents/`](./agents/).
 
 ## Install
 
@@ -97,7 +97,7 @@ cp -r jinn-skills/skills/* ~/.claude/skills/       # Claude Code
 
 Claude Code, Codex, and Gemini CLI auto-discover `skill-name/SKILL.md`. **Cursor** has no native skill discovery — paste a skill's body into your prompt, or reference the file directly.
 
-## Connect to Jinn (grounding)
+## Connect to Jinn
 
 The skills speak MCP natively — no client code, no npm package. Point your agent at Jinn's gateway and give it a token.
 
@@ -141,7 +141,7 @@ JINN_MCP_TOKEN=jmcp_...   # the token from step 1
 
 ### 3. Verify the connection
 
-Run the `know-your-brand-dna` skill (or just ask your agent to call `get_token_context`). It'll list the brands your token can reach and read one back. Then run any other skill with a brand in scope — the deliverable will be grounded.
+Run the `know-your-brand-dna` skill (or just ask your agent to call `get_token_context`). It'll list the brands your token can reach and read one back. Then run any other skill with a brand in scope — the deliverable comes back anchored to that brand.
 
 ### Tools your token can call
 
@@ -166,7 +166,7 @@ Every failure carries a machine-readable code in the JSON-RPC error `data.code`:
 | `token_malformed` | Bad `Authorization` header (often the substitution bug) | Use the `claude mcp add --header` form above |
 | `not_found` (tool error) | Brand not in your token's allowlist (or no such brand) | Call `get_token_context` to see which brands you can read |
 
-Each skill also surfaces its own remediation line for these states, so a grounded skill degrades cleanly to its ungrounded form rather than erroring out.
+Each skill also surfaces its own remediation line for these states, so a connected skill falls back cleanly to its standalone form rather than erroring out.
 
 ## License
 

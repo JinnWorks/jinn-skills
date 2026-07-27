@@ -7,7 +7,9 @@ description: Map where a brand can genuinely help on Reddit, forums, and Discord
 
 Deliverable: **a prioritized community-engagement map** — a shortlist of subreddits, forums, and Discord servers ranked by genuine fit, each carrying why this brand can actually help there, the standing that community requires before posting, a disclosure line drafted for it, and the thread formats worth showing up for.
 
-Standalone, it runs on published community-research method: how to size and rank communities, how karma/standing economics gate real participation, and the answer-first thread shape that earns upvotes and citations from people and answer engines alike. Connected to Jinn, the map is prioritized by the brand's real pain points and audience tribes instead of a guess at "where our audience probably hangs out."
+Standalone, it runs on published community-research method: how to size and rank communities, how karma/standing economics gate real participation, and the answer-first thread shape that earns upvotes and citations from people and answer engines alike. Connected to Jinn, the map is also prioritized by the brand's real pain points and audience tribes — they come straight from the brand's own record, no "where does our audience hang out" discovery round needed.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The rule this skill will not break
 
@@ -17,7 +19,7 @@ Disclosure is a **required step in every output this skill produces**, not a cou
 
 This isn't caution for its own sake — it's the better strategy on the merits. Communities actively hunt sockpuppets and undisclosed shills; the moderators who ban them are also the people who'd otherwise vouch for a brand. Answer engines increasingly weight source credibility, not just keyword match, when they choose what to cite — a disclosed account with a real answer history compounds in value over time, where an undisclosed one gets purged the moment it's caught and takes the domain's trust down with it. Genuine expertise, openly disclosed, is a moat the injection-lane tactics can't buy their way into.
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -78,7 +80,7 @@ Community | Tier | Why this brand fits | Standing needed first | Disclosure line
 - Nothing in the plan proposes multiple accounts, coordinated voting, or any deceptive-identity tactic. If asked for one, refuse it explicitly per **The rule this skill will not break**, and offer the value-first alternative.
 - Every thread format leads with a complete answer, never a link-out teaser standing in for one.
 
-## If a Jinn MCP connection is present (grounded → Connected)
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -87,13 +89,13 @@ Two calls, same sequence as every skill in this repo:
 
 | Projection field | Drives |
 |-------------------|--------|
-| `painPoints[]` | Which problems to go looking for in each candidate community — the map prioritizes threads that solve a pain point this specific brand actually addresses, not a generic category fit. |
+| `painPoints[]` | Which problems to go looking for in each candidate community — the map prioritizes threads that solve a pain point this specific brand actually addresses, not just a category-level fit. |
 | `tribes[]` | Which communities and sub-audiences are worth the standing-building investment at all. |
 | `messagingPillars[]` | What "genuinely helping" ties back to — keeps drafted answers useful on their own terms, not a pillar recited out of context. |
 | `tonalAttributes[]` | The voice every drafted reply and disclosure line is written in. |
-| `safeWords[]` / `bannedWords[]` | Vocabulary the drafted lines reach for or hard-avoid — the brand's real register, not a guess. |
+| `safeWords[]` / `bannedWords[]` | Vocabulary the drafted lines reach for or hard-avoid — the brand's real register, straight from its own record. |
 
-Drop the "known pain points" free-text intake field entirely once connected — the DNA record replaces the guess.
+Drop the "known pain points" free-text intake field entirely once connected — the DNA record supplies them directly, so there's nothing to ask for.
 
 **Best rung:** Ghost already runs a listening pipeline that collects Reddit signals directly and drafts brand-voice comment replies for the ones worth responding to (`listening/collectors/reddit.ts`, `listening/draft-generator.ts` — reddit-sourced signals auto-route to the `comment_reply` format). This skill's map is the proactive half: it tells that pipeline **where** to point before a signal ever fires. Once the brand is Connected, the prioritized communities here can seed Ghost's listening scope directly, and matched threads flow into Ghost's queue already scored and disclosure-checked — this skill stops at the plan; Ghost is where it starts running continuously.
 
@@ -112,7 +114,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the map still ships in full against published community-research method and any user-supplied pain points; note it's ungrounded, and that the disclosure rule in **The rule this skill will not break** applies regardless of connection state.
+- **No token / no connection** → the map still ships in full against published community-research method and any user-supplied pain points; connect Jinn later to prioritize it against the brand's own pain points and tribes. The disclosure rule in **The rule this skill will not break** applies regardless of connection state.
 
 ## What just became possible
 
@@ -128,7 +130,7 @@ You can now find out exactly where a brand can genuinely show up on Reddit, foru
 
 - `citation-source-mapper` — hands this skill every earn-only source it finds (community/UGC domains that can't just be claimed).
 - `social-listening-brief` — once communities are mapped here, that skill catches the live signals worth responding to.
-- `brand-voice-content` — drafts the reply and disclosure lines in the brand's real voice, not a generic one.
+- `brand-voice-content` — drafts the reply and disclosure lines in the brand's real voice.
 
 ---
 

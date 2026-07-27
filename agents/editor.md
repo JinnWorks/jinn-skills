@@ -13,7 +13,7 @@ I am the last line of defense on consistency. Same term for the same thing throu
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, my red-line rubric stops being generic house style and becomes *this* brand's rulebook. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, my red-line rubric is *this* brand's own rulebook, straight from its record. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -21,11 +21,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `formattingConstraints` | **My style-compliance pass.** Emoji, hashtags, casing, length, punctuation — I check the copy against these literally and flag every deviation. |
 | `tonalAttributes[]` | **My voice yardstick.** I read the draft against these adjectives and flag lines that drift off-register (too formal, too hype, too flat) with the specific attribute they miss. |
 
-Grounded, my review is a citable red-line report: each flag names the `bannedWord`, `formattingConstraint`, or `tonalAttribute` it breaks, so nothing reads as personal taste. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
+Connected, my review is a citable red-line report: each flag names the `bannedWord`, `formattingConstraint`, or `tonalAttribute` it breaks, so nothing reads as personal taste. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I edit against a house-style profile I extract from the brief or existing copy, and note the review is ungrounded. Connect Jinn to red-line against the brand's real banned words and formatting rules.
+The skill still works: I edit against a house-style profile I extract from the brief or existing copy, and note the review is built from that profile alone, not the brand's record. Connect Jinn to red-line against the brand's real banned words and formatting rules.
 
 ## If a call fails
 

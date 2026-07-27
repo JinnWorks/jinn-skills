@@ -7,9 +7,11 @@ description: Write platform-native LinkedIn posts — 2 to 5 variants, each a di
 
 Deliverable: **2–5 LinkedIn post variants**, each carrying a different named framing and each ready to publish as-is. Scale the count to how much the brief gives you — a rich brief earns five, a thin one earns two. Fewer-but-distinct always beats many-but-similar; three sharp posts beat five that blur together.
 
-Works standalone. Connected to Jinn, the posts read in the brand's real voice and reinforce its actual narrative instead of a plausible guess at one.
+Works standalone — a publishable set of genuinely distinct variants from the brief alone. Connected to Jinn, the posts also read in the brand's real voice and reinforce its actual narrative, straight from its own record.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Fix what you're working with (before writing a word)
 
@@ -55,14 +57,14 @@ Run each post through all five — a fail is a rewrite, not a shrug:
 
 Label each variant with its framing and deliver. That's a real, publishable set.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Don't infer the voice — read it. Two calls:
+Read the voice straight off the record. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-Then replace the guessed inputs with the real ones. Field → decision map:
+Then take step 1's inputs straight from the record. Field → decision map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -70,13 +72,13 @@ Then replace the guessed inputs with the real ones. Field → decision map:
 | `safeWords[]` | Diction to **reach for** — pre-approved brand language; prefer these in openers and CTAs. |
 | `bannedWords[]` | **Hard filter** — feeds the banned-phrase scan. If one appears, rewrite the line. |
 | `slangPolicy` | Register rule — how casual the post may go, whether slang and contractions are on the table. |
-| `formattingConstraints` | Post formatting — emoji, hashtags, casing, line breaks. Obey literally over the generic norms above. |
+| `formattingConstraints` | Post formatting — emoji, hashtags, casing, line breaks. Obey literally over the platform norms above. |
 | `messagingPillars[]` ({pillar, description}) | **What each variant reinforces** — a different pillar per post, so the set spans the brand's real narrative, not one note repeated. |
 | `positioningWedge` | **The angle** — the brand's real edge; shapes the contrarian-take and problem-first framings. |
 | `tribes[]` ({name, description, motivation}) | **Who each post speaks to** — aim variants at named tribes; their `motivation` sets the hook. |
 | `painPoints` | **Problem-first fuel** — open the problem-first post on a real pain, not an invented one. |
 
-Grounded, the deliverable changes shape: each variant leads with a different `messagingPillar`, aimed at a named `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. **State which pillar and tribe each post targets, and which fields you used**, so the user can see the grounding did work.
+Connected, the deliverable changes shape: each variant leads with a different `messagingPillar`, aimed at a named `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. **State which pillar and tribe each post targets, and which fields you used**, so the user can see the connection did work.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection — don't reference it or ask for it.
 
@@ -93,7 +95,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the skill still works generically. Write from the step-1 inputs and note the output is ungrounded; connect Jinn to ground it in a real brand.
+- **No token / no connection** → the full variant set still ships from the step-1 inputs; note it isn't brand-verified, and connect Jinn to write it in a real brand's voice and pillars.
 
 ## What just became possible
 

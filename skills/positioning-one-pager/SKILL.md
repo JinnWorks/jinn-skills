@@ -13,7 +13,9 @@ Deliverable: **one standing positioning one-pager** — a document a company kee
 - **`brand-messaging-audit`** scores copy that **already exists** — a live homepage, a shipped deck — against the brand's own strategy. This skill has no copy to audit; it authors the positioning doc itself, from inputs, and there's no existing asset in the loop.
 - **`competitor-positioning-map`** plots named competitors on a **2x2 visual grid** across two chosen axes and reads the white space geometrically. This skill produces prose and an alternatives table, not a grid — no axes are chosen, no dots are plotted. Use the map when the question is spatial ("where does everyone sit"); use this one-pager when the question is comparative-and-narrative ("what do they get right, what do we get right, and why does the difference matter").
 
-Standalone, this skill builds the one-pager from what the user supplies about their own product and the alternatives. Connected to Jinn, the brand's own side of the comparison — its position, its proof, its language — comes from the real Brand DNA record instead of best-guess phrasing; see **If a Jinn MCP connection is present**.
+Standalone, this skill builds a complete one-pager from what the user supplies about their own product and the alternatives. Connected to Jinn, the brand's own side of the comparison — its position, its proof, its language — also comes straight from the live Brand DNA record, no discovery questions needed; see **If a Jinn MCP connection is present**.
+
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
 ## The deliverable
 
@@ -32,7 +34,7 @@ Proof:           <3-5 pillars, each a claim plus the evidence that earns it>
 Revisit when:    <what would make this doc stale — a new alternative, a closed gap, a shifted audience>
 ```
 
-## Procedure (works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -93,7 +95,7 @@ Grounding sharpens the brand's *own* position, proof, and voice — it does not,
 | `brandEnemy` | **The real gap, sharpened.** What the brand defines itself against usually names the shortfall shared by every alternative — check the gap you found in Step 3 against it; if they don't agree, one of them is wrong. |
 | `messagingPillars[]` (`{pillar, description}`) | **Proof.** Each becomes a pillar; `description` seeds the evidence column. Order by the brand's own allocation, strongest first. |
 | `archetype`, `coreValues` | **Tone check on the alternatives' framing.** The brand's own values are a sanity check on fairness — an archetype built on candor shouldn't produce a document that quietly strawmans a rival. |
-| `tribes[]` (`{name, description, motivation}`) | **Audience.** Anchor "who this is for" in the brand's own named tribe and motivation rather than a generic segment description. |
+| `tribes[]` (`{name, description, motivation}`) | **Audience.** Anchor "who this is for" in the brand's own named tribe and motivation rather than a segment description you'd otherwise infer. |
 | `bannedWords`, `safeWords`, `tonalAttributes` | **Voice constraints on the whole document** — no banned words, prefer safe words, match the tonal register in "What we are" and "Our position." |
 
 State the grounding explicitly in the delivered doc: "Position and proof grounded in `<brandName>`'s live Brand DNA (wedge: `<positioningWedge>`, enemy: `<brandEnemy>`). Alternatives and their framing supplied by you." That line matters — it keeps clear which half of the document is Jinn-grounded and which half is the user's own market read.
@@ -104,7 +106,7 @@ For a brand Connected on Jinn, the alternatives' own claims stop being take-the-
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the one-pager still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the one-pager still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"positioning-one-pager"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -115,7 +117,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real, honestly-framed one-pager from the user's own market knowledge; connect Jinn later to ground the brand's own position, proof, and voice in its live DNA.
+- **No token / no connection** → run the standalone procedure above. It produces a real, honestly-framed one-pager from the user's own market knowledge; connect Jinn later to draw the brand's own position, proof, and voice straight from its live DNA.
 
 ## What just became possible
 

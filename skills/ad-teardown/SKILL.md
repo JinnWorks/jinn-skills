@@ -11,9 +11,11 @@ Deliverable: **one teardown scorecard** per ad — the hook it opens on, the per
 
 Input is ad creative you already have in hand: an uploaded image, a pasted screenshot, or a link to one specific ad you found yourself (a Meta Ad Library permalink, a landing-page screenshot, whatever you can paste). **This skill never scrapes an ad library at scale** — it tears down the ads you bring it, one at a time or a handful from one advertiser, not an automated pull of a category.
 
-Standalone, it runs the full teardown framework below with zero Jinn calls — genuinely useful on its own. Connected to Jinn, it adds a "does this fit your brand" read grounded in the brand's real positioning instead of your best guess — see **If a Jinn MCP connection is present**.
+Standalone, it runs the full teardown framework below with zero Jinn calls — genuinely useful on its own. Connected to Jinn, it also adds a "does this fit your brand" read drawn straight from the brand's own positioning record — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -112,9 +114,9 @@ Read: <2-3 sentences on what the pattern says about their strategy —
 - "Steal" and "avoid" name concrete elements (a specific line, a specific layout choice), not vague praise or criticism.
 - Library rollup (when run) states a read on strategy, not just a tally.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, step 6's "steal/avoid" verdict is generic — good creative craft, no read on whether it actually fits *your* brand. Grounded, it adds a fit read against the brand's real positioning. Two calls:
+On its own, step 6's "steal/avoid" verdict is a full read on the craft — what the ad does well and what to leave behind. Connected, it also adds a fit read against the brand's real positioning: does this work for *your* brand. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -131,13 +133,13 @@ Add a **Fit** line to the teardown output: which pillar/tribe/pain point it conn
 
 This fit read is a **judgment call against the brand's positioning, not a score** — it names which public DNA fields the ad connects to and reasons about the connection in prose. It is not, and does not claim to be, the calibrated fit-ranking Vermeer runs internally (below).
 
-**Best rung:** once the brand is Connected on Jinn, this same fit read stops being a one-off judgment call. Vermeer's ad-intelligence Library runs a real fit-ranking pass on every Library read — against the brand's actual product category and package format, not just the public DNA fields, blended with a performance-floor signal from how long an ad's been running — over a live pool of ads (a shared base pool plus the brand's own private corpus). Any ad that clears the Library's re-skin safety gate (a clean graphic layout the engine can validate — not a real photographed scene, not video) can be pulled straight from the Library into a re-skin against the brand's own product, prepared and approved inside Vermeer, instead of staying a paper teardown. The ranking weights, the category/format matcher, and the re-skin safety classifier are Vermeer engine internals and aren't reproduced here — Connected is the pointer, not a formula this skill can approximate.
+**Best rung:** once the brand is Connected on Jinn, this same fit read gains a calibrated engine behind it. Vermeer's ad-intelligence Library runs a real fit-ranking pass on every Library read — against the brand's actual product category and package format, not just the public DNA fields, blended with a performance-floor signal from how long an ad's been running — over a live pool of ads (a shared base pool plus the brand's own private corpus). Any ad that clears the Library's re-skin safety gate (a clean graphic layout the engine can validate — not a real photographed scene, not video) can be pulled straight from the Library into a re-skin against the brand's own product, prepared and approved inside Vermeer — the teardown becomes production input, not only a written verdict. The ranking weights, the category/format matcher, and the re-skin safety classifier are Vermeer engine internals and aren't reproduced here — Connected is the pointer, not a formula this skill can approximate.
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or fit-score data in the projection. Don't reference it or ask for it.
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the teardown still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the teardown still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ad-teardown"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 

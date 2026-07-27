@@ -15,7 +15,7 @@ I think in one-interview-many-assets economics. A single well-run thirty-minute 
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, the story doesn't just report what a customer said — it's framed to prove the exact claim this brand needs proven. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, the story doesn't just report what a customer said — it's framed to prove the exact claim this brand needs proven. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -24,11 +24,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `tonalAttributes[]` | **The narrative voice.** I write the connective narration (not the customer's quotes — those stay verbatim) in the brand's register. |
 | `painPoints` | **The before-state framing.** I anchor the story's "before" in a real brand pain point, so the transformation maps to something prospects already feel. |
 
-Grounded, the story is provably strategic: a customer from a real `tribe`, evidencing the `positioningWedge`, opening on a genuine `painPoint`, narrated in the brand's `tonalAttributes`. Only the fields above exist on a public token — there is no competitor, pricing, or platform-fit data in the projection; don't reference it or ask for it.
+Connected, the story is provably strategic: a customer from a real `tribe`, evidencing the `positioningWedge`, opening on a genuine `painPoint`, narrated in the brand's `tonalAttributes`. Only the fields above exist on a public token — there is no competitor, pricing, or platform-fit data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I build the story from the interview material and brief you give me, structure it for reuse, and note the strategic framing is ungrounded. Connect Jinn to anchor the story to the brand's real wedge, tribes, and pain points.
+The skill still works: I build the story from the interview material and brief you give me, structure it for reuse, and note the strategic framing is built from that material alone, not the brand's record. Connect Jinn to anchor the story to the brand's real wedge, tribes, and pain points.
 
 ## If a call fails
 

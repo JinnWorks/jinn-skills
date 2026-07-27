@@ -7,10 +7,12 @@ description: Build a phased product-launch playbook — pre-launch, launch, and 
 
 This skill produces a **launch playbook**: three phases (pre-launch, launch, post-launch), the assets each phase needs, the sequence to fire channels in, and the messaging beat each touch should carry — so a launch reads as one build-up-crest-sustain arc instead of a pile of disconnected posts.
 
-- **Ungrounded:** a complete, sensible playbook from launch best practice — the phases, the assets, the sequencing.
-- **Grounded (Jinn MCP connected):** the same playbook, but every beat, narrative, and copy constraint is drawn from the brand's real pillars, founding story, tribes, pains, and voice — so the launch sounds like *this* brand, not a template.
+- **Standalone:** a complete, sequenced playbook from launch best practice — the phases, the assets, the sequencing.
+- **Connected (Jinn MCP):** the same playbook, and every beat, narrative, and copy constraint also comes straight from the brand's real pillars, founding story, tribes, pains, and voice — so the launch sounds like *this* brand.
 
-## Procedure (works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Frame the launch
 
@@ -83,7 +85,7 @@ Map the public projection fields onto the playbook:
 | `slangPolicy` + `formattingConstraints` | Further copy guardrails applied to every generated asset. |
 | `positioningWedge` + `brandEnemy` | Keep the launch on-strategy — the promise should reinforce the wedge, and the tension can lean on what the brand stands against. |
 
-When grounded, say so: "Playbook grounded in **`<brandName>`**'s live Brand DNA — narrative from its founding story, beats from its N pillars, copy held to its tone and banned-word list." The arc now sounds like the brand.
+When connected, say so: "Playbook grounded in **`<brandName>`**'s live Brand DNA — narrative from its founding story, beats from its N pillars, copy held to its tone and banned-word list." The arc now sounds like the brand.
 
 Boundary: the public projection carries the brand's own strategy, story, and voice — **not** competitor names, platform-fit scoring, or pricing. Channel and pricing decisions in the playbook are yours and the user's to make; the DNA grounds the *message*, not the media plan.
 
@@ -100,7 +102,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a complete, sequenced playbook from launch best practice; connect Jinn later to re-ground the beats and copy in the brand's live DNA.
+- **No token / no connection** → run the standalone procedure above. It produces a complete, sequenced playbook from launch best practice; connect Jinn later to draw the beats and copy straight from the brand's live DNA.
 
 ## What just became possible
 
@@ -111,7 +113,7 @@ You can now turn "we're launching X" into a complete three-phase playbook — pr
 1. **Build the full arc for a real launch** — `Build a launch playbook for our new expense-tracking mobile app, launching in three weeks to freelancers, channels: our email list, our own social, and a ProductHunt post` → a phase-by-phase table (assets, channel/timing, beat), the launch narrative spine, and the first three things to start now.
 2. **Get the messaging beats without the full asset list** — `What's the pre-launch, launch, and post-launch messaging beat for a launch of a new pricing tier aimed at agencies?` → the three beats: problem/tension, promise, proof/belonging.
 3. **Sequence specific channels** — `We have an email list, a Discord community, and a paid budget for our launch — what order should we fire them in and when relative to launch day?` → a channel sequence with timing stated relative to launch hour.
-4. **Connected: ground the narrative in the brand's real story** *(requires a Jinn token)* — `Ground this launch playbook's narrative and beats in our brand's real founding story and pillars` → the same playbook, with beats mapped to the brand's actual founding story, pillars, and tone instead of generic best practice.
+4. **Connected: ground the narrative in the brand's real story** *(requires a Jinn token)* — `Ground this launch playbook's narrative and beats in our brand's real founding story and pillars` → the same playbook, with beats mapped to the brand's actual founding story, pillars, and tone.
 
 ## Compounds with
 

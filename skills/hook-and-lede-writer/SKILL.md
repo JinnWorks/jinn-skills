@@ -11,7 +11,9 @@ This writes **openings**, not pieces, and it's format-agnostic — one topic in,
 
 **The house rule:** a hook only earns its spot if the content behind it actually pays it off. A curiosity gap with nothing behind it, a specific-number hook with no real number supplied, a before/after with no real "after" — that's clickbait wearing a framework's name. This skill flags it, every time, instead of quietly shipping a strong-sounding hook the piece can't cash.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -104,7 +106,7 @@ Two calls:
 
 | Projection field | Drives |
 |-------------------|--------|
-| `brandEnemy` | **Enemy-naming, directly** — the brand's actual chosen antagonist, not a guessed one. |
+| `brandEnemy` | **Enemy-naming, directly** — the brand's actual chosen antagonist, straight from its own record. |
 | `positioningWedge` | **Contrarian hooks** — the brand's real competitive edge, not a generic hot take. |
 | `painPoints` | **Direct-question and second-person-diagnosis hooks** — the reader's actual documented frustration. |
 | `tribes[]` (`{name, description, motivation}`) | **Who each hook is aimed at** — pick the tribe, write to its real `motivation`. |
@@ -125,7 +127,7 @@ That pipeline isn't reachable from a public token; this skill can only point at 
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the procedure still runs ungrounded:
+Read `data.code` on the JSON-RPC error and act — the procedure still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"hook-and-lede-writer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -136,7 +138,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the ten-hook procedure still runs in full against the topic, audience, and content you supplied; note the set is ungrounded and connect Jinn to ground the frameworks in a real brand.
+- **No token / no connection** → the ten-hook procedure still runs in full against the topic, audience, and content you supplied; connect Jinn to build the frameworks on a real brand's enemy, wedge, and voice.
 
 ## What just became possible
 

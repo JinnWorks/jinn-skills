@@ -14,9 +14,11 @@ Two more neighbors, same discipline as the rest of the Chart lane:
 - **`market-map-lite`** maps the **supply** side of a category — who sells, and what they claim. This skill maps the **demand** side — who buys.
 - **`customer-story-builder`** turns one of *your own* customers' real signal into a published story, one customer at a time. This skill stays at the category level: evidence about buyers in general, pulled from public sources, never a single named customer's narrative.
 
-Standalone, it produces a real sourced buyer read from your own search. Connected to Jinn, the segments get cross-read against the brand's own claimed audience — see **If a Jinn MCP connection is present**.
+Standalone, it produces a complete, sourced buyer read from your own search. Connected to Jinn, those segments also get cross-read against the brand's own claimed audience — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -80,9 +82,9 @@ Lead with a one-line finding ("Three segments, one clearly self-serve on price a
 - Every "their words" line is a real quote or tight paraphrase, not a guess dressed as one.
 - Nowhere does this snapshot name an individual buyer, give them a backstory, or write dialogue for them — that's `buyer-persona-generator`'s job, not this one's.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the snapshot is a neutral read of who the market says buys here. Grounded, the same sourced segments get checked against what the brand itself already claims about its audience — confirming overlap, and more usefully, surfacing the mismatch. Two calls:
+On its own, the snapshot is a complete, sourced read of who the market says buys here. Connected, the same sourced segments also get checked against what the brand itself already claims about its audience — confirming overlap, and more usefully, surfacing the mismatch. Two calls:
 
 1. `get_token_context` → confirm the token is live and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -100,7 +102,7 @@ Only the fields above exist on a public token — no competitor, pricing, or pla
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the snapshot still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the snapshot still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"buyer-snapshot"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -111,7 +113,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced buyer snapshot; connect Jinn later to cross-read the segments against the brand's verified tribes and pains.
+- **No token / no connection** → run the standalone procedure above. It produces a real, fully sourced buyer snapshot; connect Jinn later to cross-read the segments against the brand's verified tribes and pains.
 
 ## What just became possible
 

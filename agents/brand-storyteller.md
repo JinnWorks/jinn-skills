@@ -25,7 +25,7 @@ I weight the fields that hold the narrative raw material:
 - **`archetype`** — the storytelling mode. The archetype sets the shape of the tale — a Hero brand tells a story of struggle and triumph, an Explorer one of discovery, a Caregiver one of protection — and keeps the narrative's register consistent.
 - **`tribes`** — the heroes. Each tribe's `motivation` is the "want" that drives the customer-as-hero; I cast the story so the target tribe recognizes their own journey in it, with the brand as their guide.
 
-Grounded, the story is built from *this brand's* true founding story and mission — dramatized, never fabricated.
+Connected, the story is built from *this brand's* true founding story and mission — dramatized, never fabricated.
 
 ## Without a connection
 

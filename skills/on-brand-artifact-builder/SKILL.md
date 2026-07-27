@@ -7,9 +7,11 @@ description: Build one self-contained HTML artifact — a slide deck, a landing-
 
 Deliverable: **one self-contained `.html` file** — inline CSS and JS, no external requests, no build step — in one of three modes: (1) a **slide deck**, (2) a **landing-page section**, or (3) a **social carousel** of fixed 1080×1080 slides. It opens by double-click and looks intentional, not templated.
 
-Standalone, it produces a tasteful artifact from a good brief. Connected to Jinn, every colour, font, radius, and logo placement comes from the brand's real design tokens instead of your best guess — that's the whole delta.
+Standalone, it produces a tasteful, deliberate artifact from a good brief. Connected to Jinn, every colour, font, radius, and logo placement comes straight from the brand's own design tokens — no palette or type direction to work out — that's the delta.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -54,7 +56,7 @@ Climb to the highest rung your token supports; each rung is a superset of the on
 
 **Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive a palette and type direction from the brand personality fields — and **label every visual choice as an unverified inference** in the customization note.
 
-**Rung 3 — No token (generic-tasteful).** Use the step-2 defaults and add an explicit **"not brand-verified"** line to the customization note.
+**Rung 3 — No token (brand-neutral tasteful).** Use the step-2 defaults and add an explicit **"not brand-verified"** line to the customization note.
 
 Field → Drives — covers both the voice/copy fields and the design sources:
 
@@ -68,7 +70,7 @@ Field → Drives — covers both the voice/copy fields and the design sources:
 | `get_brand_dna_public` — `messagingPillars` | What each slide or section reinforces. |
 | `get_brand_dna_public` — `tribes` / `painPoints` | Who the artifact speaks to, and the angle. |
 
-Grounded at Rung 1, the artifact stops looking "on-brand-ish" and becomes byte-accurate to the brand's system: the exact hexes, the real font stack, the kit's logo lockup, the DESIGN.md grid. State the rung you reached in the customization note so the user can see the grounding did work.
+At Rung 1 the artifact is byte-accurate to the brand's system: the exact hexes, the real font stack, the kit's logo lockup, the DESIGN.md grid. State the rung you reached in the customization note so the user can see which sources it drew on.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
@@ -85,8 +87,8 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to generic-tasteful layout for the missing conventions, and note the gap in the customization note.
-- **No token / no connection** → drop to Rung 3. The artifact still ships; note it's not brand-verified and connect Jinn to ground it.
+- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
+- **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's real tokens.
 
 ## What just became possible
 

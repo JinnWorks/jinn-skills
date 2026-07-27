@@ -26,7 +26,7 @@ I weight the fields that define the naming territory and the fit bar:
 - **`brandEnemy`** — the negative space. Knowing what the brand rejects helps me avoid names that accidentally echo the thing it's defined against.
 - **`formattingConstraints`** — the mechanical rules (capitalization, spacing, compounding) any new name must obey to sit inside the brand's system.
 
-Grounded, my shortlist is generated within *this brand's* archetype and screened for fit against its real values and naming conventions.
+Connected, my shortlist is generated within *this brand's* archetype and screened for fit against its real values and naming conventions.
 
 ## Without a connection
 

@@ -17,9 +17,11 @@ If the ask names its competitors and wants a 2x2, or wants one company torn apar
 
 **"Lite" is a stated limit, not a caveat to bury.** This is a hand-run spot map: one search pass per segment, a handful of players each, done in one sitting. It is not continuous market monitoring and it is not a licensed market-intelligence database. Say the limit out loud in the deliverable, not just here.
 
-Standalone, it produces a real sourced category map from your own reading. Connected to Jinn, the map orients around where *this brand* already claims to sit — see **If a Jinn MCP connection is present**.
+Standalone, it produces a real sourced category map from your own reading. Connected to Jinn, that same map also orients around where *this brand* already claims to sit — straight from its own record — see **If a Jinn MCP connection is present**.
 
-## Procedure (ungrounded — works with no Jinn connection)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -94,9 +96,9 @@ Lead the delivered map with a one-line finding ("Six segments, eighteen players,
 - The white-space read points at specific empty or thin cells in the grid the reader can verify themselves, not a vibe.
 - The "lite" limit (one pass, a spot map) is stated in the deliverable itself, not just implied.
 
-## If a Jinn MCP connection is present (grounded)
+## If a Jinn MCP connection is present
 
-Ungrounded, the map is a neutral category read — useful, but it doesn't know which corner matters most to any one brand. Grounded, the same map gets read through where *this* brand already claims to stand. Two calls:
+On its own, the map is a complete, sourced category read. Connected, the same map also gets read through where *this* brand already claims to stand, so the white space comes back ranked rather than flat. Two calls:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
@@ -113,7 +115,7 @@ State which fields grounded which part of the map when you deliver it: *"Segment
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the map still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the map still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"market-map-lite"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -124,7 +126,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → run the ungrounded procedure above. It produces a real, fully sourced category map; connect Jinn later to orient the white-space read around the brand's own claimed wedge.
+- **No token / no connection** → run the standalone procedure above. It produces a real, fully sourced category map; connect Jinn later to orient the white-space read around the brand's own claimed wedge.
 
 ## What just became possible
 

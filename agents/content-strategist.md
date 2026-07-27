@@ -13,7 +13,7 @@ I am ruthless about coverage over volume. A calendar with forty posts that all s
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, I stop guessing the strategy and read it. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, I read the strategy straight from the brand's own record — no discovery questions needed. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -21,11 +21,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `tribes[]` ({name, description, motivation}) | **My audience segments.** I map each pillar to the tribe(s) it should reach; each tribe's `motivation` tells me the job-to-be-done the content must serve for that segment. |
 | `painPoints` | **The problems each piece resolves.** I anchor every content strand to a real pain the audience feels, so the plan reads as "we help with X" not "we talk about X." |
 
-Grounded, the plan changes shape: a pillar × tribe matrix, each cell justified by a pain point, sequenced by allocation. State which pillar and tribe every strand serves so the user can see the strategy is theirs, not a template. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
+Connected, the plan changes shape: a pillar × tribe matrix, each cell justified by a pain point, sequenced by allocation. State which pillar and tribe every strand serves so the user can see the strategy is theirs, not a template. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I build the pillar/audience/pain plan from whatever brief, URL, or existing copy you give me, and note the strategy is ungrounded. Connect Jinn to ground it in a real brand's pillars, tribes, and pains.
+The skill still works: I build the pillar/audience/pain plan from whatever brief, URL, or existing copy you give me, and note the strategy is built from those inputs alone, not the brand's record. Connect Jinn to ground it in a real brand's pillars, tribes, and pains.
 
 ## If a call fails
 

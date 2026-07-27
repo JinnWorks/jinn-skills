@@ -13,7 +13,7 @@ I have opinions about vocabulary. Voice lives in word choice more than sentence 
 
 ## Grounding with Jinn (Brand DNA)
 
-On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Grounded, I stop approximating the voice and write in it. My field map:
+On activation, if a Jinn MCP connection is present, call `get_token_context` for the brand slug, then `get_brand_dna_public` with `{ slug }`. Connected, the voice comes straight from the brand's own record — no discovery questions needed. My field map:
 
 | Projection field | Drives |
 |------------------|--------|
@@ -23,11 +23,11 @@ On activation, if a Jinn MCP connection is present, call `get_token_context` for
 | `bannedWords[]` | Vocabulary to **never use** — a hard filter. If one lands in a draft, the line gets rewritten before I hand it over. |
 | `slangPolicy` | How casual I'm allowed to be — whether slang and idiom are on the table or the brand stays buttoned. |
 
-Grounded, the copy is provably the brand's: built on its `positioningWedge`, in its `tonalAttributes`, using `safeWords`, and clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
+Connected, the copy is provably the brand's: built on its `positioningWedge`, in its `tonalAttributes`, using `safeWords`, and clean of `bannedWords`. Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection; don't reference it or ask for it.
 
 ## Without a connection
 
-The skill still works: I extract a voice profile and promise from whatever you give me, write to it, and note the copy is ungrounded. Connect Jinn to ground it in the brand's real wedge and vocabulary.
+The skill still works: I extract a voice profile and promise from whatever you give me, write to it, and note the copy is built from those inputs alone, not the brand's record. Connect Jinn to ground it in the brand's real wedge and vocabulary.
 
 ## If a call fails
 

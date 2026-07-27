@@ -11,7 +11,7 @@ This is a different question than `ai-visibility-snapshot`'s: that skill asks *d
 
 The map stops at *where it matters and whether you're on it*. Deciding how to actually earn standing on the sources that can't just be claimed — forums, subreddits, Discord — is `community-value-planner`'s job; hand this map straight to it once the earn-only sources are named.
 
-## Procedure (ungrounded — works with no Jinn connection)
+## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Intake
 
@@ -112,7 +112,9 @@ Honest limits: <section 8, in full>
 
 Lead with a one-line verdict ("Cited constantly on `<domain>` and `<domain>`, absent from both — those are the two moves worth making first"), then the source table, then the ranked plan, then the honest-limits section.
 
-## If a Jinn MCP connection is present (grounded → Connected)
+Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
+
+## If a Jinn MCP connection is present
 
 Two calls, same sequence as every skill in this repo:
 
@@ -121,14 +123,14 @@ Two calls, same sequence as every skill in this repo:
 
 | Projection field | Drives |
 |-------------------|--------|
-| `positioningWedge` | Sharpens which category questions to run — write the best-of and comparison questions against the angle the brand actually claims to win on, not a guessed one. |
+| `positioningWedge` | Sharpens which category questions to run — write the best-of and comparison questions against the angle the brand actually claims to win on. |
 | `brandEnemy` | Guarantees at least one comparison question names the real competitor, so the sources an assistant cites when directly comparing the two get captured, not just generic category sources. |
-| `tribes[]` (`{name, description, motivation}`) | Shapes the problem-shaped questions as real personas instead of a guessed generic buyer. |
+| `tribes[]` (`{name, description, motivation}`) | Shapes the problem-shaped questions around the brand's own named personas. |
 | `painPoints` | The problem-shaped question source — write "how do I solve X" straight from the brand's own stated pains. |
 | `messagingPillars[]` | Sharpens leverage scoring — a niche domain cited only once is worth chasing if it sits squarely on a pillar the brand is trying to own, and not worth it otherwise. |
-| `brandName` / `officialName` | Replaces a guessed name for every presence check — searching a domain for the correct, correctly-cased identity avoids a false "absent" from missing a name variant. |
+| `brandName` / `officialName` | Supplies the canonical name for every presence check — searching a domain for the correct, correctly-cased identity avoids a false "absent" from missing a name variant. |
 
-State which fields you used when you deliver the report — that's the whole delta over the ungrounded run.
+State which fields you used when you deliver the report — that's the whole delta over the standalone run.
 
 **Best rung:** once the brand is Connected, Fama runs this same discipline end-to-end and continuously — parsing every engine citation down to the domain level and probing verified brand presence against a canonical source registry (`fama/src/lib/authority/citation-domains.ts`, `presence-engine.ts`). That machinery isn't reachable from a public token — this skill approximates its discipline by hand, once; it doesn't run it.
 
@@ -136,7 +138,7 @@ Only the fields above exist on a public token — there is no competitor, differ
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the map still ships ungrounded:
+Read `data.code` on the JSON-RPC error and act — the map still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"citation-source-mapper"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -147,7 +149,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → the map still ships in full against category questions you design by hand; note it's ungrounded, and that presence checks used a guessed brand name if no official name was confirmed.
+- **No token / no connection** → the map still ships in full against category questions you design by hand; note that the question set came from your own category read, and that presence checks used the brand name as given if no official name was confirmed.
 
 ## What just became possible
 
