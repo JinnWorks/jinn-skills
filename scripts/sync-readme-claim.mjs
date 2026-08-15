@@ -64,12 +64,18 @@ if (!skills) fail(`could not count skills in the per-skill table of ${file}`)
 const top1Short = top1.replace(/\.0%$/, '%')
 const modelNames = models.map(cap).join(', ')
 
+// With zero format failures, accuracy is simply "of trials"; otherwise it is over
+// successfully-parsed calls and the exclusion must be stated, never hidden.
+const resultSentence = ff === 0
+  ? `**Result: the correct skill ranked first in ${top1} of trials — every model, all ${skills} skills, zero format failures.**`
+  : `**Result: the correct skill ranked first in ${top1} of successfully-parsed calls — every model, all ${skills} skills.** ${ff} of ${trials} calls (${((ff / trials) * 100).toFixed(1)}%) returned a malformed tool call and are excluded from the accuracy denominator; they are reported in full in the results file.`
+
 const block = `${START}
 ## Measured activation — ${top1Short} top-1
 
 A skill only helps if your agent picks the right one when you ask. We benchmark exactly that: ${prompts} realistic marketing requests, shown to ${word(models.length)} frontier Claude models (${modelNames}) ${word(reps)} times each — ${trials} trials — with only the catalog's names and descriptions to go on, the same view your agent gets.
 
-**Result: the correct skill ranked first in ${top1} of trials — every model, all ${skills} skills, ${word(ff)} format failures.** The benchmark measures routing (the right skill fires), not output quality. Harness, prompts, and full results are in this repo — run it yourself: [\`benchmarks/\`](./benchmarks/), latest report [\`benchmarks/router/results/${file}\`](./benchmarks/router/results/${file}).
+${resultSentence} The benchmark measures routing (the right skill fires), not output quality. Harness, prompts, and full results are in this repo — run it yourself: [\`benchmarks/\`](./benchmarks/), latest report [\`benchmarks/router/results/${file}\`](./benchmarks/router/results/${file}).
 ${END}`
 
 // --- Splice into README ------------------------------------------------------

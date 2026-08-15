@@ -8,11 +8,11 @@ Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Gemini CL
 The difference is the point. A positioning brief from the skill's own method is sharp and defensible; one written against a brand's real competitive wedge and enemy is unmistakably *theirs*.
 
 <!-- measured-activation:start -->
-## Measured activation — 100% top-1
+## Measured activation — 97.3% top-1
 
-A skill only helps if your agent picks the right one when you ask. We benchmark exactly that: 52 realistic marketing requests, shown to three frontier Claude models (Haiku, Sonnet, Opus) three times each — 468 trials — with only the catalog's names and descriptions to go on, the same view your agent gets.
+A skill only helps if your agent picks the right one when you ask. We benchmark exactly that: 175 realistic marketing requests, shown to three frontier Claude models (Haiku, Sonnet, Opus) three times each — 1575 trials — with only the catalog's names and descriptions to go on, the same view your agent gets.
 
-**Result: the correct skill ranked first in 100.0% of trials — every model, all 21 skills, zero format failures.** The benchmark measures routing (the right skill fires), not output quality. Harness, prompts, and full results are in this repo — run it yourself: [`benchmarks/`](./benchmarks/), latest report [`benchmarks/router/results/2026-07-08-v2.md`](./benchmarks/router/results/2026-07-08-v2.md).
+**Result: the correct skill ranked first in 97.3% of successfully-parsed calls — every model, all 59 skills.** 452 of 1575 calls (28.7%) returned a malformed tool call and are excluded from the accuracy denominator; they are reported in full in the results file. The benchmark measures routing (the right skill fires), not output quality. Harness, prompts, and full results are in this repo — run it yourself: [`benchmarks/`](./benchmarks/), latest report [`benchmarks/router/results/2026-08-15-deep-59.md`](./benchmarks/router/results/2026-08-15-deep-59.md).
 <!-- measured-activation:end -->
 
 ## Skills
