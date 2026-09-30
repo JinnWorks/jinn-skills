@@ -1,11 +1,13 @@
 ---
 name: know-your-brand-dna
-description: Read a brand's Jinn Brand DNA back to you — identity, voice, positioning angle, and strategy layer — and confirm your MCP connection works. Use this first, right after connecting to Jinn, to verify the token and see what the other skills will ground on.
+description: Read a brand's Jinn Brand DNA back to you — identity, voice, positioning angle, and strategy layer — and confirm your MCP connection works. Use this first, right after connecting to Jinn, to verify the token and see what the other skills will ground on. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Know Your Brand DNA
 
 This skill does two jobs: it's the **connection smoke test** for Jinn's MCP gateway, and it's the **orientation** for every other skill in this repo — it shows you exactly what Brand DNA the connected skills will read.
+
+Deliverable: **a verified connection plus a plain-language readback** of one brand's DNA — your token's plan and reachable brands, then who the brand is, its angle, its voice rules, its audience, and what it leads with.
 
 Unlike the other skills, this one reads a brand's live DNA record, so it needs a Jinn connection — without one there is nothing to read. If you're not connected yet, follow the README's "Connect to Jinn" section first.
 
@@ -19,6 +21,8 @@ Call `get_token_context`. It returns your token's own context:
 
 ```
 { "audience": "public",
+  "tier": "demo",
+  "subscription_status": "none",
   "scopes": ["read"],
   "brand_slugs": ["paleo-pro", "bloombelly", "better-weather"],
   "expires_at": "2026-07-05T01:00:00Z",
@@ -27,7 +31,13 @@ Call `get_token_context`. It returns your token's own context:
 
 - `brand_slugs` — the brands you can read (canonical slugs). These are the slugs you pass to `get_brand_dna_public` and to every other skill.
 - `expires_at` — when a demo token lapses (null = never). If it's close, request a fresh one.
-- `audience: public` — you're on the public tier, so you get the bounded DNA projection, not the full internal record.
+- `tier` — your plan. It decides which tools appear in `tools/list`; each tier reaches everything the one below it does:
+  - `demo` — the free token: the showcase brands only, as the bounded DNA projection.
+  - `connected` — your own brand: the bounded projection, plus `ask_brand`, plus `get_brand_design_tokens` / `get_brand_design_md` where the brand has opted in to public design export.
+  - `brand` — adds the full DNA (`get_brand_dna`), the brand kit, per-product detail, and the measured design system; design tokens and DESIGN.md serve for your own brand.
+  - `agency` — the top of the ladder; everything Brand reaches.
+- `audience` — always `"public"` for a customer token. It isn't your plan; read `tier` for that.
+- `subscription_status` — `none` for a demo, trial, or comp token; otherwise your live subscription state (for example `active` or `past_due`). If it's `past_due`, or `grace_warning` is `true`, tell the user their payment needs attention and give them the `renewal_url` from the same response.
 
 If this call fails, jump to **When a call fails** below — the connection isn't live yet.
 
@@ -35,8 +45,8 @@ If this call fails, jump to **When a call fails** below — the connection isn't
 
 For a slug from step 1, call `get_brand_dna_public` with `{ "slug": "<slug>" }`. You get the bounded projection:
 
-| Field | What it is |
-|-------|-----------|
+| Projection field | What it is |
+|------------------|-----------|
 | `brandName`, `officialName`, `industryCategory` | Identity |
 | `mission`, `foundingStory`, `coreValues` | Story + values |
 | `archetype`, `secondaryArchetype`, `demographicSpectrum` | Positioning of the brand + who it's for |
@@ -58,7 +68,7 @@ End with: "Connection verified. Any skill in this repo will now ground on **`<br
 
 ## What you will NOT see (and why)
 
-The public projection deliberately omits competitor names + threat levels, the differentiation matrix, vulnerability windows, competitive intelligence, platform-fit scoring, and pricing. Those live in the full internal record, which a demo token can't reach. If you ask for them, you'll get a `not_found`-style response — that's the boundary working, not a bug.
+The public projection deliberately omits competitor names + threat levels, the differentiation matrix, vulnerability windows, competitive intelligence, platform-fit scoring, and pricing, at every tier. The full canonical DNA — including product and commercial fields and the competitive playbook — is `get_brand_dna`, which only appears in `tools/list` at Brand tier and up. Below that, asking for those fields gets you nothing beyond the projection — that's the boundary working, not a bug.
 
 ## When a call fails
 
@@ -80,7 +90,7 @@ Once you're connected to Jinn, you can read a brand's real Brand DNA back in pla
 
 Every prompt here needs a token because the skill does nothing without one — a free demo token works.
 
-1. **Verify the connection and list your brands** *(requires a Jinn token)* — `Check my Jinn connection and list the brands my token can read.` → your token's context: the brand slugs you can read, when the token expires, and that you're on the public tier — the smoke test that proves the wiring is live.
+1. **Verify the connection and list your brands** *(requires a Jinn token)* — `Check my Jinn connection and list the brands my token can read.` → your token's context: the brand slugs you can read, when the token expires, your plan (`tier`) and what it reaches, and a renewal link if a payment is past due — the smoke test that proves the wiring is live.
 2. **Read a brand's DNA back in plain language** *(requires a Jinn token)* — `Read one of my connected brands' Brand DNA back to me — identity, positioning angle, voice, and who it's for.` → a plain-language summary of the bounded public projection: who the brand is, its angle and what it's against, its voice rules, its audience, and what it leads with.
 3. **See the voice layer on its own** *(requires a Jinn token)* — `For my connected brand, what are its tonal attributes and which words are banned?` → just the voice fields — the tonal attributes to write in and the hard banned-word list — so you can see exactly what the voice skills will enforce.
 4. **See the public boundary — what's included and what isn't** *(requires a Jinn token)* — `Show me what the public Brand DNA does and doesn't include for my connected brand.` → the fields the public projection carries, plus a plain statement of what it deliberately withholds (competitor intel, the differentiation matrix, pricing) and why that's the boundary working, not a gap.
