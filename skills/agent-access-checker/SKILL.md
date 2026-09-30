@@ -116,15 +116,15 @@ Fixes, ranked by leverage:
 Two calls, same sequence as every skill in this repo:
 
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
-2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection. For a fix file that carries logo identity, also call `get_brand_kit({ slug })` when the design trio is present on the token.
+2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection. For a fix file that carries logo identity, also call `get_brand_kit({ slug })` — only when it appears in `tools/list` (Brand tier and above). Without it, leave the JSON-LD `logo` field as a labeled placeholder for the user's real logo URL, and say so in the delivery.
 
-| Projection field | Drives |
-|-------------------|--------|
-| `brandName`, `officialName` | The `Organization` JSON-LD `name` field in a generated structured-data fix, and the llms.txt H1 if that fix fires too. |
-| `mission`, `positioningWedge` | The blockquote/description line in a generated llms.txt starter — the same delta `llms-txt-generator` uses, offered here as a same-pass fix when the audit finds the file missing. |
-| `tonalAttributes` | Register for any drafted fix copy (llms.txt lines, an `Organization` description). |
-| `bannedWords` | Hard filter on any drafted fix copy. |
-| `get_brand_kit` — logo URL, wordmark | The `logo` field in a generated `Organization` JSON-LD block — a real asset URL, not a placeholder. |
+| Projection field | Tier needed | Drives |
+|-------------------|-------------|--------|
+| `brandName`, `officialName` | Any | The `Organization` JSON-LD `name` field in a generated structured-data fix, and the llms.txt H1 if that fix fires too. |
+| `mission`, `positioningWedge` | Any | The blockquote/description line in a generated llms.txt starter — the same delta `llms-txt-generator` uses, offered here as a same-pass fix when the audit finds the file missing. |
+| `tonalAttributes` | Any | Register for any drafted fix copy (llms.txt lines, an `Organization` description). |
+| `bannedWords` | Any | Hard filter on any drafted fix copy. |
+| `get_brand_kit` — logo URL, wordmark | Brand | The `logo` field in a generated `Organization` JSON-LD block — a real asset URL, not a placeholder. |
 
 That's the concrete delta: a standalone run names the finding and the fix to make; a connected run also drops in the actual fix file — the robots.txt group correction, the llms.txt starter, the JSON-LD block — pre-filled from the brand's own record. **State which fields you used** when you deliver.
 

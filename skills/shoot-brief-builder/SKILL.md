@@ -116,23 +116,28 @@ File format, resolution, aspect ratios per shot (from the shot list), file namin
 
 Ground the brief in the brand's real system — the same brief, now carrying the brand's own colors, mood language, and emphasis. Climb to the highest rung your token supports.
 
-**Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for a slug, then `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })`, plus `get_brand_dna_public({ slug })`. Set, prop, and wardrobe color direction comes from the DTCG color tokens **verbatim — never approximate a hex on set**. Logo/product-label placement in any packaging or on-pack shot follows the brand kit. Where `get_brand_design_md` conventions cover photography or imagery usage, they **override generic styling taste**.
+**Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })`. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive mood language and a palette direction from the personality fields below, and **label every visual choice as an unverified inference** in the brief's notes.
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the brief's notes, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo/label placement guidance from DESIGN.md if it covers it, else leave a labeled placeholder in the on-pack shot notes.
+
+Set, prop, and wardrobe color direction comes from the DTCG color tokens, when they answer, **verbatim — never approximate a hex on set**. Logo/product-label placement in any packaging or on-pack shot follows the brand kit when you have it. Where `get_brand_design_md` conventions cover photography or imagery usage, they **override generic styling taste**.
+
+**Rung 2 — DNA-only (no design tool answered, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive mood language and a palette direction from the personality fields below, and **label every visual choice as an unverified inference** in the brief's notes.
 
 **Rung 3 — No token (generic-tasteful).** Use the standalone procedure above and add an explicit **"not brand-verified"** line to the brief.
 
-| Source · field | Drives |
-|-----------------|--------|
-| `get_brand_design_tokens` — color / type / spacing (DTCG) | Set, prop, and wardrobe accent colors, verbatim hex. |
-| `get_brand_kit` — logo, wordmark, brand name | Logo/label placement in any packaging or on-pack shot. |
-| `get_brand_design_md` — layout & usage conventions | Any documented photography or imagery-usage rules; overrides generic taste on conflict. |
-| `get_brand_dna_public` — `tonalAttributes` | The mood-in-three-words language. |
-| `get_brand_dna_public` — `messagingPillars` | Which pillar the hero shot has to visually carry. |
-| `get_brand_dna_public` — `tribes` / `painPoints` | Who the lifestyle shots put in frame, and what context they're shown solving. |
-| `get_brand_dna_public` — `mission` / `coreValues` / `archetype` | Sanity-check that the shoot's mood matches the brand's actual character, not a generic "premium" default. |
+| Source · field | Tier needed | Drives |
+|-----------------|-------------|--------|
+| `get_brand_design_tokens` — color / type / spacing (DTCG) | Any for opted-in brands; else Brand | Set, prop, and wardrobe accent colors, verbatim hex. |
+| `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/label placement in any packaging or on-pack shot. |
+| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Any documented photography or imagery-usage rules; overrides generic taste on conflict. |
+| `get_brand_dna_public` — `tonalAttributes` | Any | The mood-in-three-words language. |
+| `get_brand_dna_public` — `messagingPillars` | Any | Which pillar the hero shot has to visually carry. |
+| `get_brand_dna_public` — `tribes` / `painPoints` | Any | Who the lifestyle shots put in frame, and what context they're shown solving. |
+| `get_brand_dna_public` — `mission` / `coreValues` / `archetype` | Any | Sanity-check that the shoot's mood matches the brand's actual character, not a generic "premium" default. |
 
-Connected, the brief's "on-brand" mood adjectives and set colors are the brand's own, taken from its record rather than inferred for it. State the rung you reached in the brief's notes so the user can see which record fed it.
+Connected, the brief's "on-brand" mood adjectives are the brand's own, and so are its set colors wherever the design tools answered — taken from its record rather than inferred for it. State the rung you reached, and which design tools answered, in the brief's notes so the user can see which record fed it.
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or platform-fit data in the projection. Don't reference it or ask for it.
 
@@ -153,7 +158,8 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
+- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the brief's notes, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood, palette, and messaging emphasis in a real brand.
 
 ## What just became possible

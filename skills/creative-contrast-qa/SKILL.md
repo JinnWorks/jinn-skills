@@ -81,20 +81,22 @@ List what's already clean, too — a QA pass that only criticizes gets ignored; 
 
 Ground the contrast lens in the brand's real palette instead of judging colors in isolation.
 
-**Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for the brand slug, then `get_brand_design_tokens({ slug })` for the brand's actual palette (background/paper, accent, ink/text, secondary hexes — DTCG tokens, used **verbatim**). Two things change:
+**Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for the brand slug, then call each design tool on its own and use whichever answers. `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` are listed on every tier; they serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: skip the piece that tool would have fed, say so plainly in the report, and name the upgrade path (`data.upgrade_url`).
+
+When `get_brand_design_tokens({ slug })` answers, it gives the brand's actual palette (background/paper, accent, ink/text, secondary hexes — DTCG tokens, used **verbatim**). Two things change:
 
 - **Off-brand color check.** Compare the creative's dominant colors against the token palette. A creative whose look leans on colors nowhere in the brand's palette (a reference ad's palette surviving an edit instead of the brand's own) is worth flagging even if contrast itself passes — note it separately from the four QA lenses, since it's a brand-fit read, not a legibility one.
 - **On-token contrast math.** When the creative's background or text color IS a brand token, use the token's real hex in the Lens 2 math instead of an eyeballed estimate — the ratio becomes exact, not approximate.
 
-Optionally call `get_brand_kit({ slug })` for logo/wordmark placement rules if the creative carries a lockup — flag a lockup placed somewhere DESIGN.md rules out.
+If the creative carries a lockup, optionally call `get_brand_kit({ slug })` for logo/wordmark placement rules — only when it appears in `tools/list` (Brand tier and above). Without it, check the lockup against DESIGN.md if it covers lockups; otherwise note the lockup check as not run. Flag a lockup placed somewhere DESIGN.md rules out.
 
-| Projection field | Drives |
-|-------------------|--------|
-| `get_brand_design_tokens` — colour (background/paper, accent, ink/text, secondary) | The off-brand color check, and the exact hex used in the Lens 2 contrast math whenever the creative's own background/text color is a brand token. |
-| `get_brand_kit` — logo, wordmark | Whether a lockup on the creative sits where the kit allows. |
-| `get_brand_design_md` — layout & usage conventions | Overrides generic taste on any placement conflict, same as the artifact-builder ladder. |
+| Projection field | Tier needed | Drives |
+|-------------------|-------------|--------|
+| `get_brand_design_tokens` — color (background/paper, accent, ink/text, secondary) | Any for opted-in brands; else Brand | The off-brand color check, and the exact hex used in the Lens 2 contrast math whenever the creative's own background/text color is a brand token. |
+| `get_brand_kit` — logo, wordmark | Brand | Whether a lockup on the creative sits where the kit allows. |
+| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Overrides generic taste on any placement conflict, same as the artifact-builder ladder. |
 
-**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** No color tokens to check against — the palette-fit read isn't possible at this rung, so skip it and note the gap ("palette-adherence needs the design trio; not checked"). The four QA lenses still run at full strength; they don't depend on brand data.
+**Rung 2 — DNA-only (no design tool answered, `get_brand_dna_public` works).** No color tokens to check against — the palette-fit read isn't possible at this rung, so skip it and note the gap ("palette-adherence needs `get_brand_design_tokens`; not checked"). The four QA lenses still run at full strength; they don't depend on brand data.
 
 **Rung 3 — No token.** Full QA as written above, on craft rules alone. Note the report is **not brand-verified** for palette.
 
@@ -112,7 +114,8 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 - **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
-- **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design trio yet (per-brand availability), not a wrong slug. Drop to Rung 2.
+- **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design tokens yet (per-brand availability), not a wrong slug. Skip the palette read and note the gap, as at Rung 2.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Skip that piece only, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette.
 

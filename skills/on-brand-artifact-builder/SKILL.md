@@ -44,7 +44,7 @@ Across all modes, clear the **anti-generic checklist**: no default system fonts;
 
 ### 4. Deliver with a customization note
 
-Hand over the file plus a short note: what the user should tweak (copy, image slots, slide count) and — whenever you built below Rung 1 of the ladder — which visual choices are unverified inferences.
+Hand over the file plus a short note: what the user should tweak (copy, image slots, slide count) and — whenever a visual choice didn't come from a design tool that answered — which visual choices are unverified inferences.
 
 **PNG export (carousel):** your agent MAY screenshot each 1080×1080 slide with its own browser tooling; this repo ships no export scripts.
 
@@ -52,25 +52,30 @@ Hand over the file plus a short note: what the user should tweak (copy, image sl
 
 Climb to the highest rung your token supports; each rung is a superset of the one below.
 
-**Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for a slug, then `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })`, plus `get_brand_dna_public({ slug })` for voice and copy. Colours, type, spacing, radius, and motion come from the DTCG tokens **verbatim — never approximate a hex**. Logo and brand-name placement follow the kit. Where DESIGN.md conventions conflict with generic taste, **DESIGN.md wins**.
+**Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })` for voice and copy. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive a palette and type direction from the brand personality fields — and **label every visual choice as an unverified inference** in the customization note.
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the customization note, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo and lockup placement from DESIGN.md if it covers them, else leave a labeled logo placeholder.
+
+Colors, type, spacing, radius, and motion come from the DTCG tokens, when they answer, **verbatim — never approximate a hex**. Logo and brand-name placement follow the kit when you have it. Where DESIGN.md conventions conflict with generic taste, **DESIGN.md wins**.
+
+**Rung 2 — DNA-only (no design tool answered, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Derive a palette and type direction from the brand personality fields — and **label every visual choice as an unverified inference** in the customization note.
 
 **Rung 3 — No token (brand-neutral tasteful).** Use the step-2 defaults and add an explicit **"not brand-verified"** line to the customization note.
 
 Field → Drives — covers both the voice/copy fields and the design sources:
 
-| Source · field | Drives |
-|----------------|--------|
-| `get_brand_design_tokens` — colour / type / spacing / radius / motion (DTCG) | **Every CSS value, verbatim** — hexes, font stacks, spacing scale, border-radius, transitions/easing. Never round or re-mix a token. |
-| `get_brand_kit` — logo, wordmark, brand name | Logo/name placement — deck cover, section header, carousel cover + CTA lockup. |
-| `get_brand_design_md` — layout & usage conventions | Grid, do/don't rules, component conventions; **overrides generic taste on any conflict.** |
-| `get_brand_dna_public` — `tonalAttributes` | Voice of any drafted copy. |
-| `get_brand_dna_public` — `safeWords` / `bannedWords` | Prefer / hard-filter vocabulary in drafted copy. |
-| `get_brand_dna_public` — `messagingPillars` | What each slide or section reinforces. |
-| `get_brand_dna_public` — `tribes` / `painPoints` | Who the artifact speaks to, and the angle. |
+| Source · field | Tier needed | Drives |
+|----------------|-------------|--------|
+| `get_brand_design_tokens` — color / type / spacing / radius / motion (DTCG) | Any for opted-in brands; else Brand | **Every CSS value, verbatim** — hexes, font stacks, spacing scale, border-radius, transitions/easing. Never round or re-mix a token. |
+| `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/name placement — deck cover, section header, carousel cover + CTA lockup. |
+| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Grid, do/don't rules, component conventions; **overrides generic taste on any conflict.** |
+| `get_brand_dna_public` — `tonalAttributes` | Any | Voice of any drafted copy. |
+| `get_brand_dna_public` — `safeWords` / `bannedWords` | Any | Prefer / hard-filter vocabulary in drafted copy. |
+| `get_brand_dna_public` — `messagingPillars` | Any | What each slide or section reinforces. |
+| `get_brand_dna_public` — `tribes` / `painPoints` | Any | Who the artifact speaks to, and the angle. |
 
-At Rung 1 the artifact is byte-accurate to the brand's system: the exact hexes, the real font stack, the kit's logo lockup, the DESIGN.md grid. State the rung you reached in the customization note so the user can see which sources it drew on.
+At Rung 1, each piece whose tool answered is byte-accurate to the brand's system: the exact hexes and real font stack from the tokens, the kit's logo lockup, the DESIGN.md grid. State the rung you reached, and which design tools answered, in the customization note so the user can see which sources it drew on.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
@@ -87,7 +92,8 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on the kit + tokens, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
+- **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the customization note, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's real tokens.
 
 ## What just became possible

@@ -107,21 +107,26 @@ Two calls, climbing as far as the token supports:
 1. `get_token_context` → confirm the token and grab a slug from `brand_slugs`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection.
 
-If the connection also carries the design trio, call `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })` too — colour, type, and layout direction then come from the brand's real design tokens **verbatim**, not an inference. Where only `get_brand_dna_public` succeeds, derive a colour and type *direction* from the personality fields instead and **label it an unverified inference** in the delivery note.
+Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-| Source · field | Drives |
-|-----------------|--------|
-| `get_brand_design_tokens` — colour / type / spacing / radius (DTCG, when present) | The color-block and banner-overlay treatments — exact hexes and font stack, never approximated. |
-| `get_brand_kit` — logo, wordmark (when present) | Logo/watermark placement and lockup on every pin. |
-| `get_brand_design_md` — layout conventions (when present) | Overrides the step-2 layout-role guidance on any conflict. |
-| `positioningWedge` | The angle every bottom-of-funnel pin leads with — the brand's own wedge, in place of the angle you'd pick at step 6. |
-| `painPoints[]` | Feeds the top-of-funnel discovery pins' hooks. |
-| `tribes[]` (`{name, description, motivation}`) | Which pins are aimed at which audience — match overlay framing to a tribe's real motivation. |
-| `messagingPillars[]` (`{pillar, description}`) | Spread pillars across the batch so the set proves the brand's real benefits, not one repeated. |
-| `tonalAttributes[]` | Voice of every title, description, and overlay headline. |
-| `safeWords[]` / `bannedWords[]` | Diction on every copy field — prefer one set, hard-filter the other. |
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Whatever answers drives color, type, and layout direction **verbatim**, not an inference. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: derive that piece from the personality fields instead, **label it an unverified inference** in the delivery note, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo/watermark placement from DESIGN.md if it covers it, else leave a labeled logo placeholder on each pin.
 
-Connected, the delivery note states the rung reached (design-trio-verbatim vs. DNA-inferred), and — for each pin — which pillar and tribe it's aimed at. That's the visible proof the brand's own record fed through, not an assertion.
+Where only `get_brand_dna_public` succeeds, derive a color and type *direction* from the personality fields instead and **label it an unverified inference** in the delivery note.
+
+| Source · field | Tier needed | Drives |
+|-----------------|-------------|--------|
+| `get_brand_design_tokens` — color / type / spacing / radius (DTCG, when it answers) | Any for opted-in brands; else Brand | The color-block and banner-overlay treatments — exact hexes and font stack, never approximated. |
+| `get_brand_kit` — logo, wordmark (when listed) | Brand | Logo/watermark placement and lockup on every pin. |
+| `get_brand_design_md` — layout conventions (when it answers) | Any for opted-in brands; else Brand | Overrides the step-2 layout-role guidance on any conflict. |
+| `positioningWedge` | Any | The angle every bottom-of-funnel pin leads with — the brand's own wedge, in place of the angle you'd pick at step 6. |
+| `painPoints[]` | Any | Feeds the top-of-funnel discovery pins' hooks. |
+| `tribes[]` (`{name, description, motivation}`) | Any | Which pins are aimed at which audience — match overlay framing to a tribe's real motivation. |
+| `messagingPillars[]` (`{pillar, description}`) | Any | Spread pillars across the batch so the set proves the brand's real benefits, not one repeated. |
+| `tonalAttributes[]` | Any | Voice of every title, description, and overlay headline. |
+| `safeWords[]` / `bannedWords[]` | Any | Diction on every copy field — prefer one set, hard-filter the other. |
+
+Connected, the delivery note states the rung reached (which design tools answered verbatim vs. what was DNA-inferred), and — for each pin — which pillar and tribe it's aimed at. That's the visible proof the brand's own record fed through, not an assertion.
 
 Only the fields above exist on a public token. There is no competitor, ad-performance, or platform-fit data in the projection — don't reference or request it.
 
@@ -142,7 +147,8 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **`get_brand_design_md` / design-trio calls return `not_found` while `get_brand_dna_public` succeeds** → that brand simply has no design tokens minted yet (per-brand availability), not a wrong slug. Fall back to the DNA-inferred palette/type direction and label it as such.
+- **`get_brand_design_md` / `get_brand_design_tokens` return `not_found` while `get_brand_dna_public` succeeds** → that brand simply has no design tokens minted yet (per-brand availability), not a wrong slug. Fall back to the DNA-inferred palette/type direction for that piece and label it as such.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the delivery note, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the batch still ships in full; note it's not brand-verified and connect Jinn to ground it.
 
 ## What just became possible
