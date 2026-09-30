@@ -154,4 +154,4 @@ You can now get an objective 0-to-100 grade on how consistently a brand actually
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

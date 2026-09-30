@@ -160,4 +160,4 @@ You can now check whether a site that's already reachable to AI crawlers actuall
 
 ---
 
-*Grounding + three-state contract by Jinn. Structured-data guidance is public schema.org/JSON-LD practice; MCP discovery is cited as an in-progress, unratified proposal, not a standard. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. Structured-data guidance is public schema.org/JSON-LD practice; MCP discovery is cited as an in-progress, unratified proposal, not a standard. MIT.*

@@ -183,4 +183,4 @@ You can now grade an entire launch plan across six fixed dimensions — channels
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

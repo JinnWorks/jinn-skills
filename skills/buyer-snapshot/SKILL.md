@@ -133,4 +133,4 @@ You can now find out who actually buys in a category — not a guessed cast of c
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*
+*Grounding + three-state contract by Jinn.*

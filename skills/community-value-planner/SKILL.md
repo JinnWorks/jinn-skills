@@ -134,4 +134,4 @@ You can now find out exactly where a brand can genuinely show up on Reddit, foru
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

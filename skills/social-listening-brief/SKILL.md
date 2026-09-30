@@ -129,4 +129,4 @@ You can now find out what's actually earning engagement in a niche or keyword sp
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

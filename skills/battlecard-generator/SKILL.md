@@ -123,4 +123,4 @@ You can now turn a pile of competitor research — their site copy, pricing, win
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

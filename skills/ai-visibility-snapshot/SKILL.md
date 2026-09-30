@@ -65,7 +65,7 @@ Report the composite as "N of a possible M points across the sample run" — a f
 A hand-run snapshot is real signal, not a measurement. Say all of the following, every time:
 
 - **This is a snapshot, not a benchmark.** AI assistant outputs are non-deterministic — the same query run twice, minutes apart, can come back differently. One run captures one moment, not a stable property of the brand.
-- **Sample size is small by construction.** 12–16 queries across a handful of assistants is a spot-check a person can run in an afternoon, not a statistically powered study. Don't extrapolate "we appear in 40% of queries" into "we have 40% AI visibility" — the second claim needs a sample this method doesn't have.
+- **Sample size is small by construction.** 12–16 queries across a handful of assistants is a spot-check a person can run in an afternoon, not a statistically powered study. For example, don't extrapolate "we appear in 40% of queries" into "we have 40% AI visibility" — the second claim needs a sample this method doesn't have.
 - **Phrasing changes the answer.** Rewording a query — even preserving the exact same intent — can flip a result from absent to present or favorable to neutral. Before reporting a hard "not mentioned," rerun the query with 1–2 phrasing variants; a single negative result on a single phrasing is weak evidence.
 - **It ages fast.** Underlying models update on their own schedule, sometimes weekly. A snapshot from last month is a data point in a trend, not a current status — date every report and note it will drift.
 - **This method measures presence and framing, not fact-checked accuracy.** It tells you *whether* and *how* a brand comes up — it does not grade whether specific claims the assistant makes about the brand are true. That's a harder, different problem: continuous multi-engine sampling with claim-level grading against a verified source of truth. Jinn's Fama product runs exactly that, continuously, across six engines, with calibrated accuracy grading — this manual method is the useful thing you can do without it, not a substitute for it.
@@ -128,4 +128,4 @@ You can now run a real, structured check on whether AI assistants actually recom
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

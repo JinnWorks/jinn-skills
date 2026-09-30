@@ -1,6 +1,6 @@
 ---
 name: launch-positioning
-description: Write a positioning brief for a product, feature, or company launch — one-liner, positioning wedge, brand enemy, proof pillars, and the target tribe. Use when someone is launching something and needs to decide what it stands for and how it wins before any copy gets written.
+description: Write a positioning brief for a product, feature, or company launch — one-liner, positioning wedge, brand enemy, proof pillars, and the target tribe. Use when someone is launching something and needs to decide what it stands for and how it wins before any copy gets written. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Launch Positioning
@@ -112,4 +112,4 @@ You can now get a positioning brief in one pass — one-liner, wedge, enemy, pro
 - `messaging-ab-tester` — turns the wedge and pillars into distinct message bets worth testing against each other.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

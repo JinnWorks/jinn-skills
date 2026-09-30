@@ -143,4 +143,4 @@ You can now paste any pricing page and get back a structural read of what it's a
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

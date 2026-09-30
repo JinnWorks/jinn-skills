@@ -169,4 +169,4 @@ You can now find out, for any category, exactly which domains AI assistants actu
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

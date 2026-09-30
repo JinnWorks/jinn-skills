@@ -1,6 +1,6 @@
 ---
 name: brand-guardrails-review
-description: Red-line a piece of copy against a brand's voice and strategy — flag banned-word violations, off-tone lines, and off-strategy claims, each with a suggested rewrite. Use when someone pastes a draft (post, ad, email, landing page) and wants it checked before it ships.
+description: Red-line a piece of copy against a brand's voice and strategy — flag banned-word violations, off-tone lines, and off-strategy claims, each with a suggested rewrite. Use when someone pastes a draft (post, ad, email, landing page) and wants it checked before it ships. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Brand Guardrails Review
@@ -101,4 +101,4 @@ You can now paste a piece of draft copy — a post, an ad, an email — and get 
 - `claim-provenance-checker` — this catches off-strategy claims; that checks whether a specific factual claim can be evidenced.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

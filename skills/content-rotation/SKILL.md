@@ -1,6 +1,6 @@
 ---
 name: content-rotation
-description: Plan what to post and when across your properties on rotation — a balanced 7-day plan, the single best next post, or a per-property overdue audit — then hand the chosen post to x-content or linkedin-content to write. Use when several products or properties compete for the same feed and you need a cadence instead of another one-off. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Plan what to post and when across your properties on rotation — a balanced 7-day plan, the best next post, or a per-property overdue audit — then hand the pick to x-content or linkedin-content. Use when several products or properties compete for one feed and you need a cadence, not one-offs. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Content Rotation
@@ -147,4 +147,4 @@ You can now get a straight answer to "what should I post next" across however ma
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

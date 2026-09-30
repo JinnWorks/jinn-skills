@@ -123,4 +123,4 @@ You can now turn a rough ICP description and whatever research you have lying ar
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

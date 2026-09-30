@@ -9,7 +9,7 @@ Deliverable: **one structured creative brief** synthesized from 3 reference ads 
 
 Distinct from its nearest neighbors: **ad-teardown** analyzes one ad (or a whole library) and stops at analysis — it never merges. **campaign-brief** is the strategy layer above this one (objective, audience, channels); this skill is the single-creative layer below it. **ad-copy-variants** writes finished headline and body copy; this skill specifies the creative direction copy should follow, it doesn't write the final lines.
 
-Standalone, it turns three saved ads into a complete, buildable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle and visual direction are also checked against the brand's real voice and palette, straight from its own record — no discovery questions needed. See **Grounding ladder (when a Jinn MCP connection is present)**.
+Standalone, it turns three saved ads into a complete, buildable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle is also checked against the brand's real voice, straight from its own record, and the visual direction against its palette where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — no discovery questions needed. See **Grounding ladder (when a Jinn MCP connection is present)**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -64,9 +64,14 @@ Why this works:       <the through-line from step 3, in one sentence>
 
 Climb to the highest rung your token supports; each rung is a superset of the one below.
 
-**Rung 1 — Connected tokens (design trio present).** If `tools/list` includes the design trio, call `get_token_context` for a slug, then `get_brand_kit({ slug })` + `get_brand_design_tokens({ slug })` + `get_brand_design_md({ slug })`, plus `get_brand_dna_public({ slug })` for voice. The brief's **Visual direction** field takes its colour and type language from the DTCG tokens verbatim — never approximate a hex the token already gives you.
+**Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })` for voice. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-**Rung 2 — DNA-only (trio absent, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Check the brief against the brand's real voice — see the field table below. Visual direction stays your read of the 3 references; label it an unverified inference in the brief.
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the brief, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo/lockup guidance for the **Visual direction** from DESIGN.md if it covers it, else leave a labeled logo placeholder.
+
+The brief's **Visual direction** field takes its color and type language from the DTCG tokens, when they answer, verbatim — never approximate a hex the token already gives you.
+
+**Rung 2 — DNA-only (no design tool answered, `get_brand_dna_public` works).** Call `get_token_context` → `get_brand_dna_public({ slug })`. Check the brief against the brand's real voice — see the field table below. Visual direction stays your read of the 3 references; label it an unverified inference in the brief.
 
 **Rung 3 — no token.** The brief still ships from steps 1–5 alone. Note it's not brand-verified.
 
@@ -97,6 +102,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the brief, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → drop to Rung 3. The brief still ships; note it's not brand-verified and connect Jinn to ground it.
 
 ## What just became possible
@@ -118,4 +124,4 @@ You can now turn three ads you like into one usable creative brief instead of th
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -154,4 +154,4 @@ You can now turn a competitor's own customer reviews into a set of ad angles bui
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

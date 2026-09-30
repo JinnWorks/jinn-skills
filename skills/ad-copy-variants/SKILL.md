@@ -104,4 +104,4 @@ You can now generate a full, testable ad set for a specific platform in one pass
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

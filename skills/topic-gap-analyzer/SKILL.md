@@ -147,4 +147,4 @@ You can now see, on demand, exactly which topics your competitors publish about 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

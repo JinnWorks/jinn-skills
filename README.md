@@ -145,15 +145,24 @@ Run the `know-your-brand-dna` skill (or just ask your agent to call `get_token_c
 
 ### Tools your token can call
 
-| Tool | What it returns |
-|------|-----------------|
-| `get_token_context` | Your token's allowed brands, scopes, audience, and expiry |
-| `get_brand_dna_public` | A brand's bounded DNA projection (identity, voice, positioning angle, strategy layer) by slug |
-| `get_brand_kit` | Logo, wordmark, and brand name for a slug (Connected tokens) |
-| `get_brand_design_tokens` | The brand's DTCG design tokens — color, type, spacing, radius, motion (Connected tokens) |
-| `get_brand_design_md` | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` (Connected tokens) |
+Your token's plan is the `tier` field that `get_token_context` returns: `demo` (the free token above, showcase brands only), then `connected`, `brand`, and `agency`. Each tier reaches everything the tier below it does. A tool above your tier doesn't appear in `tools/list` at all.
 
-The projection is a **curated subset** — competitive intelligence, pricing, and internal metadata are never served over a demo token.
+| Tool | Tier | What it returns |
+|------|------|-----------------|
+| `ping` | Any | A health check that the gateway is reachable |
+| `get_token_context` | Any | Your token's plan (`tier`), subscription status (`subscription_status`, plus `grace_warning` and `renewal_url` when a payment is past due), allowed brands, scopes, and expiry |
+| `get_brand_dna_public` | Any | A brand's bounded DNA projection (identity, voice, positioning angle, strategy layer: messaging pillars, pain points, audience tribes) by slug |
+| `get_brand_design_tokens` | Any tier for brands that opted in to public design export; Brand tier for your own brand otherwise | The brand's DTCG design tokens — color, type, spacing, radius, motion |
+| `get_brand_design_md` | Any tier for brands that opted in to public design export; Brand tier for your own brand otherwise | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` |
+| `ask_brand` | Connected and up | Answers a question from the brand's record: the matched facts (each with its source) plus a coverage note listing what it could answer and the genuine gaps. At Brand tier it also matches the full DNA and per-product fields. The question text is logged so the brand owner can see what was asked. |
+| `get_brand_kit` | Brand and up | Render-ready brand kit: colors, fonts, logo, name, spacing |
+| `get_brand_dna` | Brand and up | The full canonical Brand DNA, including product and commercial fields and the competitive playbook |
+| `get_brand_products` | Brand and up | Per-product detail: name, description, category, form factor, hero ingredients, ingredients, certifications and claims, dimensions, weight, URL |
+| `get_brand_design_system` | Brand and up | The design system measured from the brand's live site; every value carries a confidence |
+| `list_design_extraction_runs` | Brand and up | The design-extraction runs recorded for the brand |
+| `get_product_design_system` | Brand and up | One product page's measured design, as overrides of the brand's design system |
+
+`get_brand_dna_public` serves a **curated subset** at every tier — competitive intelligence, pricing, and internal metadata are never in it. The full canonical DNA is `get_brand_dna`, at Brand tier and up.
 
 ### If a call fails
 
@@ -165,9 +174,10 @@ Every failure carries a machine-readable code in the JSON-RPC error `data.code`:
 | `token_revoked` | Token was revoked | Request a new one |
 | `token_malformed` | Bad `Authorization` header (often the substitution bug) | Use the `claude mcp add --header` form above |
 | `not_found` (tool error) | Brand not in your token's allowlist (or no such brand) | Call `get_token_context` to see which brands you can read |
+| `tier_required` (tool error) | The tool needs a higher plan (`data.required_tier` names it) | The error carries `data.upgrade_url`; the skill falls back to its lower rung and says so |
 
 Each skill also surfaces its own remediation line for these states, so a connected skill falls back cleanly to its standalone form rather than erroring out.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). Adaptations are attributed in [ATTRIBUTION.md](./ATTRIBUTION.md).
+MIT — see [LICENSE](./LICENSE).

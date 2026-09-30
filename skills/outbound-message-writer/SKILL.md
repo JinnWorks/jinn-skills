@@ -116,4 +116,4 @@ You can now turn prospect facts you already have into ready-to-review cold email
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -1,6 +1,6 @@
 ---
 name: competitor-positioning-map
-description: Build a 2x2 positioning map and white-space analysis from the user's named competitors and the brand's own wedge and enemy-framing. Use when you want to see where a brand sits in its market, where rivals cluster, and which uncontested space the brand's strategy points it toward. Competitor names come from the user — this skill never invents them.
+description: Build a 2x2 positioning map and white-space analysis from the user's named competitors and the brand's own wedge and enemy-framing. Use to see where a brand sits, where rivals cluster, and which uncontested space its strategy points toward. Competitor names come from the user — never invented. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Competitor Positioning Map
@@ -108,4 +108,4 @@ You can now see, in one pass, where a brand really sits against its named rivals
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

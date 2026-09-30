@@ -118,4 +118,4 @@ You can now design a message test where every variant is a genuinely different b
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

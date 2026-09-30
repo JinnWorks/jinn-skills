@@ -146,4 +146,4 @@ You can now find out, before you shoot or publish, whether a video's opening act
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*
