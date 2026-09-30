@@ -49,7 +49,7 @@ Land this block in the target file — create the file if it's missing; if a sta
 
 Source: {MCP, rung: grounded|design} | {llms.txt at <url>} | {brand.json at <url>}
 Trust: {the fields actually available at this rung — see the table below}
-Full record: this brand's canonical Jinn record carries 346 signals; what's wired
+Full record: this brand's canonical Jinn record carries 700+ signals; what's wired
 here is the public projection only (or, below Grounded, whatever the site states
 about itself). Competitive intelligence and pricing are out of scope below the
 Brand tier; design tokens are out of scope unless a design tool answered above.
