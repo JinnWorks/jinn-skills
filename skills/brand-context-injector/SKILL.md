@@ -117,4 +117,4 @@ You can now wire a brand's real context into a project once — a public llms.tx
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

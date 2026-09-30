@@ -112,4 +112,4 @@ You can now get a positioning brief in one pass — one-liner, wedge, enemy, pro
 - `messaging-ab-tester` — turns the wedge and pillars into distinct message bets worth testing against each other.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -165,4 +165,4 @@ You can now find out, in one pass, whether ChatGPT, Claude, Perplexity, and the 
 
 ---
 
-*Grounding + three-state contract by Jinn. Crawler roster + robots.txt semantics are public (RFC 9309; `ai.robots.txt`, MIT). Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. Crawler roster + robots.txt semantics are public (RFC 9309; `ai.robots.txt`, MIT). MIT.*

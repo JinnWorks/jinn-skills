@@ -138,4 +138,4 @@ You can now produce a standing positioning document that credits every real alte
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

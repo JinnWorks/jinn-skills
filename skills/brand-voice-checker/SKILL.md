@@ -138,4 +138,4 @@ You can now tell, in one pass, whether a piece of copy reads like a person wrote
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

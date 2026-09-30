@@ -101,4 +101,4 @@ You can now paste a piece of draft copy — a post, an ad, an email — and get 
 - `claim-provenance-checker` — this catches off-strategy claims; that checks whether a specific factual claim can be evidenced.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

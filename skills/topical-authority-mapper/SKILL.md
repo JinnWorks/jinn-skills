@@ -143,4 +143,4 @@ You can now see, across your whole site, which topic clusters are deep, which ar
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

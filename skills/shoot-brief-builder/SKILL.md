@@ -181,4 +181,4 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

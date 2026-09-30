@@ -136,4 +136,4 @@ You can now run a pass/fail legibility check on a finished ad, pin, or social cr
 - `on-brand-artifact-builder` — run this QA pass on whatever that skill renders before it ships.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

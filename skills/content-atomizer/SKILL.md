@@ -126,4 +126,4 @@ You can now turn one long article, blog post, or video transcript into a set of 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -161,4 +161,4 @@ Before anyone builds a single templated page, you can now get an honest verdict 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

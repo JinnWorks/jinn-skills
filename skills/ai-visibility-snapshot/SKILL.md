@@ -128,4 +128,4 @@ You can now run a real, structured check on whether AI assistants actually recom
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

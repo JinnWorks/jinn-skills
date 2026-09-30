@@ -147,4 +147,4 @@ You can now get a sourced map of an entire category in one pass — segments, na
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*
+*Grounding + three-state contract by Jinn.*

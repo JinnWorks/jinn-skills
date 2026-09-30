@@ -132,4 +132,4 @@ You can now find out exactly what AI assistants currently believe about a brand'
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

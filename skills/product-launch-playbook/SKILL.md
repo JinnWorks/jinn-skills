@@ -123,4 +123,4 @@ You can now turn "we're launching X" into a complete three-phase playbook — pr
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

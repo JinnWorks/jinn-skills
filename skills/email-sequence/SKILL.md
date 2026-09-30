@@ -100,4 +100,4 @@ You can now get a full 4-email lifecycle sequence — welcome or launch — buil
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

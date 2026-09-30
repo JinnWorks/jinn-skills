@@ -108,4 +108,4 @@ You can now see, in one pass, where a brand really sits against its named rivals
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

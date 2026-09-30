@@ -116,4 +116,4 @@ You can now hand over any existing marketing copy — a homepage hero, a deck na
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

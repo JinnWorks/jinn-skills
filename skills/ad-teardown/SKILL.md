@@ -171,4 +171,4 @@ You can now paste in a single ad — a screenshot, an image, a link — and get 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

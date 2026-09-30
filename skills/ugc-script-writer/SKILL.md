@@ -143,4 +143,4 @@ You can now turn a product and an angle into the actual words a creator says on 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

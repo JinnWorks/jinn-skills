@@ -140,4 +140,4 @@ You can now get one deep, fully sourced profile on a single named competitor —
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns.*
+*Grounding + three-state contract by Jinn.*

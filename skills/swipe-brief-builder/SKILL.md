@@ -124,4 +124,4 @@ You can now turn three ads you like into one usable creative brief instead of th
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

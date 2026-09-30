@@ -110,4 +110,4 @@ You can now turn one customer's raw signal — a call transcript, quotes, a surv
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

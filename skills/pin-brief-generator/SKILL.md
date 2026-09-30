@@ -169,4 +169,4 @@ You can now turn a single product or URL into a real spread of Pinterest-ready p
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -147,4 +147,4 @@ You can now get a straight answer to "what should I post next" across however ma
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -116,4 +116,4 @@ You can now turn a list of keywords into content briefs that say what to write a
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

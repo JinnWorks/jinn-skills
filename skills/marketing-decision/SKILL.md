@@ -167,4 +167,4 @@ You can now turn an open marketing call — kill the podcast, change the pricing
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

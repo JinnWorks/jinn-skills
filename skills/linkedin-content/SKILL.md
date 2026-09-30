@@ -116,4 +116,4 @@ You can now turn one idea into several genuinely different LinkedIn posts — a 
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

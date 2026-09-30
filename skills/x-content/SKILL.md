@@ -122,4 +122,4 @@ You can now turn one claim into a ready-to-publish X post or thread, correctly s
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

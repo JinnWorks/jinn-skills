@@ -100,4 +100,4 @@ You can now hand over a rough voice description and a message, and get back a pu
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

@@ -151,4 +151,4 @@ You can now turn one sentence about what a brand does, for whom, into a full 30-
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

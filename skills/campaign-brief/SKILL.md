@@ -105,4 +105,4 @@ You can now turn "we should run a campaign" into the one page a writer, designer
 - `messaging-ab-tester` — test the single-minded message against alternatives before committing the whole campaign to it.
 
 ---
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

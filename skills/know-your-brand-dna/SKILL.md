@@ -103,4 +103,4 @@ Every prompt here needs a token because the skill does nothing without one — a
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*

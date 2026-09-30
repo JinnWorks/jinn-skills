@@ -147,4 +147,4 @@ You can now turn a video idea into a numbered, shot-by-shot plan a director, ani
 
 ---
 
-*Grounding + three-state contract by Jinn. Structure inspired by open marketing-skill patterns. MIT.*
+*Grounding + three-state contract by Jinn. MIT.*
