@@ -180,4 +180,4 @@ Each skill also surfaces its own remediation line for these states, so a connect
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). Adaptations are attributed in [ATTRIBUTION.md](./ATTRIBUTION.md).
+MIT — see [LICENSE](./LICENSE).
