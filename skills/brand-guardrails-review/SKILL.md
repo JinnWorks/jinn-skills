@@ -1,6 +1,6 @@
 ---
 name: brand-guardrails-review
-description: Red-line a piece of copy against a brand's voice and strategy — flag banned-word violations, off-tone lines, and off-strategy claims, each with a suggested rewrite. Use when someone pastes a draft (post, ad, email, landing page) and wants it checked before it ships.
+description: Red-line a piece of copy against a brand's voice and strategy — flag banned-word violations, off-tone lines, and off-strategy claims, each with a suggested rewrite. Use when someone pastes a draft (post, ad, email, landing page) and wants it checked before it ships. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Brand Guardrails Review

@@ -1,13 +1,13 @@
 ---
 name: brand-messaging-audit
-description: Audit a brand's existing marketing copy — homepage, deck, one-pager, about page — against its own strategy and voice, then return a scored report with pillar coverage, voice violations, off-strategy drift, gaps, and a prioritized fix list. Use when you have real copy in hand and want to know how well it holds the line.
+description: Audit a brand's existing marketing copy — homepage, deck, one-pager, about page — against its own strategy and voice, scored for pillar coverage, voice violations, off-strategy drift, and gaps, with prioritized fixes. Use when you have real copy and want to know how well it holds the line. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Brand Messaging Audit
 
 You give this skill copy that already exists — a pasted homepage, a pitch deck's narrative, a sales one-pager, an about page — and it hands back an **audit**: how well that copy carries the brand's strategy and voice, where it drifts, what it's missing, and the highest-leverage fixes in priority order.
 
-This is a diagnostic, not a rewrite. The output is a scorecard plus a punch list, so the user can see *why* each line trips and decide what to fix first.
+This is a diagnostic, not a rewrite. The deliverable is a scorecard plus a punch list, so the user can see *why* each line trips and decide what to fix first.
 
 - **Standalone:** you audit against sound messaging principles — clarity, differentiation, audience fit, consistency.
 - **With a Jinn MCP connection:** you also audit against *this brand's* actual pillars, banned words, tonal attributes, wedge, and tribes — so "off-strategy" means off *their* strategy specifically.

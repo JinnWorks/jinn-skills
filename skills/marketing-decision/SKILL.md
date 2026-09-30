@@ -1,6 +1,6 @@
 ---
 name: marketing-decision
-description: Make a marketing call without the spiral — triage the decision, answer 6–8 targeted questions instead of the whole bank, and land a clear call with a revisit date, logged to a local decision record. Use for campaign go/no-go, pricing-page changes, rebrands, killing a channel, or an event sponsorship. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Make a marketing call without the spiral — triage the decision, answer 6–8 targeted questions, not the whole bank, and land a clear call with a revisit date, logged to a local decision record. Use for campaign go/no-go, pricing-page changes, rebrands, killing a channel, or an event sponsorship. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Marketing Decision

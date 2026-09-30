@@ -1,6 +1,6 @@
 ---
 name: campaign-brief
-description: Write a marketing campaign brief — objective, target audience, single-minded message, channels, hooks, and a success metric — before any creative is made. Use when planning a campaign, launch push, promotion, or content sprint and you need one page everyone builds against.
+description: Write a marketing campaign brief — objective, target audience, single-minded message, channels, hooks, and a success metric — before any creative is made. Use when planning a campaign, launch push, promotion, or content sprint and you need one page everyone builds against. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Campaign Brief

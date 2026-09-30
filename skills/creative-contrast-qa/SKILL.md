@@ -1,6 +1,6 @@
 ---
 name: creative-contrast-qa
-description: Run a text-legibility, contrast, and safe-area QA pass on one ad, pin, or social creative — flags text over a face/product, low pixel contrast, and copy sitting in a platform's UI chrome (Reels/TikTok/Story overlays), each with a fix. Use for a pass/fail craft check on a finished creative — not a strategic read of its hook/angle (ad-teardown) or a brand-voice check of copy (brand-guardrails-review). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Run a text-legibility, contrast, and safe-area QA on one ad, pin, or social creative — flags text over a face/product, low pixel contrast, and copy under Reels/TikTok/Story UI, each with a fix. A pass/fail craft check, not a hook/angle read (ad-teardown) or voice check (brand-guardrails-review). Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Creative Contrast QA

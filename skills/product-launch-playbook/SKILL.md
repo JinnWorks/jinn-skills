@@ -1,11 +1,11 @@
 ---
 name: product-launch-playbook
-description: Build a phased product-launch playbook — pre-launch, launch, and post-launch — with the assets each phase needs, the order to fire channels, and the messaging beat every touch should hit. Use when planning a launch and you need a concrete, sequenced plan rather than a checklist.
+description: Build a phased product-launch playbook — pre-launch, launch, and post-launch — with the assets each phase needs, the order to fire channels, and the messaging beat every touch should hit. Use when planning a launch and you need a concrete, sequenced plan rather than a checklist. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Product Launch Playbook
 
-This skill produces a **launch playbook**: three phases (pre-launch, launch, post-launch), the assets each phase needs, the sequence to fire channels in, and the messaging beat each touch should carry — so a launch reads as one build-up-crest-sustain arc instead of a pile of disconnected posts.
+This skill's deliverable is a **launch playbook**: three phases (pre-launch, launch, post-launch), the assets each phase needs, the sequence to fire channels in, and the messaging beat each touch should carry — so a launch reads as one build-up-crest-sustain arc instead of a pile of disconnected posts.
 
 - **Standalone:** a complete, sequenced playbook from launch best practice — the phases, the assets, the sequencing.
 - **Connected (Jinn MCP):** the same playbook, and every beat, narrative, and copy constraint also comes straight from the brand's real pillars, founding story, tribes, pains, and voice — so the launch sounds like *this* brand.

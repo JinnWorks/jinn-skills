@@ -1,6 +1,6 @@
 ---
 name: launch-positioning
-description: Write a positioning brief for a product, feature, or company launch — one-liner, positioning wedge, brand enemy, proof pillars, and the target tribe. Use when someone is launching something and needs to decide what it stands for and how it wins before any copy gets written.
+description: Write a positioning brief for a product, feature, or company launch — one-liner, positioning wedge, brand enemy, proof pillars, and the target tribe. Use when someone is launching something and needs to decide what it stands for and how it wins before any copy gets written. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Launch Positioning
