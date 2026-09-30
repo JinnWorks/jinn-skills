@@ -7,7 +7,7 @@ description: Run a text-legibility, contrast, and safe-area QA on one ad, pin, o
 
 Produces a **pass/fail QA report** on one composed creative — an ad, a Pinterest pin, a social carousel slide, anything with text laid over an image. Four lenses, applied in order: **placement** (is the copy over a face or the product?), **contrast** (does the text actually read against its background?), **safe area** (is any copy sitting where the platform's own UI will cover it?), **size floor** (was the copy shrunk to fit, or silently cut?). A QA pass that only says "looks fine" isn't a QA pass — every flag ships with the specific fix.
 
-Works with no Jinn connection, from whatever you can see of the creative — the four lenses are the whole QA and they don't need brand data. Connected to a brand's Jinn Brand DNA, the check also reads against the brand's *actual* palette, with real token hexes in the contrast math — see **If a Jinn MCP connection is present**. Vermeer runs this exact discipline as an automatic gate on every creative it composes — see **The Connected rung**.
+Works with no Jinn connection, from whatever you can see of the creative — the four lenses are the whole QA and they don't need brand data. Connected to Jinn, the check also reads against the brand's *actual* palette, with real token hexes in the contrast math, wherever the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — see **If a Jinn MCP connection is present**. Vermeer runs this exact discipline as an automatic gate on every creative it composes — see **The Connected rung**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -117,7 +117,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design tokens yet (per-brand availability), not a wrong slug. Skip the palette read and note the gap, as at Rung 2.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Skip that piece only, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette.
+- **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette where its design tools answer.
 
 ## What just became possible
 
@@ -128,7 +128,7 @@ You can now run a pass/fail legibility check on a finished ad, pin, or social cr
 1. **Check contrast on real colors** — `Does white text at #FFFFFF on a medium-blue background at #4A6FA5 pass contrast for a large headline on my Instagram Story?` → the WCAG ratio computed from those two hex values against the display-text floor, plus a clear pass verdict.
 2. **Flag placement and safe-area issues on a Reel** — `I have a TikTok video with the CTA text in the bottom-right corner and a caption band across the very top — is that going to get covered by the app's UI?` → both regions flagged against TikTok's top, bottom, and right chrome bands, each with a fix.
 3. **Run a full QA pass on a described ad** — `QA this ad for Instagram feed: a product photo with the headline written directly across the model's face in dark gray text on a busy background.` → a FAIL verdict for text-over-face, a contrast note on the busy background, and a fix — move the copy to blank space or add a scrim.
-4. **Connected: check against your real palette** *(requires a Jinn token)* — `QA this ad's contrast using my actual brand color tokens for the background and text.` → the same four-lens QA, but the contrast math now runs on the brand's real token hex values instead of an estimate, plus an off-brand color flag if the creative drifts from the palette.
+4. **Connected: check against your real palette** *(requires a Jinn token)* — `QA this ad's contrast using my actual brand color tokens for the background and text.` → the same four-lens QA; where the brand's design tokens answer (Brand tier, or a brand that has opted in to public design export), the contrast math runs on their real hex values instead of an estimate, plus an off-brand color flag if the creative drifts from the palette.
 
 ## Compounds with
 

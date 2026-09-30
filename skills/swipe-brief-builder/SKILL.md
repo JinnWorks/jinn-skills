@@ -9,7 +9,7 @@ Deliverable: **one structured creative brief** synthesized from 3 reference ads 
 
 Distinct from its nearest neighbors: **ad-teardown** analyzes one ad (or a whole library) and stops at analysis — it never merges. **campaign-brief** is the strategy layer above this one (objective, audience, channels); this skill is the single-creative layer below it. **ad-copy-variants** writes finished headline and body copy; this skill specifies the creative direction copy should follow, it doesn't write the final lines.
 
-Standalone, it turns three saved ads into a complete, buildable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle and visual direction are also checked against the brand's real voice and palette, straight from its own record — no discovery questions needed. See **Grounding ladder (when a Jinn MCP connection is present)**.
+Standalone, it turns three saved ads into a complete, buildable brief from taste and pattern-matching alone. Connected to Jinn, the copy angle is also checked against the brand's real voice, straight from its own record, and the visual direction against its palette where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — no discovery questions needed. See **Grounding ladder (when a Jinn MCP connection is present)**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 

@@ -7,7 +7,7 @@ description: "Turn a product + concept into a photographer-ready shoot brief: sh
 
 Deliverable: a **shoot brief** — the document that turns "we need product photos" into something a photographer, stylist, or production team can shoot from without a call. It bridges AI-native brand tooling to a real-world production day: cameras, sets, and people, not another generated image. A brief that's just "make it look premium" isn't a brief; it's a mood.
 
-Works with no Jinn connection — a complete, shootable brief on its own. Connected to a brand's Jinn Brand DNA, the mood language, palette, and messaging emphasis come straight from the brand's own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, shootable brief on its own. Connected to a brand's Jinn Brand DNA, the mood language and messaging emphasis come straight from the brand's own record, and so does the palette where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -160,7 +160,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the brief's notes, and pass on `data.upgrade_url` as the upgrade path.
-- **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood, palette, and messaging emphasis in a real brand.
+- **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood and messaging emphasis in a real brand (and the palette, where its design tools answer).
 
 ## What just became possible
 
@@ -171,7 +171,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 1. **Build a full brief for a real shoot** — `Build a shoot brief for our new ceramic mug line — hero images for our PDP, Instagram feed, and email, budget-tier studio shoot, one shoot day` → a full brief: shot list by channel and ratio, lighting/mood direction, props in/out, continuity notes, and deliverable specs.
 2. **Build just the shot list from deliverable channels** — `What shots do we need for a product launching on our PDP, Instagram stories, and a marketplace listing?` → a shot list mapped one-to-one to those channels and their ratios.
 3. **Direct lighting and mood concretely** — `Give me concrete lighting and mood direction for a lifestyle shoot of our wool blankets, mood: cozy, honest, unpolished` → a specific light-source and time-of-day direction plus the three mood words every shot has to earn.
-4. **Connected: ground props and palette in real brand colors** *(requires a Jinn token)* — `Ground this shoot brief's set colors and mood language in our brand's real design tokens` → the same brief with verbatim hex colors and tonal-attribute mood language instead of inferred taste.
+4. **Connected: ground props and palette in real brand colors** *(requires a Jinn token)* — `Ground this shoot brief's set colors and mood language in our brand's real design tokens` → the same brief with tonal-attribute mood language, and verbatim hex colors where the design tokens answer (Brand tier, or a brand that has opted in to public design export), instead of inferred taste.
 
 ## Compounds with
 

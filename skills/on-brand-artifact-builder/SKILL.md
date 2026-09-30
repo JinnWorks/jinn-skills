@@ -7,7 +7,7 @@ description: Build one self-contained HTML artifact — a slide deck, a landing-
 
 Deliverable: **one self-contained `.html` file** — inline CSS and JS, no external requests, no build step — in one of three modes: (1) a **slide deck**, (2) a **landing-page section**, or (3) a **social carousel** of fixed 1080×1080 slides. It opens by double-click and looks intentional, not templated.
 
-Standalone, it produces a tasteful, deliberate artifact from a good brief. Connected to Jinn, every colour, font, radius, and logo placement comes straight from the brand's own design tokens — no palette or type direction to work out — that's the delta.
+Standalone, it produces a tasteful, deliberate artifact from a good brief. Connected to Jinn, the brand's voice and positioning come straight from its own record; where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export), every color, font, and radius comes from its design tokens too, with logo placement from its kit on the Brand tier — that's the delta.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -94,7 +94,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the customization note, and pass on `data.upgrade_url` as the upgrade path.
-- **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's real tokens.
+- **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's DNA, and on its real tokens where its design tools answer.
 
 ## What just became possible
 
@@ -105,7 +105,7 @@ You can now describe a slide deck, a landing-page section, or a social carousel 
 1. **Build a slide deck** — `Build a 6-slide deck pitching our per-client billing feature to freelance agency owners, content is mine to draft` → one self-contained HTML file, one viewport per slide, keyboard nav, no build step.
 2. **Build a social carousel** — `Build a 5-slide Instagram carousel announcing our new feature, aimed at solo freelancers scrolling fast` → fixed 1080×1080 slides with cover, body, and CTA roles, ready to screenshot.
 3. **Build a landing-page section** — `Build a landing-page section for our pricing page, one clear CTA, audience is agency owners comparison-shopping` → one responsive HTML section, clean across breakpoints, semantic markup.
-4. **Connected: build it with the brand's real design tokens** *(requires a Jinn token)* — `Build this deck using our actual brand colors, fonts, and logo, not a guess` → the same artifact with every hex, font stack, and logo placement pulled verbatim from the brand's design tokens.
+4. **Connected: build it with the brand's real design tokens** *(requires a Jinn token)* — `Build this deck using our actual brand colors, fonts, and logo, not a guess` → the same artifact grounded in the brand's DNA; every hex and font stack pulled verbatim from its design tokens where they answer (Brand tier, or a brand that has opted in to public design export), and logo placement from its kit on the Brand tier.
 
 ## Compounds with
 

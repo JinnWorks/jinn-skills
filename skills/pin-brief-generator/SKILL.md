@@ -7,7 +7,7 @@ description: Turn a product or URL into a batch of Pinterest-shaped pin briefs �
 
 Deliverable: a **batch of Pinterest-shaped pin briefs** — you set the batch size (default 8–10, enough for a real spread), each brief pinned to the **1000×1500 px (2:3) portrait canvas** Pinterest recommends, carrying a named layout role, the on-image overlay text, and Pinterest-native title / description / hashtags / alt text / board suggestion. Not five recolors of one idea — the batch varies layout role, angle, and funnel position so it reads as a real test set. Not a rendered image — a brief a designer, or Vermeer, renders from.
 
-Works standalone — a complete, craft-checked batch from the product or URL alone. Connected to Jinn, the briefs also carry the brand's real visual identity and voice, straight from its own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
+Works standalone — a complete, craft-checked batch from the product or URL alone. Connected to Jinn, the briefs also carry the brand's real voice, straight from its own record, plus its exact colors and type where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) and its logo on the Brand tier — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -160,7 +160,7 @@ You can now turn a single product or URL into a real spread of Pinterest-ready p
 1. **Brief a batch from a product page** — `Build a batch of 8 Pinterest pin briefs for this product page: mywebsite.com/products/wool-throw-blanket, board theme: cozy home decor` → 8 briefs, each with a distinct layout role, overlay headline, and full Pinterest copy fields (title, description, alt text, keywords).
 2. **Brief pins with a seasonal angle** — `Build 6 pin briefs for this blog post pointing to my landing page, seasonal window: back to school: myblog.com/college-dorm-essentials` → briefs plus a timing note to publish weeks ahead of the season.
 3. **Split the batch across the funnel on purpose** — `Build a pin batch for my Etsy shop's new ring sizer tool, half top-of-funnel discovery pins and half bottom-of-funnel offer pins` → a batch spread across TOFU/BOFU angles instead of ten identical CTAs.
-4. **Connected: ground the batch in real brand identity** *(requires a Jinn token)* — `Ground my pin batch in our brand's real Brand DNA — use our actual colors, voice, and pillars` → the same batch, but color-block and banner treatments pull the brand's verbatim design tokens and pillar mix instead of a guess.
+4. **Connected: ground the batch in real brand identity** *(requires a Jinn token)* — `Ground my pin batch in our brand's real Brand DNA — use our actual colors, voice, and pillars` → the same batch in the brand's voice and pillar mix, with color-block and banner treatments on its verbatim design tokens where they answer (Brand tier, or a brand that has opted in to public design export), instead of a guess.
 
 ## Compounds with
 
