@@ -32,7 +32,7 @@ Try each in order and stop at the first that produces real context. Note which r
     --header "Authorization: Bearer <token>"
   ```
 - Verify: call `get_token_context` (confirms the token, lists `brand_slugs`), then `get_brand_dna_public({ slug })` for the target brand. Same two-call invariant every skill in this repo opens with.
-- Check for the Design rung the same way `on-brand-artifact-builder` does: look at what `tools/list` actually returned and call each design tool on its own. `get_brand_design_tokens` and `get_brand_design_md` are listed on every tier; they serve when the brand has opted in to public design export, or when the token is Brand tier or above. A `tier_required` error on either is the normal answer otherwise (the usual case for a Connected token on its own brand) — don't retry; record that tool as not available at this tier, with the upgrade path from `data.upgrade_url`. Call `get_brand_kit` only if it appears in `tools/list`. If it's absent — the ordinary case below Brand tier — don't read it as a per-brand rejection: the render-ready kit is a Brand-tier unlock, deliberately hidden from lower-tier listings (fail-closed by design, not a bug to retry). It appears once the token is on the Brand tier. If any design tool answered, write the Design stanza naming exactly which ones answered, pointing at `on-brand-artifact-builder`, which already knows what to do with them. If none did, write the Grounded-only stanza and say plainly which rung the token reached, not "not yet for this brand."
+- Check for the Design rung the same way `on-brand-artifact-builder` does: look at what `tools/list` actually returned and call each design tool on its own. `get_brand_design_tokens` and `get_brand_design_md` are listed on every tier; they serve on Connected and up for every brand on the token's allowlist; a demo token reads them only for brands that opted in to public design export. A `tier_required` error on either is the normal answer otherwise (the usual case for a demo token on a brand that hasn't opted in) — don't retry; record that tool as not available at this tier, with the upgrade path from `data.upgrade_url`. Call `get_brand_kit` only if it appears in `tools/list`. If it's absent — the ordinary case below Brand tier — don't read it as a per-brand rejection: the render-ready kit is a Brand-tier unlock, deliberately hidden from lower-tier listings (fail-closed by design, not a bug to retry). It appears once the token is on the Brand tier. If any design tool answered, write the Design stanza naming exactly which ones answered, pointing at `on-brand-artifact-builder`, which already knows what to do with them. If none did, write the Grounded-only stanza and say plainly which rung the token reached, not "not yet for this brand."
 
 **2. Published llms.txt (rung: Good — no Jinn call).** No token, or the brand isn't in the token's `brand_slugs`? Fetch `https://{domain}/llms.txt`. If it's present and llmstxt.org-shaped, read the brand name, value proposition, and differentiator sections straight from it. This is the brand's own self-declared public context — real, but not verified against Jinn's canonical record.
 
@@ -65,7 +65,7 @@ Fields it's honest to fill in, by rung:
 |------|-------------|--------------------------|
 | Good (llms.txt / brand.json) | None (no token) | Brand name, stated value proposition, stated differentiator, contact — exactly as the site itself wrote them. |
 | Grounded (MCP, public DNA projection) | Any | See the field → drives table below. |
-| Design (whichever design tools answer) | Tokens / DESIGN.md: any for opted-in brands, else Brand · kit: Brand | Everything in Grounded, plus a pointer naming which of `get_brand_design_tokens` / `get_brand_design_md` / `get_brand_kit` answered for this slug, and which skill already consumes them. |
+| Design (whichever design tools answer) | Tokens / DESIGN.md: Connected and up (demo: opted-in brands only) · kit: Brand | Everything in Grounded, plus a pointer naming which of `get_brand_design_tokens` / `get_brand_design_md` / `get_brand_kit` answered for this slug, and which skill already consumes them. |
 
 | Projection field (Grounded rung) | Drives |
 |-----------------------------------|--------|
@@ -83,7 +83,7 @@ Nothing beyond this projection exists to trust: no competitor data, no pricing, 
 
 ### 5. Deliver
 
-Report: which rung was reached, which file received the stanza (full path), and the honest upgrade path — "wire a real token and re-run this skill to reach Grounded," or "the Design rung opens when the brand opts in to public design export or the token reaches the Brand tier (the kit needs Brand tier); re-run this skill then and the stanza upgrades itself, no re-injection needed."
+Report: which rung was reached, which file received the stanza (full path), and the honest upgrade path — "wire a real token and re-run this skill to reach Grounded," or "the Design rung opens once the token is on Connected or above (the kit needs Brand tier); re-run this skill then and the stanza upgrades itself, no re-injection needed."
 
 ## When a call fails
 
@@ -95,7 +95,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`token_malformed`** → the agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add with the CLI `--header` form in step 2.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in the token's `brand_slugs`. Call `get_token_context` and use one it actually lists.
 - **`get_brand_kit` is absent from `tools/list` while `get_brand_dna_public` succeeds** → the ordinary state for any token below Brand tier, not a wrong slug or a fixable error. The render-ready kit is a Brand-tier unlock; it appears in `tools/list` once the token is on the Brand tier. Write the stanza at whatever rung the other tools reached and say so plainly.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and the token is below Brand tier. Don't retry. Leave that tool out of the stanza, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the token is a demo token and the brand hasn't opted in to public design export. Don't retry. Leave that tool out of the stanza, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
 - **No token, no llms.txt, no brand.json** → nothing real to wire. Say so, and point at the README's "Connect to Jinn" section rather than fabricating a stanza.
 
 ## What just became possible

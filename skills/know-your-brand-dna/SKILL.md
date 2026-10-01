@@ -32,9 +32,9 @@ Call `get_token_context`. It returns your token's own context:
 - `brand_slugs` — the brands you can read (canonical slugs). These are the slugs you pass to `get_brand_dna_public` and to every other skill.
 - `expires_at` — when a demo token lapses (null = never). If it's close, request a fresh one.
 - `tier` — your plan. It decides which tools appear in `tools/list`; each tier reaches everything the one below it does:
-  - `demo` — the free token: the showcase brands only, as the bounded DNA projection.
-  - `connected` — your own brand: the bounded projection, plus `ask_brand`, plus `get_brand_design_tokens` / `get_brand_design_md` where the brand has opted in to public design export.
-  - `brand` — adds the full DNA (`get_brand_dna`), the brand kit, per-product detail, and the measured design system; design tokens and DESIGN.md serve for your own brand.
+  - `demo` — the free token: the showcase brands only, as the bounded DNA projection, plus `get_brand_design_tokens` / `get_brand_design_md` where the brand has opted in to public design export.
+  - `connected` — your own brand: the bounded projection, plus `ask_brand`, `get_brand_design_tokens` and `get_brand_design_md`.
+  - `brand` — adds the full DNA (`get_brand_dna`), the brand kit, per-product detail, and the measured design system.
   - `agency` — the top of the ladder; everything Brand reaches.
 - `audience` — always `"public"` for a customer token. It isn't your plan; read `tier` for that.
 - `subscription_status` — `none` for a demo, trial, or comp token; otherwise your live subscription state (for example `active` or `past_due`). If it's `past_due`, or `grace_warning` is `true`, tell the user their payment needs attention and give them the `renewal_url` from the same response.

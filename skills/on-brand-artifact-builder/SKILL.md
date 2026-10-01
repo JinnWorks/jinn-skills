@@ -7,7 +7,7 @@ description: Build one self-contained HTML artifact — a slide deck, a landing-
 
 Deliverable: **one self-contained `.html` file** — inline CSS and JS, no external requests, no build step — in one of three modes: (1) a **slide deck**, (2) a **landing-page section**, or (3) a **social carousel** of fixed 1080×1080 slides. It opens by double-click and looks intentional, not templated.
 
-Standalone, it produces a tasteful, deliberate artifact from a good brief. Connected to Jinn, the brand's voice and positioning come straight from its own record; where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export), every color, font, and radius comes from its design tokens too, with logo placement from its kit on the Brand tier — that's the delta.
+Standalone, it produces a tasteful, deliberate artifact from a good brief. Connected to Jinn, the brand's voice and positioning come straight from its own record; where the brand's design tools answer (Connected and up; on a demo token, only brands that opted in to public design export), every color, font, and radius comes from its design tokens too, with logo placement from its kit on the Brand tier — that's the delta.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -54,7 +54,7 @@ Climb to the highest rung your token supports; each rung is a superset of the on
 
 **Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })` for voice and copy. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the customization note, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: infer that piece only, label it an unverified inference in the customization note, and name the upgrade path (`data.upgrade_url`).
 - `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo and lockup placement from DESIGN.md if it covers them, else leave a labeled logo placeholder.
 
 Colors, type, spacing, radius, and motion come from the DTCG tokens, when they answer, **verbatim — never approximate a hex**. Logo and brand-name placement follow the kit when you have it. Where DESIGN.md conventions conflict with generic taste, **DESIGN.md wins**.
@@ -67,9 +67,9 @@ Field → Drives — covers both the voice/copy fields and the design sources:
 
 | Source · field | Tier needed | Drives |
 |----------------|-------------|--------|
-| `get_brand_design_tokens` — color / type / spacing / radius / motion (DTCG) | Any for opted-in brands; else Brand | **Every CSS value, verbatim** — hexes, font stacks, spacing scale, border-radius, transitions/easing. Never round or re-mix a token. |
+| `get_brand_design_tokens` — color / type / spacing / radius / motion (DTCG) | Connected and up; demo: opted-in brands only | **Every CSS value, verbatim** — hexes, font stacks, spacing scale, border-radius, transitions/easing. Never round or re-mix a token. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/name placement — deck cover, section header, carousel cover + CTA lockup. |
-| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Grid, do/don't rules, component conventions; **overrides generic taste on any conflict.** |
+| `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Grid, do/don't rules, component conventions; **overrides generic taste on any conflict.** |
 | `get_brand_dna_public` — `tonalAttributes` | Any | Voice of any drafted copy. |
 | `get_brand_dna_public` — `safeWords` / `bannedWords` | Any | Prefer / hard-filter vocabulary in drafted copy. |
 | `get_brand_dna_public` — `messagingPillars` | Any | What each slide or section reinforces. |
@@ -93,7 +93,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the customization note, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the customization note, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's DNA, and on its real tokens where its design tools answer.
 
 ## What just became possible
@@ -105,7 +105,7 @@ You can now describe a slide deck, a landing-page section, or a social carousel 
 1. **Build a slide deck** — `Build a 6-slide deck pitching our per-client billing feature to freelance agency owners, content is mine to draft` → one self-contained HTML file, one viewport per slide, keyboard nav, no build step.
 2. **Build a social carousel** — `Build a 5-slide Instagram carousel announcing our new feature, aimed at solo freelancers scrolling fast` → fixed 1080×1080 slides with cover, body, and CTA roles, ready to screenshot.
 3. **Build a landing-page section** — `Build a landing-page section for our pricing page, one clear CTA, audience is agency owners comparison-shopping` → one responsive HTML section, clean across breakpoints, semantic markup.
-4. **Connected: build it with the brand's real design tokens** *(requires a Jinn token)* — `Build this deck using our actual brand colors, fonts, and logo, not a guess` → the same artifact grounded in the brand's DNA; every hex and font stack pulled verbatim from its design tokens where they answer (Brand tier, or a brand that has opted in to public design export), and logo placement from its kit on the Brand tier.
+4. **Connected: build it with the brand's real design tokens** *(requires a Jinn token)* — `Build this deck using our actual brand colors, fonts, and logo, not a guess` → the same artifact grounded in the brand's DNA; every hex and font stack pulled verbatim from its design tokens where they answer (Connected and up; on a demo token, only brands that opted in to public design export), and logo placement from its kit on the Brand tier.
 
 ## Compounds with
 

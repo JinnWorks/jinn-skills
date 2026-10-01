@@ -7,7 +7,7 @@ description: Turn a product or URL into a batch of Pinterest-shaped pin briefs �
 
 Deliverable: a **batch of Pinterest-shaped pin briefs** — you set the batch size (default 8–10, enough for a real spread), each brief pinned to the **1000×1500 px (2:3) portrait canvas** Pinterest recommends, carrying a named layout role, the on-image overlay text, and Pinterest-native title / description / hashtags / alt text / board suggestion. Not five recolors of one idea — the batch varies layout role, angle, and funnel position so it reads as a real test set. Not a rendered image — a brief a designer, or Vermeer, renders from.
 
-Works standalone — a complete, craft-checked batch from the product or URL alone. Connected to Jinn, the briefs also carry the brand's real voice, straight from its own record, plus its exact colors and type where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) and its logo on the Brand tier — no discovery questions needed. See **If a Jinn MCP connection is present**.
+Works standalone — a complete, craft-checked batch from the product or URL alone. Connected to Jinn, the briefs also carry the brand's real voice, straight from its own record, plus its exact colors and type where the brand's design tools answer (Connected and up; on a demo token, only brands that opted in to public design export) and its logo on the Brand tier — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -109,16 +109,16 @@ Two calls, climbing as far as the token supports:
 
 Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Whatever answers drives color, type, and layout direction **verbatim**, not an inference. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: derive that piece from the personality fields instead, **label it an unverified inference** in the delivery note, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Whatever answers drives color, type, and layout direction **verbatim**, not an inference. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: derive that piece from the personality fields instead, **label it an unverified inference** in the delivery note, and name the upgrade path (`data.upgrade_url`).
 - `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo/watermark placement from DESIGN.md if it covers it, else leave a labeled logo placeholder on each pin.
 
 Where only `get_brand_dna_public` succeeds, derive a color and type *direction* from the personality fields instead and **label it an unverified inference** in the delivery note.
 
 | Source · field | Tier needed | Drives |
 |-----------------|-------------|--------|
-| `get_brand_design_tokens` — color / type / spacing / radius (DTCG, when it answers) | Any for opted-in brands; else Brand | The color-block and banner-overlay treatments — exact hexes and font stack, never approximated. |
+| `get_brand_design_tokens` — color / type / spacing / radius (DTCG, when it answers) | Connected and up; demo: opted-in brands only | The color-block and banner-overlay treatments — exact hexes and font stack, never approximated. |
 | `get_brand_kit` — logo, wordmark (when listed) | Brand | Logo/watermark placement and lockup on every pin. |
-| `get_brand_design_md` — layout conventions (when it answers) | Any for opted-in brands; else Brand | Overrides the step-2 layout-role guidance on any conflict. |
+| `get_brand_design_md` — layout conventions (when it answers) | Connected and up; demo: opted-in brands only | Overrides the step-2 layout-role guidance on any conflict. |
 | `positioningWedge` | Any | The angle every bottom-of-funnel pin leads with — the brand's own wedge, in place of the angle you'd pick at step 6. |
 | `painPoints[]` | Any | Feeds the top-of-funnel discovery pins' hooks. |
 | `tribes[]` (`{name, description, motivation}`) | Any | Which pins are aimed at which audience — match overlay framing to a tribe's real motivation. |
@@ -148,7 +148,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` / `get_brand_design_tokens` return `not_found` while `get_brand_dna_public` succeeds** → that brand simply has no design tokens minted yet (per-brand availability), not a wrong slug. Fall back to the DNA-inferred palette/type direction for that piece and label it as such.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the delivery note, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the delivery note, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the batch still ships in full; note it's not brand-verified and connect Jinn to ground it.
 
 ## What just became possible
@@ -160,7 +160,7 @@ You can now turn a single product or URL into a real spread of Pinterest-ready p
 1. **Brief a batch from a product page** — `Build a batch of 8 Pinterest pin briefs for this product page: mywebsite.com/products/wool-throw-blanket, board theme: cozy home decor` → 8 briefs, each with a distinct layout role, overlay headline, and full Pinterest copy fields (title, description, alt text, keywords).
 2. **Brief pins with a seasonal angle** — `Build 6 pin briefs for this blog post pointing to my landing page, seasonal window: back to school: myblog.com/college-dorm-essentials` → briefs plus a timing note to publish weeks ahead of the season.
 3. **Split the batch across the funnel on purpose** — `Build a pin batch for my Etsy shop's new ring sizer tool, half top-of-funnel discovery pins and half bottom-of-funnel offer pins` → a batch spread across TOFU/BOFU angles instead of ten identical CTAs.
-4. **Connected: ground the batch in real brand identity** *(requires a Jinn token)* — `Ground my pin batch in our brand's real Brand DNA — use our actual colors, voice, and pillars` → the same batch in the brand's voice and pillar mix, with color-block and banner treatments on its verbatim design tokens where they answer (Brand tier, or a brand that has opted in to public design export), instead of a guess.
+4. **Connected: ground the batch in real brand identity** *(requires a Jinn token)* — `Ground my pin batch in our brand's real Brand DNA — use our actual colors, voice, and pillars` → the same batch in the brand's voice and pillar mix, with color-block and banner treatments on its verbatim design tokens where they answer (Connected and up; on a demo token, only brands that opted in to public design export), instead of a guess.
 
 ## Compounds with
 
