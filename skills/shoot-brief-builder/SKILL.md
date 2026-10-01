@@ -7,7 +7,7 @@ description: "Turn a product + concept into a photographer-ready shoot brief: sh
 
 Deliverable: a **shoot brief** — the document that turns "we need product photos" into something a photographer, stylist, or production team can shoot from without a call. It bridges AI-native brand tooling to a real-world production day: cameras, sets, and people, not another generated image. A brief that's just "make it look premium" isn't a brief; it's a mood.
 
-Works with no Jinn connection — a complete, shootable brief on its own. Connected to a brand's Jinn Brand DNA, the mood language and messaging emphasis come straight from the brand's own record, and so does the palette where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — no discovery questions needed. See **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, shootable brief on its own. Connected to a brand's Jinn Brand DNA, the mood language and messaging emphasis come straight from the brand's own record, and so does the palette where the brand's design tools answer (Connected and up; on a demo token, only brands that opted in to public design export) — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -118,7 +118,7 @@ Ground the brief in the brand's real system — the same brief, now carrying the
 
 **Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })`. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the brief's notes, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: infer that piece only, label it an unverified inference in the brief's notes, and name the upgrade path (`data.upgrade_url`).
 - `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take logo/label placement guidance from DESIGN.md if it covers it, else leave a labeled placeholder in the on-pack shot notes.
 
 Set, prop, and wardrobe color direction comes from the DTCG color tokens, when they answer, **verbatim — never approximate a hex on set**. Logo/product-label placement in any packaging or on-pack shot follows the brand kit when you have it. Where `get_brand_design_md` conventions cover photography or imagery usage, they **override generic styling taste**.
@@ -129,9 +129,9 @@ Set, prop, and wardrobe color direction comes from the DTCG color tokens, when t
 
 | Source · field | Tier needed | Drives |
 |-----------------|-------------|--------|
-| `get_brand_design_tokens` — color / type / spacing (DTCG) | Any for opted-in brands; else Brand | Set, prop, and wardrobe accent colors, verbatim hex. |
+| `get_brand_design_tokens` — color / type / spacing (DTCG) | Connected and up; demo: opted-in brands only | Set, prop, and wardrobe accent colors, verbatim hex. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/label placement in any packaging or on-pack shot. |
-| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Any documented photography or imagery-usage rules; overrides generic taste on conflict. |
+| `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Any documented photography or imagery-usage rules; overrides generic taste on conflict. |
 | `get_brand_dna_public` — `tonalAttributes` | Any | The mood-in-three-words language. |
 | `get_brand_dna_public` — `messagingPillars` | Any | Which pillar the hero shot has to visually carry. |
 | `get_brand_dna_public` — `tribes` / `painPoints` | Any | Who the lifestyle shots put in frame, and what context they're shown solving. |
@@ -159,7 +159,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the brief's notes, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the brief's notes, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood and messaging emphasis in a real brand (and the palette, where its design tools answer).
 
 ## What just became possible
@@ -171,7 +171,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 1. **Build a full brief for a real shoot** — `Build a shoot brief for our new ceramic mug line — hero images for our PDP, Instagram feed, and email, budget-tier studio shoot, one shoot day` → a full brief: shot list by channel and ratio, lighting/mood direction, props in/out, continuity notes, and deliverable specs.
 2. **Build just the shot list from deliverable channels** — `What shots do we need for a product launching on our PDP, Instagram stories, and a marketplace listing?` → a shot list mapped one-to-one to those channels and their ratios.
 3. **Direct lighting and mood concretely** — `Give me concrete lighting and mood direction for a lifestyle shoot of our wool blankets, mood: cozy, honest, unpolished` → a specific light-source and time-of-day direction plus the three mood words every shot has to earn.
-4. **Connected: ground props and palette in real brand colors** *(requires a Jinn token)* — `Ground this shoot brief's set colors and mood language in our brand's real design tokens` → the same brief with tonal-attribute mood language, and verbatim hex colors where the design tokens answer (Brand tier, or a brand that has opted in to public design export), instead of inferred taste.
+4. **Connected: ground props and palette in real brand colors** *(requires a Jinn token)* — `Ground this shoot brief's set colors and mood language in our brand's real design tokens` → the same brief with tonal-attribute mood language, and verbatim hex colors where the design tokens answer (Connected and up; on a demo token, only brands that opted in to public design export), instead of inferred taste.
 
 ## Compounds with
 

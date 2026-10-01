@@ -7,7 +7,7 @@ description: Turn a video concept into a shot-by-shot storyboard carrying brand 
 
 Deliverable: a **shot-by-shot storyboard** — the document that turns "we need a video about X" into a numbered sequence a director, animator, editor, or AI-video render pipeline can follow without a clarifying call. It's a planning document, not a finished asset: no video comes out of this skill, a plan for one does.
 
-Works with no Jinn connection — a complete, shootable board on its own. Connected to a brand's Jinn Brand DNA, the mood and narrative stance come straight from the brand's own record, and so do the exact palette and type where the brand's design tools answer (Brand tier, or a brand that has opted in to public design export) — no discovery questions needed. See **If a Jinn MCP connection is present**.
+Works with no Jinn connection — a complete, shootable board on its own. Connected to a brand's Jinn Brand DNA, the mood and narrative stance come straight from the brand's own record, and so do the exact palette and type where the brand's design tools answer (Connected and up; on a demo token, only brands that opted in to public design export) — no discovery questions needed. See **If a Jinn MCP connection is present**.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
@@ -84,7 +84,7 @@ Ground the board in the brand's real system — the same board, now carrying the
 
 **Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })`. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
-- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve when the brand has opted in to public design export, or when your token is Brand tier or above. Otherwise the call returns `tier_required` — the normal answer for a Connected token on its own brand. Don't retry: infer that piece only, label it an unverified inference in the storyboard's notes, and name the upgrade path (`data.upgrade_url`).
+- `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: infer that piece only, label it an unverified inference in the storyboard's notes, and name the upgrade path (`data.upgrade_url`).
 - `get_brand_kit({ slug })` — Brand tier and above; call it only when it appears in `tools/list`. Without it, take end-card and lower-third lockup guidance from DESIGN.md if it covers them, else leave a labeled logo placeholder on the end card.
 
 On-screen text treatments and the end-card lockup use the DTCG color/type tokens, when they answer, **verbatim — never approximate a hex or font stack**. Logo/wordmark placement on any end card or lower-third follows the brand kit when you have it. Where `get_brand_design_md` documents motion, imagery, or type-on-video conventions, they **override generic styling taste**.
@@ -95,9 +95,9 @@ On-screen text treatments and the end-card lockup use the DTCG color/type tokens
 
 | Source · field | Tier needed | Drives |
 |-----------------|-------------|--------|
-| `get_brand_design_tokens` — color / type (DTCG) | Any for opted-in brands; else Brand | On-screen text styling and end-card colors/type, verbatim. |
+| `get_brand_design_tokens` — color / type (DTCG) | Connected and up; demo: opted-in brands only | On-screen text styling and end-card colors/type, verbatim. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | End-card / lower-third lockup. |
-| `get_brand_design_md` — layout & usage conventions | Any for opted-in brands; else Brand | Any documented motion, imagery, or type-on-video rules; overrides generic taste on conflict. |
+| `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Any documented motion, imagery, or type-on-video rules; overrides generic taste on conflict. |
 | `get_brand_dna_public` — `tonalAttributes` | Any | The continuity spine's "mood in 3 words" language. |
 | `get_brand_dna_public` — `archetype` | Any | The narrative stance — whose story this is and how it's told (a Hero-archetype brand boards differently than a Caregiver-archetype one telling the same concept). |
 | `get_brand_dna_public` — `messagingPillars` | Any | Which pillar the key shot has to visually carry. |
@@ -125,7 +125,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
   ```
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful type-on-video styling for the missing conventions, and note the gap in the storyboard.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the brand hasn't opted in to public design export and your token is below Brand tier. Don't retry. Infer that piece only, say so in the storyboard's notes, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the storyboard's notes, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the storyboard still ships in full; note it's not brand-verified and connect Jinn to ground the mood and messaging emphasis in a real brand (and the palette, where its design tools answer).
 
 ## What just became possible
@@ -137,7 +137,7 @@ You can now turn a video idea into a numbered, shot-by-shot plan a director, ani
 1. **Board a concept for a specific platform** — `Storyboard a 30-second vertical video explaining why our onboarding is faster than switching from a spreadsheet, sound-on TikTok style` → a locked continuity spine plus a shot-by-shot board with timing and on-screen text placement.
 2. **Board from a script you already have** — `Here's my script: [paste script]. Turn it into a shot-by-shot storyboard for a 60-second YouTube pre-roll ad` → the same script placed against numbered shots, framing, and duration checks.
 3. **Board a before/after concept** — `Storyboard a before/after video showing a cluttered desk turning into an organized one, 15 seconds, Instagram Reels` → a board with the contrast structure boarded shot by shot, plus a mood-in-3-words spine.
-4. **Connected: ground the board in the brand's real system** *(requires a Jinn token)* — `Storyboard this video concept using our actual brand palette, type, and narrative stance: [concept]` → the same board with mood and narrative stance pulled from the brand's live Brand DNA, and colors and type from its design tokens where they answer (Brand tier, or a brand that has opted in to public design export), instead of inferred taste.
+4. **Connected: ground the board in the brand's real system** *(requires a Jinn token)* — `Storyboard this video concept using our actual brand palette, type, and narrative stance: [concept]` → the same board with mood and narrative stance pulled from the brand's live Brand DNA, and colors and type from its design tokens where they answer (Connected and up; on a demo token, only brands that opted in to public design export), instead of inferred taste.
 
 ## Compounds with
 

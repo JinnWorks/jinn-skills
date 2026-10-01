@@ -152,8 +152,8 @@ Your token's plan is the `tier` field that `get_token_context` returns: `demo` (
 | `ping` | Any | A health check that the gateway is reachable |
 | `get_token_context` | Any | Your token's plan (`tier`), subscription status (`subscription_status`, plus `grace_warning` and `renewal_url` when a payment is past due), allowed brands, scopes, and expiry |
 | `get_brand_dna_public` | Any | A brand's bounded DNA projection (identity, voice, positioning angle, strategy layer: messaging pillars, pain points, audience tribes) by slug |
-| `get_brand_design_tokens` | Any tier for brands that opted in to public design export; Brand tier for your own brand otherwise | The brand's DTCG design tokens — color, type, spacing, radius, motion |
-| `get_brand_design_md` | Any tier for brands that opted in to public design export; Brand tier for your own brand otherwise | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` |
+| `get_brand_design_tokens` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | The brand's DTCG design tokens — color, type, spacing, radius, motion |
+| `get_brand_design_md` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` |
 | `ask_brand` | Connected and up | Answers a question from the brand's record: the matched facts (each with its source) plus a coverage note listing what it could answer and the genuine gaps. At Brand tier it also matches the full DNA and per-product fields. The question text is logged so the brand owner can see what was asked. |
 | `get_brand_kit` | Brand and up | Render-ready brand kit: colors, fonts, logo, name, spacing |
 | `get_brand_dna` | Brand and up | The full canonical Brand DNA, including product and commercial fields and the competitive playbook |
