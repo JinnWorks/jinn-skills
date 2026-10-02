@@ -72,6 +72,15 @@ Now the red-lines are the brand's own — `bannedWords` are literally banned, th
 
 **Off-strategy detection uses only projection data.** There's no competitor intel in the projection, and you don't need it: a claim is off-strategy when it fights the brand's own `positioningWedge`/`messagingPillars`/`brandEnemy`, not when it compares poorly to a rival. Don't reach for hidden gateway fields — they aren't served (`not_found`).
 
+**Factual claims — one `ask_brand` question per claim (Connected and up).** If `ask_brand` appears in `tools/list` (Connected tier and up; a demo token doesn't list it), check each factual claim in the copy (an ingredient, a certification, a number, an origin story) against the brand's record. If it isn't listed, skip this; the three lenses above are the full review for your token.
+
+1. **Tell the user first:** "The brand owner can see the questions asked." `ask_brand` logs each question verbatim against the brand, so put nothing in a question you wouldn't want the brand owner to read; that includes unpublished draft copy.
+2. **One question per claim, in the record's own vocabulary.** Name the field the claim would live in ("What is the founding story?", "What are the key ingredients?", "What are the certifications and claims?"). Retrieval matches your words against the record's field names, not its values, so a question built from the copy's own wording can come back all gaps even when the record holds the answer.
+3. **Read the result.**
+   - `matched_facts[]` (`{ key, source, matched_terms, value }`): read the `value` yourself. It supports the claim → mark it clean, citing `key` and `source`. It contradicts the claim → a red-line under the strategy lens (off-record claim), with a rewrite that says what the record says. A match means the record holds that field, not that it agrees.
+   - `coverage.gaps`: when the claim's substance lands here, flag it **"the record can't confirm this"** with a rewrite that drops or softens the claim; never present it as confirmed. Filler words and the brand name also land in `gaps`; ignore those.
+4. On the Brand plan the same questions also match the full DNA and per-product fields, so product and ingredient claims become checkable against the record.
+
 ## When a grounding call fails
 
 Read `data.code` on the JSON-RPC error and act — the review still runs in full against the user's stated rules:
@@ -81,6 +90,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-guardrails-review"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
+- **`ask_brand` not in `tools/list`** → expected on a demo token, or where the brand's question tool is switched off. Skip the factual-claims step; the three lenses run on the projection.
 - **No token / no connection** → this skill still runs in full against whatever rules the user provides; connect to Jinn to red-line against the brand's own banned words, tone, and pillars as well.
 
 ## What just became possible

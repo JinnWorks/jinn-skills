@@ -88,6 +88,19 @@ A claim that matches the record moves from Asserted toward Cited (cited against 
 
 Boundary, restated: the public projection carries identity, story, and positioning — no product metrics, no pricing, no customer counts, no third-party citations. Measured and Cited claims about the product or the market still verify only against evidence the user supplies.
 
+### Better, with `ask_brand` — one question per claim (Connected and up)
+
+If `ask_brand` appears in `tools/list` (Connected tier and up; a demo token doesn't list it), check each claim about the brand against its record one question at a time. If it isn't listed, skip this step; the audit above is the full read for your token.
+
+1. **Tell the user first:** "The brand owner can see the questions asked." `ask_brand` logs each question verbatim against the brand, so put nothing in a question you wouldn't want the brand owner to read; that includes unpublished draft wording.
+2. **One question per claim, in the record's own vocabulary.** Name the field the claim would live in ("What is the positioning wedge?", "What are the messaging pillars?", "What are the key ingredients?"). Retrieval matches your words against the record's field names, not its values, so a question built from the claim's own wording can come back all gaps even when the record holds the answer.
+3. **Read the result.**
+   - `matched_facts[]` (`{ key, source, matched_terms, value }`): read the `value` yourself. It supports the claim → **Cited** (against the brand's own record), citing `key` and `source`. It contradicts the claim → flag it as off-record, the stronger flag described above. A match means the record holds that field, not that it agrees.
+   - `coverage.gaps`: when the claim's substance lands here, the scorecard says **"the record can't confirm this"** and the claim keeps the class the user's evidence earns; never upgrade it on the record's say-so. Filler words and the brand name also land in `gaps`; ignore those.
+4. On the Brand plan the same questions also match the full DNA (including `pricing` and `valueProposition`) and per-product fields, so pricing and product-ingredient claims become checkable against the record. Product metrics and market claims still need the user's evidence.
+
+Name the questions you asked and the keys that answered them when you deliver.
+
 ### Best — a Connected brand on Jinn
 
 For a brand Connected on Jinn, two more evidence sources become checkable instead of merely describable:
@@ -110,6 +123,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **`ask_brand` not in `tools/list`** → expected on a demo token, or where the brand's question tool is switched off. Skip that step; the audit runs on the projection and the user's evidence.
 - **No token / no connection** → run the standalone procedure above. It produces a real audit against user-supplied evidence; connect Jinn later to ground identity and positioning claims against the brand's live DNA.
 
 ## What just became possible
