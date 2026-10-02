@@ -7,7 +7,7 @@ description: Build a sales battlecard against a named competitor — a 30-second
 
 Deliverable: **one sales battlecard** for a named competitor — a rep reads it in 30 seconds and walks in knowing where to lead, where to concede, and how to reframe the rest. Not a feature grid: a battle plan that stays credible because it admits where the competitor is genuinely better.
 
-**Read this first — it's the wall that keeps the card honest.** Every fact about the competitor comes from **you**: what you paste, what you know, your own public research. The public projection carries **no** competitor data — no rival names, pricing, features, or intel. On the Brand plan, `get_brand_dna` adds the brand's *own* competitive record: its view of its rivals, labeled on the card as the brand's record, never as verified market fact (see **If a Jinn MCP connection is present**). Beyond that, Jinn grounds only **our own side**: our positioning, our pillars, our voice. Mixing the two is the failure mode this wall exists to stop.
+**Read this first — it's the wall that keeps the card honest.** Every fact about the competitor comes from **you** (or, on the Brand plan, from the brand's own record, always labeled): what you paste, what you know, your own public research. The public projection carries **no** competitor data — no rival names, pricing, features, or intel. On the Brand plan, `get_brand_dna` adds the brand's *own* competitive record: its view of its rivals, labeled on the card as the brand's record, never as verified market fact (see **If a Jinn MCP connection is present**). Beyond that, Jinn grounds only **our own side**: our positioning, our pillars, our voice. Mixing the two is the failure mode this wall exists to stop.
 
 Works standalone. Connected to Jinn, our claims and the enemy-narrative come from the brand's real DNA — see **If a Jinn MCP connection is present**.
 
@@ -91,9 +91,9 @@ Connected, the delta is concrete: the win bucket leads with the real `positionin
 
 | Full-DNA field | Tier needed | Drives |
 |----------------|-------------|--------|
-| `competitors` / `competitorTypes[]` | Brand | **Whether this rival is already in the brand's record**, and the threat level and dynamic the brand wrote down for its type. Seeds the summary's "who they are" line; the user's material still decides every claim about them. |
+| `competitors` / `competitorTypes[]` | Brand | **Whether this rival is already in the brand's record**, and the brand's entry for its type quoted as written (free text: never infer a threat level or dynamic the entry doesn't state). Seeds the summary's "who they are" line; the user's material still decides every claim about them. |
 | `differentiationMatrix` | Brand | **Candidate rows for the comparison table** and where the brand believes it wins. A seeded row still needs the user's evidence in the "Them" column before it ships. |
-| `vulnerabilityWindows[]` | Brand | **Timing for the close bucket**: openings the brand has logged (urgency, competitors affected) that give a rep a reason to decide now. |
+| `vulnerabilityWindows[]` | Brand | **Timing for the close bucket**: openings the brand has logged, quoted as written (free text: never infer urgency or affected rivals the entry doesn't state), that give a rep a reason to decide now. |
 | `competitiveIntel` (`{ fields }`, raw module) | Brand | **The as-of date** of the brand's competitive analysis, when present. Print it next to the card's own date so a stale record is visible. |
 | `absentFields` | Brand | **What the record doesn't hold.** Name each empty competitive field in the delivery note instead of filling it. |
 

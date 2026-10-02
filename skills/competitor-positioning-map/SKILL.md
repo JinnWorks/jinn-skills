@@ -77,7 +77,7 @@ So: **the brand's dot, its axis of contrast, its audience, and its credible clai
 
 | Full-DNA field | Tier needed | Drives |
 |----------------|-------------|--------|
-| `competitors` / `competitorTypes[]` | Brand | **A starting list of rivals to confirm with the user**, with the threat level and dynamic the brand recorded for each type. Plot a recorded rival only after the user confirms it belongs on this map. |
+| `competitors` / `competitorTypes[]` | Brand | **A starting list of rivals to confirm with the user**, with each type entry quoted as the brand wrote it (free text: never infer a threat level or dynamic the entry doesn't state). Plot a recorded rival only after the user confirms it belongs on this map. |
 | `differentiationMatrix` | Brand | **Axis candidates.** The dimensions the brand already argues on are strong axis picks; still state why they separate the players. |
 | `vulnerabilityWindows[]` | Brand | **The trade and the timing** in the white-space call: openings the brand has logged that make the empty corner worth claiming now. |
 | `competitiveIntel` (`{ fields }`, raw module) | Brand | **The as-of date** of the brand's competitive analysis, when present. Print it with the map so a stale record is visible. |
