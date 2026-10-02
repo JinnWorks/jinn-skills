@@ -114,7 +114,16 @@ Two calls:
 
 Connected, the brief also gains a verdict per angle: which wedge it proves, which tribe it's aimed at, whether the pain theme is new information the brand didn't already know it owned. State the wedge and any new-pain finding when you deliver — that's the delta a real connection buys.
 
-Only the fields above exist on a public token. There is no competitor-scrape, ad-performance, or platform-fit data in the projection — this skill's review mining is entirely your agent's own work, not a Jinn capability, at every rung.
+**Product step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_products` appears in `tools/list`, also call `get_brand_products({ slug })`. Below Brand tier the tool isn't listed: skip this step.
+
+| Product field | Drives |
+|---------------|--------|
+| `heroIngredients` / `formFactor` | **The answer check per angle**: does one of the brand's real products actually resolve this pain? Name the SKU and the ingredient or format that does. An angle no product answers is flagged, not forced. |
+| `certificationsClaims` | **The only record source for a claim in an angle line** (a certification, a "free from", a number). Null → the angle makes no product claim from the record and says so; any claim the user supplies is marked user-supplied. Never invent one. |
+
+`{ products: [] }` is a valid answer: say no products are captured for this brand and run the answer check against the user's product description.
+
+Only the fields in the first table exist on a public token. There is no competitor-scrape, ad-performance, or platform-fit data in the projection — this skill's review mining is entirely your agent's own work, not a Jinn capability, at every rung.
 
 ### Best — a Connected brand on Jinn
 
@@ -133,6 +142,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the brief still runs in full against whatever reviews you gathered; note it's built from those reviews alone, not the brand's record, and connect Jinn to check angles against a real brand's wedge and voice.
 
 ## What just became possible

@@ -164,6 +164,16 @@ Your token's plan is the `tier` field that `get_token_context` returns: `demo` (
 
 `get_brand_dna_public` serves a **curated subset** at every tier — competitive intelligence, pricing, and internal metadata are never in it. The full canonical DNA is `get_brand_dna`, at Brand tier and up.
 
+### What the Brand plan adds
+
+These skills read `tier` from `get_token_context` and add one step when the richer tool is listed. Below that tier the step is skipped and the skill runs exactly as before.
+
+- **The brand's own competitive record** (`get_brand_dna`): `battlecard-generator`, `competitor-positioning-map`, `offer-angle-generator`, `pricing-page-teardown`. Every line drawn from the record is labeled as the brand's own view, not verified market fact.
+- **Per-product detail** (`get_brand_products`): `shoot-brief-builder`, `ugc-script-writer`, `storyboard-from-dna`, `review-to-adcopy`, `product-launch-playbook`. Ingredients and form factor become named product truth; certifications and claims are the only record source for a product claim.
+- **The measured design system** (`get_brand_design_system`): `creative-contrast-qa`, `on-brand-artifact-builder`. Live-site colors, type and buttons, each with its confidence shown.
+
+From Connected up, `brand-fact-checker`, `claim-provenance-checker` and `brand-guardrails-review` also check claims one `ask_brand` question at a time; anything the record can't answer is reported as unconfirmed, never asserted.
+
 ### If a call fails
 
 Every failure carries a machine-readable code in the JSON-RPC error `data.code`:

@@ -103,7 +103,17 @@ Read the voice, the real pain, and the real objection straight from the brand's 
 
 Connected, the script names the brand's actual customer pain and actual competitive objection, in a register the brand's real `tonalAttributes` would allow. State which fields you used — the pain point, the wedge, the tone — when you deliver.
 
-Only the fields above exist on a public token. There is no ad-performance, platform-fit, or competitor data in the projection — don't reference or request it.
+**Product step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_products` appears in `tools/list`, also call `get_brand_products({ slug })` and pick the SKU this script sells by `name`. Its `heroIngredients`, `formFactor` and `certificationsClaims` become the named product truth for the script. Below Brand tier the tool isn't listed: skip this step.
+
+| Product field | Drives |
+|---------------|--------|
+| `formFactor` | **The product-in-hand beat**: what the creator physically holds, opens, or pours, so the action fits the real object. |
+| `heroIngredients` | **What the creator can name.** An ingredient line in the script uses the record's wording, not a paraphrase that drifts into a claim. |
+| `certificationsClaims` | **The only record source for a spoken or captioned product claim** (a certification, a "free from", a number). Null → the script makes no product claim from the record and says so in the header; any claim the user supplies is marked user-supplied. Never invent one. |
+
+This sits beside the claim-slot rule, not over it: the record can supply a *product* fact, never the creator's *experience*. Experiential lines stay `[CREATOR: …]` slots. `{ products: [] }` is a valid answer: say no products are captured for this brand and write from the step-1 product line.
+
+Only the fields in the first table exist on a public token. There is no ad-performance, platform-fit, or competitor data in the projection — don't reference or request it.
 
 ### Best — a Connected brand on Jinn
 
@@ -122,6 +132,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step; write from the step-1 product line, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the script still ships in full. Build it from the step-1 inputs, note the pain point and objection are inferred rather than read from the brand's record, and connect Jinn to take them straight from a real brand.
 
 ## What just became possible
