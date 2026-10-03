@@ -1,6 +1,6 @@
 ---
 name: battlecard-generator
-description: Build a sales battlecard against a named competitor — a 30-second summary, three buckets (win / lose / close), deal-framing questions, objection-response pairs, and an honest comparison table. Every competitor fact comes from you, never from Jinn. Use when a rep walks into a competitive deal. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Build a sales battlecard against a named competitor — 30-second summary, win / lose / close buckets, deal-framing questions, objection responses, comparison table. Competitor facts come from you, plus the brand's labeled record on the Brand plan. Use when a rep walks into a competitive deal. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Battlecard Generator
