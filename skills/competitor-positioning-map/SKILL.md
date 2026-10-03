@@ -7,7 +7,7 @@ description: Build a 2x2 positioning map and white-space analysis from the user'
 
 This skill produces a **2x2 positioning map** and a **white-space analysis**: it plots the named competitors on two axes, places the brand relative to them, and identifies the uncontested space the brand is built to claim.
 
-Read this first — it's the boundary that makes the skill honest: **the competitor data comes entirely from the user.** Jinn's gateway does not serve competitor names, intel, or a differentiation matrix. What the brand's own DNA contributes is *where this brand sits* and *which direction its strategy points* — the wedge that anchors its position and the enemy-framing that names the white space to claim. The map is built by combining the two.
+Read this first — it's the boundary that makes the skill honest: **the competitor data comes entirely from the user.** Jinn's public projection does not serve competitor names, intel, or a differentiation matrix; on the Brand plan, `get_brand_dna` adds the brand's own competitive record, labeled on the map as the brand's view, not verified market fact. What the brand's own DNA contributes is *where this brand sits* and *which direction its strategy points* — the wedge that anchors its position and the enemy-framing that names the white space to claim. The map is built by combining the two.
 
 - **Standalone:** you build a complete map from the user's competitors and the user's own sense of their positioning.
 - **Connected (Jinn MCP):** the same map, and the brand's dot and the white-space call are also anchored in its real `positioningWedge`, `brandEnemy`, `tribes`, and `messagingPillars` — straight from the brand's own record, no positioning interview needed.
@@ -55,7 +55,7 @@ Lead with the one-line finding ("Everyone's clustered in accessible/all-in-one; 
 
 ## If a Jinn MCP connection is present
 
-The connection grounds **only the brand's own side** of the map. Competitor names and intel still come from the user — the gateway never serves them, by design.
+The connection grounds **only the brand's own side** of the map. Competitor names and intel still come from the user — the public projection never serves them, by design. The one exception is the Brand tier step below, which reads the brand's own competitive record and labels it as such.
 
 1. Call `get_token_context` for the `brand_slugs` your token can read.
 2. Call `get_brand_dna_public` with `{ "slug": "<slug>" }`.
@@ -73,7 +73,19 @@ So: **the brand's dot, its axis of contrast, its audience, and its credible clai
 
 > "Brand position and white-space call grounded in **`<brandName>`**'s live Brand DNA (wedge: `<positioningWedge>`, enemy: `<brandEnemy>`). Competitors and their positions supplied by you."
 
-Hard boundary: the public projection has **no** competitor names, threat levels, differentiation matrix, vulnerability windows, platform-fit, or pricing. If you find yourself wanting the gateway to tell you where a rival sits, stop — that data isn't there and shouldn't be. Ask the user.
+**Brand tier step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_dna` appears in `tools/list`, also call `get_brand_dna` with `{ "slug": "<slug>" }`. It returns every field above plus the brand's own competitive playbook. Below Brand tier the tool isn't listed: skip this step, and the map is exactly the connected map above.
+
+| Full-DNA field | Tier needed | Drives |
+|----------------|-------------|--------|
+| `competitors` / `competitorTypes[]` | Brand | **A starting list of rivals to confirm with the user**, with each type entry quoted as the brand wrote it (free text: never infer a threat level or dynamic the entry doesn't state). Plot a recorded rival only after the user confirms it belongs on this map. |
+| `differentiationMatrix` | Brand | **Axis candidates.** The dimensions the brand already argues on are strong axis picks; still state why they separate the players. |
+| `vulnerabilityWindows[]` | Brand | **The trade and the timing** in the white-space call: openings the brand has logged that make the empty corner worth claiming now. |
+| `competitiveIntel` (`{ fields }`, raw module) | Brand | **The as-of date** of the brand's competitive analysis, when present. Print it with the map so a stale record is visible. |
+| `absentFields` | Brand | **What the record doesn't hold.** Name each empty competitive field instead of filling it. |
+
+Any dot placed from these fields is marked **"placed from `<brandName>`'s own record, not verified market fact,"** and the attribution line above gains a clause naming which rivals came from the record. When the record and the user disagree on where a rival sits, the user's read wins and the map notes the conflict. When the competitive fields are empty, say so in one line and map from the user's competitors alone; never pad.
+
+Hard boundary: the public projection has **no** competitor names, threat levels, differentiation matrix, vulnerability windows, platform-fit, or pricing; on the Brand plan `get_brand_dna` carries the brand's own record of them, labeled as above. If you find yourself wanting the gateway to tell you where a rival sits and neither the user nor that record says, stop — ask the user.
 
 ## When a call fails
 
@@ -88,6 +100,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_dna` → your token is below Brand tier. Skip the Brand tier step; the map ships from the connected read, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → run the standalone procedure above. You still get a real map from the user's competitors and their own sense of position; connect Jinn later to anchor the brand's dot and white-space call in its live DNA.
 
 ## What just became possible

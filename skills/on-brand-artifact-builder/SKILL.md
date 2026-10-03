@@ -52,6 +52,16 @@ Hand over the file plus a short note: what the user should tweak (copy, image sl
 
 Climb to the highest rung your token supports; each rung is a superset of the one below.
 
+**Rung 0 — Measured design (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_design_system` appears in `tools/list`, call `get_brand_design_system({ slug, sections: ["colors", "surfaces", "type", "buttons", "borders", "logos"] })`; the full payload runs to hundreds of KB on a rich site, so ask only for what the artifact uses. Then run Rung 1 as well; this rung adds to it.
+
+- **Colors and surfaces** (`values.colors.tokens`, `values.surfaces`): the hexes the brand's live site actually paints, each with a `confidence`. Use them for any value the design tokens don't hold (section grounds, card fills).
+- **Type** (`values.type.fonts`): the measured families and their roles (display, body, ui). Name the family in the font stack with a close local fallback; the artifact stays self-contained, so never load the measured font-file URLs.
+- **Buttons and borders** (`values.buttons`, `values.borders.radiusScale`): CTA fill, text color and radius as measured, so the one CTA looks like the brand's real buttons.
+- **Logos** (`values.logos.items`): measured marks include retailer and partner logos; take only the brand's own mark (by its `alt` and placement) and leave a labeled placeholder rather than hotlinking it.
+- **Confidence is shown, never hidden.** List every measured value you used, with its confidence, in the customization note. A `low` value is still used (weigh it, don't drop it) but flagged "low confidence."
+- When a measured value and a design token disagree, the token stays the verbatim source and the note records the disagreement, with the measured value and its confidence.
+- `values: null` means the brand has never completed a measurement: say so and fall through to Rung 1. Below Brand tier the tool isn't listed: skip this rung.
+
 **Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for a slug, plus `get_brand_dna_public({ slug })` for voice and copy. Then call each design tool on its own and use whichever answers — one missing piece never drops the others:
 
 - `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` — listed on every tier. They serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: infer that piece only, label it an unverified inference in the customization note, and name the upgrade path (`data.upgrade_url`).
@@ -67,6 +77,7 @@ Field → Drives — covers both the voice/copy fields and the design sources:
 
 | Source · field | Tier needed | Drives |
 |----------------|-------------|--------|
+| `get_brand_design_system` — colors, surfaces, type, buttons, borders, logos (measured, with confidence) | Brand | Values the tokens don't hold (grounds, card fills, button states, radius scale, font roles); confidence listed, `low` flagged; tokens win on any disagreement. |
 | `get_brand_design_tokens` — color / type / spacing / radius / motion (DTCG) | Connected and up; demo: opted-in brands only | **Every CSS value, verbatim** — hexes, font stacks, spacing scale, border-radius, transitions/easing. Never round or re-mix a token. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/name placement — deck cover, section header, carousel cover + CTA lockup. |
 | `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Grid, do/don't rules, component conventions; **overrides generic taste on any conflict.** |
@@ -94,6 +105,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to the brand-neutral tasteful layout for the missing conventions, and note the gap in the customization note.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the customization note, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_system` → your token is below Brand tier. Skip Rung 0 and run Rung 1, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → drop to Rung 3. The artifact still ships in full; note it's not brand-verified, and connect Jinn to build it on the brand's DNA, and on its real tokens where its design tools answer.
 
 ## What just became possible

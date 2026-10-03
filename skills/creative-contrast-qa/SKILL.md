@@ -81,6 +81,14 @@ List what's already clean, too — a QA pass that only criticizes gets ignored; 
 
 Ground the contrast lens in the brand's real palette instead of judging colors in isolation.
 
+**Rung 0 — Measured design (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_design_system` appears in `tools/list`, call `get_brand_design_system({ slug, sections: ["colors", "surfaces", "buttons"] })` first; the default payload runs to hundreds of KB on a rich site, so ask only for what the check reads. Then run Rung 1 as well; this rung adds to it.
+
+- `values.colors.tokens` (paper, ink, primary, accent, dark, lightText) and `values.surfaces` give the colors the brand's live site actually paints, each with a `confidence`. They join the token palette in the off-brand color check, and their hexes feed the Lens 2 math when the creative's background or text matches one.
+- `values.buttons` gives the measured CTA fills and text colors; a CTA on the creative is checked against them.
+- **Confidence is shown, never hidden.** Print each measured value's confidence in the report. A `low` value is still used (weigh it, don't drop it) but flagged "low confidence" wherever it decides a verdict.
+- When a measured value and a design token disagree, the token stays the verbatim source for the contrast math and the report notes the disagreement, with the measured value and its confidence.
+- `values: null` means the brand has never completed a measurement: say so and fall through to Rung 1. Below Brand tier the tool isn't listed: skip this rung.
+
 **Rung 1 — Design rung (whichever design tools answer).** Call `get_token_context` for the brand slug, then call each design tool on its own and use whichever answers. `get_brand_design_tokens({ slug })` and `get_brand_design_md({ slug })` are listed on every tier; they serve on Connected and up for every brand on your token's allowlist; a demo token reads them only for brands that opted in to public design export. Otherwise the call returns `tier_required` — the normal answer for a demo token on a brand that hasn't opted in. Don't retry: skip the piece that tool would have fed, say so plainly in the report, and name the upgrade path (`data.upgrade_url`).
 
 When `get_brand_design_tokens({ slug })` answers, it gives the brand's actual palette (background/paper, accent, ink/text, secondary hexes — DTCG tokens, used **verbatim**). Two things change:
@@ -92,6 +100,7 @@ If the creative carries a lockup, optionally call `get_brand_kit({ slug })` for 
 
 | Projection field | Tier needed | Drives |
 |-------------------|-------------|--------|
+| `get_brand_design_system` — `colors`, `surfaces`, `buttons` (measured, with confidence) | Brand | The live-site palette added to the off-brand check, measured hexes in the Lens 2 math, and the CTA check; confidence printed, `low` flagged. |
 | `get_brand_design_tokens` — color (background/paper, accent, ink/text, secondary) | Connected and up; demo: opted-in brands only | The off-brand color check, and the exact hex used in the Lens 2 contrast math whenever the creative's own background/text color is a brand token. |
 | `get_brand_kit` — logo, wordmark | Brand | Whether a lockup on the creative sits where the kit allows. |
 | `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Overrides generic taste on any placement conflict, same as the artifact-builder ladder. |
@@ -116,6 +125,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design tokens yet (per-brand availability), not a wrong slug. Skip the palette read and note the gap, as at Rung 2.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Skip that piece only, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_design_system` → your token is below Brand tier. Skip Rung 0 and run Rung 1, and pass on `data.upgrade_url` as the upgrade path.
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette where its design tools answer.
 

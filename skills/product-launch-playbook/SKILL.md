@@ -87,6 +87,16 @@ Map the public projection fields onto the playbook:
 
 When connected, say so: "Playbook grounded in **`<brandName>`**'s live Brand DNA — narrative from its founding story, beats from its N pillars, copy held to its tone and banned-word list." The arc now sounds like the brand.
 
+**Product step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_products` appears in `tools/list`, also call `get_brand_products({ slug })` and look for the launching product by `name`. Below Brand tier the tool isn't listed: skip this step.
+
+| Product field | Drives |
+|---------------|--------|
+| `heroIngredients` / `formFactor` / `oneLineDescription` | **The launch beat's proof**: what the product is and what it's made of, in the record's words, so the promise is concrete. |
+| `certificationsClaims` | **The only record source for a claim in any asset** (a certification, a "free from", a number). Null → no asset makes a product claim from the record, and the playbook says so; any claim the user supplies is marked user-supplied. Never invent one. |
+| `category` (sibling products) | **Line context** when the launch is a new SKU: which existing products it sits beside. A sibling's ingredients or claims are never carried over to the new product. |
+
+If the launching product isn't captured yet (a brand-new SKU usually isn't), say so and take its facts from the user. `{ products: [] }` is a valid answer: say no products are captured for this brand.
+
 Boundary: the public projection carries the brand's own strategy, story, and voice — **not** competitor names, platform-fit scoring, or pricing. Channel and pricing decisions in the playbook are yours and the user's to make; the DNA grounds the *message*, not the media plan.
 
 ## When a call fails
@@ -102,6 +112,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step; take the product facts from the user, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → run the standalone procedure above. It produces a complete, sequenced playbook from launch best practice; connect Jinn later to draw the beats and copy straight from the brand's live DNA.
 
 ## What just became possible

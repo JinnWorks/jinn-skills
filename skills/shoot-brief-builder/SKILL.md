@@ -127,8 +127,14 @@ Set, prop, and wardrobe color direction comes from the DTCG color tokens, when t
 
 **Rung 3 — No token (generic-tasteful).** Use the standalone procedure above and add an explicit **"not brand-verified"** line to the brief.
 
+**Product step (Brand plan and up, on top of any rung).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_products` appears in `tools/list`, call `get_brand_products({ slug })` and pick the SKU(s) this shoot is for by `name`. Their `heroIngredients`, `formFactor` and `certificationsClaims` become the named product truth for the brief. `certificationsClaims` is the only record source for an on-pack or overlay claim: when it's null, the brief uses no claim from the record and says so, and any claim the user supplies is marked user-supplied. Never invent one. `{ products: [] }` is a valid answer: say no products are captured for this brand and brief from the user's product description. Below Brand tier the tool isn't listed: skip this step.
+
 | Source · field | Tier needed | Drives |
 |-----------------|-------------|--------|
+| `get_brand_products` — `heroIngredients` | Brand | **Props IN**: the real ingredients the product is made from, named on set instead of a generic "fresh produce" styling call. |
+| `get_brand_products` — `formFactor` / `dimensions` / `weight` | Brand | Hero framing, prop scale and surface build: what the object physically is (a 12 fl oz can shoots differently from a 12-bar box). Null dimensions → note that set scale is unverified. |
+| `get_brand_products` — `certificationsClaims` | Brand | The only claims a packaging or on-pack shot may call out. Null → no claim callouts. |
+| `get_brand_products` — `productUrl` | Brand | The reference link for the stylist to match the current pack. |
 | `get_brand_design_tokens` — color / type / spacing (DTCG) | Connected and up; demo: opted-in brands only | Set, prop, and wardrobe accent colors, verbatim hex. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | Logo/label placement in any packaging or on-pack shot. |
 | `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Any documented photography or imagery-usage rules; overrides generic taste on conflict. |
@@ -160,6 +166,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful styling for the missing conventions, and note the gap in the brief.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the brief's notes, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step; brief from the user's product description, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the brief still ships in full; note it's not brand-verified and connect Jinn to ground the mood and messaging emphasis in a real brand (and the palette, where its design tools answer).
 
 ## What just became possible

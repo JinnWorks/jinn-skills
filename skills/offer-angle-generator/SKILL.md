@@ -81,7 +81,16 @@ Connected, the delta is concrete: all 10 example lines carry the brand's real `p
 
 **Feeds into, on a Connected brand.** These framings are the angle space, not the finished asset — the chosen framing is what `ad-copy-variants` turns into platform copy and what `campaign-brief` builds a plan around. On a brand that's Connected to Jinn (not just read through a public token), the winning framing is also the raw material Vermeer's ad rendering and campaign packs work from — that hand-off happens inside the product, this skill only produces the angle.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing/commercial data in the projection — the "pricing posture" call above is always an inference from archetype and values, never a stored fact. Don't reference or request pricing data that isn't there.
+**Brand tier step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_dna` appears in `tools/list`, also call `get_brand_dna` with `{ "slug": "<slug>" }`. It returns every field above plus the brand's commercial fields and competitive playbook. Below Brand tier the tool isn't listed: skip this step, and the angle set is exactly the connected set above.
+
+| Full-DNA field | Tier needed | Drives |
+|----------------|-------------|--------|
+| `pricing` | Brand | **Replaces the inferred posture in step 3** when it holds a value: the premium-vs-value call reads from the brand's recorded pricing, labeled "from the brand's record." Empty → keep the inference and its label. |
+| `valueProposition` | Brand | **The promise inside every example line**, ahead of `positioningWedge` when both are present. |
+| `competitors` / `differentiationMatrix` | Brand | **The anchoring and loss-framed rows**: contrast against the alternatives the brand itself recorded, labeled as the brand's own record, not verified market fact. |
+| `absentFields` | Brand | **What the record doesn't hold.** Name each empty field the angle set wanted (often `pricing` and `valueProposition`) instead of filling it. |
+
+Only the fields in the first table exist on a public token. There is no competitor, differentiation, platform-fit, or pricing/commercial data in the projection, so below Brand tier the "pricing posture" call is always an inference from archetype and values, never a stored fact; on the Brand plan `get_brand_dna` carries the brand's recorded `pricing` (Brand tier step above). Don't reference or request pricing data your tier doesn't serve.
 
 ## When a call fails
 
@@ -96,6 +105,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_dna` → your token is below Brand tier. Skip the Brand tier step; the angle set ships from the connected read, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → run the standalone procedure above. It produces a real, usable framing set from the product and audience you supplied; connect Jinn to anchor the lead recommendation in a real positioning wedge and pricing posture.
 
 ## What just became possible

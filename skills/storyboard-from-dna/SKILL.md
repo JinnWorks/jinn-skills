@@ -93,8 +93,13 @@ On-screen text treatments and the end-card lockup use the DTCG color/type tokens
 
 **Rung 3 — No token (generic-tasteful).** Use the standalone procedure above and add an explicit **"not brand-verified"** line to the storyboard.
 
+**Product step (Brand plan and up, on top of any rung).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_products` appears in `tools/list`, call `get_brand_products({ slug })` and pick the SKU(s) the board features by `name`. Their `heroIngredients`, `formFactor` and `certificationsClaims` become the named product truth for the board. `certificationsClaims` is the only record source for a claim in on-screen text or voiceover: when it's null, the board uses no claim from the record and says so, and any claim the user supplies is marked user-supplied. Never invent one. `{ products: [] }` is a valid answer: say no products are captured for this brand and board from the user's concept. Below Brand tier the tool isn't listed: skip this step.
+
 | Source · field | Tier needed | Drives |
 |-----------------|-------------|--------|
+| `get_brand_products` — `formFactor` | Brand | The product shot: what the object physically is and how it's held, poured, or opened on screen. |
+| `get_brand_products` — `heroIngredients` | Brand | Ingredient beats and B-roll: the real ingredients to show, named as the record names them. |
+| `get_brand_products` — `certificationsClaims` | Brand | The only claims on-screen text or voiceover may state. Null → no claim lines. |
 | `get_brand_design_tokens` — color / type (DTCG) | Connected and up; demo: opted-in brands only | On-screen text styling and end-card colors/type, verbatim. |
 | `get_brand_kit` — logo, wordmark, brand name | Brand | End-card / lower-third lockup. |
 | `get_brand_design_md` — layout & usage conventions | Connected and up; demo: opted-in brands only | Any documented motion, imagery, or type-on-video rules; overrides generic taste on conflict. |
@@ -126,6 +131,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 - **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to generic-tasteful type-on-video styling for the missing conventions, and note the gap in the storyboard.
 - **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the storyboard's notes, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step; board from the user's concept, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the storyboard still ships in full; note it's not brand-verified and connect Jinn to ground the mood and messaging emphasis in a real brand (and the palette, where its design tools answer).
 
 ## What just became possible

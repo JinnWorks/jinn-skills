@@ -1,13 +1,13 @@
 ---
 name: battlecard-generator
-description: Build a sales battlecard against a named competitor — a 30-second summary, three buckets (win / lose / close), deal-framing questions, objection-response pairs, and an honest comparison table. Every competitor fact comes from you, never from Jinn. Use when a rep walks into a competitive deal. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Build a sales battlecard against a named competitor — 30-second summary, win / lose / close buckets, deal-framing questions, objection responses, comparison table. Competitor facts come from you, plus the brand's labeled record on the Brand plan. Use when a rep walks into a competitive deal. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Battlecard Generator
 
 Deliverable: **one sales battlecard** for a named competitor — a rep reads it in 30 seconds and walks in knowing where to lead, where to concede, and how to reframe the rest. Not a feature grid: a battle plan that stays credible because it admits where the competitor is genuinely better.
 
-**Read this first — it's the wall that keeps the card honest.** Every fact about the competitor comes from **you**: what you paste, what you know, your own public research. The Jinn gateway carries **no** competitor data — no rival names, pricing, features, or intel — and this skill never asks it for any. Jinn grounds only **our own side**: our positioning, our pillars, our voice. Mixing the two is the failure mode this wall exists to stop.
+**Read this first — it's the wall that keeps the card honest.** Every fact about the competitor comes from **you** (or, on the Brand plan, from the brand's own record, always labeled): what you paste, what you know, your own public research. The public projection carries **no** competitor data — no rival names, pricing, features, or intel. On the Brand plan, `get_brand_dna` adds the brand's *own* competitive record: its view of its rivals, labeled on the card as the brand's record, never as verified market fact (see **If a Jinn MCP connection is present**). Beyond that, Jinn grounds only **our own side**: our positioning, our pillars, our voice. Mixing the two is the failure mode this wall exists to stop.
 
 Works standalone. Connected to Jinn, our claims and the enemy-narrative come from the brand's real DNA — see **If a Jinn MCP connection is present**.
 
@@ -87,7 +87,19 @@ Connecting sharpens **our half only** — claims, narrative, voice. Two calls:
 
 Connected, the delta is concrete: the win bucket leads with the real `positioningWedge`, each row's proof is a `messagingPillar`, framing questions plant our `painPoints` as criteria, the reframe carries the `brandEnemy` narrative, and every response is on-voice and `bannedWords`-clean. **State which fields you used** when you deliver.
 
-Guardrail — the wall, restated: the projection has **no** competitor data. `brandEnemy` is our own framing of the category, **not** intel about the named rival — never treat it as a fact about them. Every competitor claim still comes only from the user's material and public research. If you find yourself wanting the gateway to tell you something about the competitor, stop — that data isn't there and never will be.
+**Brand tier step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_dna` appears in `tools/list`, also call `get_brand_dna` with `{ "slug": "<slug>" }`. It returns every field above plus the brand's own competitive playbook. Below Brand tier the tool isn't listed: skip this step, and the card is exactly the connected card above.
+
+| Full-DNA field | Tier needed | Drives |
+|----------------|-------------|--------|
+| `competitors` / `competitorTypes[]` | Brand | **Whether this rival is already in the brand's record**, and the brand's entry for its type quoted as written (free text: never infer a threat level or dynamic the entry doesn't state). Seeds the summary's "who they are" line; the user's material still decides every claim about them. |
+| `differentiationMatrix` | Brand | **Candidate rows for the comparison table** and where the brand believes it wins. A seeded row still needs the user's evidence in the "Them" column before it ships. |
+| `vulnerabilityWindows[]` | Brand | **Timing for the close bucket**: openings the brand has logged, quoted as written (free text: never infer urgency or affected rivals the entry doesn't state), that give a rep a reason to decide now. |
+| `competitiveIntel` (`{ fields }`, raw module) | Brand | **The as-of date** of the brand's competitive analysis, when present. Print it next to the card's own date so a stale record is visible. |
+| `absentFields` | Brand | **What the record doesn't hold.** Name each empty competitive field in the delivery note instead of filling it. |
+
+Label every line drawn from these fields **"from `<brandName>`'s own record, not verified market fact."** The record is the brand's view of its rivals at a point in time, not current intel on this rival's pricing or features. When a record line and the user's material disagree, the user's material wins and the card flags the conflict. When the competitive fields are empty, say so in one line and build the competitor half from the user's material alone; never pad.
+
+Guardrail — the wall, restated: the public projection has **no** competitor data; on the Brand plan `get_brand_dna` carries the brand's own competitive record, labeled as above. `brandEnemy` is our own framing of the category, **not** intel about the named rival — never treat it as a fact about them. Every competitor claim still traces to the user's material, public research, or (labeled) the brand's own record. If you find yourself wanting the gateway to tell you something about the competitor that none of those hold, stop and ask the user.
 
 ## When a call fails
 
@@ -102,6 +114,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_dna` → your token is below Brand tier. Skip the Brand tier step; the card ships from the connected read, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the card still ships in full as written above. Take our positioning from the user and note that our half is built from what they supplied, not the brand's record; connect Jinn to anchor our claims and enemy-narrative in that record.
 
 ## What just became possible

@@ -105,9 +105,18 @@ On its own, the audit is complete structural analysis — the tier read, the val
 
 State which fields fed the posture read when you deliver it, and keep the inferred label on the posture line — it is never presented as a fact the brand stated.
 
+**Brand tier step (Brand plan and up).** If `get_token_context` returned `tier: "brand"` or `"agency"` and `get_brand_dna` appears in `tools/list`, also call `get_brand_dna` with `{ "slug": "<slug>" }`. It returns every field above plus the brand's commercial fields and competitive playbook. Below Brand tier the tool isn't listed: skip this step, and the teardown is exactly the connected teardown above.
+
+| Full-DNA field | Tier needed | Drives |
+|----------------|-------------|--------|
+| `pricing` | Brand | **A recorded-pricing check**: does the live page match the pricing the brand has on record? Flag every mismatch (a tier, a price, a billing period) for the user to resolve. When it holds a value, the posture line cites it as "from the brand's record" instead of the inferred label. Empty → keep the inference and its label. |
+| `valueProposition` | Brand | **What the tier ladder should be selling.** Checks whether the feature axis tracks the stated value proposition, ahead of `positioningWedge` when both are present. |
+| `competitors` / `differentiationMatrix` | Brand | **The anchoring read against named alternatives**: is the page priced and framed against the rivals the brand itself recorded? Label it as the brand's own record, not verified market pricing. |
+| `absentFields` | Brand | **What the record doesn't hold.** Name each empty field the check wanted (often `pricing`) instead of filling it. |
+
 **Best rung.** Once the brand is Connected on Jinn, this same read is a starting point, not the finished analysis: a full Chart engagement runs pricing strategy against the brand's actual market data and the research spine's sourced competitive landscape, not just the public DNA fields. Connected is a pointer to that engagement, never a tool call this skill promises or approximates.
 
-Only the fields above exist on a public token — there is no pricing, revenue, or conversion data in the projection. Don't reference or request commercial data that isn't there.
+Only the fields in the first table exist on a public token — there is no pricing, revenue, or conversion data in the projection. On the Brand plan `get_brand_dna` carries the brand's recorded `pricing` and `valueProposition` (Brand tier step above); no tier serves revenue or conversion data. Don't reference or request commercial data your tier doesn't serve.
 
 ## When a call fails
 
@@ -122,6 +131,7 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error `tier_required`** on `get_brand_dna` → your token is below Brand tier. Skip the Brand tier step; the teardown ships from the connected read, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the teardown still runs in full from the structural framework alone. Note the posture read carries no brand-fit check yet, and connect Jinn to add one against the brand's real positioning.
 
 ## What just became possible
