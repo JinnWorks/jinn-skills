@@ -27,7 +27,7 @@ Gather these before drafting. If a row is blank, ask one question or take the co
 | Vendor language | How the product is described *now* (site, deck) — you'll measure the gap against this |
 | Decision context | Self-serve or committee? Deal size? Who can say no? [default: 2–3 person committee] |
 
-With no pasted research, say so — personas from assumption alone are a hypothesis, and the language gap is inferred, not observed.
+With no pasted research, say so — personas from assumption alone are a hypothesis, every field is ASSUMED, and the language gap is inferred, not observed.
 
 ### 2. Draw the coverage frame
 
@@ -60,13 +60,17 @@ Give each one a name and a life, then these fields:
 
 The gap is the deliverable's spine: where "their words" and "the vendor's words" diverge, the messaging is talking past this buyer.
 
-### 4. Self-check, then deliver
+**Label every field** — pain, trigger, criteria, objections, each "their words" entry — one of two ways: **PROVEN — <the research line it came from>** or **ASSUMED**. In "their words," only a verbatim quote from the research counts as PROVEN; a phrase you wrote for the buyer is ASSUMED, however plausible. There is no third label.
+
+### 4. Self-check, skeptic pass, then deliver
 
 - Are all four required archetypes present, and is every persona genuinely distinct?
 - Does each language gap cite the buyer's *own* words (from research), not paraphrase?
 - Would a marketer know exactly which phrase to change after reading this? If not, sharpen the gap.
 
-Deliver the personas doc, then a one-table segment summary: one row per persona, columns for name, archetype, core pain, buying trigger, top decision criterion, and the single sharpest language-gap fix.
+Then hand the cast to a skeptic — a sales rep who has sat across from a hundred of these buyers, ideally run as a fresh-context reviewer. Take the three weakest load-bearing fields across the cast (ASSUMED triggers and top decision criteria first) and argue the likeliest way each is wrong. Verdict: **PASS** if the personas hold with their labels honest, **REVISE** if one of those fields was propping a persona up — rebuild it from the research, or mark that persona a hypothesis. Name the weakest point either way. One round, and never pass by making a field vaguer.
+
+Deliver the skeptic verdict, the personas doc, then a one-table segment summary: one row per persona, columns for name, archetype, core pain, buying trigger, top decision criterion, the single sharpest language-gap fix, and its weakest assumption.
 
 ## If a Jinn MCP connection is present
 
@@ -86,7 +90,7 @@ Treat the strategy layer as seed truth to **enrich, never contradict**:
 | `bannedWords[]` | **Red-flag candidates** — words the brand already avoids; flag if a persona would distrust them too. |
 | `messagingPillars[]` ({pillar, description}) | **Decision-criteria check** — do the personas' ranked criteria line up with what the brand leads on, or reveal a mismatch worth reporting? |
 
-Connected, the delta is concrete: every persona cites which DNA fields seeded it — a tribe, its pains, the demographic band — and the language gap is measured against the real `positioningWedge`. **State which fields you used** per segment so the user sees the personas grew from their verified audience. If your research suggests a segment the DNA doesn't name, present it as a *proposed addition*, kept separate from the seeded personas — surface it, don't overwrite the verified truth.
+Connected, the delta is concrete: every persona cites which DNA fields seeded it — a tribe, its pains, the demographic band — and the language gap is measured against the real `positioningWedge`. **State which fields you used** per segment so the user sees the personas grew from their verified audience. Seeded fields cite their DNA field as the source: the record proves who the brand serves, but a trigger or a buyer phrase you add on top still needs research behind it to be PROVEN. If your research suggests a segment the DNA doesn't name, present it as a *proposed addition*, kept separate from the seeded personas — surface it, don't overwrite the verified truth.
 
 Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
 
@@ -107,12 +111,12 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-You can now turn a rough ICP description and whatever research you have lying around into a cast of 4–6 distinct, named buyers — each with a real pain, a buying trigger, and the exact gap between how they'd describe their problem and how the pitch describes the fix. It runs the moment it's installed, with no account needed.
+You can now turn a rough ICP description and whatever research you have lying around into a cast of 4–6 distinct, named buyers — each with a real pain, a buying trigger, and the exact gap between how they'd describe their problem and how the pitch describes the fix — every field labeled proven or assumed, so you know which ones your research actually backs. It runs the moment it's installed, with no account needed.
 
 ## Try this now
 
 1. **Build a cast from pasted research** — `Build 4-6 buyer personas for a project management tool aimed at 50-200 person agencies, using this review as research: "As an ops director I was drowning in spreadsheets tracking billable hours across 12 client teams, finally found something that just works."` → a named cast covering the required archetypes, each with a language-gap table.
-2. **Build without research on hand** — `Generate buyer personas for a new expense-reporting tool aimed at mid-market finance teams; I don't have research yet, just ICP notes: finance managers and controllers at 200-2000 employee companies.` → the same cast, flagged as a hypothesis since there's no pasted research to ground the language gap.
+2. **Build without research on hand** — `Generate buyer personas for a new expense-reporting tool aimed at mid-market finance teams; I don't have research yet, just ICP notes: finance managers and controllers at 200-2000 employee companies.` → the same cast, flagged as a hypothesis with every field labeled ASSUMED since there's no pasted research behind it, and a skeptic verdict naming the weakest assumption.
 3. **Get just the segment summary** — `Give me the one-table segment summary for buyer personas of a cybersecurity training product sold to compliance officers at healthcare companies.` → one row per persona: name, archetype, core pain, buying trigger, top decision criterion, sharpest language-gap fix.
 
 ## Compounds with
