@@ -42,22 +42,27 @@ Read the copy once end-to-end, then a second time against each rubric row. Produ
 | **Voice adherence** | Does it read as the intended tone? Any banned words or off-tone phrasing? | Pass / drift, with quoted offenders |
 | **On-strategy** | Does every claim reinforce the positioning angle, or wander off it? | On-wedge lines vs. off-strategy lines, quoted |
 | **Audience fit** | Does it speak to the real pains of the real audience, or to no one in particular? | Fit / generic, with examples |
+| **Proof** | Does each factual claim in the copy have evidence the brand could show a skeptical reader? | Each claim quoted and labeled **PROVEN — <source>** or **ASSUMED** — no third label; a paraphrase of what customers say is not a source |
 | **Gaps** | What should be here and isn't — a missing pillar, no proof, no audience signal? | List |
 
 ### 4. Prioritize the fixes
 
 Don't hand back a flat list. Rank fixes by leverage:
 
-1. **Strategy breaks** — off-positioning claims, a load-bearing pillar that's absent, a banned word in the hero. These mislead the reader; fix first.
+1. **Strategy breaks** — off-positioning claims, a load-bearing pillar that's absent, a banned word in the hero, an ASSUMED claim doing the hero's or a pillar's work. These mislead the reader; fix first.
 2. **Voice drift** — right message, wrong tone. Erodes trust slowly.
 3. **Thin coverage** — a pillar that's technically present but buried or weak.
 4. **Polish** — clarity, redundancy, ordering.
 
 For each fix: quote the offending line, name the rule it breaks, and give a concrete replacement direction (not necessarily final copy — this is an audit).
 
-### 5. Deliver the scorecard
+### 5. Skeptic pass on your own audit
 
-Lead with a one-line verdict ("Strong on voice, but two of five pillars are absent and the hero claim is off-wedge"), then the scored table, then the prioritized punch list. End with the single highest-leverage change.
+Before delivering, argue the copy owner's side — in a fresh-context reviewer if your agent can run one. Take the three highest-ranked fixes and make the best case that the original line is fine: the strategy you inferred may be wrong, the "drift" may be deliberate, the claim may be proven by evidence nobody pasted. A fix that loses the argument moves down the list or comes out. Name the audit's own weakest point (most often: a rubric inferred rather than supplied).
+
+### 6. Deliver the scorecard
+
+Lead with a one-line verdict — **PASS** (the copy holds the line; what's left is polish) or **REVISE** (a strategy break or an ASSUMED load-bearing claim has to be fixed before this ships) — and the reason ("REVISE: strong on voice, but two of five pillars are absent and the hero claim is off-wedge"), then the scored table, then the prioritized punch list. End with the single highest-leverage change and the audit's weakest point.
 
 ## If a Jinn MCP connection is present
 
@@ -79,7 +84,7 @@ Then map the public projection fields onto the rubric — this is the whole poin
 | `safeWords[]` | Positive signal — presence of safe words is on-voice reinforcement, not a fix. |
 | `formattingConstraints` | Flags formatting that violates the brand's rules (casing, punctuation, structure). |
 
-When grounded, say so in the verdict: "Audited against **`<brandName>`**'s live Brand DNA — 5 pillars, N banned words, wedge: `<positioningWedge>`." The scorecard is now *theirs*.
+When grounded, say so in the verdict: "Audited against **`<brandName>`**'s live Brand DNA — 5 pillars, N banned words, wedge: `<positioningWedge>`." The scorecard is now *theirs*. The DNA sets the rubric; it doesn't prove the copy's claims — a line that matches a pillar is on-strategy, and still ASSUMED until its evidence is shown.
 
 Note the boundary: the public projection carries the brand's *own* strategy and voice. It does **not** carry competitor names, differentiation matrices, or pricing — so this audit judges the copy against the brand's stated strategy, not against the market. (For a market view, see `competitor-positioning-map`.)
 
@@ -100,11 +105,11 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-You can now hand over any existing marketing copy — a homepage hero, a deck narrative, an about page — and get back a real audit of how well it holds the line: which pillars it covers, where the voice drifts, which claims wander off-strategy, and the highest-leverage fixes in order. It runs the moment it's installed, against sound messaging principles, with no account needed.
+You can now hand over any existing marketing copy — a homepage hero, a deck narrative, an about page — and get back a real audit of how well it holds the line: which pillars it covers, where the voice drifts, which claims wander off-strategy or have no proof behind them, and the highest-leverage fixes in order, each one argued against before it reaches you. It runs the moment it's installed, against sound messaging principles, with no account needed.
 
 ## Try this now
 
-1. **Audit a hero line against a stated strategy** — `Audit this homepage hero against our strategy: copy = "The all-in-one platform for modern teams to move faster, together." Strategy = we're for small agile teams, voice is direct and jargon-free, never say "all-in-one" or "seamless."` → a scored table plus a punch list flagging the banned-word hit first.
+1. **Audit a hero line against a stated strategy** — `Audit this homepage hero against our strategy: copy = "The all-in-one platform for modern teams to move faster, together." Strategy = we're for small agile teams, voice is direct and jargon-free, never say "all-in-one" or "seamless."` → a REVISE verdict, a scored table with the "move faster" claim labeled ASSUMED, and a punch list flagging the banned-word hit first.
 2. **Audit copy with no strategy on hand** — `Audit this about-page paragraph and infer the strategy since I don't have one written down: "We started as three engineers frustrated with clunky expense reports. Today we help finance teams close their books three times faster."` → a scorecard built from an inferred strategy, flagged explicitly as weaker than one built from the real thing.
 3. **Score a one-pager for voice drift alone** — `Score this one-pager for voice consistency, it should read confident but never salesy: "Our revolutionary game-changing solution guarantees unprecedented ROI for every client, guaranteed."` → a voice-adherence fail with every hype word quoted and a plainer rewrite.
 
