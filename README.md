@@ -1,11 +1,25 @@
 # Jinn Skills
 
-Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Gemini CLI, Cursor). Each skill produces a complete, client-ready deliverable **on its own** — and gets sharper when you connect it to Jinn's Brand DNA over MCP, drawing on a real brand's recorded positioning, voice, and strategy.
+Open, MIT-licensed marketing skills for AI agents (Claude Code, Codex, Cursor). Each skill produces a complete, client-ready deliverable **on its own** — and gets sharper when you connect it to Jinn's Brand DNA over MCP, drawing on a real brand's recorded positioning, voice, and strategy.
 
 - **Standalone:** a complete, client-ready deliverable from the skill's own procedure.
 - **Connected (Jinn MCP):** the same deliverable, anchored to a brand's actual positioning wedge, banned words, audience tribes, and messaging pillars.
 
 The difference is the point. A positioning brief from the skill's own method is sharp and defensible; one written against a brand's real competitive wedge and enemy is unmistakably *theirs*.
+
+## Start here
+
+1. **Sign in to Jinn** at [app.jinn.works/settings/agents](https://app.jinn.works/settings/agents).
+2. **Copy the setup prompt** from that page and paste it into Claude Code, Codex, Cursor or another agent. Your agent connects Jinn and asks before it creates or edits any file.
+3. **Install the skills:**
+
+   ```bash
+   npx skills add JinnWorks/jinn-skills
+   ```
+
+Using Claude? Add Jinn from [Claude's connector directory](https://claude.ai/directory/jinn) and sign in with Jinn. Nothing to paste.
+
+Every skill also runs with no account. Skip to [Install](#install).
 
 <!-- measured-activation:start -->
 ## Measured activation — 97.3% top-1
@@ -95,9 +109,11 @@ cp -r jinn-skills/skills/* ~/.claude/skills/       # Claude Code
 # or point your agent's skills directory at jinn-skills/skills
 ```
 
-Claude Code, Codex, and Gemini CLI auto-discover `skill-name/SKILL.md`. **Cursor** has no native skill discovery — paste a skill's body into your prompt, or reference the file directly.
+Claude Code and Codex auto-discover `skill-name/SKILL.md`. **Cursor** has no native skill discovery — paste a skill's body into your prompt, or reference the file directly.
 
 ## Connect to Jinn
+
+Signed in through [Start here](#start-here)? You are connected, so skip this section. To try the three showcase brands without an account, use a demo token.
 
 The skills speak MCP natively — no client code, no npm package. Point your agent at Jinn's gateway and give it a token.
 
