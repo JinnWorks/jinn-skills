@@ -109,7 +109,7 @@ The standalone method above doesn't change — connecting changes what a gap is 
 
 State which fields you used and that the ranking (not the gap-detection itself) is grounded in the brand's live DNA.
 
-**Best rung.** Once the brand is Connected, Fama runs this same discipline continuously with embedding-based clustering across the brand's full site snapshot and its tracked competitors' full corpora, not a 30–50 page hand sample (`fama/src/lib/topic-gap.ts`) — and each gap it finds converts directly into a scheduled brief in the content calendar. That machinery isn't reachable from a public token; this skill approximates its discipline by hand, once, and stops at the list — it doesn't generate briefs.
+**Best rung.** Once the brand is Connected, Fama runs this same discipline continuously with embedding-based clustering across the brand's full site snapshot and its tracked competitors' full corpora, not a 30–50 page hand sample — and each gap it finds converts directly into a scheduled brief in the content calendar. That machinery isn't reachable from a public token; this skill approximates its discipline by hand, once, and stops at the list — it doesn't generate briefs.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
