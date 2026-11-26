@@ -110,7 +110,7 @@ You can now turn prospect facts you already have into ready-to-review cold email
 
 ## Compounds with
 
-- `linkedin-content` — same brand voice, aimed at the public feed instead of a DM inbox.
+- `social-posts` — same brand voice, aimed at the public feed instead of a DM inbox.
 - `messaging-ab-tester` — test which hook or proof point actually earns replies instead of guessing.
 - `offer-angle-generator` — source the proof point this skill's evidence line needs.
 

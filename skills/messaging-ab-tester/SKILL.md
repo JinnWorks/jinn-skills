@@ -114,7 +114,7 @@ You can now design a message test where every variant is a genuinely different b
 ## Compounds with
 
 - `offer-angle-generator` — generates the angle space this skill turns into a testable set of variants.
-- `linkedin-content` — draft the competing framings here first, then run this to see which one actually wins before publishing.
+- `social-posts` — draft the competing framings as finished posts first, then run this to see which one actually wins before publishing.
 
 ---
 

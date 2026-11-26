@@ -7,7 +7,7 @@ description: Turn one long-form source — an article, blog post, or video link 
 
 Deliverable: **a set of platform-shaped derivatives pulled from one long-form source** — a subset of LinkedIn post, X thread, X single post, newsletter blurb, Instagram carousel copy, short-form video script, and blog recap, sized to however many distinct angles the source actually supports.
 
-This skill **transforms one existing asset**; it doesn't invent content from a blank page. If there's no source — just a topic, an announcement, or an idea — that's a different job: use `linkedin-content`, `x-content`, or `brand-voice-content` to write net-new posts instead.
+This skill **transforms one existing asset**; it doesn't invent content from a blank page. If there's no source — just a topic, an announcement, or an idea — that's a different job: use `social-posts` to write net-new posts instead.
 
 Standalone, the derivatives are an honest split of the source's real angles, every claim traceable back to the text. Connected to Jinn, they're also written in the brand's actual voice and each mapped to a real messaging pillar — that comes straight from the brand's own record, no voice brief needed.
 

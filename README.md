@@ -36,15 +36,13 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `launch-positioning` | A positioning brief: one-liner, wedge, enemy, proof pillars |
 | `campaign-brief` | A campaign brief: audience, message, channels, hooks |
 | `brand-guardrails-review` | A red-line review of copy against brand voice + banned words |
-| `brand-voice-content` | On-voice content (posts, blurbs) matched to tonal attributes |
+| `social-posts` | Finished on-voice social posts: LinkedIn posts, X posts and threads, or a small set with a blog intro, shaped by the ask |
 | `ad-copy-variants` | Ad-copy variants (headlines/primary text) per platform |
 | `email-sequence` | A lifecycle email sequence (welcome / nurture / launch) |
 | `brand-messaging-audit` | An audit of existing messaging vs the brand's strategy |
 | `competitor-positioning-map` | A positioning map + white-space analysis |
 | `product-launch-playbook` | A launch playbook: phases, assets, sequencing |
 | `know-your-brand-dna` | Reads your connected Brand DNA back to you (onboarding + connection smoke test) |
-| `linkedin-content` | On-voice LinkedIn posts: hooks, body, and engagement-shaped structure |
-| `x-content` | On-voice X posts and threads sized to the platform's rhythm |
 | `customer-story-builder` | A customer story/case study: quantified before-after, reusable pull-quotes |
 | `outbound-message-writer` | Signal-based first-touch outreach (cold email / LinkedIn) that earns a reply |
 | `buyer-persona-generator` | A buyer persona: goals, pains, objections, and the message that lands |
@@ -52,7 +50,7 @@ A skill only helps if your agent picks the right one when you ask. We benchmark 
 | `battlecard-generator` | A sales battlecard: win/lose/close framing against a named competitor |
 | `messaging-ab-tester` | A/B message variants with a hypothesis and what each one tests |
 | `on-brand-artifact-builder` | One self-contained HTML artifact: slide deck, landing section, or 1080×1080 carousel |
-| `content-rotation` | A posting plan across your properties: 7-day mix, next-post pick, or overdue audit — feeds `x-content` / `linkedin-content` |
+| `content-rotation` | A posting plan across your properties: 7-day mix, next-post pick, or overdue audit — feeds `social-posts` |
 | `marketing-decision` | A triaged marketing call — 6–8 questions, a clear decision, and a revisit date |
 | `ai-visibility-snapshot` | A hand-run AI-visibility audit: buyer-intent queries, scored appearance record across assistants |
 | `brand-voice-checker` | An on-brand score for pasted copy: generic-AI tells quoted + fixed, banned-word hits |
@@ -171,8 +169,11 @@ Your token's plan is the `tier` field that `get_token_context` returns: `demo` (
 | `get_brand_design_tokens` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | The brand's DTCG design tokens — color, type, spacing, radius, motion |
 | `get_brand_design_md` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` |
 | `ask_brand` | Connected and up | Answers a question from the brand's record: the matched facts (each with its source) plus a coverage note listing what it could answer and the genuine gaps. At Brand tier it also matches the full DNA and per-product fields. The question text is logged so the brand owner can see what was asked. |
+| `brief_task` | Connected and up | A task brief from the brand's record: do and don't lines, guidance quoting the record text it rests on, what the record does not know, and linked pictures. Capped per person per hour |
+| `search_assets` | Connected and up | The brand's own pictures matching a query, with links that expire after an hour |
 | `get_brand_kit` | Brand and up | Render-ready brand kit: colors, fonts, logo, name, spacing |
 | `get_brand_dna` | Brand and up | The full canonical Brand DNA, including product and commercial fields and the competitive playbook |
+| `get_brand_guidelines` | Brand and up | The brand's guidelines, including a voice section that marks which lines a person corrected and which Jinn drafted |
 | `get_brand_products` | Brand and up | Per-product detail: name, description, category, form factor, hero ingredients, ingredients, certifications and claims, dimensions, weight, URL |
 | `get_brand_design_system` | Brand and up | The design system measured from the brand's live site; every value carries a confidence |
 | `list_design_extraction_runs` | Brand and up | The design-extraction runs recorded for the brand |

@@ -125,7 +125,7 @@ You can now find out what's actually earning engagement in a niche or keyword sp
 
 - `hook-and-lede-writer` — take a proven angle from this sweep and turn it into a scored hook for a specific post.
 - `content-rotation` — feed this week's ranked angles into the weekly what-to-post-where plan.
-- `x-content` — write the actual post once an angle here confirms what the feed wants to hear.
+- `social-posts` — write the actual post once an angle here confirms what the feed wants to hear.
 
 ---
 

@@ -1,13 +1,13 @@
 ---
 name: ugc-script-writer
-description: "Turn a product and angle into a UGC-format video script: creator-voice, direct-response spine (hook, lived problem, product demo, objection flip, soft CTA), spoken-word register, platform length targets. Not `video-hook-analyzer` (grades a hook); not `brand-voice-content` (written posts). Sharpest when connected to Jinn's Brand DNA over MCP."
+description: "Turn a product and angle into a UGC-format video script: creator-voice, direct-response spine (hook, lived problem, product demo, objection flip, soft CTA), spoken-word register, platform length targets. Not `video-hook-analyzer` (grades a hook); not `social-posts` (written posts). Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # UGC Script Writer
 
 Deliverable: a **UGC-format video script** — the words a creator says on camera, not a caption or a shot list. It follows a direct-response spine (hook → lived problem → product-in-hand demo → objection flip → soft CTA), carries shot/beat timing against a platform length target, and is written in **spoken-word register** — read it aloud and it should sound like a person talking, not a person reading.
 
-Not `video-hook-analyzer` (grades an existing hook's first 5 seconds; this writes the whole script). Not `brand-voice-content` (on-voice posts/blurbs, not a spoken video script). Not `customer-story-builder` (a real customer's own story, quotes verbatim; this is a creator performing a written script, clearly scripted content). Not `storyboard-from-dna` (the visual shot board a script rides on — pair the two, but this skill owns the words, that one owns the frames).
+Not `video-hook-analyzer` (grades an existing hook's first 5 seconds; this writes the whole script). Not `social-posts` (written on-voice posts, not a spoken video script). Not `customer-story-builder` (a real customer's own story, quotes verbatim; this is a creator performing a written script, clearly scripted content). Not `storyboard-from-dna` (the visual shot board a script rides on — pair the two, but this skill owns the words, that one owns the frames).
 
 Works with no Jinn connection — a complete, performable script on its own. Connected to a brand's Jinn Brand DNA, the voice, vocabulary limits, and the specific problem and objection the script leans on come straight from the brand's own record — no discovery questions needed. See **If a Jinn MCP connection is present**.
 

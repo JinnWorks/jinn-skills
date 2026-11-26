@@ -11,7 +11,7 @@ Works standalone from a positioning line and an audience description — a full,
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
-**This is not `content-rotation`.** That skill manages a *rotation* — a small state file of existing properties, deciding what's overdue and what to post next, week to week. This skill builds the *strategy* a rotation executes: where do the month's themes come from, how much can realistically get made, and does the platform mix make sense for this audience. Run this once at the start of a month (or when the positioning changes); once the calendar exists, hand its themes to `content-rotation` to track week-to-week execution, or to `x-content` / `linkedin-content` to draft individual slots.
+**This is not `content-rotation`.** That skill manages a *rotation* — a small state file of existing properties, deciding what's overdue and what to post next, week to week. This skill builds the *strategy* a rotation executes: where do the month's themes come from, how much can realistically get made, and does the platform mix make sense for this audience. Run this once at the start of a month (or when the positioning changes); once the calendar exists, hand its themes to `content-rotation` to track week-to-week execution, or to `social-posts` to draft individual slots.
 
 ## The deliverable
 
@@ -72,7 +72,7 @@ Weight the mix toward the platforms where the stated audience actually spends at
 
 ### 4. Build the 30-day grid
 
-Lay out four weeks. Rotate the themes so **no theme repeats within the same week**, and give each platform at least one **recurring anchor format** — a slot type the audience learns to expect (e.g., "Monday build-in-public on LinkedIn") — consistency compounds more than novelty does. Each cell gets a format, a platform, and a one-line angle — not a full draft; drafting is `x-content` / `linkedin-content` / `seo-content-brief`'s job downstream.
+Lay out four weeks. Rotate the themes so **no theme repeats within the same week**, and give each platform at least one **recurring anchor format** — a slot type the audience learns to expect (e.g., "Monday build-in-public on LinkedIn") — consistency compounds more than novelty does. Each cell gets a format, a platform, and a one-line angle — not a full draft; drafting is `social-posts` / `seo-content-brief`'s job downstream.
 
 ### 5. Batching guidance
 
@@ -146,7 +146,7 @@ You can now turn one sentence about what a brand does, for whom, into a full 30-
 ## Compounds with
 
 - `content-rotation` — once this calendar exists, hand its themes over to track week-to-week what's overdue and what posts next.
-- `linkedin-content` — draft any single grid slot into a full LinkedIn-specific post.
+- `social-posts` — draft any single grid slot into a finished post for its platform.
 - `seo-content-brief` — turn the month's deep-dive slot into a real content brief before writing it.
 
 ---
