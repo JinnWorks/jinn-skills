@@ -85,17 +85,17 @@ Note the boundary: the public projection carries the brand's *own* strategy and 
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`):
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-messaging-audit"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → the demo token lapsed. Request a new one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-messaging-audit"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise the demo token lapsed. Request a new one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-messaging-audit"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
     --header "Authorization: Bearer <token>"
   ```
-- **tool `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error, `data.kind` is `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the standalone procedure above. It produces a real audit against sound principles; connect Jinn later to re-run it against the brand's live DNA.
 
 ## What just became possible

@@ -91,11 +91,11 @@ Same codes as every skill in this repo — the stanza still gets written at what
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"brand-context-injector"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → the agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add with the CLI `--header` form in step 2.
-- **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in the token's `brand_slugs`. Call `get_token_context` and use one it actually lists.
+- **tool error, `data.kind` is `not_found`** on `get_brand_dna_public` → that slug isn't in the token's `brand_slugs`. Call `get_token_context` and use one it actually lists.
 - **`get_brand_kit` is absent from `tools/list` while `get_brand_dna_public` succeeds** → the ordinary state for any token below Brand tier, not a wrong slug or a fixable error. The render-ready kit is a Brand-tier unlock; it appears in `tools/list` once the token is on the Brand tier. Write the stanza at whatever rung the other tools reached and say so plainly.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the token is a demo token and the brand hasn't opted in to public design export. Don't retry. Leave that tool out of the stanza, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
+- **error code `-32004`** (the plan does not include the tool) on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the token is a demo token and the brand hasn't opted in to public design export. Don't retry. Leave that tool out of the stanza, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
 - **No token, no llms.txt, no brand.json** → nothing real to wire. Say so, and point at the README's "Connect to Jinn" section rather than fabricating a stanza.
 
 ## What just became possible

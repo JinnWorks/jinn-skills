@@ -33,11 +33,11 @@ This persona works entirely from its own expertise — you'll get a sharp, examp
 
 ## If a call fails
 
-Read `data.code` on the JSON-RPC error and act:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`):
 
-- **`token_expired`** / **`token_revoked`** → the demo token has lapsed. Request a fresh one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** / **`token_revoked`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise the demo token has lapsed. Request a fresh one: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
-- **tool error `not_found`** → the slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
+- **tool error, `data.kind` is `not_found`** → the slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 
 ---
 

@@ -121,18 +121,18 @@ Once a brand is Connected, Jinn's video studio (in beta) can render UGC-style vi
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the script still ships in full:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`) — the script still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ugc-script-writer"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ugc-script-writer"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ugc-script-writer"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
     --header "Authorization: Bearer <token>"
   ```
-- **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **tool error `tier_required`** on `get_brand_products` → your token is below Brand tier. Skip the product step; write from the step-1 product line, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error, `data.kind` is `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **error code `-32004`** (the plan does not include the tool) on `get_brand_products` → your token is below Brand tier. Skip the product step; write from the step-1 product line, and pass on `data.upgrade_url` as the upgrade path.
 - **No token / no connection** → the script still ships in full. Build it from the step-1 inputs, note the pain point and objection are inferred rather than read from the brand's record, and connect Jinn to take them straight from a real brand.
 
 ## What just became possible
