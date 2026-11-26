@@ -169,8 +169,11 @@ Your token's plan is the `tier` field that `get_token_context` returns: `demo` (
 | `get_brand_design_tokens` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | The brand's DTCG design tokens — color, type, spacing, radius, motion |
 | `get_brand_design_md` | Connected and up for your own brand; a demo token reads only brands that opted in to public design export | Render-ready visual guidelines (grid, do/don't, conventions) as `design.md` |
 | `ask_brand` | Connected and up | Answers a question from the brand's record: the matched facts (each with its source) plus a coverage note listing what it could answer and the genuine gaps. At Brand tier it also matches the full DNA and per-product fields. The question text is logged so the brand owner can see what was asked. |
+| `brief_task` | Connected and up | A task brief from the brand's record: do and don't lines, guidance quoting the record text it rests on, what the record does not know, and linked pictures. Capped per person per hour |
+| `search_assets` | Connected and up | The brand's own pictures matching a query, with links that expire after an hour |
 | `get_brand_kit` | Brand and up | Render-ready brand kit: colors, fonts, logo, name, spacing |
 | `get_brand_dna` | Brand and up | The full canonical Brand DNA, including product and commercial fields and the competitive playbook |
+| `get_brand_guidelines` | Brand and up | The brand's guidelines, including a voice section that marks which lines a person corrected and which Jinn drafted |
 | `get_brand_products` | Brand and up | Per-product detail: name, description, category, form factor, hero ingredients, ingredients, certifications and claims, dimensions, weight, URL |
 | `get_brand_design_system` | Brand and up | The design system measured from the brand's live site; every value carries a confidence |
 | `list_design_extraction_runs` | Brand and up | The design-extraction runs recorded for the brand |

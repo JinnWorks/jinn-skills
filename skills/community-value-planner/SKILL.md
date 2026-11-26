@@ -130,7 +130,7 @@ You can now find out exactly where a brand can genuinely show up on Reddit, foru
 
 - `citation-source-mapper` — hands this skill every earn-only source it finds (community/UGC domains that can't just be claimed).
 - `social-listening-brief` — once communities are mapped here, that skill catches the live signals worth responding to.
-- `social-posts` — drafts the reply and disclosure lines in the brand's real voice.
+- `social-posts` — writes the brand's own LinkedIn and X posts in its real voice once the community plan is set; it has no forum-reply mode.
 
 ---
 
