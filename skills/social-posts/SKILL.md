@@ -40,6 +40,8 @@ Facts belong to a product, not to the whole brand: if the user sells several pro
 
 If the brief can only carry two strong posts, deliver two and say why.
 
+**When the ask leaves something open** (which product, what the posts are for, which platforms): do not stop to ask. Make the best guess from the brand's facts, write the posts, and say in the hand-over what you assumed. Then end with one question, the one whose answer would change the posts most ("Want these about one flavour, or a launch?"). One question, never a list. Ask before writing in one case only: a wrong guess would make the posts wrong, not just less good, as when the brand has several products and the ask turns on product facts. If nobody is there to answer, carry on with the stated guess.
+
 ### 3. Write to the platform's real limits
 
 **LinkedIn.** A post holds up to 3,000 characters. The feed shows about the first two lines (roughly 140 characters on mobile) before "see more", so a complete sentence that earns the click has to land there. Short paragraphs; white space is formatting. By default a link goes in the first comment, and the post tells readers it is there. No Unicode bold or italic letters: screen readers read them as symbols and search does not index them. Alt text for any image.
@@ -64,7 +66,7 @@ Fix every failure before handing over. A fail is a rewrite, not a note.
 
 ### 5. Hand it over
 
-The posts first, each labeled by platform (and angle, when there are several), line breaks kept, ready to paste. Then the hand-over note, at most three short lines. When anything needs confirming before the posts go out, the note opens with it, one item per line: "Check before posting: <the fact>, <why it is unconfirmed>." When nothing does, say so in a few words. Then one short line on what the posts are built from. Never say the facts are documented or verified unless each one traces to its source. No score tables, no rubric, no strategy essay unless the user asked for one.
+The posts first, each labeled by platform (and angle, when there are several), line breaks kept, ready to paste. Then the hand-over note, at most three short lines. When anything needs confirming before the posts go out, the note opens with it, one item per line: "Check before posting: <the fact>, <why it is unconfirmed>." When nothing does, say so in a few words. Then one short line on what the posts are built from. Never say the facts are documented or verified unless each one traces to its source. No score tables, no rubric, no strategy essay unless the user asked for one. The last line is the one question, when the ask left something open.
 
 ## If a Jinn MCP connection is present
 
