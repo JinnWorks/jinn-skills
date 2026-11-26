@@ -25,7 +25,7 @@ Trust each fact only as far as its source goes:
 - **Voice you read from their samples:** good for tone and rhythm. Say it was read from samples.
 - **Anything you inferred** (the reader's pain, the angle): fine for choosing what to write, never stated in a post as a fact about the brand.
 
-Facts belong to a product, not to the whole brand: if the user sells several products, ask or state which one the post is about, and keep each number, ingredient and claim with its own product. Never invent a number, customer, result, quote or credential. If a post would be stronger with a fact nobody gave you, write a different post from facts you have. At most one fact per post may carry an inline `[check: what to confirm]`, and the post must still stand if that fact changes.
+Facts belong to a product, not to the whole brand: if the user sells several products, ask or state which one the post is about, and keep each number, ingredient and claim with its own product. An unconfirmed fact goes in a post only when the ask needs it (a post about sugar needs the sugar figure, kept and flagged); when the ask does not call for it, leave it out. Never invent a number, customer, result, quote or credential. If a post would be stronger with a fact nobody gave you, write a different post from facts you have. At most one fact per post may carry an inline `[check: what to confirm]`, and the post must still stand if that fact changes.
 
 ### 2. Let the ask set the shape
 
@@ -39,6 +39,8 @@ Facts belong to a product, not to the whole brand: if the user sells several pro
 | No platform named | Choose the platforms from who the brand sells to and where those readers are: a consumer brand usually means Instagram, TikTok and X; a brand that sells to businesses usually means LinkedIn and X. Write a native post for each of two to four platforms, and say in one line which you chose and why. Only when nothing tells you who the readers are, write to LinkedIn's limits and say so. |
 
 If the brief can only carry two strong posts, deliver two and say why.
+
+**When the ask leaves something open.** A bare ask with no topic and no platform ("write some social posts"): ask before writing, at most two short questions in one message (what the posts should push, and which platforms), and always offer "or say you pick". On "you pick", or when nobody is there to answer, choose from the brand's facts and say what you chose. An ask that already names a topic or a platform: do not stop to ask. Write, say what you assumed, and end with one question, the one whose answer would change the posts most. Either way, every step and check in this skill still applies to what you write after the answer, including the hand-over.
 
 ### 3. Write to the platform's real limits
 
@@ -64,7 +66,7 @@ Fix every failure before handing over. A fail is a rewrite, not a note.
 
 ### 5. Hand it over
 
-The posts first, each labeled by platform (and angle, when there are several), line breaks kept, ready to paste. Then the hand-over note, at most three short lines. When anything needs confirming before the posts go out, the note opens with it, one item per line: "Check before posting: <the fact>, <why it is unconfirmed>." When nothing does, say so in a few words. Then one short line on what the posts are built from. Never say the facts are documented or verified unless each one traces to its source. No score tables, no rubric, no strategy essay unless the user asked for one.
+The posts first, each labeled by platform (and angle, when there are several), line breaks kept, ready to paste. Then the hand-over note, at most three short lines. When anything needs confirming before the posts go out, the note opens with it, one item per line: "Check before posting: <the fact>, <why it is unconfirmed>." When nothing does, say so in a few words. Then one short line on what the posts are built from. Never say the facts are documented or verified unless each one traces to its source. No score tables, no rubric, no strategy essay unless the user asked for one. The last line is the one question, when the ask left something open.
 
 ## If a Jinn MCP connection is present
 
