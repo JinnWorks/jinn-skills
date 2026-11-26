@@ -70,8 +70,6 @@ That's the concrete delta: the value prop, differentiators, and values come stra
 
 Guardrail: the file still describes the brand's own real domain — never invent one from a slug guess; if the user hasn't supplied a real domain, ask. The projection carries no competitor data and no pricing — don't reference or request either.
 
-**Best rung:** once the brand is Connected on Jinn, the file doesn't need hand-regenerating each time the brand's story shifts — the platform serves it live and keeps it current with the DNA record.
-
 ## When a call fails
 
 Read `data.code` on the JSON-RPC error and act — the file still ships in full:

@@ -103,9 +103,8 @@ Name the questions you asked and the keys that answered them when you deliver.
 
 ### Best — a Connected brand on Jinn
 
-For a brand Connected on Jinn, two more evidence sources become checkable instead of merely describable:
+For a brand Connected on Jinn, one more evidence source becomes checkable instead of merely describable:
 
-- The brand's **maintained verified-facts canon** — a standing ledger of claims the brand has vetted over time. A Measured or Cited claim that matches the canon can be marked verified outright; one that contradicts it gets flagged as a claim to fix, not just classified.
 - **Chart's sourced research engine** — the same claims-first research machinery Jinn's own generated reports run through: retrieval against real sources, per-claim verification, and a faithfulness gate before anything ships. An Inferred or Cited claim about the market or category can be checked the same way.
 
 That machinery isn't reachable from a public token; this skill can only point at it, not run it. The audit above still runs in full at the Better rung — Best just replaces "here's what would verify it" with "verified, automatically, on an ongoing basis."

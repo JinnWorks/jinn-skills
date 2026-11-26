@@ -85,10 +85,6 @@ Read the brand's real name and what it's actually known for straight from its ow
 
 Boundary, restated: this rung checks whether claims are *stated* specifically, sourced, and attributed to the right entity — it still does not verify that a cited fact is *true*. Checking your own claims for evidence before they ship is `claim-provenance-checker`'s lane; checking what AI assistants already believe about the brand is `brand-fact-checker`'s lane.
 
-### Best — a Connected brand on Jinn
-
-Ghost scores every post against a citability gate and fact-checks cited stats before publishing, server-side, when Connected. That machinery isn't reachable from a public token — this skill approximates its discipline from the DNA projection above, it doesn't run it. Once a brand is Connected, posts drafted in Ghost clear (or get flagged against) that real gate automatically, before anything publishes — this skill stops at the diagnosis.
-
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
 ## When a call fails

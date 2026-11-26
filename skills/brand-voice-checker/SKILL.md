@@ -100,7 +100,7 @@ Read the banned words and the tone calibration straight from the brand's own rec
 
 Drop the "unverified site read" URL step entirely once connected — the DNA record supplies directly what that step was inferring.
 
-Ghost runs a deeper, two-pass voice analysis with a calibrated score server-side once you're working inside the product — this skill's score is the closest approximation reachable from the public projection, not that engine. State which state you reached ("scored against `<brandName>`'s real banned words and tone" vs. "scored against the published AI-tell heuristics") so the user can see the grounding did work. Once flagged copy needs a redraft rather than just a diagnosis, that's a one-click hand-off to Ghost inside the product — this skill stops at the score.
+Ghost runs a deeper, two-pass voice analysis with a calibrated score server-side once you're working inside the product — this skill's score is the closest approximation reachable from the public projection, not that engine. State which state you reached ("scored against `<brandName>`'s real banned words and tone" vs. "scored against the published AI-tell heuristics") so the user can see the grounding did work. This skill stops at the score.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
