@@ -97,17 +97,17 @@ The projection carries the brand's own strategy and voice; it carries **no** com
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the snapshot still ships in full:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`) — the snapshot still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ai-visibility-snapshot"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ai-visibility-snapshot"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"ai-visibility-snapshot"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
     --header "Authorization: Bearer <token>"
   ```
-- **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error, `data.kind` is `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → run the standalone procedure above. It produces a real, useful snapshot against invented-but-reasonable queries; connect Jinn later to ground the query set in the brand's real wedge, enemy, tribes, and pillars.
 
 ## What just became possible

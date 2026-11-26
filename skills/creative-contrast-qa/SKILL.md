@@ -117,16 +117,16 @@ This isn't a tool the skill calls — it's a pointer to what already runs. Once 
 
 ## When a grounding call fails
 
-Read `data.code` on the JSON-RPC error and act — the QA still runs in full:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`) — the QA still runs in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh demo token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"creative-contrast-qa"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your client likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug #51581). Re-add the server with the CLI header form: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
 - **`get_brand_design_tokens` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand has no design tokens yet (per-brand availability), not a wrong slug. Skip the palette read and note the gap, as at Rung 2.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Skip that piece only, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
-- **tool error `tier_required`** on `get_brand_design_system` → your token is below Brand tier. Skip Rung 0 and run Rung 1, and pass on `data.upgrade_url` as the upgrade path.
-- **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **error code `-32004`** (the plan does not include the tool) on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: your token is a demo token and the brand hasn't opted in to public design export. Don't retry. Skip that piece only, say so in the report, and pass on `data.upgrade_url` as the upgrade path.
+- **error code `-32004`** (the plan does not include the tool) on `get_brand_design_system` → your token is below Brand tier. Skip Rung 0 and run Rung 1, and pass on `data.upgrade_url` as the upgrade path.
+- **tool error, `data.kind` is `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → this QA runs in full on craft rules alone, exactly as written above; connect Jinn to also check the creative against the brand's real palette where its design tools answer.
 
 ## What just became possible

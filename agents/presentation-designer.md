@@ -41,13 +41,13 @@ The skill still works: I design the deck from the brief with tasteful defaults a
 
 ## If a call fails
 
-Read `data.code` on the JSON-RPC error and act:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`):
 
-- **`token_expired`** / `token_revoked` → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** / `token_revoked` → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server: `claude mcp add --transport http jinn https://app.jinn.works/api/mcp --header "Authorization: Bearer <token>"`.
-- **tool error `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
+- **tool error, `data.kind` is `not_found`** on any brand call → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it lists.
 - **`get_brand_design_md` returns `not_found` while `get_brand_dna_public` succeeds for the same slug** → that brand simply has no design-md yet (per-brand availability), **not** a wrong slug. Proceed on whichever design tools answered, fall back to tasteful defaults for the missing conventions, and note the gap.
-- **tool error `tier_required`** on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the handoff note, and pass on `data.upgrade_url` as the upgrade path.
+- **error code `-32004`** (the plan does not include the tool) on `get_brand_design_tokens` or `get_brand_design_md` → expected, not a bug: the token is a demo token and the brand hasn't opted in to public design export. Don't retry. Infer that piece only, say so in the handoff note, and pass on `data.upgrade_url` as the upgrade path.
 
 ---
 

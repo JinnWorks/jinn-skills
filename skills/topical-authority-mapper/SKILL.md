@@ -111,17 +111,17 @@ Only the fields above exist on a public token — there is no competitor, page-a
 
 ## When a call fails
 
-Read `data.code` on the JSON-RPC error and act — the map still ships in full:
+Read the JSON-RPC error and act (sign-in failures carry `data.code`, tool errors carry `data.kind`, a plan limit is error code `-32004`) — the map still ships in full:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"topical-authority-mapper"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
-- **`token_expired`** → request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"topical-authority-mapper"}'`, update `JINN_MCP_TOKEN`, retry.
+- **`token_expired`** → if the error carries `data.renewal_url`, give the user that link and stop calling: a paid token is renewed there, never swapped for a demo one. Otherwise request a fresh token: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"topical-authority-mapper"}'`, update `JINN_MCP_TOKEN`, retry.
 - **`token_malformed`** → your agent likely sent `${JINN_MCP_TOKEN}` literally (Claude Code header bug [anthropics/claude-code#51581](https://github.com/anthropics/claude-code/issues/51581)). Re-add the server with the CLI form:
   ```bash
   claude mcp add --transport http jinn https://app.jinn.works/api/mcp \
     --header "Authorization: Bearer <token>"
   ```
-- **tool error `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
+- **tool error, `data.kind` is `not_found`** on `get_brand_dna_public` → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
 - **No token / no connection** → the map still builds in full from the site read and category search. Note the build order is prioritized by category centrality alone, not the brand's own claimed wedge, and connect Jinn to weight it by what the brand is actually staking its position on.
 
 ## What just became possible
