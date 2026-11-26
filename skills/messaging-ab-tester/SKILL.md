@@ -83,7 +83,7 @@ Seed the angles from what the brand can actually stand behind, and filter every 
 
 Connected, the delta is concrete: every angle traces to a `messagingPillar` or the `positioningWedge`, the pain bet comes from real `painPoints`, and each variant is provably clean of `bannedWords` and written in the brand's `tonalAttributes`. **State which fields seeded each variant** when you deliver the design. When a winner clears both adjudication gates, frame the winning message for write-back into the user's canonical messaging docs — the tested, verified line the brand should adopt.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
+Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

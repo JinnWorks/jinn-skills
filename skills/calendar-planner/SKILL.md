@@ -116,7 +116,7 @@ Then let the projection take over steps 2–3. Field → decision map:
 
 **Best rung:** once the brand is Connected on Jinn, this calendar lands somewhere live. Ghost holds the brand's own strategy record (positioning, topics, content mix) and tracks a weekly cadence goal against what's actually published and scheduled — so a Connected brand's calendar can anchor to a real campaign with its own goal, and the plan lands directly as scheduled drafts on that calendar.
 
-Only the fields above exist on a public token — there is no product-inventory, competitor, engagement-analytics, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no product-inventory, competitor, engagement-analytics, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

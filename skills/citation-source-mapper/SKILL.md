@@ -134,7 +134,7 @@ State which fields you used when you deliver the report — that's the whole del
 
 **Best rung:** once the brand is Connected, Fama runs this same discipline end-to-end and continuously — parsing every engine citation down to the domain level and probing verified brand presence against a canonical source registry (`fama/src/lib/authority/citation-domains.ts`, `presence-engine.ts`). That machinery isn't reachable from a public token — this skill approximates its discipline by hand, once; it doesn't run it.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

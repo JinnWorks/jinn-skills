@@ -99,7 +99,7 @@ Drop the "known pain points" free-text intake field entirely once connected — 
 
 **Best rung:** Ghost already runs a listening pipeline that collects Reddit signals directly and drafts brand-voice comment replies for the ones worth responding to (`listening/collectors/reddit.ts`, `listening/draft-generator.ts` — reddit-sourced signals auto-route to the `comment_reply` format). This skill's map is the proactive half: it tells that pipeline **where** to point before a signal ever fires. Once the brand is Connected, the prioritized communities here can seed Ghost's listening scope directly, and matched threads flow into Ghost's queue already scored and disclosure-checked — this skill stops at the plan; Ghost is where it starts running continuously.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

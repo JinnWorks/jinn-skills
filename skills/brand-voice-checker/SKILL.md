@@ -102,7 +102,7 @@ Drop the "unverified site read" URL step entirely once connected — the DNA rec
 
 Ghost runs a deeper, two-pass voice analysis with a calibrated score server-side once you're working inside the product — this skill's score is the closest approximation reachable from the public projection, not that engine. State which state you reached ("scored against `<brandName>`'s real banned words and tone" vs. "scored against the published AI-tell heuristics") so the user can see the grounding did work. Once flagged copy needs a redraft rather than just a diagnosis, that's a one-click hand-off to Ghost inside the product — this skill stops at the score.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

@@ -86,7 +86,7 @@ Then take step 1's inputs from the record instead. Field → decision map:
 
 Connected, the delta is concrete: the hook carries the brand's real `positioningWedge`, the thread spans actual `messagingPillars`, the voice is the exact `tonalAttributes`, claims use `safeWords`, and every post is provably free of `bannedWords`. **State which fields you used** — the wedge, the pillars, the tribe — when you deliver, so the user can see which record fed the post.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection — don't reference or request it.
+Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

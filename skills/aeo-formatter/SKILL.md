@@ -110,7 +110,7 @@ Boundary, restated: this rung rewrites the page's *structure and clarity*, groun
 
 Connected, Fama builds a prioritized remediation playbook across the whole site from real visibility gaps — not one page rewritten on request, but every page the brand actually loses citations on, ranked and fixed in sequence. That machinery isn't reachable from a public token — this skill approximates its discipline one page at a time, it doesn't run it.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## Boundaries (read before reaching for this skill)
 

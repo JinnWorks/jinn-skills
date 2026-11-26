@@ -64,7 +64,7 @@ Then swap the step-1 profile for the recorded one. Explicit field → decision m
 
 Connected, the deliverable changes shape: the three posts each lead with a different `messagingPillar`, aimed at a different `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. State which pillar and tribe each piece targets when you deliver, so the user can see the grounding did work.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
+Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

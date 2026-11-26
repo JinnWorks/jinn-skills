@@ -117,7 +117,7 @@ Two calls:
 | `slangPolicy` / `formattingConstraints` | **Cadence and register** — how casual, how much punctuation-as-emphasis, emoji/hashtag policy. |
 | `safeWords` / `bannedWords` | **Diction** — reach for one, hard-filter the other, in both hook and lede. |
 
-State which fields grounded which hooks when you deliver — "enemy-naming built on `<brandName>`'s real `brandEnemy`," not just "on-brand." Only the fields above exist on a public token; there is no competitor, differentiation, engagement-analytics, or pricing data in the projection — don't reference or request it.
+State which fields grounded which hooks when you deliver — "enemy-naming built on `<brandName>`'s real `brandEnemy`," not just "on-brand." Only the fields above exist on a public token; there is no competitor, differentiation, engagement-analytics, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ### Best — a Connected brand on Jinn
 

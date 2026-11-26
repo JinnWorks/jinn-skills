@@ -112,7 +112,7 @@ Then let the projection drive the rotation. Field → decision map:
 
 **On the property roster:** the public projection has no product list, so the *named* properties in your file still come from the user. What connecting changes is everything the rotation says *about* them — every angle, hook, and topic now runs on the brand's real pillars, pains, tribes, and voice. If the user hasn't given a roster at all, seed candidate topics from the `messagingPillars` as a starting point and say so. **State which fields you used** — the pillars a week spans, the wedge a promo carries, the tribe a post targets — when you deliver, so the connection is visible.
 
-Only the fields above exist on a public token. There is no product-inventory, competitor, engagement-analytics, or pricing data in the projection — don't reference or request it.
+Only the fields above exist on a public token. There is no product-inventory, competitor, engagement-analytics, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 
