@@ -1,11 +1,11 @@
 ---
 name: content-rotation
-description: Plan what to post and when across your properties on rotation — a balanced 7-day plan, the best next post, or a per-property overdue audit — then hand the pick to x-content or linkedin-content. Use when several products or properties compete for one feed and you need a cadence, not one-offs. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Plan what to post and when across your properties on rotation — a balanced 7-day plan, the best next post, or a per-property overdue audit — then hand the pick to social-posts. Use when several products or properties compete for one feed and you need a cadence, not one-offs. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Content Rotation
 
-Deliverable: **a posting decision, not a post** — a 7-day plan, one next post, or a rotation audit. This is the planner that sits above the per-post skills. It decides *what* to post and *when*; `x-content` and `linkedin-content` decide the words. Hand any slot it produces to one of those to draft, and it composes cleanly — this skill picks the property and angle, that skill writes it in voice.
+Deliverable: **a posting decision, not a post** — a 7-day plan, one next post, or a rotation audit. This is the planner that sits above the post-writing skill. It decides *what* to post and *when*; `social-posts` decides the words. Hand any slot it produces to that skill to draft, and it composes cleanly — this skill picks the property and angle, that skill writes it in voice.
 
 Works standalone from a property list you keep in a small local file. Connected to Jinn, the angles, hooks, and educational topics also come straight from the brand's real pillars, pains, and voice — no discovery round needed.
 
@@ -86,7 +86,7 @@ Close with the single most-neglected property and the one post that fixes it.
 
 ### Mode: `draft` — hand off to the writer
 
-Skip the rotation math. Take the already-chosen post (type + property + angle) and pass it to the per-post skill for the platform: **`linkedin-content`** for LinkedIn, **`x-content`** for X. Give that skill the property as the subject, the angle as the one claim, and repeat the two rules it must honor: **the link goes in the first comment / reply, never the body**, and a promo leads on an outcome, not an announcement. When the post is written and the user confirms it's going out, append it to the `log` and, if it was a promo, update that property's `last_promo` to today.
+Skip the rotation math. Take the already-chosen post (type + property + angle) and pass it to **`social-posts`** and name the platform (LinkedIn or X). Give that skill the property as the subject, the angle as the one claim, and repeat the two rules it must honor: **the link goes in the first comment / reply, never the body**, and a promo leads on an outcome, not an announcement. When the post is written and the user confirms it's going out, append it to the `log` and, if it was a promo, update that property's `last_promo` to today.
 
 ### After any mode that results in a post going live
 
@@ -107,7 +107,7 @@ Then let the projection drive the rotation. Field → decision map:
 | `positioningWedge` | **Every promo angle.** The brand's real edge; a promo hook should express the wedge, not a generic benefit. |
 | `painPoints` | **Educational and problem-led hooks.** Open on a pain the audience actually names, drawn from here — never an invented one. |
 | `tribes[]` ({name, description, motivation}) | **Who each slot speaks to.** Aim posts at named tribes; their `motivation` sets the angle for that day. |
-| `tonalAttributes[]` | **The voice of every angle line** you write into the plan — match them, so the handoff to `x-content`/`linkedin-content` starts on-voice. |
+| `tonalAttributes[]` | **The voice of every angle line** you write into the plan — match them, so the handoff to `social-posts` starts on-voice. |
 | `safeWords[]` / `bannedWords[]` | **Diction.** Prefer `safeWords` in hooks; keep every angle line clear of `bannedWords`. |
 
 **On the property roster:** the public projection has no product list, so the *named* properties in your file still come from the user. What connecting changes is everything the rotation says *about* them — every angle, hook, and topic now runs on the brand's real pillars, pains, tribes, and voice. If the user hasn't given a roster at all, seed candidate topics from the `messagingPillars` as a starting point and say so. **State which fields you used** — the pillars a week spans, the wedge a promo carries, the tribe a post targets — when you deliver, so the connection is visible.
@@ -142,7 +142,7 @@ You can now get a straight answer to "what should I post next" across however ma
 
 ## Compounds with
 
-- `x-content` — writes the actual words once this skill has picked the property, type, and angle for a given day.
+- `social-posts` — writes the actual words once this skill has picked the property, type, and angle for a given day.
 - `hook-and-lede-writer` — generates scored opening options for that day's angle before the post gets drafted.
 
 ---

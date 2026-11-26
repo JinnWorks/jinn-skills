@@ -1,11 +1,11 @@
 ---
 name: hook-and-lede-writer
-description: 10 scored hook-and-lede pairs for one topic and audience, tagged to a framework and checked against the content behind it — unearned hooks flagged. Use when picking an opening before writing, any format. Not the finished post (x-content, linkedin-content) or ad copy (ad-copy-variants). Sharpest when connected to Jinn's Brand DNA over MCP.
+description: 10 scored hook-and-lede pairs for one topic and audience, tagged to a framework and checked against the content behind it — unearned hooks flagged. Use when picking an opening before writing, any format. Not the finished post (social-posts) or ad copy (ad-copy-variants). Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Hook & Lede Writer
 
-Deliverable: **10 scored hook-and-lede pairs** for one topic and audience — each tagged to a named framework, scored for specificity and tension, and checked against whether the material actually pays off what the hook promises. Pick the strongest, then hand it to whichever skill writes the finished piece: `linkedin-content` or `x-content` for a post, `ad-copy-variants` for paid copy, or straight into a blog draft, video script, or email subject line.
+Deliverable: **10 scored hook-and-lede pairs** for one topic and audience — each tagged to a named framework, scored for specificity and tension, and checked against whether the material actually pays off what the hook promises. Pick the strongest, then hand it to whichever skill writes the finished piece: `social-posts` for a post, `ad-copy-variants` for paid copy, or straight into a blog draft, video script, or email subject line.
 
 This writes **openings**, not pieces, and it's format-agnostic — one topic in, ten candidate hooks out, for whatever you're about to write. It isn't `campaign-brief` (a one-page strategy doc where "hooks" is one field among several, written before any creative exists) and it isn't `messaging-ab-tester` (which tests finished variants against each other and judges results — this generates and ranks candidates before a word of the piece is written).
 
