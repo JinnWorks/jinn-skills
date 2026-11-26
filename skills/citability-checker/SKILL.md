@@ -89,7 +89,7 @@ Boundary, restated: this rung checks whether claims are *stated* specifically, s
 
 Ghost scores every post against a citability gate and fact-checks cited stats before publishing, server-side, when Connected. That machinery isn't reachable from a public token — this skill approximates its discipline from the DNA projection above, it doesn't run it. Once a brand is Connected, posts drafted in Ghost clear (or get flagged against) that real gate automatically, before anything publishes — this skill stops at the diagnosis.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
 ## When a call fails
 
