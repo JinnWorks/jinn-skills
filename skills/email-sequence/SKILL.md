@@ -1,11 +1,11 @@
 ---
 name: email-sequence
-description: Draft a 4-email lifecycle sequence — welcome/nurture or launch — with subject line, preview text, and body outline for each email. Use when you need a structured, on-voice email flow that moves a reader from first touch to action. Sharpest when connected to Jinn's Brand DNA over MCP.
+description: Draft a 4-email lifecycle sequence — welcome/nurture or launch — with subject line, preview text, and the full written body for each email. Use when you need a structured, on-voice email flow that moves a reader from first touch to action. Sharpest when connected to Jinn's Brand DNA over MCP.
 ---
 
 # Email Sequence
 
-Deliverable: a **4-email lifecycle sequence** (welcome/nurture or launch — ask which). For each email: **subject line + preview text + body outline** (the beats, the one CTA, the send trigger). Not four disconnected emails — an arc, where each email earns the next.
+Deliverable: a **4-email lifecycle sequence** (welcome/nurture or launch — ask which). For each email: **subject line + preview text + the full email body, written out** (the one CTA, the send trigger). Not four disconnected emails — an arc, where each email earns the next.
 
 Works standalone — a full arc where each email earns the next. Connected to Jinn, email 1 also tells the brand's actual founding story, each email carries a real messaging pillar, and the copy respects the brand's voice rules — all straight from its own record.
 
@@ -29,13 +29,13 @@ Confirm which sequence, then use its arc. Each email owns **one job, one CTA**.
 3. **Objection / proof** — handle the top hesitation; show it's real.
 4. **Last call** — urgency, deadline or scarcity, final CTA.
 
-### 2. Write each email's skeleton
+### 2. Write each email
 
 For all four, produce:
 
 - **Subject line** — ≤50 chars, curiosity or benefit, no spam-trigger words.
 - **Preview text** — ≤90 chars, *complements* the subject (never repeats it), extends the hook.
-- **Body outline** — 3–5 beats: opening hook, the one idea, supporting detail/story, the single CTA. Note the **send trigger** (e.g. "immediately on signup", "+2 days", "launch day −3").
+- **Body** — the email written out in full, ready to send, not an outline or a list of beats: opening hook, the one idea, supporting detail/story, the single CTA. Note the **send trigger** (e.g. "immediately on signup", "+2 days", "launch day −3").
 
 ### 3. Self-check
 
@@ -84,11 +84,11 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-You can now get a full 4-email lifecycle sequence — welcome or launch — built as one arc instead of four disconnected drafts: each email gets a subject line, preview text, a body outline, its one call-to-action, and the send trigger that fires it. Say which arc you want and it writes the whole flow so each email earns the next. It runs the moment it's installed — no account, no setup.
+You can now get a full 4-email lifecycle sequence — welcome or launch — built as one arc instead of four disconnected drafts: each email gets a subject line, preview text, the full written body, its one call-to-action, and the send trigger that fires it. Say which arc you want and it writes the whole flow so each email earns the next. It runs the moment it's installed — no account, no setup.
 
 ## Try this now
 
-1. **Draft a welcome/nurture sequence** — `Write a 4-email welcome sequence for new subscribers to a project-management newsletter — welcome, then value, then proof, then invitation to try the product.` → four labeled emails, each with a subject under fifty characters, preview text that complements it, a body outline with one CTA, and a send trigger.
+1. **Draft a welcome/nurture sequence** — `Write a 4-email welcome sequence for new subscribers to a project-management newsletter — welcome, then value, then proof, then invitation to try the product.` → four labeled emails, each with a subject under fifty characters, preview text that complements it, a written body with one CTA, and a send trigger.
 2. **Draft a launch sequence with real urgency** — `Write a 4-email launch sequence announcing a new analytics dashboard feature — tease, reveal, handle objections, then last call.` → the tease, reveal, objection, and last-call arc, each email's CTA building on the one before it, ending on a deadline-driven final email.
 3. **Sanity-check an existing draft's CTAs** — `Here's my email 3 draft — does it have more than one CTA, and does the ask feel earned given emails 1 and 2 introduced the product and shared a proof story? [paste draft]` → a check for a single CTA and whether the ask feels built up to rather than abrupt.
 4. **Connected: open on the real founding story** *(requires a Jinn token)* — `Write my 4-email welcome sequence and open email 1 with my brand's actual founding story instead of a generic welcome.` → the same four-email arc, but email 1 grounded in the real founding story and each email tied to a distinct messaging pillar.
