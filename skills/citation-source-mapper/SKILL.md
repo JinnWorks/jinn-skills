@@ -132,7 +132,7 @@ Two calls, same sequence as every skill in this repo:
 
 State which fields you used when you deliver the report — that's the whole delta over the standalone run.
 
-**Best rung:** once the brand is Connected, Fama runs this same discipline end-to-end and continuously — parsing every engine citation down to the domain level and probing verified brand presence against a canonical source registry (`fama/src/lib/authority/citation-domains.ts`, `presence-engine.ts`). That machinery isn't reachable from a public token — this skill approximates its discipline by hand, once; it doesn't run it.
+**Best rung:** once the brand is Connected, Fama runs this same discipline end-to-end and continuously — parsing every engine citation down to the domain level and probing verified brand presence against a canonical source registry. That machinery isn't reachable from a public token — this skill approximates its discipline by hand, once; it doesn't run it.
 
 Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
 
