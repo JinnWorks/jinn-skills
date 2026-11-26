@@ -25,7 +25,7 @@ Trust each fact only as far as its source goes:
 - **Voice you read from their samples:** good for tone and rhythm. Say it was read from samples.
 - **Anything you inferred** (the reader's pain, the angle): fine for choosing what to write, never stated in a post as a fact about the brand.
 
-Facts belong to a product, not to the whole brand: if the user sells several products, ask or state which one the post is about, and keep each number, ingredient and claim with its own product. Never invent a number, customer, result, quote or credential. If a post would be stronger with a fact nobody gave you, write a different post from facts you have. At most one fact per post may carry an inline `[check: what to confirm]`, and the post must still stand if that fact changes.
+Facts belong to a product, not to the whole brand: if the user sells several products, ask or state which one the post is about, and keep each number, ingredient and claim with its own product. An unconfirmed fact goes in a post only when the ask needs it (a post about sugar needs the sugar figure, kept and flagged); when the ask does not call for it, leave it out. Never invent a number, customer, result, quote or credential. If a post would be stronger with a fact nobody gave you, write a different post from facts you have. At most one fact per post may carry an inline `[check: what to confirm]`, and the post must still stand if that fact changes.
 
 ### 2. Let the ask set the shape
 
@@ -40,7 +40,7 @@ Facts belong to a product, not to the whole brand: if the user sells several pro
 
 If the brief can only carry two strong posts, deliver two and say why.
 
-**When the ask leaves something open** (which product, what the posts are for, which platforms): do not stop to ask. Make the best guess from the brand's facts, write the posts, and say in the hand-over what you assumed. Then end with one question, the one whose answer would change the posts most ("Want these about one flavour, or a launch?"). One question, never a list. Ask before writing in one case only: a wrong guess would make the posts wrong, not just less good, as when the brand has several products and the ask turns on product facts. If nobody is there to answer, carry on with the stated guess.
+**When the ask leaves something open.** A bare ask with no topic and no platform ("write some social posts"): ask before writing, at most two short questions in one message (what the posts should push, and which platforms), and always offer "or say you pick". On "you pick", or when nobody is there to answer, choose from the brand's facts and say what you chose. An ask that already names a topic or a platform: do not stop to ask. Write, say what you assumed, and end with one question, the one whose answer would change the posts most. Either way, every step and check in this skill still applies to what you write after the answer, including the hand-over.
 
 ### 3. Write to the platform's real limits
 
