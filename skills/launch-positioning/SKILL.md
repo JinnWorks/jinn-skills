@@ -19,8 +19,9 @@ POSITIONING BRIEF — <product/launch name>
 One-liner:        <one sentence: what it is + who it's for + the payoff>
 Positioning wedge: <the single angle you win on — the thing you say that rivals can't>
 Brand enemy:      <the status quo / villain you position against — a behavior or belief, not just a competitor>
-Proof pillars:    3–5 claims that make the wedge credible, each with its evidence
+Proof pillars:    3–5 claims that make the wedge credible, each with its evidence, labeled PROVEN or ASSUMED
 Target tribe:     <the specific group this is for, by identity and motivation — not a demographic>
+Skeptic pass:     <the weakest point, PASS or REVISE, and what changed>
 ```
 
 ## Procedure (standalone — no Jinn connection needed)
@@ -46,11 +47,11 @@ Now compress: **what it is + who it's for + the payoff**, one sentence, no adjec
 
 ### 4. Build 3–5 proof pillars
 
-Each pillar is a claim that makes the wedge believable, paired with the evidence that earns it. No pillar without proof — a pillar you can't substantiate is a liability, not an asset.
+Each pillar is a claim that makes the wedge believable, paired with the evidence that earns it. No pillar without proof — a pillar you can't substantiate is a liability, not an asset. Cut it, or keep it labeled ASSUMED so nobody downstream mistakes it for a fact.
 
-| Pillar (the claim) | Proof (why it's true) |
-|--------------------|-----------------------|
-| … | feature / mechanism / result / credential |
+| Pillar (the claim) | Proof (why it's true) | Label |
+|--------------------|-----------------------|-------|
+| … | feature / mechanism / result / credential | PROVEN — <source> or ASSUMED — <what would prove it> |
 
 Order them by how directly they reinforce the wedge, strongest first.
 
@@ -58,7 +59,18 @@ Order them by how directly they reinforce the wedge, strongest first.
 
 Not "SMB marketers, 28–45." A tribe is defined by **identity and motivation**: what they believe about themselves, what they're trying to become, what frustrates them about the status quo (which should rhyme with your brand enemy). Name them in a way they'd recognize themselves in.
 
-### 6. Coherence check
+### 6. Label every claim, then let a skeptic attack it
+
+Every claim in the brief — the wedge, each pillar, what the tribe believes — is labeled one of two ways:
+
+- **PROVEN — <source>**: the evidence is in hand and named: a number and where it came from, a customer's words quoted verbatim with where they said them, a mechanism the user can demonstrate. A paraphrase of what customers say is not a source.
+- **ASSUMED — <what would prove it>**: everything else, including what the team is sure of. There is no third label.
+
+Check which rung the wedge stands on: *different* (we do it another way), *better* (we do it better, on a measure someone could check), or *only* (no rival does it). Each rung needs stronger proof; an *only* nobody has checked against every rival steps down a rung.
+
+Then re-read the brief as a rival's marketer who wants it to be wrong — in a fresh-context reviewer if your agent can run one. Take the three weakest load-bearing claims (ASSUMED first) and argue against each in a sentence or two. Verdict: **PASS** if the wedge still stands with those claims labeled honestly, **REVISE** if one of them was holding it up. Name the weakest point either way. Revise once — proof from the user, an honest softer wording, or the cut — and never by making a claim too vague to attack.
+
+### 7. Coherence check
 
 Read the five fields as one story. The wedge should answer the enemy; the pillars should prove the wedge; the tribe should be the people who feel the enemy most. If any two fight each other, fix the brief before it ships — every downstream asset inherits its contradictions.
 
@@ -79,7 +91,7 @@ Take the brief's five answers straight from the brand's real DNA.
 | One-liner constraints | `bannedWords`, `safeWords`, `tonalAttributes` | The one-liner must use **no `bannedWords`**; prefer `safeWords`; match the top `tonalAttributes`. |
 | Supporting context | `mission`, `coreValues`, `archetype`, `foundingStory` | Sanity-check the wedge against the brand's mission and archetype; pull a founding detail only if it's proof. |
 
-Then run the same coherence check — now with the wedge, enemy, pillars, and tribe taken straight from the brand's own strategy record. Note in the brief that it's grounded on `<brandName>`.
+Then run the same skeptic pass and coherence check — now with the wedge, enemy, pillars, and tribe taken straight from the brand's own strategy record. Note in the brief that it's grounded on `<brandName>`. Grounded is not proven: the record shows what the brand stands for, not that a pillar's result is true, so a pillar drawn from `messagingPillars` stays ASSUMED until its evidence is named.
 
 **Competitor framing stays yours.** The projection has no competitor data by design. If the brief needs a competitive angle, build it from the user's own market knowledge plus the brand's `positioningWedge` and `brandEnemy` — never from hidden gateway fields (they aren't served, and asking for them returns `not_found`).
 
@@ -96,11 +108,11 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-You can now get a positioning brief in one pass — one-liner, wedge, enemy, proof pillars, and target tribe — instead of everyone downstream freelancing their own read of what a launch stands for. It answers the five questions in order and stops, so the brief stays load-bearing instead of turning into a mission-statement essay. It runs the moment it's installed, no account needed.
+You can now get a positioning brief in one pass — one-liner, wedge, enemy, proof pillars, and target tribe — instead of everyone downstream freelancing their own read of what a launch stands for. It answers the five questions in order, labels every claim proven or assumed, lets a skeptic attack the weakest, and stops, so the brief stays load-bearing instead of turning into a mission-statement essay. It runs the moment it's installed, no account needed.
 
 ## Try this now
 
-1. **Draft a brief from scratch** — `Write a positioning brief for a project-management tool for freelance agencies, up against bloated all-in-one suites` → a full brief: one-liner, wedge, enemy, proof pillars with evidence, target tribe.
+1. **Draft a brief from scratch** — `Write a positioning brief for a project-management tool for freelance agencies, up against bloated all-in-one suites` → a full brief: one-liner, wedge, enemy, proof pillars labeled PROVEN or ASSUMED, target tribe, and a skeptic verdict.
 2. **Pressure-test a wedge candidate** — `Is "we're the fast one" a real positioning wedge, or is it marketing air?` → a verdict using the opposite-test, with the reasoning shown.
 3. **Turn features into proof pillars** — `Turn these three features into proof pillars for our positioning wedge: real-time sync, per-client billing, no seat limits` → pillar-and-proof pairs, ordered strongest-first.
 4. **Connected: ground the brief in real DNA** *(requires a Jinn token)* — `Write our positioning brief using our actual Brand DNA — wedge, enemy, pillars, tribe` → the same brief, filled straight from the brand's recorded wedge, enemy, and pillars.

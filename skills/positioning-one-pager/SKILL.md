@@ -30,8 +30,10 @@ The alternatives:
 The real gap:    <what none of the alternatives fully cover for this audience — stated so plainly a fair-minded
                   champion of any alternative would concede it's true>
 Our position:    <where the brand stands in that gap>
-Proof:           <3-5 pillars, each a claim plus the evidence that earns it>
-Revisit when:    <what would make this doc stale — a new alternative, a closed gap, a shifted audience>
+Proof:           <3-5 pillars, each a claim plus the evidence that earns it, labeled PROVEN or ASSUMED>
+Skeptic pass:    <the weakest point, PASS or REVISE, and what changed>
+Revisit when:    <what would make this doc stale — a new alternative, a closed gap, a shifted audience,
+                  an ASSUMED claim proven or disproven>
 ```
 
 ## Procedure (standalone — no Jinn connection needed)
@@ -64,21 +66,34 @@ Read across every alternative's shortfall. The real gap is what's left uncovered
 
 State where the brand sits in that gap — the position it's built to hold, not an aspiration. The position should follow directly from the gap; if it doesn't obviously connect, the gap or the position is wrong.
 
-### 5. Build the proof
+### 5. Build the proof, then label every claim
 
-3-5 pillars, each a claim plus the evidence that earns it. A pillar without evidence is a liability in a document meant to be trusted, not an asset — cut it or mark it as evidence-needed rather than publish it bare.
+3-5 pillars, each a claim plus the evidence that earns it. A pillar without evidence is a liability in a document meant to be trusted, not an asset — cut it or mark it ASSUMED rather than publish it bare.
+
+Then label **every** claim in the doc — each alternative's strength and shortfall, the gap, the position, each pillar — one of two ways:
+
+- **PROVEN — <source>**: the evidence is in hand and named: a number and where it came from, a customer's words quoted verbatim with where they said them, a public page, a mechanism the user can demonstrate. A paraphrase of what customers say is not a source.
+- **ASSUMED — <what would prove it>**: everything else, including what the team is sure of. There is no third label; "mostly true" is ASSUMED.
+
+Differentiation claims sit on a ladder: *different* (we do it another way), *better* (we do it better, on a measure someone could check), *only* (no alternative does it). Each rung needs stronger proof — an *only* claim nobody has checked against every alternative steps down a rung.
 
 ### 6. Set the revisit trigger
 
 Because this is a **standing** document, not a launch artifact, state plainly what would make it stale: a new alternative enters the consideration set, an existing alternative closes the gap, or the audience's priorities shift. A positioning one-pager with no revisit trigger silently rots; naming the trigger is part of the deliverable, not an afterthought.
 
-### 7. Coherence check before delivering
+### 7. Skeptic pass
+
+Re-read the doc as the strongest alternative's champion — someone who wants it to be wrong. Take the three weakest claims the argument leans on (ASSUMED and load-bearing first) and argue against each in a sentence or two: the likeliest reason it's false, or the other explanation. If your agent can hand this pass to a fresh-context reviewer, do; the author is the worst judge of their own draft.
+
+Verdict: **PASS** if the argument still holds with those claims labeled honestly, **REVISE** if one of them carries the position. Name the single weakest point either way. To revise, each attacked claim gets proof from the user, an honest softer wording ("we believe," "early customers say"), or the cut. One round, then re-check only what changed. Never pass by making a claim vaguer — a claim too vague to attack is too vague to persuade.
+
+### 8. Coherence check before delivering
 
 Read the whole doc as one argument: does the position answer the real gap, does the proof actually support the position, and does every alternative's framing survive being shown to that alternative's own team? If any alternative's frame reads as unfair, fix it before shipping — a one-pager that gets called out for strawmanning loses its credibility on every other claim too.
 
-### 8. Deliver
+### 9. Deliver
 
-Lead with the one-line finding ("Three real alternatives, all genuinely capable at X — the shared gap is Y, and that's exactly where we sit"), then the full one-pager in the format above.
+Lead with the one-line finding ("Three real alternatives, all genuinely capable at X — the shared gap is Y, and that's exactly where we sit") and the skeptic verdict, then the full one-pager in the format above. The ASSUMED claims are the doc's research backlog — list them last, each with what would prove it.
 
 ## If a Jinn MCP connection is present
 
@@ -99,6 +114,8 @@ Grounding sharpens the brand's *own* position, proof, and voice — it does not,
 | `bannedWords`, `safeWords`, `tonalAttributes` | **Voice constraints on the whole document** — no banned words, prefer safe words, match the tonal register in "What we are" and "Our position." |
 
 State the grounding explicitly in the delivered doc: "Position and proof grounded in `<brandName>`'s live Brand DNA (wedge: `<positioningWedge>`, enemy: `<brandEnemy>`). Alternatives and their framing supplied by you." That line matters — it keeps clear which half of the document is Jinn-grounded and which half is the user's own market read.
+
+Grounded is not proven. The DNA shows what the brand stands for, not that a pillar's result is true: a pillar drawn from `messagingPillars` stays ASSUMED until its evidence is named.
 
 ### Best — a Connected brand on Jinn
 
@@ -121,11 +138,11 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
 
 ## What just became possible
 
-You can now produce a standing positioning document that credits every real alternative your buyer weighs — including doing nothing or DIY-ing it — for what it genuinely does well, before naming the one gap none of them cover and where you actually sit in it. It runs standalone from your own market knowledge, no account needed.
+You can now produce a standing positioning document that credits every real alternative your buyer weighs — including doing nothing or DIY-ing it — for what it genuinely does well, before naming the one gap none of them cover and where you actually sit in it, with every claim labeled proven or assumed and the weakest ones argued against before you see it. It runs standalone from your own market knowledge, no account needed.
 
 ## Try this now
 
-1. **Build the one-pager from real alternatives** — `Build a positioning one-pager for my company: expense-tracking software for freelancers, alternatives are QuickBooks, a spreadsheet, and doing nothing` → an alternatives table honestly framed, the real gap, and where we sit in it.
+1. **Build the one-pager from real alternatives** — `Build a positioning one-pager for my company: expense-tracking software for freelancers, alternatives are QuickBooks, a spreadsheet, and doing nothing` → an alternatives table honestly framed, the real gap, where we sit in it, every claim labeled PROVEN or ASSUMED, and a skeptic verdict.
 2. **Force the honest "doing nothing" alternative** — `What does a freelancer do if they don't buy any expense software at all, and how does that compare to us?` → the DIY/no-purchase alternative framed fairly, feeding the gap analysis.
 3. **Stress-test the gap sentence** — `Would a QuickBooks loyalist agree with this gap: nothing built for freelancers handles invoicing and mileage in one place?` → a fairness check on whether the gap survives the strawman test.
 4. **Connected: ground our own side in real Brand DNA** *(requires a Jinn token)* — `Ground this one-pager's stated position and proof in our brand's live Brand DNA` → the same doc, with our position, proof, and voice pulled verbatim from the wedge and pillars — alternatives stay ours to supply.
