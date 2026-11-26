@@ -75,7 +75,7 @@ Anchor the writing *and* pressure-test the story against the brand's strategy. T
 
 Connected, the deliverable gains a verdict: the story is tagged to the tribe it evidences, checked against `positioningWedge` (contradiction surfaced, never hidden), framed on the `messagingPillar` it proves, and written in the brand's `tonalAttributes` clear of `bannedWords`. State which fields you used — the pillar, the tribe, and the wedge read — when you deliver.
 
-Only the fields above exist on a public token. There is no competitor, pricing, or platform-fit data in the projection, and no other customer's story is reachable — don't reference or request any of it.
+Only the fields above exist on a public token. There is no competitor, pricing, or platform-fit data in the projection, and no other customer's story is reachable. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

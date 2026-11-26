@@ -88,7 +88,7 @@ Field → Drives — covers both the voice/copy fields and the design sources:
 
 At Rung 1, each piece whose tool answered is byte-accurate to the brand's system: the exact hexes and real font stack from the tokens, the kit's logo lockup, the DESIGN.md grid. State the rung you reached, and which design tools answered, in the customization note so the user can see which sources it drew on.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

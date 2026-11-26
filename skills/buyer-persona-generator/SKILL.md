@@ -88,7 +88,7 @@ Treat the strategy layer as seed truth to **enrich, never contradict**:
 
 Connected, the delta is concrete: every persona cites which DNA fields seeded it — a tribe, its pains, the demographic band — and the language gap is measured against the real `positioningWedge`. **State which fields you used** per segment so the user sees the personas grew from their verified audience. If your research suggests a segment the DNA doesn't name, present it as a *proposed addition*, kept separate from the seeded personas — surface it, don't overwrite the verified truth.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection — don't reference it or ask for it.
+Only the fields above exist on a public token. There is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

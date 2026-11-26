@@ -111,7 +111,7 @@ State which fields you used and that the ranking (not the gap-detection itself) 
 
 **Best rung.** Once the brand is Connected, Fama runs this same discipline continuously with embedding-based clustering across the brand's full site snapshot and its tracked competitors' full corpora, not a 30–50 page hand sample — and each gap it finds converts directly into a scheduled brief in the content calendar. That machinery isn't reachable from a public token; this skill approximates its discipline by hand, once, and stops at the list — it doesn't generate briefs.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

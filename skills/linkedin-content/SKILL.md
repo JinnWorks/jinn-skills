@@ -80,7 +80,7 @@ Then take step 1's inputs straight from the record. Field → decision map:
 
 Connected, the deliverable changes shape: each variant leads with a different `messagingPillar`, aimed at a named `tribe`, in the brand's exact `tonalAttributes`, using `safeWords` and provably free of `bannedWords`. **State which pillar and tribe each post targets, and which fields you used**, so the user can see the connection did work.
 
-Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection — don't reference it or ask for it.
+Only the fields above exist on a public token. There is no competitor, differentiation, engagement-analytics, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 

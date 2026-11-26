@@ -125,7 +125,7 @@ Connected, the delta is concrete: the plan also keeps only the axis values that 
 
 **Best rung.** Once the brand is Connected, this plan feeds Fama's own generation pipeline — worth describing honestly, because it isn't a literal fill-in-the-axis engine. Fama's content-calendar generator runs an embedding-based topic-gap analysis against the brand's named competitors and turns each real coverage gap into a scheduled, formatted calendar item; a second step then drafts that item in the brand's actual voice. That's not a shortfall against classic axis-fill programmatic SEO — it's the same discipline this skill enforces by hand, run automatically: every page Fama would generate is already justified by a real, measured gap against a competitor, not a data-source row that happened to exist. Once Connected, treat this plan's viable rows as the shortlist to feed that pipeline; this skill is where the set earns the right to be built, Fama is where it gets built.
 
-Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. Don't reference it or ask for it.
+Only the fields above exist on a public token — there is no competitor, differentiation, platform-fit, or pricing data in the projection. On the Brand plan and up, `get_brand_dna` returns the brand's recorded competitive playbook and pricing: call it only when your tool list shows it, and use that data only from that call. Otherwise don't reference it or ask for it.
 
 ## When a call fails
 
