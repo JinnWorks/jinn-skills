@@ -7,7 +7,7 @@ description: Grade how consistently a brand posts on one platform — frequency,
 
 Deliverable: **a cadence grade (0–100) plus a metric breakdown** for one brand's public posting history on one platform — frequency, variance, streak/gap pattern, and format mix, each scored and explained — with an optional side-by-side gap read against up to 3 named competitors on the same metrics.
 
-This is a diagnostic, not a plan: it grades what already shipped. Deciding what to post next across properties is `content-rotation`'s job; reading what the market is currently saying is `social-listening-brief`'s job (that skill doesn't exist in this catalog yet — noted here so the boundary is stated once). Works standalone from public timelines you (the agent) read yourself, graded against published platform norms. Connected to Jinn, the read is also checked against the brand's own documented strategy — what its stated pillars say the cadence *should* be serving — straight from the brand's own record.
+This is a diagnostic, not a plan: it grades what already shipped. Deciding what to post next across properties is `content-rotation`'s job; reading what the market is currently saying is `social-listening-brief`'s job. Works standalone from public timelines you (the agent) read yourself, graded against published platform norms. Connected to Jinn, the read is also checked against the brand's own documented strategy — what its stated pillars say the cadence *should* be serving — straight from the brand's own record.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
