@@ -130,10 +130,6 @@ On its own, the diagnosis in step 3 reads the symptom language and routes on it 
 
 State which fields shifted the sequence when you deliver. Only the fields above exist on a public token — there is no analytics, traffic, or engagement data in the projection, so the diagnosis itself never claims to have measured anything; it's still a read against the brand's stated record, not live numbers.
 
-## Best rung — Connected
-
-Once the brand is Connected on Jinn, this same sequenced plan stops being a set of skill files to hand-run: Ghost, Fama, Vermeer, and Chart each pick up the matching stage directly — a content-engine sequence lands as drafts in Ghost's queue, a visibility gap becomes a scheduled Fama brief, a creative sequence renders in Vermeer — instead of a person running each skill by hand and carrying the handoff themselves.
-
 ## When a call fails
 
 Read `data.code` on the JSON-RPC error and act — the routing plan still ships from symptom-language diagnosis alone:

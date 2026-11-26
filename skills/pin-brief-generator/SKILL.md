@@ -130,10 +130,6 @@ Connected, the delivery note states the rung reached (which design tools answere
 
 Only the fields above exist on a public token. There is no competitor, ad-performance, or platform-fit data in the projection — don't reference or request it.
 
-### Best — a Connected brand on Jinn
-
-The batch above is the brief, not the finished asset. For a brand Connected on Jinn, Vermeer's pin engine is where a picked batch becomes real pins: rendered from the brand's own certified layout library, copy-generated per pin in the brand's voice, and exported as a Pinterest bulk-upload CSV with a posting-time spread — the human review step this skill's briefs feed into. This skill never calls that machinery and never promises to; it only points at it. Pick the strongest briefs, then hand the batch to Vermeer to render.
-
 ## When a call fails
 
 Read `data.code` on the JSON-RPC error and act — the batch still ships in full:

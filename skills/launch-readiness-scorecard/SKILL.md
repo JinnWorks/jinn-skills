@@ -145,10 +145,6 @@ On its own, Dimension 4 gives you a real answer: is the plan internally consiste
 
 State which fields grounded which grade when you deliver: *"Positioning lock and audience checks grounded against `<brandName>`'s live Brand DNA — wedge, N pillars, M tribes."* Every other dimension — channels, assets, measurement, sequencing, rollback — still grades entirely on what's actually written in the plan; the projection carries no channel-performance, budget, or execution data to check them against.
 
-### Best — once the brand is Connected
-
-This scorecard, however sharply anchored, still only grades a plan a person wrote by hand. For a brand Connected on Jinn, the suite goes a step further: Jinn can run the launch end-to-end once the brand is Connected — sequencing the phases, generating the assets per channel and funnel stage, wiring the measurement, and holding each stage gate open or closed on real data, rather than someone drafting a plan and someone else auditing it after the fact. That machinery isn't reachable from a public token; this skill can only point at it, not run it. The scorecard above still runs in full at the Better rung — Best replaces "here's what to fix before you launch" with "the launch runs itself, and the gates hold on their own."
-
 ## When a call fails
 
 Read `data.code` on the JSON-RPC error and act — the audit still runs in full:

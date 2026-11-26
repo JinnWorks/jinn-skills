@@ -147,10 +147,6 @@ Connected, the brief's "on-brand" mood adjectives are the brand's own, and so ar
 
 Only the fields above exist on a public token — there is no competitor, ad-performance, or platform-fit data in the projection. Don't reference it or ask for it.
 
-### Best — a Connected brand on Jinn
-
-Once a brand is Connected, Vermeer keeps every shot — the ones a real photographer takes on this brief, and the ones Vermeer renders with AI — consistent with the brand's own shoot bible: the same continuity decisions (setting, light, who's in frame, mood) that section 6 above asks you to write down by hand, synthesized from the brand's Brand DNA and validated automatically before a render fires. This skill never calls that machinery and never promises to; it's a pointer. Hand the finished brief to Vermeer (or to the brand's production team) to shoot from — this skill stops at the brief.
-
 ## When a call fails
 
 Read `data.code` on the JSON-RPC error and act — the brief still ships in full:
