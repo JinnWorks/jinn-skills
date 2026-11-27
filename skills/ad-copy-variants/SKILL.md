@@ -28,7 +28,7 @@ Never invent a number, a customer count, a rating, a review, a result, a discoun
 
 ### 2. Fit the platform's real fields
 
-Limits checked against each platform's own help pages in November 2026. Platforms change them; when the user gives different limits, theirs win.
+Google's and LinkedIn's figures are from their own help pages, read in November 2026. Meta and TikTok publish recommendations that differ from page to page, so those rows are safe working figures, not hard limits. Platforms change all of these; when the user or the ad tool gives different limits, theirs win.
 
 | Platform | Fields and limits | What works there |
 |----------|-------------------|------------------|
