@@ -39,7 +39,7 @@ Google's and LinkedIn's figures are from their own help pages, read in November 
 
 Default set where the ask gives no count:
 
-- **Google Search:** one full responsive search ad (10 headlines and 3 descriptions) plus four sitelink texts and four callouts. Headline mix: three that carry the search term, three benefits, two proof or specifics, one offer or action, one with the brand name. A bare Google ask gets this whole set; decide what is open and write it, do not ask.
+- **Google Search:** when the ask names one search term, one full responsive search ad (10 headlines and 3 descriptions) plus four sitelink texts and four callouts. When it names none, two ads, each for a different kind of search (people searching the brand's name, and people searching the kind of product), each with 10 headlines and 3 descriptions, then the sitelinks and callouts once. Search headlines use ordinary capitals even when the brand writes in lowercase elsewhere, unless the brand's rules name ads. Headline mix: three that carry the search term, three benefits, two proof or specifics, one offer or action, one with the brand name. A bare Google ask gets this whole set; decide what is open and write it, do not ask.
 - **Meta, TikTok, LinkedIn:** 5 complete variants. Each has its own primary text and headline (TikTok: its one text line).
 
 ### 3. Find the angles before you write
