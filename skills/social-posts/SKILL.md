@@ -32,7 +32,7 @@ Facts belong to a product, not to the whole brand: if the user sells several pro
 | The ask | Default |
 |---------|---------|
 | "a post" on a named platform | One post, the strongest angle. One line after it names another angle they can ask for. |
-| "a few" / "some" posts | At least three, and more when several platforms are in play (about two per platform), each a different angle (a pain, a proof, a point of view, a lesson, a launch note). Different angles, not rewrites. |
+| "a few" / "some" posts | At least three, and more when several platforms are in play (about two per platform), each a different angle (a pain, a proof, a point of view, a lesson, a launch note). Different angles, not rewrites. For short single posts ("some tweets", "some captions") give eight to ten to pick from. |
 | One idea for several platforms | One native post per platform, not the same text cut down. |
 | X, one claim | A single post. Three or more load-bearing beats (a sequence, a list, a story) earn a thread; two is a single post unless both need room. |
 | A blog intro | Only when asked: about 100 to 150 words that open on the reader's situation, name the tension and say what the piece delivers. |
@@ -55,6 +55,9 @@ If the brief can only carry two strong posts, deliver two and say why.
 Fix every failure before handing over. A fail is a rewrite, not a note.
 
 - **Answers the ask:** when the ask poses a question or names a point ("why it tastes like soda with less sugar"), at least one post states the answer in a plain sentence a reader could repeat. Facts back the answer; a list of ingredients or features is not an answer. If the brand's facts do not hold the answer, give the general reason in the brand's voice without presenting it as a fact about the brand.
+- **Nothing unconfirmed that nobody asked for:** go through every post and list each number, product name, flavour, date, offer and claim. For each one ask: is it confirmed by its source, or did the ask call for it? If neither, take it out and write the line without it. Pass only when the list is empty. An unconfirmed seasonal product or a figure from brand messaging in a general post is a fail, even with a warning in the hand-over.
+- **Sounds right for the platform:** the brand's voice is the same everywhere, its register is not. A LinkedIn post keeps the warmth and drops the slang, pet names and caption sign-offs; an Instagram or TikTok caption can use them. Read each post as a follower of that platform would.
+- **Light asks stay light:** a giveaway line, a joke or a caption that needs no facts gets none. Lead with the funniest true-to-voice line, not a pillar or an ingredient.
 - **Banned words:** none of the user's avoid-list, and none of the usual filler ("game-changing", "unlock", "revolutionary", "thrilled to announce", "let that sink in").
 - **Source match:** every number, name, verb and superlative matches its source. "Can cut costs" is not "cuts costs".
 - **Something to use:** you can name what a reader would save or act on (a number, steps, a template, a real price). If the only answer is an opinion, go back to the facts.
