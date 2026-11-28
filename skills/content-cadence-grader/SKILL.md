@@ -1,136 +1,133 @@
 ---
 name: content-cadence-grader
-description: "Grade how steadily a brand actually posts on a platform: posts a week, the longest silence, empty weeks, format mix and a 0 to 100 score with a plain verdict, read from its real dated posts, plus the same read on up to three named competitors. Use when asking whether a brand posts consistently, has gone quiet, or keeps up with rivals. Grades what already went out, not what to post next. Sharpest when connected to Jinn's Brand DNA over MCP."
+description: "Grade how steadily a brand actually posts on a platform: a plain verdict (a letter when a grade is asked for), posts a week, the longest silence and the one still open, empty weeks, format mix and how well it kept its own planned rhythm, read from its real dated posts, with the same read on up to three named rivals and the one change to make first, in dates. When no full run of posts can be read, what can be seen today, the fastest way to get the dates and the verdict ready to fill. Use when asking whether a brand posts consistently, has gone quiet, keeps to its plan or keeps up with rivals. Grades what already went out, not what to post next. Sharpest when connected to Jinn's Brand DNA over MCP."
 ---
 
 # Content Cadence Grader
 
-Deliverable: **a finished cadence report** for one account on one platform: the verdict and the one dated finding that matters most in its first two lines, then the counts behind it, a 0 to 100 score, and the one change to make first. When only some posts can be read, still a grade: a provisional verdict in words from the dated posts you saw, then what you could see. Never a request for data alone, never a method on its own. The ask sets the shape; the defaults below apply only where the ask is silent.
+Deliverable: **a finished cadence verdict** for one account on one platform: the verdict and the one dated finding that matters most in the first two lines, the counts behind it, and the one change to make first, in dates. When no full run of posts can be read, the posts that can be seen today, the fastest way to get the dates, and the verdict sentence ready to fill. Never a guessed verdict, never a blank grade table, a scale or a request for data as the whole answer. The ask sets the shape; the defaults below apply only where the ask is silent.
 
-Works in full with no Jinn connection: you read the account's dated posts yourself, or the user pastes them, and grade from the log. Connected, the report also says whether the posts cover the topics and people the brand's own profile says it is for, and you say plainly what the profile did not know.
+The brand's own record holds no posting history, so it cannot answer this on its own. This skill adds the method: read the posts in order, count them, judge against the account's own target or earlier pace, compare rivals on the same dates, and turn the biggest hole into a fix the team can act on this week. It works in full with no Jinn connection: you read the account's dated posts yourself, or the user pastes them. Connected, the brand's name, audience, products and any posting rhythm in its guidelines come from its record.
 
 Connect a brand at [jinn.works/products/agents](https://jinn.works/products/agents) — once it's Connected, its live Brand DNA feeds this skill (and every skill in this catalog) automatically.
 
-Not this skill: deciding what to post next and where (`content-rotation`), dating a posting plan (`calendar-planner`), a full organic social plan (`organic-social-plan`), what people are saying about the brand or category (`social-listening-brief`), a deep read on one rival (`competitor-profiler`).
+Not this skill: deciding what to post next and where (`content-rotation`), dating a posting plan (`calendar-planner`), a full organic social plan (`organic-social-plan`), writing the posts (`social-posts`), what people say about the brand (`social-listening-brief`), a deep read on one rival (`competitor-profiler`).
 
 ## Procedure (standalone — no Jinn connection needed)
 
 ### 1. Get the dated posts, and know what each source is good for
 
-You need four things: the account (handle or URL), the platform, the window, and the dated posts in it. If the platform is missing and the brand plainly uses one, grade that one and say so. Try every read below that is open to you, best first, before deciding you saw nothing; a web search for the account is always tried:
+You need the account, the platform, the dates to read and the dated posts in them. Try every read open to you, best first, before deciding you saw nothing:
 
-- **What the user pasted** (an export, a list of dates, screenshots of the grid): the fullest record. Use it exactly.
-- **A feed:** a blog's RSS feed or sitemap, a newsletter archive, a YouTube channel's upload list. Dates are exact and history is usually deep.
-- **The public profile, as a logged-out visitor sees it.** Never try to get past a login wall. Working notes, not platform rules: YouTube and TikTok profiles usually show the longest dated history; X, LinkedIn and Instagram often show only recent weeks before a login wall or a scroll limit; Instagram Stories are never visible later.
-- **Web search results that show dated posts:** a sample, not a run. Relative dates ("3 weeks ago") are turned into a date and marked approximate.
+- **What the user pasted** (dates, an export, screenshots of the grid): the fullest record. Use it exactly.
+- **A feed:** a blog's RSS feed or sitemap, a newsletter archive, a YouTube channel's uploads. Exact dates, deep history. For a blog, look for the feed and the sitemap on the brand's own site before saying it cannot be read.
+- **The public profile, as a logged-out visitor sees it.** Never try to get past a login wall. **Then a web search for the account:** dated posts in results are a sample, not a run. A relative date ("3 weeks ago") becomes a date, named as approximate in the check list at the end.
 
-A silence, empty weeks or a score need posts read in order with none skipped (a pasted list, a feed, a profile scrolled in order). From a sample alone, use the partial-read shape in step 6: a provisional verdict in words, no silence claim, no score. With no dated posts at all, the same shape says so in its first line.
-
-Log one row per post: date, format (text, image, video, carousel, link, repost, live), source, and a few words on its topic when you read the post text. Replies and comments are conversation, not publishing: they do not count. A pinned post is logged at its own date, not at the top. A caption cut off mid-word is still a post. Log only what you saw in this pass; never fill a gap from memory or from what an account "usually" does.
-
-Trust each fact only as far as its source goes. Never invent a post, a date, a count, a reason for a silence or a competitor figure. A gap may be deleted posts; say it may be, never that it is. A guess about why the account went quiet (a holiday, a new hire) is never stated as fact.
+Never say a read is impossible without trying it. With no handle given, find it on the brand's own site or by searching the brand's name, and say where you found it. Never guess a handle, a blog address or any web address; one you cannot find stays a blank the user fills. Log one row per post: date, format (text, image, video, carousel, link, repost, live) and a few words on its topic when you read the text. Replies and comments do not count. A pinned post sits at its own date. Log only what you saw in this pass. Never invent a post, a date, a count, a grade, a reason for a silence or a rival's figure. A gap may be deleted posts; say it may be, never that it is.
 
 ### 2. Let the ask set the shape
 
 | The ask | Default |
 |---------|---------|
-| One account, one platform | The full report for the most recent 90 days you can see. |
-| "Are we consistent?" across several platforms | One short block per platform, then one line on which platform is steadiest and which slipped. |
-| With named competitors (up to three) | The same read on each, on the same platform and the overlapping dates, side by side. |
-| "Did we drop off since <date or event>?" | The dates split at that point: posts a week before and after, and the longest silence on each side. |
-| "Are we posting enough?", a target, or a planned rhythm | The target is the measure for frequency. A rhythm with named days becomes expected posts for the dates read (a Tuesday-and-Friday plan over 8 weeks is 16 posts, on those days), and each week is a match or a miss. Without a target, the account's own earlier pace is. |
-| A blog, newsletter, podcast or YouTube channel | Read back further, up to 12 months, until the read holds at least 10 posts. No format-mix line when there is one format. |
+| One account, one platform | The verdict for the most recent 90 days you can see. |
+| Several platforms | One short block each, then which is steadiest and which slipped. |
+| Named rivals (up to three) | The same read on each, same platform, overlapping dates, side by side. A rival you cannot read keeps its row with what is missing; it never holds up the verdict. |
+| "Did we drop off since <date>?" | Before and after: posts a week and the longest silence on each side. |
+| A target or a planned rhythm | The plan becomes slots on real dates (Tuesday and Thursday over 8 weeks is 16 slots, on those days). Each week is a match or a miss, and the reply says how many slots were filled. Name a holiday only when the user named it. |
+| A blog, newsletter, podcast or channel | Read back up to 12 months until the read holds 10 posts. No format line when there is one format. |
+| For a boss, a review or a meeting, or "keep it short" | The two or three sentences to say out loud come first, numbers in. Then only the biggest gap, the silence still open, the fix and the one number to watch. The verdict is a word (a letter only when the ask says grade): no week counts, score or scale. |
+| "Something I can act on this week" | The fix becomes dated slots for the next two weeks, each with a one-line post idea from a product or topic the brand already has. No claims, no full captions. |
 
-**When the ask leaves something open.** A bare ask with no account ("grade our posting"): ask at most two short questions in one message (which account, and which platform), and always offer "or say you pick". On "you pick", grade the platform the brand's site links first. With a brand name but no handle, find the handle on the brand's own site, say where you found it, and grade it. An ask that names the account: do not stop to ask. Decide the dates and the measure, say what you decided, and end decided. Every step and check still applies after an answer.
+**When the ask leaves something open, decide.** No account: grade the brand in scope on the platform its own site links first. No dates: the last 90 days to today, written as calendar dates. Never stop to ask before the verdict. Say what you assumed in one line after the work and offer the other choice. Every step and check still applies after a follow-up turn.
 
 ### 3. Find the finding, not the answer every tool gives
 
-"Post more consistently" is the answer any tool gives with no data. The report must instead carry these, each checkable against the log:
+"Post more consistently" is the answer any tool gives with no data. The verdict must instead carry these, each checkable against the posts:
 
-- **The dated finding:** the single thing that most explains the score, with dates and counts. "Nothing posted from 4 August to 19 September, 46 days, after 3 a week before it" beats "some gaps".
-- **The trend:** posts a week in the first half of the dates read against the second half.
-- **The fix in numbers:** one change with days or counts that would have closed the biggest hole ("one post every Tuesday would have filled 7 of the 9 empty weeks"). Never a generic posting frequency.
-- **What did not show up:** when no gap, slump or skew stands out, say so as the finding. Steady is a real answer.
+- **The dated finding:** the one thing that most explains the verdict, with dates and counts. "Nothing from 4 August to 19 September, 46 days, after 3 a week before it" beats "some gaps".
+- **The trend:** posts a week in the first half of the dates against the second half. When no gap, slump or skew stands out, steady is the finding; say so plainly.
+- **The silence still open:** the last post's date and the days from it to today, always stated. It leads only when it is the longest silence in the dates.
+- **The fix in numbers:** one change with days or counts that would have closed the biggest hole ("one post every Tuesday would have filled 7 of the 9 empty weeks"). A burst gets its own fix ("the four posts of 10 to 12 March, spread one a week, would have covered four empty weeks").
 
-### 4. Count and score from the log
+### 4. Count and grade
 
-Every figure is computed from the logged rows, so the same log always gives the same score. Thresholds below are working figures, not industry rules.
+Every figure comes from the logged posts, so the same posts always give the same verdict.
 
-- **Weeks seen** = days from the first to the last date you actually read, divided by 7. **Rate** = posts divided by weeks seen. Show both.
-- **Gaps** = days between consecutive posts, plus the days from the last post to today. Use the median gap as the typical gap; one burst skews an average. A median under one day counts as one day.
-- **Frequency, up to 40 off.** With a target from the user (or the brand's guidelines): 40 × (1 − rate ÷ target), never below 0. Without one: 40 × (1 − second-half rate ÷ first-half rate), never below 0, and 0 when the first half has no posts. Say which measure you used. Never score against a generic "post N times a week" figure.
-- **Empty weeks, up to 25 off.** 25 × (weeks with no post, leaving out weeks inside the longest silence) ÷ weeks seen.
-- **Longest silence, up to 25 off.** Longest gap ÷ median gap: 2 or less, 0; up to 3, 8; up to 5, 16; over 5, 25.
-- **Format mix, up to 10 off.** Every post one format: 10. One format over 80%: 5. Skip on a one-format platform.
-- **Verdict:** 85 to 100 Steady, 60 to 84 Uneven, below 60 Irregular. When the days since the last post are longer than any earlier gap and over three median gaps, the verdict is Gone quiet, whatever the score.
-- **Under 10 posts:** give the counts and a verdict in words, no score, and say one post more or less would move it.
-- **Posting habit:** when times are visible, the days and hours most posts went out, in the account's time zone if known (else say UTC). Call it their habit, not their best time.
-- **Engagement**, only when the user gives the numbers and asks: whether busier weeks did better, against the account's own median. With fewer than 10 posts or no clear difference, say no pattern held. That is a finding.
+- **Weeks seen** = days from the first to the last date read, divided by 7. **Rate** = posts ÷ weeks seen. **Gaps** = days between posting days (two posts on one day leave no gap), plus the days from the last post to today. A gap is always named by the post dates on either side and the days between ("12 May to 6 June, 25 days"), never by the empty days inside it. The typical gap is the median gap. When posts bunch into runs of a few days with long silences between, the reply shows that rhythm in dates ("a few posts over 2 or 3 days, then two to three weeks quiet"), never a median the dates do not show.
+- **The yardstick,** in this order: the user's target or plan, a rhythm in the brand's guidelines, the account's own earlier pace, then the named rivals' pace on the same dates. Never a generic "post N times a week" figure. The reply names it in plain words ("against your plan of two a week").
+- **Points off, from 100:** posting below the yardstick, up to 40 (40 × (1 − rate ÷ target), or with no target 40 × (1 − second-half rate ÷ first-half rate), never below 0). Empty weeks outside the longest silence, up to 25 (25 × empty weeks ÷ weeks seen). The longest silence against the typical gap, up to 25 (2 times or less 0, up to 3 times 8, up to 5 times 16, over 5 times 25). One format only, 10; one format over 80%, 5.
+- **Verdict:** 85 and up Steady (A), 70 to 84 Mostly steady (B), 55 to 69 Uneven (C), 40 to 54 Patchy (D), below 40 Irregular (F). When the silence up to today is the longest yet and over three typical gaps, the verdict is Gone quiet, whatever the score. With under 10 posts, still give it, and say one post more or less would move it. The score is how you choose the word, never what you hand over: the reply gives the verdict word, adds the letter only when the ask says grade, letter or score, and never prints the score, the points or the scale.
 
-### 5. Run the checks a model skips
+### 5. When no full run can be read, give the way to the answer
+
+Only after trying every read in step 1. The answer is still about this brand, never a blank grade table or a scale. In this order:
+
+- **First line:** what you tried and could not read, in a few words, then: paste just the post dates, newest first, and the verdict comes straight back.
+- **Seen:** the newest dated posts you found and their formats, and any dated sample from a search, with its dates. Estimated: a rough pace only when the sample supports it ("the sample suggests about two a week"), never a verdict or a letter.
+- **The fastest way to the dates today.** A feed: how to find it (the page source's rss or atom link, the site's feed or sitemap page), a no-code way (open it in a browser and copy the date lines), and a script of under 15 lines with the address left for the user to paste that prints each post date newest first. Say a feed may hold only its newest posts, so the sitemap fills older dates. A social account: where the platform's own analytics or export lists each post's date.
+- **The verdict, ready to fill:** the sentence to say out loud once the dates are in, with blanks for posts, rate, longest silence with its dates and the silence still open, and a plain clause saying those last two decide the word. With a plan, the slots on real dates ("16 slots, Tuesdays and Thursdays").
+- **One line for this brand:** a launch, drop or season its site or record dates that would show as a run of posts then quiet weeks. Never guess a launch.
+- **Named rivals:** one fill-in row each, the same columns for every account (posts, a week, longest silence with dates, silence still open, formats). No grade column.
+
+The dates are the user's words turned into calendar dates. No week count, verdict or check list for posts not read.
+
+### 6. Run the checks a model skips
 
 Fix every failure before handing over. A fail is a rewrite, not a note.
 
-- **Answers the ask:** the first two lines give the verdict and the dated finding in plain words; with only a sample, the provisional verdict and the dated posts it rests on; with no posts read, that in one sentence and the one thing that unlocks the grade. A reply that opens on method, sources, caveats or what you could not do fails.
-- **Every read tried:** each source in step 1 open to you was tried. The reply says what you saw, never that you skipped a read you could have made.
-- **Nothing unconfirmed that nobody asked for:** list every date, count, rate, format share, competitor, web address and stated reason in the reply. Each traces to a logged row, to something you opened, to the brand's own site, or to the user; a competitor appears only when named. Take out the rest, or name the place without an address ("the profile grid"). Pass only when the list is empty.
-- **Counted, not estimated:** the post count matches the log, the rate matches count ÷ weeks seen, the score matches the four parts, and the real first and last dates read are stated, even when the ask wanted longer. A count for posts you did not see is left out, never written as 0. Approximate dates are marked approximate.
-- **Run, not sample:** a silence, empty-week count or score rests only on posts read in order with none skipped. From a search sample, take them out; a verdict word marked provisional may stay.
-- **Fair comparison:** every competitor is read on the same platform and the overlapping dates. A shorter read is never padded to match a longer one.
-- **No borrowed benchmark:** no posting frequency or engagement rate from outside the account, unless the user gave it or you name its source.
-- **Only this account could get it:** the fix names days or counts from this log, and the report carries dates and counts only this log has. Advice any account could get fails.
-- **Plain words:** the reply never names this skill, a log, a record, a window, a step or a rule, and never shows a formula, deduction points or score bands. Say "the posts I could see", "your brand profile".
-- **Banned words:** none of the user's avoid-list, and none of the usual filler ("leverage", "optimize your presence", "content is king", "game-changing").
+- **Answers the ask:** the first two lines give the verdict and the dated finding; with no full run read, what you tried, the paste line and the newest dated post you saw. Past that one short clause on what you tried, a reply that opens on method, sources, limits, a blank table or a scoring scheme fails, and so does one that calls a read impossible when you did not try it.
+- **Nothing unconfirmed that nobody asked for:** list every date, count, rate, share, rival, web address and reason in the reply. Each traces to a logged post, to something you opened, to the brand's own site, or to the user; a rival appears only when named. Take out the rest. Pass only when the list is empty.
+- **Counted, not estimated:** the count matches the posts, the rate matches count ÷ weeks seen, the verdict matches the points, and the real first and last dates read are stated. Every gap is named by the posts on either side. Recount every gap and rhythm figure from the dates as the reader will; one the dates do not plainly show is rewritten. A count for posts you did not see is left blank, never written as 0.
+- **Run, not sample, and fair:** a silence, empty weeks or a verdict rests only on posts read in order with none skipped. Every rival is read on the same platform and the overlapping dates, never padded to match.
+- **Complete, and no heavier than asked:** the yardstick named (not in the step 2 short shape), a row for every named rival, the dates as real dates, a plan as slot counts, every part the shape in step 2 asked for. A letter the ask did not call for fails; a score, points or scale line always fails; with no posts read, a grade column or week count fails.
+- **Only this account could get it:** the fix names days or counts from these posts; with no full run, the one line for this brand names its own dated launch, drop or product. Advice any account could get fails.
+- **Plain words:** the reply never names this skill, a brand record or brand profile, a tool, a log, a step or a rule. Say "your guidelines", "the posts I could see".
+- **Banned words:** none of the user's avoid-list, and none of the usual filler ("leverage", "optimize your presence", "content is king").
 - **Written-by-a-person tells:** no "it's not X, it's Y" reveals, no self-answered questions, no emoji as bullets, no em dashes unless the user's own writing uses them.
-- **The brand's own terms win:** formats and channels are named the way the user or brand names them (Reels, Shorts, issues, episodes).
-- **Ends decided:** when the ask named the account, the reply ends with the hand-over note, not a question, unless the answer would change the grade (say, a posting target), and then one question.
+- **The brand's own terms win:** formats and channels named as the user or brand names them (Reels, Shorts, issues, episodes).
+- **Ends decided:** the reply ends with the check list (only when posts were read) and one line, never a question, unless a missing target would change the verdict.
 
-### 6. Hand it over
+### 7. Hand it over
 
-When posts were read in order, the report first, in this shape, dated:
+For a meeting, a review or a short ask, the step 2 shape replaces the one below. Otherwise, when posts were read, the verdict first, in this shape:
 
 ```
-<Account> on <platform> · <first date> to <last date> (<weeks> weeks seen) · read <today>
-<Verdict>, <score>/100. <The dated finding in one sentence.>
-Posts: <N>, <rate> a week (first half <a>, second half <b>). Measured against <target or own earlier pace>.
-Longest silence: <days> days, <date> to <date>. Typical gap: <days> days. Empty weeks: <n> of <weeks>.
-Formats: <format share, largest first>.        Posting habit: <days, hours>   [when visible]
-<Competitor>: <rate> a week, longest silence <days>, <verdict>.   [one line each, when named]
-Fix first: <one change in days or counts>.
+<Account> on <platform> · <first date> to <last date> (<weeks> weeks) · read <today>
+<Verdict> (<letter>, only when asked). <The dated finding in one sentence.> Against <yardstick, in plain words>.
+Posts: <N>, <rate> a week (first half <a>, second half <b>).
+Longest silence: <days> days, <post date> to <post date>. Open now: <days> days since <last post>. Rhythm: <typical gap, or the runs and silences in dates>. Empty weeks: <n> of <weeks>.
+Formats: <share, largest first>.
+Plan: <filled> of <slots> slots; missed weeks <dates>.   [when a plan is given]
+<Rival>: <verdict>, <rate> a week, longest silence <days> days.   [one line each]
+Fix first: <one change in days or counts>. Watch: <one number to check next time>.
 ```
 
-**Only a sample, or no dated posts.** Skip that shape. Give, in this order, in under 20 lines:
-1. First line: "<Account> on <platform>: <verdict>, provisional", then the dated posts it rests on (how many, the latest with its date). Never from memory or what an account "usually" does. With no dated post seen, the first line says no grade yet and why, in a few words.
-2. What else you could see, each item marked seen or estimated (the formats on view; a named competitor's latest dated post). An estimate rests only on dated posts you saw, and is never a rate or a score.
-3. When the user gave a target or planned rhythm, what it means for their dates in posts and days, so they know what matching looks like.
-4. The one next step: paste the post dates (or the platform's export) and the full graded report comes back. Optional, last: at most three plain things to count on the profile, no points or formulas.
-
-Then the hand-over note, at most four short lines. When the reply states a fact that needs confirming before it is shared, the note opens with it: "Check before sharing: <the fact>, <why it is unconfirmed>." (dates shorter than asked, approximate dates, posts a logged-out read could not see). Otherwise no check line. Then one line on where you read the posts. Never call the history complete; say what you saw. No deduction tables or essays in the note unless asked.
+Then the dated slots, when the ask called for them. Then, only when posts were read, **Check before you use this**, at most five short lines, only for what needs confirming: dates shorter than asked, approximate dates, posts a logged-out read could not see, a rival read on fewer weeks, an assumption you made. No tags through the work. Last, one line on where you read the posts and what you assumed, with the other choice offered.
 
 ## If a Jinn MCP connection is present
 
-Each call adds to the procedure above; none replaces a step, and the report still ships if every call fails. The record never changes the score or the competitor read: it holds no posting history and no competitor data. Read the tool list first and call a tool only when it is listed. Calls in order:
+Each call adds to the procedure above; none replaces a step, and the verdict still ships if every call fails. The record never changes the count or a rival's read. Read the tool list first and call a tool only when it is listed. Calls in order:
 
 1. `get_token_context` → a slug from `brand_slugs` and the `tier`. (Fails → see **When a call fails**.)
 2. `get_brand_dna_public` with `{ "slug": "<slug>" }` → the bounded projection, on any token including demo:
 
 | Projection field | Decides |
 |------------------|---------|
-| `brandName` / `officialName` | Which brand the account belongs to. It holds no handle: still take the handle from the user or the brand's own site. |
-| `messagingPillars[]` | The topics line: which topics the logged posts covered and which none of them touched, from logged topics only. With dates and no post text, leave it out. On a partial read, name the topics as what to look for in the posts on this account. A note, never a score change. |
-| `tribes[]` | One line on whether this platform and these formats reach the people the brand says it is for. |
-| `painPoints` | Whether any logged posts speak to the problems the brand says it solves. |
+| `brandName` / `officialName` | The name to search for the handle. It holds no handle. |
+| `messagingPillars[]` | The topics the posts covered, only when post text was read, and the topics for slot ideas. Never pasted in as a line. |
+| `tribes[]` | One line in the fix, only when this platform plainly misses the people the brand is for. |
+| `bannedWords[]` / `formattingConstraints` | The wording of the reply and the slot ideas. |
 
-3. **`brief_task`** (Connected and up, when listed) — one call per request: `{ "slug", "task": "<the ask in plain words>", "format": "cadence report", "audience": "<reader, if known>" }`. Its `do` and `dont` lines become rules for the report's wording. Its `unknowns` and `coverage.gaps` are what the record does not know: say so, never fill them yourself.
-4. **Before any product claim** — `get_brand_products({ slug })` (Brand plan and up, when listed), only when the report ties a slump or a burst to a named product (a launch, say). The product's own record backs only its own facts; brand-level text is for angle, never proof of a product fact. With no product named, skip it.
-5. **A picture** — `search_assets` (Connected and up, when listed) is not needed for a grade. Call it only when the user asks for a picture to go with the fix, and never describe a picture you did not get back.
-6. **Guidelines** (Brand plan and up, when listed) — `get_brand_guidelines({ slug })`: when its text states a posting rhythm or the channels the brand uses, that is the target for frequency, and the report says it came from the brand's guidelines. Otherwise it shapes only the wording.
+3. **`brief_task`** (Connected and up, when listed) — one call per request: `{ "slug", "task": "<the ask in plain words>", "format": "cadence report", "audience": "<reader, if known>" }`. Its `do` and `dont` lines become rules for the wording. Its `unknowns` and `coverage.gaps` are what the record does not know: never fill them yourself.
+4. **Before any product claim** — `get_brand_products({ slug })` (Brand plan and up, when listed), when a slot idea names a product or a burst lines up with a launch. Use the product's exact name. The product's own record backs only its own facts; brand-level text is for angle, never proof. Slot ideas carry no claims.
+5. **A picture** — `search_assets` (Connected and up, when listed) only when the user asks for one with the fix. Never describe a picture you did not get back.
+6. **Guidelines** (Brand plan and up, when listed) — `get_brand_guidelines({ slug })`: a stated posting rhythm or channel list becomes the yardstick, and the reply says it came from the brand's guidelines.
 
-Deliver as in step 6, plus one line naming what came from the brand profile (topics, audience, any guidelines target) and what it did not know. A public token returns only this bounded projection: no competitors, pricing or product notes.
+Deliver as in step 7. Say in plain words what came from the brand (the target, the slot topics) and nothing about tools. A public token returns only this bounded projection: no competitors, pricing or product notes.
 
 ## When a call fails
 
-Read the JSON-RPC error and act. Sign-in failures carry `data.code`; tool errors carry `data.kind`; a plan limit is error code `-32004` with `data.required_tier`. The report still ships in full from the standalone procedure:
+Read the JSON-RPC error and act. Sign-in failures carry `data.code`; tool errors carry `data.kind`; a plan limit is error code `-32004` with `data.required_tier`. The verdict still ships in full from the standalone procedure:
 
 No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works/api/agents/request-demo-token -H 'content-type: application/json' -d '{"skill":"content-cadence-grader"}'`, set `JINN_MCP_TOKEN`, and connect per the catalog README.
 
@@ -141,25 +138,25 @@ No token yet at all? Mint a free one first: `curl -X POST https://app.jinn.works
     --header "Authorization: Bearer <token>"
   ```
 - **`data.kind` is `not_found`** → that slug isn't in your token's allowlist. Call `get_token_context` and use one of the `brand_slugs` it returns.
-- **`data.kind` is `rate_limited`** on `brief_task` → skip it; the projection carries what the topics line needs. Don't retry inside this request.
-- **Error code `-32004`** (the plan does not include that tool), or a tool missing from the list → skip that step, grade from what you have, and pass on `data.upgrade_url` when present.
-- **No token / no connection** → grade from step 1 and leave the topics line out.
+- **`data.kind` is `rate_limited`** on `brief_task` → skip it; the projection carries what the wording needs. Don't retry inside this request.
+- **Error code `-32004`** (the plan does not include that tool), or a tool missing from the list → skip that step, judge from what you have, and pass on `data.upgrade_url` when present.
+- **No token / no connection** → judge from step 1, against the user's target or the account's own pace.
 
 ## What just became possible
 
-You can name an account and a platform and get back a plain answer to "do we post steadily?": the verdict and the one silence or slump that matters, with its dates, the counts behind it, a score you can recompute, and the one change that would close the biggest hole. Rivals are read the same way on the same dates, and nothing is guessed. It runs the moment it's installed, no account needed.
+You can name an account and a platform and get a plain answer to "do we post steadily?": a verdict (a letter grade when you ask for one), the one silence or slump that matters with its dates, the silence still open, how many of your planned slots you filled, rivals read on the same dates, and one fix in dates. When the posts cannot be read, you still get what can be seen today, the fastest way to get the dates, and the verdict ready to fill as soon as you paste them. It runs the moment it's installed, no account needed.
 
 ## Try this now
 
-1. **From pasted dates** — `Here are the dates of our last 25 LinkedIn posts. Did we drop off after we launched our pottery course in June?` → posts a week before and after June, the longest silence on each side, and what changed.
-2. **One account** — `How consistently does our candle shop post on Instagram? Last three months.` → the verdict and the longest silence with its dates on the first line, then the counts, the score and one fix.
-3. **Against two rivals** — `Grade our swim shop's TikTok posting against our two nearest rival swim shops over the same dates.` → three accounts side by side on the overlapping dates, and the one clearest gap.
-4. **Connected: posting against the record** *(requires a Connected brand on Jinn)* — `Grade our brand's posting on LinkedIn this quarter and tell me which of our topics the posts skipped.` → the same report, plus a line on which recorded topics the posts covered and which they missed.
+1. **From pasted dates** — `Here are the dates of our last 25 LinkedIn posts. Did we drop off after we launched our pottery course in June?` → a verdict, posts a week before and after June, the longest silence on each side, and one fix.
+2. **Against a planned rhythm** — `Our bakery plans Instagram posts every Tuesday and Friday. Did we keep to it over the last two months?` → how many of the planned slots were filled, the missed weeks by date, a verdict and the fix.
+3. **Against two rivals, for a review** — `Grade our swim shop's TikTok posting against our two nearest rival swim shops over the last 90 days. My manager cares most about long silences.` → three accounts side by side on the same dates, the longest silences by date, and three sentences to say in the review.
+4. **Connected: graded against your own guidelines** *(requires a Connected brand on Jinn)* — `Grade our brand's posting on LinkedIn this quarter and give me two weeks of slots to fix it.` → the grade against the rhythm in your guidelines, and dated slots with a post idea each from your own products and topics.
 
 ## Compounds with
 
-- `content-rotation` — once the report shows the gap, decide what goes out next to close it.
-- `calendar-planner` — turn the fix into dated slots.
+- `calendar-planner` — turn the fix into a dated plan for the quarter.
+- `social-posts` — write the posts for the slots the fix names.
 - `competitor-profiler` — go deep on the rival whose rhythm turned out to matter.
 
 ---
